@@ -29,17 +29,25 @@ Depending on your operating system install the dependencies before proceeding to
    $ composer install
    ```
 2. Configure the project
+
    ```sh
    $ cd teedlee
    $ nano .env
    ```
-3. Modify the content based on your environment settings.   
+   
+   Modify the content based on your environment settings.
+   
 4. IMPORTANT: Add .env to gitignore. Do not commit file to remote repo.
+
 5. Create a database and set necessary permissions.
+
 6. Run database migrations.
+
    ```sh
    $ php artisan migrate
    $ php artisan db:seed
    ```
+   
  7. Make ./storage and ./bootstrap/cache folders and their subfolders writable.
+ 
  8. Navigate browse to your project's URL.
