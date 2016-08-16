@@ -27,6 +27,7 @@
     1. Fetch the project codes
        ```sh
        $ git clone https://github.com/karenbanzon/teedlee.git
+       $ composer install
        ```
     2. Configure the project
        ```sh
