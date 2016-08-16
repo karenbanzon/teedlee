@@ -48,6 +48,6 @@ Depending on your operating system install the dependencies before proceeding to
    $ php artisan db:seed
    ```
    
- 7. Make ./storage and ./bootstrap/cache folders and their subfolders writable.
+7. Make ./storage and ./bootstrap/cache folders and their subfolders writable.
  
- 8. Navigate browse to your project's URL.
+8. Navigate browse to your project's URL.
