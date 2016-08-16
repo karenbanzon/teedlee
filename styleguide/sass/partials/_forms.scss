@@ -1,0 +1,97 @@
+// OLX Form Styles
+
+// Form Resets from Bootstrap
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 23px;
+  font-size: (16px * 1.5);
+  line-height: inherit;
+  color: $ash;
+  border: 0;
+  border-bottom: 1px solid $subtle;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%; // Force IE8 to wrap long content
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9; // IE8-9
+  line-height: normal;
+}
+
+// Set the height of file controls to match text inputs
+input[type="file"] {
+  display: block;
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Adjust output element
+output {
+  display: block;
+  padding-top: (10px + 1);
+  font-size: 16px;
+  line-height: 23px;
+  color: $darkgray;
+}
+
+
+
+
+
+// Form Styles
+
+input, textarea, select {
+	@extend .border-radius;
+	@extend .padding-10;
+	@extend .border-subtle;
+	font-family: $bodycopy;
+	&:focus {
+		@include single-box-shadow(0px, 0px, 7px, 0px, $green);
+		outline: none;
+	}
+}
