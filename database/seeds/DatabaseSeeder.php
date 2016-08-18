@@ -1959,7 +1959,8 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('print_types')->truncate();
         DB::table('print_types')->insert([
-            ['code' => 'SLK', 'title' => 'Silkscreen/Heat Transfer'],
+            ['code' => 'SLK', 'title' => 'Silkscreen'],
+            ['code' => 'HTR', 'title' => 'Heat Transfer'],
             ['code' => 'SUB', 'title' => 'Sublimation'],
         ]);
 
@@ -1973,18 +1974,6 @@ class DatabaseSeeder extends Seeder
         DB::table('print_sizes')->insert([
             ['code' => 'A4', 'title' => 'A4'],
             ['code' => 'A3', 'title' => 'A3'],
-        ]);
-
-        return $this;
-    }
-
-
-    private function productionTypes()
-    {
-        DB::table('production_types')->truncate();
-        DB::table('production_types')->insert([
-            ['code' => 'A4', 'title' => 'A4'],
-            ['code' => 'A3', 'title' => 'A3'],
             ['code' => 'FF', 'title' => 'Full Front'],
             ['code' => 'FB', 'title' => 'Full Back'],
             ['code' => 'FL', 'title' => 'FULL'],
@@ -1992,5 +1981,4 @@ class DatabaseSeeder extends Seeder
 
         return $this;
     }
-
 }
