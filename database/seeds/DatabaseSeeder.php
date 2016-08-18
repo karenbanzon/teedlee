@@ -1978,4 +1978,19 @@ class DatabaseSeeder extends Seeder
         return $this;
     }
 
+
+    private function productionTypes()
+    {
+        DB::table('production_types')->truncate();
+        DB::table('production_types')->insert([
+            ['code' => 'A4', 'title' => 'A4'],
+            ['code' => 'A3', 'title' => 'A3'],
+            ['code' => 'FF', 'title' => 'Full Front'],
+            ['code' => 'FB', 'title' => 'Full Back'],
+            ['code' => 'FL', 'title' => 'FULL'],
+        ]);
+
+        return $this;
+    }
+
 }
