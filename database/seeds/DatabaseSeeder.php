@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ->materials()
             ->colors()
             ->genders()
+            ->sizes()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1919,6 +1920,21 @@ class DatabaseSeeder extends Seeder
             ['code' => 'W', 'title' => 'Women'],
             ['code' => 'M', 'title' => 'Men'],
             ['code' => 'U', 'title' => 'Unisex'],
+        ]);
+
+        return $this;
+    }
+
+    private function sizes()
+    {
+        DB::table('sizes')->truncate();
+        DB::table('sizes')->insert([
+            ['code' => 'XS', 'title' => 'Extra Small'],
+            ['code' => 'S', 'title' => 'Small'],
+            ['code' => 'M', 'title' => 'Medium'],
+            ['code' => 'L', 'title' => 'Large'],
+            ['code' => 'XL', 'title' => 'Extra Large'],
+            ['code' => 'XXL', 'title' => 'Double Extra Large'],
         ]);
 
         return $this;
