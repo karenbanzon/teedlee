@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ->userGroups()
             ->styles()
             ->materials()
+            ->colors()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1872,6 +1873,39 @@ class DatabaseSeeder extends Seeder
             ['code' => 'PC', 'title' => 'Poly-Cotton'],
             ['code' => 'AC', 'title' => 'Acrylic'],
             ['code' => 'TR', 'title' => 'Terry'],
+        ]);
+
+        return $this;
+    }
+
+    private function colors()
+    {
+        DB::table('colors')->truncate();
+        DB::table('colors')->insert([
+            ['code' => 'BLK', 'title' => 'Black'],
+            ['code' => 'CBL', 'title' => 'Carolina Blue'],
+            ['code' => 'CHR', 'title' => 'Charcoal'],
+            ['code' => 'CNT', 'title' => 'Chestnut'],
+            ['code' => 'DHT', 'title' => 'Dark Heather'],
+            ['code' => 'DSY', 'title' => 'Daisy'],
+            ['code' => 'GBK', 'title' => 'Grey/Black'],
+            ['code' => 'GNV', 'title' => 'Grey/Navy'],
+            ['code' => 'GRD', 'title' => 'Grey/Red'],
+            ['code' => 'HBK', 'title' => 'Heather/Black'],
+            ['code' => 'IGR', 'title' => 'Irish Green'],
+            ['code' => 'LPN', 'title' => 'Light Pink'],
+            ['code' => 'LYM', 'title' => 'Lime'],
+            ['code' => 'MGR', 'title' => 'Military Green'],
+            ['code' => 'NVY', 'title' => 'Navy'],
+            ['code' => 'RED', 'title' => 'Red'],
+            ['code' => 'SAP', 'title' => 'Sapphire'],
+            ['code' => 'SGY', 'title' => 'Sports Grey'],
+            ['code' => 'SND', 'title' => 'Sand'],
+            ['code' => 'WBK', 'title' => 'White/Black'],
+            ['code' => 'WGR', 'title' => 'White/Green'],
+            ['code' => 'WHT', 'title' => 'White'],
+            ['code' => 'WNV', 'title' => 'White/Navy'],
+            ['code' => 'WRD', 'title' => 'White/Red'],
         ]);
 
         return $this;
