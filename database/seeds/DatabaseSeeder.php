@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ->genders()
             ->sizes()
             ->fits()
+            ->printTypes()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1948,6 +1949,17 @@ class DatabaseSeeder extends Seeder
             ['code' => 'R', 'title' => 'Regular Fit'],
             ['code' => 'L', 'title' => 'Ladies Fit'],
             ['code' => 'S', 'title' => 'Semi-Fit'],
+        ]);
+
+        return $this;
+    }
+
+    private function printTypes()
+    {
+        DB::table('print_types')->truncate();
+        DB::table('print_types')->insert([
+            ['code' => 'SLK', 'title' => 'Silkscreen/Heat Transfer'],
+            ['code' => 'SUB', 'title' => 'Sublimation'],
         ]);
 
         return $this;

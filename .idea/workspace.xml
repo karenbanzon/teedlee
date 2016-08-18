@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="088125cc-5848-4dac-a522-5713e5c2a717" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
     </list>
     <ignored path="teedlee.iws" />
@@ -27,14 +26,14 @@
       <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            <state relative-caret-position="-264">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1471514008371" expanded="true" signature="3869:26940" ph="INSERT INTO `cities`... " />
-                <marker date="1471514008371" expanded="true" signature="26970:50644" ph="INSERT INTO `cities`... " />
-                <marker date="1471514008371" expanded="true" signature="27028:50644" ph="INSERT INTO `cities`... " />
-                <marker date="1471514008371" expanded="true" signature="50658:55764" ph="INSERT INTO `cities`... " />
-                <marker date="1471514008371" expanded="true" signature="50673:55764" ph="INSERT INTO `cities`... " />
+                <marker date="1471514192419" expanded="true" signature="3896:26967" ph="INSERT INTO `cities`... " />
+                <marker date="1471514192419" expanded="true" signature="26997:50671" ph="INSERT INTO `cities`... " />
+                <marker date="1471514192419" expanded="true" signature="27055:50671" ph="INSERT INTO `cities`... " />
+                <marker date="1471514192419" expanded="true" signature="50685:55791" ph="INSERT INTO `cities`... " />
+                <marker date="1471514192419" expanded="true" signature="50700:55791" ph="INSERT INTO `cities`... " />
               </folding>
             </state>
           </provider>
@@ -291,12 +290,12 @@
       <workItem from="1471491970259" duration="922000" />
       <workItem from="1471493457803" duration="362000" />
       <workItem from="1471493937192" duration="4520000" />
-      <workItem from="1471500637242" duration="11271000" />
+      <workItem from="1471500637242" duration="11459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17075000" />
+    <option name="totallyTimeSpent" value="17263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1618" height="1168" extended-state="6" />
@@ -619,14 +618,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        <state relative-caret-position="-264">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1471514008371" expanded="true" signature="3869:26940" ph="INSERT INTO `cities`... " />
-            <marker date="1471514008371" expanded="true" signature="26970:50644" ph="INSERT INTO `cities`... " />
-            <marker date="1471514008371" expanded="true" signature="27028:50644" ph="INSERT INTO `cities`... " />
-            <marker date="1471514008371" expanded="true" signature="50658:55764" ph="INSERT INTO `cities`... " />
-            <marker date="1471514008371" expanded="true" signature="50673:55764" ph="INSERT INTO `cities`... " />
+            <marker date="1471514192419" expanded="true" signature="3896:26967" ph="INSERT INTO `cities`... " />
+            <marker date="1471514192419" expanded="true" signature="26997:50671" ph="INSERT INTO `cities`... " />
+            <marker date="1471514192419" expanded="true" signature="27055:50671" ph="INSERT INTO `cities`... " />
+            <marker date="1471514192419" expanded="true" signature="50685:55791" ph="INSERT INTO `cities`... " />
+            <marker date="1471514192419" expanded="true" signature="50700:55791" ph="INSERT INTO `cities`... " />
           </folding>
         </state>
       </provider>
