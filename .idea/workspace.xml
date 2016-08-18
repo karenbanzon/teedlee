@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="088125cc-5848-4dac-a522-5713e5c2a717" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
     </list>
     <ignored path="teedlee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,28 +24,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="1942" column="1" selection-start-line="1942" selection-start-column="1" selection-end-line="1942" selection-end-column="1" />
+            <state relative-caret-position="396">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding>
-                <marker date="1471513601269" expanded="true" signature="3848:26919" ph="INSERT INTO `cities`... " />
-                <marker date="1471513601269" expanded="true" signature="26949:50623" ph="INSERT INTO `cities`... " />
-                <marker date="1471513601269" expanded="true" signature="27007:50623" ph="INSERT INTO `cities`... " />
-                <marker date="1471513601269" expanded="true" signature="50637:55743" ph="INSERT INTO `cities`... " />
-                <marker date="1471513601269" expanded="true" signature="50652:55743" ph="INSERT INTO `cities`... " />
+                <marker date="1471514008371" expanded="true" signature="3869:26940" ph="INSERT INTO `cities`... " />
+                <marker date="1471514008371" expanded="true" signature="26970:50644" ph="INSERT INTO `cities`... " />
+                <marker date="1471514008371" expanded="true" signature="27028:50644" ph="INSERT INTO `cities`... " />
+                <marker date="1471514008371" expanded="true" signature="50658:55764" ph="INSERT INTO `cities`... " />
+                <marker date="1471514008371" expanded="true" signature="50673:55764" ph="INSERT INTO `cities`... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2016_08_18_094903_rename_fit_table_to_fits.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_094903_rename_fit_table_to_fits.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -117,8 +108,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_08_18_071442_create_guest_tokens_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_18_071443_create_votes_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_08_18_041536_create_cities_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_18_094903_rename_fit_table_to_fits.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
   </component>
@@ -300,16 +291,16 @@
       <workItem from="1471491970259" duration="922000" />
       <workItem from="1471493457803" duration="362000" />
       <workItem from="1471493937192" duration="4520000" />
-      <workItem from="1471500637242" duration="11091000" />
+      <workItem from="1471500637242" duration="11271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16895000" />
+    <option name="totallyTimeSpent" value="17075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1618" height="1168" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26329443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -320,7 +311,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -618,25 +609,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="1942" column="1" selection-start-line="1942" selection-start-column="1" selection-end-line="1942" selection-end-column="1" />
-          <folding>
-            <marker date="1471513601269" expanded="true" signature="3848:26919" ph="INSERT INTO `cities`... " />
-            <marker date="1471513601269" expanded="true" signature="26949:50623" ph="INSERT INTO `cities`... " />
-            <marker date="1471513601269" expanded="true" signature="27007:50623" ph="INSERT INTO `cities`... " />
-            <marker date="1471513601269" expanded="true" signature="50637:55743" ph="INSERT INTO `cities`... " />
-            <marker date="1471513601269" expanded="true" signature="50652:55743" ph="INSERT INTO `cities`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_094903_rename_fit_table_to_fits.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <marker date="1471514008371" expanded="true" signature="3869:26940" ph="INSERT INTO `cities`... " />
+            <marker date="1471514008371" expanded="true" signature="26970:50644" ph="INSERT INTO `cities`... " />
+            <marker date="1471514008371" expanded="true" signature="27028:50644" ph="INSERT INTO `cities`... " />
+            <marker date="1471514008371" expanded="true" signature="50658:55764" ph="INSERT INTO `cities`... " />
+            <marker date="1471514008371" expanded="true" signature="50673:55764" ph="INSERT INTO `cities`... " />
+          </folding>
         </state>
       </provider>
     </entry>
