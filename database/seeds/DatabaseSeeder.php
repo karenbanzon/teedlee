@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ->sizes()
             ->fits()
             ->printTypes()
+            ->printSizes()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1960,6 +1961,18 @@ class DatabaseSeeder extends Seeder
         DB::table('print_types')->insert([
             ['code' => 'SLK', 'title' => 'Silkscreen/Heat Transfer'],
             ['code' => 'SUB', 'title' => 'Sublimation'],
+        ]);
+
+        return $this;
+    }
+
+
+    private function printSizes()
+    {
+        DB::table('print_sizes')->truncate();
+        DB::table('print_sizes')->insert([
+            ['code' => 'A4', 'title' => 'A4'],
+            ['code' => 'A3', 'title' => 'A3'],
         ]);
 
         return $this;
