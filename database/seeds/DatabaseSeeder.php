@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ->users()
             ->userGroups()
             ->styles()
+            ->materials()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1858,6 +1859,19 @@ class DatabaseSeeder extends Seeder
             ['code' => 'BT', 'title' => 'Baseball Tee'],
             ['code' => 'PU', 'title' => 'Pullover Hoodie'],
             ['code' => 'PZ', 'title' => 'Pullzip Hoodie'],
+        ]);
+
+        return $this;
+    }
+
+    private function materials()
+    {
+        DB::table('materials')->truncate();
+        DB::table('materials')->insert([
+            ['code' => 'CT', 'title' => 'Cotton'],
+            ['code' => 'PC', 'title' => 'Poly-Cotton'],
+            ['code' => 'AC', 'title' => 'Acrylic'],
+            ['code' => 'TR', 'title' => 'Terry'],
         ]);
 
         return $this;
