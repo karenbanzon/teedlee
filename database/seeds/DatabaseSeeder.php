@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ->styles()
             ->materials()
             ->colors()
+            ->genders()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1910,4 +1911,17 @@ class DatabaseSeeder extends Seeder
 
         return $this;
     }
+
+    private function genders()
+    {
+        DB::table('genders')->truncate();
+        DB::table('genders')->insert([
+            ['code' => 'W', 'title' => 'Women'],
+            ['code' => 'M', 'title' => 'Men'],
+            ['code' => 'U', 'title' => 'Unisex'],
+        ]);
+
+        return $this;
+    }
+
 }
