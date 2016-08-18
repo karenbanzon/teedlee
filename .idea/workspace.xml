@@ -27,15 +27,25 @@
       <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="1786" column="41" selection-start-line="1786" selection-start-column="41" selection-end-line="1786" selection-end-column="41" />
+            <state relative-caret-position="286">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding>
-                <marker date="1471508781877" expanded="true" signature="3730:26801" ph="INSERT INTO `cities`... " />
-                <marker date="1471508781877" expanded="true" signature="26831:50505" ph="INSERT INTO `cities`... " />
-                <marker date="1471508781877" expanded="true" signature="26889:50505" ph="INSERT INTO `cities`... " />
-                <marker date="1471508781877" expanded="true" signature="50519:55625" ph="INSERT INTO `cities`... " />
-                <marker date="1471508781877" expanded="true" signature="50534:55625" ph="INSERT INTO `cities`... " />
+                <marker date="1471509593669" expanded="true" signature="3753:26824" ph="INSERT INTO `cities`... " />
+                <marker date="1471509593669" expanded="true" signature="26854:50528" ph="INSERT INTO `cities`... " />
+                <marker date="1471509593669" expanded="true" signature="26912:50528" ph="INSERT INTO `cities`... " />
+                <marker date="1471509593669" expanded="true" signature="50542:55648" ph="INSERT INTO `cities`... " />
+                <marker date="1471509593669" expanded="true" signature="50557:55648" ph="INSERT INTO `cities`... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2016_08_18_042701_create_styles_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_042701_create_styles_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -280,12 +290,12 @@
       <workItem from="1471491970259" duration="922000" />
       <workItem from="1471493457803" duration="362000" />
       <workItem from="1471493937192" duration="4520000" />
-      <workItem from="1471500637242" duration="7746000" />
+      <workItem from="1471500637242" duration="8556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13550000" />
+    <option name="totallyTimeSpent" value="14360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1618" height="1168" extended-state="6" />
@@ -518,14 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_042701_create_styles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_042729_create_materials_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -598,16 +600,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_18_042701_create_styles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="1786" column="41" selection-start-line="1786" selection-start-column="41" selection-end-line="1786" selection-end-column="41" />
+        <state relative-caret-position="286">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
-            <marker date="1471508781877" expanded="true" signature="3730:26801" ph="INSERT INTO `cities`... " />
-            <marker date="1471508781877" expanded="true" signature="26831:50505" ph="INSERT INTO `cities`... " />
-            <marker date="1471508781877" expanded="true" signature="26889:50505" ph="INSERT INTO `cities`... " />
-            <marker date="1471508781877" expanded="true" signature="50519:55625" ph="INSERT INTO `cities`... " />
-            <marker date="1471508781877" expanded="true" signature="50534:55625" ph="INSERT INTO `cities`... " />
+            <marker date="1471509593669" expanded="true" signature="3753:26824" ph="INSERT INTO `cities`... " />
+            <marker date="1471509593669" expanded="true" signature="26854:50528" ph="INSERT INTO `cities`... " />
+            <marker date="1471509593669" expanded="true" signature="26912:50528" ph="INSERT INTO `cities`... " />
+            <marker date="1471509593669" expanded="true" signature="50542:55648" ph="INSERT INTO `cities`... " />
+            <marker date="1471509593669" expanded="true" signature="50557:55648" ph="INSERT INTO `cities`... " />
           </folding>
         </state>
       </provider>

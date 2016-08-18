@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ->cities()
             ->users()
             ->userGroups()
+            ->styles()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1843,6 +1844,20 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => '',
                 'remember_token' => ''
             ],
+        ]);
+
+        return $this;
+    }
+
+    private function styles()
+    {
+        DB::table('styles')->truncate();
+        DB::table('styles')->insert([
+            ['code' => 'RN', 'title' => 'Round Neck'],
+            ['code' => 'VN', 'title' => 'V-Neck'],
+            ['code' => 'BT', 'title' => 'Baseball Tee'],
+            ['code' => 'PU', 'title' => 'Pullover Hoodie'],
+            ['code' => 'PZ', 'title' => 'Pullzip Hoodie'],
         ]);
 
         return $this;
