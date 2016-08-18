@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ->fits()
             ->printTypes()
             ->printSizes()
+            ->productionTypes()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1967,7 +1968,6 @@ class DatabaseSeeder extends Seeder
         return $this;
     }
 
-
     private function printSizes()
     {
         DB::table('print_sizes')->truncate();
@@ -1977,6 +1977,17 @@ class DatabaseSeeder extends Seeder
             ['code' => 'FF', 'title' => 'Full Front'],
             ['code' => 'FB', 'title' => 'Full Back'],
             ['code' => 'FL', 'title' => 'FULL'],
+        ]);
+
+        return $this;
+    }
+    private function productionTypes()
+    {
+        DB::table('production_types')->truncate();
+        DB::table('production_types')->insert([
+            ['code' => 'POD', 'title' => 'Print-On-Demand'],
+            ['code' => 'LTD', 'title' => 'Limited'],
+            ['code' => 'TYM', 'title' => 'Batch (Time-Based)'],
         ]);
 
         return $this;
