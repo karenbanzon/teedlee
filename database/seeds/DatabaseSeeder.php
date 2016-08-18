@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this
             ->provinces()
             ->cities()
+            ->users()
+            ->userGroups()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
@@ -1754,5 +1756,95 @@ class DatabaseSeeder extends Seeder
         (1634, 'Talusan', 80),
         (1635, 'Titay', 80),
         (1636, 'Tungawan', 80);");
+
+        return $this;
+    }
+
+    private function userGroups()
+    {
+        DB::table('user_groups')->truncate();
+        DB::table('user_groups')->insert([
+            ['name' => 'Administrator'],
+            ['name' => 'Production GM'],
+            ['name' => 'Internal Artist'],
+            ['name' => 'Staff'],
+            ['name' => 'Default User'],
+            ['name' => 'Designer'],
+        ]);
+
+        return $this;
+    }
+
+
+    private function users()
+    {
+        DB::table('users')->truncate();
+        DB::table('users')->insert([
+            [
+                'user_group_id' => 1,
+                'email' => 'ryanjaycrisostomo@yahoo.com.ph',
+                'firstname' => 'Ryan Jhay',
+                'lastname' => 'Crisostomo',
+                'phone' => '',
+                'mobile' => '',
+                'gender' => 'male',
+                'address' => '',
+                'address2' => '',
+                'city_id' => 1,
+                'province_id' => 1,
+                'about_me' => '',
+                'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'status' => 'active',
+                'is_premium' => 0,
+                'is_profile_complete' => 0,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => '',
+                'remember_token' => ''
+            ],
+            [
+                'user_group_id' => 1,
+                'email' => 'kabanzon@gmail.com',
+                'firstname' => 'Karen',
+                'lastname' => 'Banzon',
+                'phone' => '',
+                'mobile' => '',
+                'gender' => 'female',
+                'address' => '',
+                'address2' => '',
+                'city_id' => 1,
+                'province_id' => 1,
+                'about_me' => '',
+                'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'status' => 'active',
+                'is_premium' => 0,
+                'is_profile_complete' => 0,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => '',
+                'remember_token' => ''
+            ],
+            [
+                'user_group_id' => 1,
+                'email' => 'jhourlad01@gmail.com',
+                'firstname' => 'Jho',
+                'lastname' => 'Estrella',
+                'phone' => '',
+                'mobile' => '',
+                'gender' => 'male',
+                'address' => '',
+                'address2' => '',
+                'city_id' => 1,
+                'province_id' => 1,
+                'about_me' => '',
+                'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'status' => 'active',
+                'is_premium' => 0,
+                'is_profile_complete' => 0,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => '',
+                'remember_token' => ''
+            ],
+        ]);
+
+        return $this;
     }
 }
