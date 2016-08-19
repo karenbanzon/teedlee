@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "612596f654ab14653101267475be70a0",
-    "content-hash": "205d3bac84374f9c6c594422171fdb10",
+    "hash": "1033a9ec0da492b66d56c9231a4f2083",
+    "content-hash": "6ec01e3434649e7268c8bbbba983b4d3",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1234,6 +1234,38 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "rocket-code/shopify",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joshrps/laravel-shopify-API-wrapper.git",
+                "reference": "adf4d5e01e248e7ed1be5245d8c2af52c454831c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joshrps/laravel-shopify-API-wrapper/zipball/adf4d5e01e248e7ed1be5245d8c2af52c454831c",
+                "reference": "adf4d5e01e248e7ed1be5245d8c2af52c454831c",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RocketCode\\": "src/RocketCode"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Rocket Code",
+                    "email": "josh@rocketcode.io"
+                }
+            ],
+            "time": "2015-07-13 14:23:48"
         },
         {
             "name": "swiftmailer/swiftmailer",

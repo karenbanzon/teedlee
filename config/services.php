@@ -40,8 +40,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '690344774435367',
-        'client_secret' => 'ebc50d3fd1d2f7286e02d247e5751ef4',
+        'api_key' => '690344774435367',
+        'api_secret' => 'ebc50d3fd1d2f7286e02d247e5751ef4',
         'redirect' => '',
+    ],
+
+    'shopify' => [
+        'api_key' => '9cb47b31ab3a88d595479f558278f7a5',
+        'api_secret' => 'f2aae98f88ffdfce2383e9da7303ac4b',
+        'domain' => 'dev.teedlee.ph',
+        'token' => '',
     ],
 ];
