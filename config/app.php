@@ -160,10 +160,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Teedlee\Providers\AppServiceProvider::class,
+        Teedlee\Providers\AuthServiceProvider::class,
+        Teedlee\Providers\EventServiceProvider::class,
+        Teedlee\Providers\RouteServiceProvider::class,
 
 
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Teedlee\Http\Controllers\Auth;
 
-use App\User;
+use Teedlee\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Teedlee\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
