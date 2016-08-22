@@ -1,0 +1,179 @@
+// Utility Classes
+
+// Alignment
+
+.text-left 		{ text-align: left; }
+.text-center 	{ text-align: center; }
+.text-right 	{ text-align: right; }
+
+.float-left 	{ float: left; }
+.float-right 	{ float: right; }
+
+.block-center 	{ margin: 0 auto; }
+
+.valign-top 	{ vertical-align: top; }
+.valign-middle 	{ vertical-align: middle; }
+.valign-bottom 	{ vertical-align: bottom; }
+
+
+
+
+
+// Display
+
+.display-inline 		{ display: inline; }
+.display-inline-block 	{ display: inline-block; }
+.display-block 			{ display: block; }
+.display-table 			{ display: table; }
+.display-table-row 		{ display: table-row; }
+.display-table-cell 	{ display: table-cell; }
+.hide 					{ display: none !important; }
+
+
+
+
+
+// Margins & Padding
+
+.margin-0 			{ margin: 0px; }
+.margin-20 			{ margin: 20px; }
+.margin-10 			{ margin: 10px; }
+.margin-5 			{ margin: 5px;}
+.margin-top-20 		{ margin-top: 20px; }
+.margin-top-10 		{ margin-top: 10px; }
+.margin-top-5 		{ margin-top: 5px; }
+.margin-bottom-20 	{ margin-bottom: 20px; }
+.margin-bottom-10 	{ margin-bottom: 10px; }
+.margin-bottom-5 	{ margin-bottom: 5px; }
+.margin-left-20 	{ margin-left: 20px; }
+.margin-left-10 	{ margin-left: 10px; }
+.margin-left-5 		{ margin-left: 5px; }
+.margin-right-20 	{ margin-right: 20px; }
+.margin-right-10 	{ margin-right: 10px; }
+.margin-right-5 	{ margin-right: 5px; }
+
+.padding-0 			{ padding: 0px; }
+.padding-20 		{ padding: 20px; }
+.padding-10 		{ padding: 10px; }
+.padding-5 			{ padding: 5px;}
+.padding-top-20 	{ padding-top: 20px; }
+.padding-top-10 	{ padding-top: 10px; }
+.padding-top-5 		{ padding-top: 5px; }
+.padding-bottom-20 	{ padding-bottom: 20px; }
+.padding-bottom-10 	{ padding-bottom: 10px; }
+.padding-bottom-5 	{ padding-bottom: 5px; }
+.padding-left-20 	{ padding-left: 20px; }
+.padding-left-10 	{ padding-left: 10px; }
+.padding-left-5 	{ padding-left: 5px; }
+.padding-right-20 	{ padding-right: 20px; }
+.padding-right-10 	{ padding-right: 10px; }
+.padding-right-5 	{ padding-right: 5px; }
+
+
+
+
+
+// Borders
+
+.border-platinum,
+.border-subtle		{ border: 1px solid $subtle; }
+
+.border-darkgray,
+.border-neutral		{ border: 1px solid $neutral; }
+
+.border-blue		{ border: 1px solid $blue; }
+
+.border-error,
+.border-red			{ border: 1px solid $red; }
+
+.border-warning,
+.border-orange		{ border: 1px solid $orange; }
+
+.border-purple		{ border: 1px solid $purple; }
+
+.border-success,
+.border-green		{ border: 1px solid $green; }
+
+.border-disabled,
+.border-ash			{ border: 1px solid $ash; }
+
+
+
+
+// Backgrounds
+
+.background-blue 		{ background: $blue; }
+
+.background-red,
+.background-error		{ background: $red; }
+
+.background-orange,
+.background-warning		{ background: $orange; }
+
+.background-green,
+.background-success		{ background: $green; }
+
+.background-yellow 		{ background: $yellow; }
+
+.background-purple 		{ background: $purple; }
+
+.background-white 		{ background: $white; }
+
+.background-platinum,
+.background-subtle		{ background: $platinum; }
+
+.background-ash,
+.background-disabled	{ background: $ash; }
+
+.background-darkgray,
+.background-neutral		{ background: $darkgray; }
+
+
+
+
+
+// Text Colors
+
+.text-blue 			{ color: $blue; }
+
+.text-red,
+.text-error			{ color: $red; }
+
+.text-orange,
+.text-warning		{ color: $orange; }
+
+.text-green,
+.text-success		{ color: $green; }
+
+.text-yellow 		{ color: $yellow; }
+
+.text-purple 		{ color: $purple; }
+
+.text-white 		{ color: $white; }
+
+.text-platinum,
+.text-subtle		{ color: $platinum; }
+
+.text-ash,
+.text-disabled		{ color: $ash; }
+
+.text-darkgray,
+.text-neutral		{ color: $darkgray; }
+
+
+
+
+
+// Overflow
+
+.overflow-hidden 	{ overflow: hidden; }
+.overflow-scroll-x 	{ overflow-x: scroll; }
+.overflow-scroll-y 	{ overflow-y: scroll; }
+
+
+
+// Border Radius
+
+.border-radius { @include border-radius(3px); }
+
+
