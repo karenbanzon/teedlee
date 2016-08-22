@@ -14,7 +14,7 @@ elixir.config.sourcemaps = false;
 
 elixir(function(mix) {
     mix.sass([
-        'style.scss',
+        /*'style.scss',*/
         'app.scss',
-        ], 'app.min.css');
+        ], 'public/css/app.min.css');
 });

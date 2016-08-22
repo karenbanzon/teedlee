@@ -2,13 +2,13 @@
 <html>
 <head>
     <title>Teedlee</title>
-    {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
-    {!! Html::style('app.css') !!}
     {!! Html::script('bower_components/jquery/dist/jquery.min.css') !!}
-    {!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
-    {!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
-    {!! Html::style('app.min.css') !!}
-    {!! @yield('head') !!}
+    {{--{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}--}}
+    {{--{!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}--}}
+    {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
+    {!! Html::style('css/style.css') !!}
+    {!! Html::style('css/app.min.css') !!}
+    @yield('head')
 </head>
 <body>
     <div id="site-wrapper">
