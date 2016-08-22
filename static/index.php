@@ -6,6 +6,17 @@
 	</head>
 	<body>
 		<section class="row">
+			<h1>Page Templates</h1>
+			<div class="small-8 small-offset-2">
+				<ul>
+					<li><a href="template-home.php">Home</a></li>
+					<li><a href="template-login.php">Login</a></li>
+					<li><a href="template-register.php">Register</a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="row">
+			<hr>
 			<h1>Grid</h1>
 			<div class="small-8 small-offset-2">
 				<hr>
