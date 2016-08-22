@@ -1,0 +1,329 @@
+$icomoon-font-path: "../fonts" !default;
+
+$ticon-x-solid: "\e900";
+$ticon-check-solid: "\e901";
+$ticon-chevron-right-solid: "\e902";
+$ticon-chevron-left-solid: "\e903";
+$ticon-arrow-right-solid: "\e904";
+$ticon-arrow-left-solid: "\e905";
+$ticon-grid-solid: "\e906";
+$ticon-menu-solid: "\e907";
+$ticon-list-solid: "\e908";
+$ticon-home-solid: "\e909";
+$ticon-location-solid: "\e90a";
+$ticon-image: "\e90b";
+$ticon-arrow-up-solid: "\e90c";
+$ticon-arrow-down-solid: "\e90d";
+$ticon-star-solid: "\e90e";
+$ticon-delete-solid: "\e90f";
+$ticon-delete-hollow: "\e910";
+$ticon-upload-solid: "\e911";
+$ticon-heart-solid: "\e912";
+$ticon-flash-solid: "\e913";
+$ticon-cancel-solid: "\e914";
+$ticon-warning-solid: "\e915";
+$ticon-user-solid: "\e916";
+$ticon-refresh: "\e917";
+$ticon-download: "\e918";
+$ticon-search: "\e919";
+$ticon-flag-solid: "\e91a";
+$ticon-social-twitter: "\e91b";
+$ticon-social-facebook: "\e91c";
+$ticon-at: "\e91d";
+$ticon-x-hollow: "\e91e";
+$ticon-check-hollow: "\e91f";
+$ticon-chevron-right-hollow: "\e920";
+$ticon-chevron-left-hollow: "\e921";
+$ticon-arrow-right-hollow: "\e922";
+$ticon-arrow-left-hollow: "\e923";
+$ticon-grid-hollow: "\e924";
+$ticon-menu-hollow: "\e925";
+$ticon-list-hollow: "\e926";
+$ticon-home-hollow: "\e927";
+$ticon-arrow-up-hollow: "\e928";
+$ticon-arrow-down-hollow: "\e929";
+$ticon-location-hollow: "\e92a";
+$ticon-star-hollow: "\e92b";
+$ticon-heart-hollow: "\e92c";
+$ticon-flash-hollow: "\e92d";
+$ticon-cancel-hollow: "\e92e";
+$ticon-warning-hollow: "\e92f";
+$ticon-tag: "\e930";
+$ticon-cart: "\e931";
+
+@font-face {
+  font-family: 'teedlee-ti';
+  src:  url('#{$icomoon-font-path}/teedlee-ti.eot?1m7zb8');
+  src:  url('#{$icomoon-font-path}/teedlee-ti.eot?1m7zb8#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/teedlee-ti.ttf?1m7zb8') format('truetype'),
+    url('#{$icomoon-font-path}/teedlee-ti.woff?1m7zb8') format('woff'),
+    url('#{$icomoon-font-path}/teedlee-ti.svg?1m7zb8#teedlee-ti') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ticon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'teedlee-ti' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ticon-x-solid {
+  &:before {
+    content: $ticon-x-solid;
+  }
+}
+.ticon-check-solid {
+  &:before {
+    content: $ticon-check-solid;
+  }
+}
+.ticon-chevron-right-solid {
+  &:before {
+    content: $ticon-chevron-right-solid;
+  }
+}
+.ticon-chevron-left-solid {
+  &:before {
+    content: $ticon-chevron-left-solid;
+  }
+}
+.ticon-arrow-right-solid {
+  &:before {
+    content: $ticon-arrow-right-solid;
+  }
+}
+.ticon-arrow-left-solid {
+  &:before {
+    content: $ticon-arrow-left-solid;
+  }
+}
+.ticon-grid-solid {
+  &:before {
+    content: $ticon-grid-solid;
+  }
+}
+.ticon-menu-solid {
+  &:before {
+    content: $ticon-menu-solid;
+  }
+}
+.ticon-list-solid {
+  &:before {
+    content: $ticon-list-solid;
+  }
+}
+.ticon-home-solid {
+  &:before {
+    content: $ticon-home-solid;
+  }
+}
+.ticon-location-solid {
+  &:before {
+    content: $ticon-location-solid;
+  }
+}
+.ticon-image {
+  &:before {
+    content: $ticon-image;
+  }
+}
+.ticon-arrow-up-solid {
+  &:before {
+    content: $ticon-arrow-up-solid;
+  }
+}
+.ticon-arrow-down-solid {
+  &:before {
+    content: $ticon-arrow-down-solid;
+  }
+}
+.ticon-star-solid {
+  &:before {
+    content: $ticon-star-solid;
+  }
+}
+.ticon-delete-solid {
+  &:before {
+    content: $ticon-delete-solid;
+  }
+}
+.ticon-delete-hollow {
+  &:before {
+    content: $ticon-delete-hollow;
+  }
+}
+.ticon-upload-solid {
+  &:before {
+    content: $ticon-upload-solid;
+  }
+}
+.ticon-heart-solid {
+  &:before {
+    content: $ticon-heart-solid;
+  }
+}
+.ticon-flash-solid {
+  &:before {
+    content: $ticon-flash-solid;
+  }
+}
+.ticon-cancel-solid {
+  &:before {
+    content: $ticon-cancel-solid;
+  }
+}
+.ticon-warning-solid {
+  &:before {
+    content: $ticon-warning-solid;
+  }
+}
+.ticon-user-solid {
+  &:before {
+    content: $ticon-user-solid;
+  }
+}
+.ticon-refresh {
+  &:before {
+    content: $ticon-refresh;
+  }
+}
+.ticon-download {
+  &:before {
+    content: $ticon-download;
+  }
+}
+.ticon-search {
+  &:before {
+    content: $ticon-search;
+  }
+}
+.ticon-flag-solid {
+  &:before {
+    content: $ticon-flag-solid;
+  }
+}
+.ticon-twitter {
+  &:before {
+    content: $ticon-social-twitter;
+  }
+}
+.ticon-facebook {
+  &:before {
+    content: $ticon-social-facebook;
+  }
+}
+.ticon-at {
+  &:before {
+    content: $ticon-at;
+  }
+}
+.ticon-x-hollow {
+  &:before {
+    content: $ticon-x-hollow;
+  }
+}
+.ticon-check-hollow {
+  &:before {
+    content: $ticon-check-hollow;
+  }
+}
+.ticon-chevron-right-hollow {
+  &:before {
+    content: $ticon-chevron-right-hollow;
+  }
+}
+.ticon-chevron-left-hollow {
+  &:before {
+    content: $ticon-chevron-left-hollow;
+  }
+}
+.ticon-arrow-right-hollow {
+  &:before {
+    content: $ticon-arrow-right-hollow;
+  }
+}
+.ticon-arrow-left-hollow {
+  &:before {
+    content: $ticon-arrow-left-hollow;
+  }
+}
+.ticon-grid-hollow {
+  &:before {
+    content: $ticon-grid-hollow;
+  }
+}
+.ticon-menu-hollow {
+  &:before {
+    content: $ticon-menu-hollow;
+  }
+}
+.ticon-list-hollow {
+  &:before {
+    content: $ticon-list-hollow;
+  }
+}
+.ticon-home-hollow {
+  &:before {
+    content: $ticon-home-hollow;
+  }
+}
+.ticon-arrow-up-hollow {
+  &:before {
+    content: $ticon-arrow-up-hollow;
+  }
+}
+.ticon-arrow-down-hollow {
+  &:before {
+    content: $ticon-arrow-down-hollow;
+  }
+}
+.ticon-location-hollow {
+  &:before {
+    content: $ticon-location-hollow;
+  }
+}
+.ticon-star-hollow {
+  &:before {
+    content: $ticon-star-hollow;
+  }
+}
+.ticon-heart-hollow {
+  &:before {
+    content: $ticon-heart-hollow;
+  }
+}
+.ticon-flash-hollow {
+  &:before {
+    content: $ticon-flash-hollow;
+  }
+}
+.ticon-cancel-hollow {
+  &:before {
+    content: $ticon-cancel-hollow;
+  }
+}
+.ticon-warning-hollow {
+  &:before {
+    content: $ticon-warning-hollow;
+  }
+}
+.ticon-tag {
+  &:before {
+    content: $ticon-tag;
+  }
+}
+.ticon-cart {
+  &:before {
+    content: $ticon-cart;
+  }
+}

@@ -1,0 +1,198 @@
+$icomoon-font-path: "../fonts" !default;
+
+$eticon-warning: "\e91b";
+$eticon-chevron-down: "\e900";
+$eticon-chevron-left: "\e901";
+$eticon-chevron-right: "\e902";
+$eticon-chevron-small-down: "\e903";
+$eticon-chevron-small-left: "\e904";
+$eticon-chevron-small-right: "\e905";
+$eticon-chevron-small-up: "\e906";
+$eticon-chevron-up: "\e907";
+$eticon-upload: "\e908";
+$eticon-check: "\e909";
+$eticon-x: "\e90a";
+$eticon-refresh: "\e90b";
+$eticon-heart-hollow: "\e90c";
+$eticon-heart: "\e90d";
+$eticon-help: "\e90e";
+$eticon-image-solid: "\e90f";
+$eticon-image-hollow: "\e910";
+$eticon-info: "\e911";
+$eticon-location: "\e912";
+$eticon-search: "\e913";
+$eticon-price: "\e914";
+$eticon-star-hollow: "\e915";
+$eticon-star-solid: "\e916";
+$eticon-facebook: "\e917";
+$eticon-instagram: "\e918";
+$eticon-pinterest: "\e919";
+$eticon-twitter: "\e91a";
+
+@font-face {
+  font-family: 'teedlee-et';
+  src:  url('#{$icomoon-font-path}/teedlee-et.eot?pjq2wx');
+  src:  url('#{$icomoon-font-path}/teedlee-et.eot?pjq2wx#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/teedlee-et.ttf?pjq2wx') format('truetype'),
+    url('#{$icomoon-font-path}/teedlee-et.woff?pjq2wx') format('woff'),
+    url('#{$icomoon-font-path}/teedlee-et.svg?pjq2wx#teedlee-et') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.eticon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'teedlee-et' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.eticon-warning {
+  &:before {
+    content: $eticon-warning;
+  }
+}
+.eticon-chevron-down {
+  &:before {
+    content: $eticon-chevron-down;
+  }
+}
+.eticon-chevron-left {
+  &:before {
+    content: $eticon-chevron-left;
+  }
+}
+.eticon-chevron-right {
+  &:before {
+    content: $eticon-chevron-right;
+  }
+}
+.eticon-chevron-small-down {
+  &:before {
+    content: $eticon-chevron-small-down;
+  }
+}
+.eticon-chevron-small-left {
+  &:before {
+    content: $eticon-chevron-small-left;
+  }
+}
+.eticon-chevron-small-right {
+  &:before {
+    content: $eticon-chevron-small-right;
+  }
+}
+.eticon-chevron-small-up {
+  &:before {
+    content: $eticon-chevron-small-up;
+  }
+}
+.eticon-chevron-up {
+  &:before {
+    content: $eticon-chevron-up;
+  }
+}
+.eticon-upload {
+  &:before {
+    content: $eticon-upload;
+  }
+}
+.eticon-check {
+  &:before {
+    content: $eticon-check;
+  }
+}
+.eticon-x {
+  &:before {
+    content: $eticon-x;
+  }
+}
+.eticon-refresh {
+  &:before {
+    content: $eticon-refresh;
+  }
+}
+.eticon-heart-hollow {
+  &:before {
+    content: $eticon-heart-hollow;
+  }
+}
+.eticon-heart {
+  &:before {
+    content: $eticon-heart;
+  }
+}
+.eticon-help {
+  &:before {
+    content: $eticon-help;
+  }
+}
+.eticon-image-solid {
+  &:before {
+    content: $eticon-image-solid;
+  }
+}
+.eticon-image-hollow {
+  &:before {
+    content: $eticon-image-hollow;
+  }
+}
+.eticon-info {
+  &:before {
+    content: $eticon-info;
+  }
+}
+.eticon-location {
+  &:before {
+    content: $eticon-location;
+  }
+}
+.eticon-search {
+  &:before {
+    content: $eticon-search;
+  }
+}
+.eticon-price {
+  &:before {
+    content: $eticon-price;
+  }
+}
+.eticon-star-hollow {
+  &:before {
+    content: $eticon-star-hollow;
+  }
+}
+.eticon-star-solid {
+  &:before {
+    content: $eticon-star-solid;
+  }
+}
+.eticon-facebook {
+  &:before {
+    content: $eticon-facebook;
+  }
+}
+.eticon-instagram {
+  &:before {
+    content: $eticon-instagram;
+  }
+}
+.eticon-pinterest {
+  &:before {
+    content: $eticon-pinterest;
+  }
+}
+.eticon-twitter {
+  &:before {
+    content: $eticon-twitter;
+  }
+}
+
