@@ -17,29 +17,29 @@
                 <h4 class="padding-20">Menu</h4>
                 <hr>
                 <nav>
-                    <a href="">Shop</a>
-                    <a href="">Submit</a>
-                    <a href="">Vote</a>
+                    <a href="{!! url('shop') !!}">Shop</a>
+                    <a href="{!! url('submit') !!}">Submit</a>
+                    <a href="{!! url('vote') !!}">Vote</a>
                 </nav>
                 <hr>
                 <nav class="secondary">
-                    <a href=""><span class="icon icon-shopping-cart"></span> Cart</a>
-                    <a href=""><span class="icon icon-user"></span> My Account</a>
-                    <a href=""><span class="icon icon-log-out"></span> Logout</a>
+                    <a href="{!! url('cart') !!}"><span class="icon icon-shopping-cart"></span> Cart</a>
+                    <a href="{!! url('dashboard') !!}"><span class="icon icon-user"></span> My Account</a>
+                    <a href="{!! url('logout') !!}"><span class="icon icon-log-out"></span> Logout</a>
                 </nav>
             </div>
 
             <header>
                 <section class="row">
                     <nav class="header text-right ">
-                        <a href="" class="brand"><img src="images/logo.png"></a>
-                        <a href="" class="show-for-medium"><span class="icon icon-search"></span></a>
-                        <a href="" class="show-for-medium">Shop</a>
-                        <a href="" class="show-for-medium">Submit</a>
-                        <a href="" class="show-for-medium">Vote</a>
-                        <a href="" class="show-for-medium"><span class="icon icon-shopping-cart"></span></a>
-                        <a href="" class="show-for-medium"><span class="icon icon-user"></span></a>
-                        <a href="" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>
+                        <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
+                        <a href="{!! url('search') !!}" class="show-for-medium"><span class="icon icon-search"></span></a>
+                        <a href="{!! url('shop') !!}" class="show-for-medium">Shop</a>
+                        <a href="{!! url('submit') !!}" class="show-for-medium">Submit</a>
+                        <a href="{!! url('vote') !!}" class="show-for-medium">Vote</a>
+                        <a href="{!! url('cart') !!}" class="show-for-medium"><span class="icon icon-shopping-cart"></span></a>
+                        <a href="{!! url('dashboard') !!}" class="show-for-medium"><span class="icon icon-user"></span></a>
+                        <a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>
                     </nav>
                 </section>
             </header>
