@@ -14,7 +14,7 @@ elixir.config.sourcemaps = false;
 
 elixir(function(mix) {
     mix.sass([
-        '../../../public/bower_components/bootstrap/dist/css/bootstrap.css',
+        'style.scss',
         'app.scss',
-        ]);
+        ], 'app.min.css');
 });
