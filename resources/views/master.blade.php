@@ -7,7 +7,7 @@
     {{--{!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}--}}
     {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
     {!! Html::style('css/style.css') !!}
-    {!! Html::style('css/app.min.css') !!}
+    {{--{!! Html::style('css/app.min.css') !!}--}}
     @yield('head')
 </head>
 <body>
