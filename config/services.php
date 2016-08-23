@@ -42,7 +42,7 @@ return [
     'facebook' => [
         'client_id' => '173048843120426',
         'client_secret' => 'c28f658ff2fca09d79b8c1712eb60021',
-        'redirect' => env('APP_URL').'/oauth/callback/facebook',
+        'redirect' => env('APP_URL_SECURE').'/oauth/callback/facebook',
     ],
 
     'shopify' => [
