@@ -33,7 +33,7 @@ class AuthController extends BaseController
     }
 
 
-    public function oauthCallback(SocialAccount $service, $service_name)
+    public function oauthCallback($service_name, SocialAccount $service)
     {
         dd($service);
         $user = $service->createOrGetUser(Socialite::driver($service_name)->user(), $service_name);
