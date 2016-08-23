@@ -29,6 +29,8 @@ class SocialAccount extends Model
                 'provider' => $service_name
             ]);
 
+            dd($account->toArray());
+
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
