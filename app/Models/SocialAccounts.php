@@ -31,6 +31,7 @@ class SocialAccount extends Model
             ]);
 
             $user = User::whereEmail($providerUser->getEmail())->first();
+            dd($user->toArray());
 
             if (!$user) {
 
