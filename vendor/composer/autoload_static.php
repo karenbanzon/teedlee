@@ -329,6 +329,7 @@ class ComposerStaticInitf14c63e75015e800162824060da09c4e
         'CreateProvincesTable' => __DIR__ . '/../..' . '/database/migrations/2015_08_18_041524_create_provinces_table.php',
         'CreateSizesTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_042835_create_sizes_table.php',
         'CreateSkuTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_061323_create_sku_table.php',
+        'CreateSocialAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_23_162838_create_social_accounts_table.php',
         'CreateStylesTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_042701_create_styles_table.php',
         'CreateUserGroupsTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_040720_create_user_groups_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_040721_create_users_table.php',
