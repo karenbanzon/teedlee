@@ -29,11 +29,11 @@ class SocialAccount extends Model
                 'provider' => $service_name
             ]);
 
-            $user = User::whereEmail($providerUser->getEmail())->first();
+            $user = \User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
 
-                $user = User::create([
+                $user = \User::create([
                     'email' => $providerUser->getEmail(),
                     'name' => $providerUser->getName(),
                 ]);
