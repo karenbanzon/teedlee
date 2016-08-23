@@ -39,6 +39,10 @@ class SocialAccount extends Model
                     'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : null,
                     'lastname' => method_exists($providerUser, 'getLastName') ? $providerUser->getLastName() : null,
 //                    'gender' => $providerUser->getGender()
+                    'user_group_id' => 5,
+                    'city_id' => 1,
+                    'province_id' => 1,
+                    'status' => 'active',
                 ]);
             }
 
