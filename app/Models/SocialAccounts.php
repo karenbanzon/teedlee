@@ -20,8 +20,6 @@ class SocialAccount extends Model
             ->whereProviderUserId($providerUser->getId())
             ->first();
 
-        dd($account);
-
         if ($account) {
             return $account->user;
         } else {
