@@ -4,6 +4,7 @@ namespace Teedlee\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Socialite\Contracts\User as ProviderUser;
+use Teedlee\User;
 
 class SocialAccount extends Model
 {
@@ -29,11 +30,11 @@ class SocialAccount extends Model
                 'provider' => $service_name
             ]);
 
-            $user = \User::whereEmail($providerUser->getEmail())->first();
+            $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
 
-                $user = \User::create([
+                $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'name' => $providerUser->getName(),
                 ]);
