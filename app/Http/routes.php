@@ -15,6 +15,6 @@ Route::get('/', 'HomeController@index');
 Route::post('auth', 'AuthController@index');
 Route::get('login', 'AuthController@login');
 Route::get('signup', 'AuthController@signup');
-//Route::get('oauth/{service}', 'AuthController@oauth');
-//Route::get('oauth/callback/{service}', 'AuthController@oauthCallback');
+Route::get('oauth/{service}', 'AuthController@oauth');
+Route::get('oauth/callback/{service}', 'AuthController@oauthCallback');
 Route::get('logout', 'AuthController@logout');

@@ -30,10 +30,10 @@ class AuthController extends BaseController
         return \Socialite::driver($service)->redirect();
     }
 
-//    public function oauthCallback(Request $request, $service)
-//    {
-//        dd($request->all());
-//    }
+    public function oauthCallback(Request $request, $service)
+    {
+        dd($request->all());
+    }
 
     public function signup()
     {
