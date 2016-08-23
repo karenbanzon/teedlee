@@ -35,6 +35,7 @@ class AuthController extends BaseController
 
     public function oauthCallback(SocialAccount $service, $service_name)
     {
+        dd($service);
         $user = $service->createOrGetUser(Socialite::driver($service_name)->user(), $service_name);
         auth()->login($user);
         return redirect()->to('/')->with('message', 'Logged in via ' . $service_name);
