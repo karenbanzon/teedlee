@@ -43,7 +43,6 @@ class AuthController extends BaseController
     {
         $service = new SocialAccount();
         $user = $service->createOrGetUser(Socialite::driver($service_name)->user(), $service_name);
-        dd($user);
         auth()->login($user);
         return redirect()->to('/')->with('message', 'Logged in via ' . $service_name);
     }
