@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/app/Models/SocialAccounts.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <folding>
                 <element signature="e#34#73#0#PHP" expanded="true" />
               </folding>
@@ -393,12 +393,12 @@
       <workItem from="1471867369855" duration="7936000" />
       <workItem from="1471932459784" duration="12000" />
       <workItem from="1471934702429" duration="1349000" />
-      <workItem from="1471941582756" duration="16458000" />
+      <workItem from="1471941582756" duration="16546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61484000" />
+    <option name="totallyTimeSpent" value="61572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1000" extended-state="6" />
@@ -840,7 +840,7 @@
     <entry file="file://$PROJECT_DIR$/app/Models/SocialAccounts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
           <folding>
             <element signature="e#34#73#0#PHP" expanded="true" />
           </folding>
