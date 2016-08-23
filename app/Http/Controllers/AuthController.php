@@ -29,7 +29,13 @@ class AuthController extends BaseController
 
     public function oauth($service)
     {
-        return \Socialite::driver($service)->redirect();
+        if($service=='facebook') {
+            $fields = ['first_name', 'last_name', 'email', 'gender',];
+        }
+
+        return \Socialite::driver($service)
+            ->fields($fields)
+            ->redirect();
     }
 
 
