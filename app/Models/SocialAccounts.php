@@ -36,8 +36,8 @@ class SocialAccount extends Model
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : null,
-                    'lastname' => method_exists($providerUser, 'getLastName') ? $providerUser->getLastName() : null,
+                    'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : " ",
+                    'lastname' => method_exists($providerUser, 'getLastName') ? $providerUser->getLastName() : " ",
 //                    'gender' => $providerUser->getGender()
                     'user_group_id' => 5,
                     'city_id' => 1,
