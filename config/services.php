@@ -40,9 +40,9 @@ return [
     ],
 
     'facebook' => [
-        'api_key' => '690344774435367',
-        'api_secret' => 'ebc50d3fd1d2f7286e02d247e5751ef4',
-        'redirect' => '',
+        'client_id' => '173048843120426',
+        'client_secret' => 'c28f658ff2fca09d79b8c1712eb60021',
+        'redirect' => url('oauth/callback/facebook'),
     ],
 
     'shopify' => [
