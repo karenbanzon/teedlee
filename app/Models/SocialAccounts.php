@@ -50,7 +50,6 @@ class SocialAccount extends Model
             $account->save();
 
             return $user;
-
         }
     }
 }
