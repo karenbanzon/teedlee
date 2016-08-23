@@ -20,6 +20,8 @@ class SocialAccount extends Model
             ->whereProviderUserId($providerUser->getId())
             ->first();
 
+        dd($account);
+
         if ($account) {
             return $account->user;
         } else {
@@ -28,8 +30,6 @@ class SocialAccount extends Model
                 'provider_user_id' => $providerUser->getId(),
                 'provider' => $service_name
             ]);
-
-            dd($account->toArray());
 
             $user = User::whereEmail($providerUser->getEmail())->first();
 
