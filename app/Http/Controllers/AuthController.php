@@ -4,6 +4,8 @@ namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
+use Teedlee\Models\SocialAccount;
+use Socialite;
 
 class AuthController extends BaseController
 {
@@ -31,7 +33,7 @@ class AuthController extends BaseController
     }
 
 
-    public function oauthCallback(SocialAccountService $service, $service_name)
+    public function oauthCallback(SocialAccount $service, $service_name)
     {
         $user = $service->createOrGetUser(Socialite::driver($service_name)->user(), $service_name);
         auth()->login($user);
