@@ -31,13 +31,13 @@ class SocialAccount extends Model
             ]);
 
             $user = User::whereEmail($providerUser->getEmail())->first();
-            dd($providerUser);
+            dd((array)$providerUser);
 
             if (!$user) {
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'name' => $providerUser->getName(),
+//                    'name' => $providerUser->getName(),
                 ]);
             }
 
