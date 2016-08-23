@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="088125cc-5848-4dac-a522-5713e5c2a717" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/SocialAccounts.php" afterPath="$PROJECT_DIR$/app/Models/SocialAccounts.php" />
     </list>
     <ignored path="teedlee.iws" />
@@ -394,12 +393,12 @@
       <workItem from="1471867369855" duration="7936000" />
       <workItem from="1471932459784" duration="12000" />
       <workItem from="1471934702429" duration="1349000" />
-      <workItem from="1471941582756" duration="17785000" />
+      <workItem from="1471941582756" duration="18157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62811000" />
+    <option name="totallyTimeSpent" value="63183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1000" extended-state="6" />
