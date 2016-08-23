@@ -38,7 +38,7 @@ class SocialAccount extends Model
                     'email' => $providerUser->getEmail(),
                     'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : null,
                     'lastname' => method_exists($providerUser, 'getLastName') ? $providerUser->getLastName() : null,
-                    'gender' => $providerUser->getGender()
+//                    'gender' => $providerUser->getGender()
                 ]);
             }
 
