@@ -9,7 +9,7 @@
         <div class="small-12">
             @include('user/sidebar')
             <div class="card small-12 show-for-small-only">
-                @nclude('user/sidebar')
+                @include('user/sidebar')
             </div>
             <div class="card small-12 medium-10 padding-20">
                 <div class="profile-detail">
