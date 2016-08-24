@@ -21,4 +21,9 @@ class UserController extends BaseController
     {
         return view('user/submissions');
     }
+
+    public function sales()
+    {
+        return view('user/sales');
+    }
 }

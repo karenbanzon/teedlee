@@ -21,3 +21,4 @@ Route::get('logout', 'AuthController@logout');
 Route::get('user', 'UserController@index');
 Route::get('user/profile', 'UserController@profile');
 Route::get('user/submissions', 'UserController@submissions');
+Route::get('user/sales', 'UserController@sales');
