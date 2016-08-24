@@ -79,6 +79,7 @@ header {
 		&.photo img {
 			@include border-radius(50%);
 			border: 2px solid $platinum;
+			width: auto;
 		}
 		&.editing textarea { width: 100%; }
 		.profile-action { @extend .float-right;

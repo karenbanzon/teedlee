@@ -3684,17 +3684,18 @@ header nav .toggle-nav {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   border: 2px solid #e7e7e7;
+  width: auto;
 }
-/* line 83, ../sass/partials/_blocks.scss */
+/* line 84, ../sass/partials/_blocks.scss */
 .profile-detail .profile-entry.editing textarea {
   width: 100%;
 }
-/* line 86, ../sass/partials/_blocks.scss */
+/* line 87, ../sass/partials/_blocks.scss */
 .profile-detail .profile-entry .unfilled {
   font-style: italic;
 }
 
-/* line 102, ../sass/partials/_blocks.scss */
+/* line 103, ../sass/partials/_blocks.scss */
 footer {
   margin-top: 60px;
 }
