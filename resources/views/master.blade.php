@@ -24,7 +24,7 @@
                 <hr>
                 <nav class="secondary">
                     <a href="{!! url('cart') !!}"><span class="icon icon-shopping-cart"></span> Cart</a>
-                    <a href="{!! url('dashboard') !!}"><span class="icon icon-user"></span> My Account</a>
+                    <a href="{!! url('user') !!}"><span class="icon icon-user"></span> My Account</a>
                     <a href="{!! url('logout') !!}"><span class="icon icon-log-out"></span> Logout</a>
                 </nav>
             </div>
