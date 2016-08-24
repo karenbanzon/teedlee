@@ -18,3 +18,6 @@ Route::get('signup', 'AuthController@signup');
 Route::get('oauth/{service}', 'AuthController@oauth');
 Route::get('oauth/callback/{service}', 'AuthController@oauthCallback');
 Route::get('logout', 'AuthController@logout');
+Route::get('user', 'UserController@index');
+Route::get('user/profile', 'UserController@profile');
+Route::get('user/submissions', 'UserController@submissions');
