@@ -39,7 +39,7 @@
                         <a href="{!! url('vote') !!}" class="show-for-medium">Vote</a>
 
                         @if( \Auth::check() )
-                        <a href="{!! url('dashboard') !!}" class="show-for-medium"><span class="icon icon-user"></span></a>
+                        <a href="{!! url('user') !!}" class="show-for-medium"><span class="icon icon-user"></span></a>
                         <a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>
                         @else
                             <a href="{!! url('login') !!}" class="show-for-medium">Login</a>

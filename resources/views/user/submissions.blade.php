@@ -9,9 +9,9 @@
         <div class="small-12">
             <div class="card small-2 show-for-medium">
                 <nav class="account-nav">
-                    <a href="">Profile</a>
-                    <a href="" class="active">Submissions</a>
-                    <a href="">Sales</a>
+                    <a href="{!! url('user') !!}" class="active">Profile</a>
+                    <a href="{!! url('submissions') !!}">Submissions</a>
+                    <a href="{!! url('sales') !!}">Sales</a>
                 </nav>
             </div>
             <div class="card small-12 show-for-small-only">
