@@ -22,6 +22,6 @@ class RenameFitTableToFits extends Migration
      */
     public function down()
     {
-        //
+        Schema::rename('fits', 'fit');
     }
 }

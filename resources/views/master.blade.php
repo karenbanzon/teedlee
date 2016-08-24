@@ -59,6 +59,14 @@
                 <div class="alert alert-info text-center">{!! session('error') !!}</div>
             @endif
 
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <div class="text-center">{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
+
             <section class="row">
                 @yield('content')
             </section>

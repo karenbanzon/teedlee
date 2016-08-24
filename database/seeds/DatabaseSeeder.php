@@ -1792,6 +1792,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user_group_id' => 1,
                 'email' => 'ryanjaycrisostomo@yahoo.com.ph',
+                'username' => 'ryanjaycrisostomo',
                 'password' => \Hash::make('12345678'),
                 'firstname' => 'Ryan Jhay',
                 'lastname' => 'Crisostomo',
@@ -1814,6 +1815,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user_group_id' => 1,
                 'email' => 'kabanzon@gmail.com',
+                'username' => 'kabanzon',
                 'password' => \Hash::make('12345678'),
                 'firstname' => 'Karen',
                 'lastname' => 'Banzon',
@@ -1836,6 +1838,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user_group_id' => 1,
                 'email' => 'jhourlad01@gmail.com',
+                'username' => 'jhourlad',
                 'password' => \Hash::make('12345678'),
                 'firstname' => 'Jho',
                 'lastname' => 'Estrella',

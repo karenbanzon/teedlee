@@ -14,25 +14,34 @@
 
             <div class="card small-12 medium-8 medium-offset-2">
                 <div class="card-container padding-20">
-                    <form>
-                        {{--<div class="form-field block">--}}
-                            {{--<label>Name</label>--}}
-                            {{--<input type="text" placeholder="Juan Bayani">--}}
-                        {{--</div>--}}
+                    {!! Form::open(['url' => 'user/create']) !!}
+                        <div class="form-field block">
+                            <label>Desired Username</label>
+                            <input type="text" name="username" value="{!! old('username') !!}" placeholder="juanbayani" required class="form-control">
+                        </div>
                         <div class="form-field block">
                             <label>Email</label>
-                            <input type="email" placeholder="mail@server.com">
+                            <input type="email" name="email" value="{!! old('email') !!}" placeholder="mail@server.com" required class="form-control">
                         </div>
+
                         <div class="form-field block">
                             <label>Password</label>
-                            <input type="password">
+                            <input type="password" name="password" required class="form-control">
                         </div>
+
                         <div class="form-field block">
                             <label>Confirm Password</label>
-                            <input type="password">
+                            <input type="password" name="password_confirmation" required class="form-control">
                         </div>
-                        <button type="submit">Submit</button>
-                    </form>
+
+                        <div class="form-field block small">
+                            By submitting this form I agree with Teedlee's <a href="terms-of-use" target="_blank">Terms of Use</a>
+                        </div>
+
+                        <div class="form-field block">
+                            <button type="submit" class="form-control">Submit</button>
+                        </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_group_id');
             $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('password');
             $table->string('firstname', 30);
             $table->string('lastname', 30);
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('province_id');
             $table->longText('about_me');
             $table->string('avatar');
+            $table->string('website');
             $table->enum('status',['inactive','active','banned'])->default('inactive');
             $table->boolean('is_premium')->default(false);
             $table->boolean('is_profile_complete')->default(false);
