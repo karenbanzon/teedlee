@@ -14,7 +14,7 @@
 					<li><a href="template-register.php">Register</a></li>
 					<li>My Account
 						<li><a href="template-account-profile.php">Profile</a></li>
-						<li><a href="template-account-profile.php">Submissions</a></li>
+						<li><a href="template-account-submissions.php">Submissions</a></li>
 					</li>
 				</ul>
 			</div>
