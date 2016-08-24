@@ -7,18 +7,7 @@
             <hr>
         </div>
         <div class="small-12">
-            <div class="card small-2 show-for-medium">
-                <div class="card small-2 show-for-medium">
-                    @include('user/sidebar')
-                </div>
-            </div>
-            <div class="card small-12 show-for-small-only">
-                <nav class="account-nav-small">
-                    <a href="" class="active">Profile</a>
-                    <a href="">Submissions</a>
-                    <a href="">Sales</a>
-                </nav>
-            </div>
+            @include('user/sidebar')
             <div class="card small-12 medium-10 padding-20">
                 <div class="profile-detail">
                     <h6 class="label">Photo</h6>
