@@ -5,6 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/submissions.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/submissions.blade.php" />
     </list>
     <ignored path="teedlee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="profile.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/user/profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -48,18 +49,18 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="submissions.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="submissions.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/user/submissions.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,9 +129,9 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/user/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/submissions.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/profile.blade.php" />
       </list>
     </option>
   </component>
@@ -387,12 +388,12 @@
       <workItem from="1471932459784" duration="12000" />
       <workItem from="1471934702429" duration="1349000" />
       <workItem from="1471941582756" duration="19370000" />
-      <workItem from="1472022467235" duration="2159000" />
+      <workItem from="1472022467235" duration="2255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66555000" />
+    <option name="totallyTimeSpent" value="66651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1000" extended-state="6" />
@@ -809,26 +810,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/submissions.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

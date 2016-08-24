@@ -12,6 +12,7 @@
                     <a href="{!! url('user') !!}" class="active">Profile</a>
                     <a href="{!! url('user/submissions') !!}">Submissions</a>
                     <a href="{!! url('user/sales') !!}">Sales</a>
+                    <a href="{!! url('user/logout') !!}">Logout</a>
                 </nav>
             </div>
             <div class="card small-12 show-for-small-only">
