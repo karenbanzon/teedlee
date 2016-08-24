@@ -12,10 +12,11 @@
 					<li><a href="template-home.php">Home</a></li>
 					<li><a href="template-login.php">Login</a></li>
 					<li><a href="template-register.php">Register</a></li>
-					<li>My Account
+					<li>My Account</li>
+					<ul>
 						<li><a href="template-account-profile.php">Profile</a></li>
 						<li><a href="template-account-submissions.php">Submissions</a></li>
-					</li>
+					</ul>
 				</ul>
 			</div>
 		</section>
