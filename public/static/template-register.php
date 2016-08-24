@@ -10,10 +10,6 @@
 				<div class="card-container padding-20">
 					<form>
 						<div class="form-field block">
-							<label>Name</label>
-							<input type="text" placeholder="Juan Bayani">
-						</div>
-						<div class="form-field block">
 							<label>Email</label>
 							<input type="email" placeholder="mail@server.com">
 						</div>

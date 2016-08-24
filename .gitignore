@@ -1,5 +1,9 @@
 /node_modules
 /public/storage
+/public/static/.sass-cache
+/public/.DS_Store
 Homestead.yaml
 Homestead.json
 .env
+.DS_Store
+

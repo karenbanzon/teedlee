@@ -2,7 +2,7 @@ table {
 	thead {
 		// @extend .background-darkgray;
 		// @extend .text-white;
-		@extend .h5;
+		@extend .h6;
 		border-top: 2px solid $darkgray;
 		border-bottom: 2px solid $darkgray;
 	}
