@@ -1,5 +1,6 @@
 /node_modules
 /public/storage
+/.idea
 /public/static/.sass-cache
 /public/.DS_Store
 Homestead.yaml
