@@ -464,10 +464,10 @@ button.white:focus,
 /* line 3, ../sass/partials/_type.scss */
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 300;
-  line-height: 23px;
+  line-height: 2.125rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -481,7 +481,7 @@ pre {
 /* line 19, ../sass/partials/_type.scss */
 code {
   font-family: monospace;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 23px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -515,22 +515,22 @@ h2, .h2 {
 
 /* line 47, ../sass/partials/_type.scss */
 h3, .h3 {
-  font-size: 1.688rem;
+  font-size: 1.625rem;
 }
 
 /* line 48, ../sass/partials/_type.scss */
 h4, .h4 {
-  font-size: 1.438rem;
+  font-size: 1.75rem;
 }
 
 /* line 49, ../sass/partials/_type.scss */
 h5, .h5 {
-  font-size: 1.125rem;
+  font-size: 1.625rem;
 }
 
 /* line 50, ../sass/partials/_type.scss */
 h6, .h6, table thead {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 /* line 52, ../sass/partials/_type.scss */
@@ -613,6 +613,11 @@ blockquote:after, .blockquote:after {
   /* line 120, ../sass/partials/_type.scss */
   h4 {
     font-size: 1.125rem;
+  }
+
+  /* line 122, ../sass/partials/_type.scss */
+  body {
+    font-size: 16px;
   }
 }
 @font-face {
@@ -3311,14 +3316,14 @@ button, .button {
   transition: background, 0.2s;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 0.8125rem;
-  letter-spacing: 0.1em;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   cursor: pointer;
 }
 /* line 32, ../sass/partials/_atoms.scss */
 button.tiny, .button.tiny {
-  font-size: 80%;
+  font-size: 0.8125rem;
 }
 /* line 44, ../sass/partials/_atoms.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -3392,7 +3397,7 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
   text-align: left;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
 }
 /* line 133, ../sass/partials/_atoms.scss */
@@ -3406,7 +3411,7 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
 }
 /* line 152, ../sass/partials/_atoms.scss */
 .dropdown-menu.small a {
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
 }
 
 /* line 161, ../sass/partials/_atoms.scss */
@@ -3424,7 +3429,7 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
 /* line 172, ../sass/partials/_atoms.scss */
 .label-pill:before {
   content: "\25CF";
-  font-size: 0.825rem;
+  font-size: 0.8125rem;
   padding-right: 5px;
 }
 /* line 180, ../sass/partials/_atoms.scss */
@@ -3444,6 +3449,13 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
   border: 1px solid #d51f36;
 }
 
+@media screen and (max-width: 63.9375em) {
+  /* line 203, ../sass/partials/_atoms.scss */
+  button, .button, .dropdown-menu {
+    font-size: 2rem;
+    padding: 24px;
+  }
+}
 /* line 3, ../sass/partials/_forms.scss */
 fieldset {
   padding: 0;
@@ -3526,7 +3538,7 @@ output {
 /* line 82, ../sass/partials/_forms.scss */
 input, textarea, select {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 /* line 88, ../sass/partials/_forms.scss */
 input:focus, textarea:focus, select:focus {

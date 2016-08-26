@@ -10,66 +10,8 @@
 <body>
     <div id="site-wrapper">
         <div id="site-canvas">
-            <div id="site-menu">
-                <h4 class="padding-20">Menu</h4>
-                <hr>
-                <nav>
-                    <a href="{!! url('shop') !!}">Shop</a>
-                    <a href="{!! url('submit') !!}">Submit</a>
-                    <a href="{!! url('vote') !!}">Vote</a>
-                </nav>
-                <hr>
-                <nav class="secondary">
-                    <a href="{!! url('cart') !!}"><span class="icon icon-shopping-cart"></span> Cart</a>
-                    <a href="{!! url('user') !!}"><span class="icon icon-user"></span> My Account</a>
-                    <a href="{!! url('logout') !!}"><span class="icon icon-log-out"></span> Logout</a>
-                </nav>
-            </div>
-
-            <header>
-                <section class="row">
-                    <nav class="header text-right ">
-                        <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
-                        <a href="{!! url('search') !!}" class="show-for-medium"><span class="icon icon-search"></span></a>
-                        <a href="{!! url('shop') !!}" class="show-for-medium">Shop</a>
-                        <a href="{!! url('submit') !!}" class="show-for-medium">Submit</a>
-                        <a href="{!! url('vote') !!}" class="show-for-medium">Vote</a>
-
-                        @if( \Auth::check() )
-                        <a href="{!! url('user') !!}" class="show-for-medium"><span class="icon icon-user"></span></a>
-                        <a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>
-                        @else
-                            <a href="{!! url('login') !!}" class="show-for-medium">Login</a>
-                            <a href="{!! url('signup') !!}" class="show-for-medium">Sign up</a>
-                        @endif
-
-                        <a href="{!! url('cart') !!}" class="show-for-medium"><span class="icon icon-shopping-cart"></span></a>
-                    </nav>
-                </section>
-            </header>
-
-            @if( session('message') )
-                <div class="alert success hollow text-center">
-                    {{--<span class="alert-icon icon icon-check"></span>--}}
-                    <div class="message">{!! session('message') !!}</div>
-                </div>
-            @endif
-
-            @if( session('error') )
-                <div class="alert error text-center">
-                    {{--<span class="alert-icon icon icon-stop"></span>--}}
-                    <div class="message">{!! session('error') !!}</div>
-                </div>
-            @endif
-
-            @if (count($errors) > 0)
-                <div class="alert error text-center">
-                    @foreach ($errors->all() as $error)
-                    {{--<span class="alert-icon icon icon-stop"></span>--}}
-                    <div class="message">{!! $error !!}</div>
-                    @endforeach
-                </div>
-            @endif
+            @include('nav')
+            @include('alerts')
 
             <section class="row">
                 @yield('content')

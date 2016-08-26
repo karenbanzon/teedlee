@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
     <section class="row">
-        <div class="small-12 medium-8 medium-offset-2">
+        <div class="small-12 large-8 large-offset-2">
             <hr>
             <h4 class="text-center">My Account</h4>
             <hr>
@@ -28,10 +28,10 @@
                         <span class="profile-entry-data">{!! old('email', $user->email) !!}</span>
                         <a class="profile-action action" href="#" data-target="email"><span class="icon icon-pencil"></span></a>
                     </div>
-                    <div class="profile-entry field-editor-input">
+                    <div class="profile-entry editing field-editor-input">
                         {{--<input type="text" name="username" placeholder="Username" value="juanjose">--}}
                         {!! Form::text('email', null, ['placeholder' => 'Email']) !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                     <div class="profile-entry field-editor-input">
                         {{--<input type="text" name="username" placeholder="Username" value="juanjose">--}}
                         {!! Form::text('username', null, ['placeholder' => 'Username']) !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <div class="profile-entry field-editor-input">
                         {{--<input type="text" name="firstname" placeholder="John" value="Juan Jose">--}}
                         {!! Form::text('firstname', null, ['placeholder' => 'John']) !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
                     <div class="profile-entry field-editor-input">
                         {{--<input type="text" name="lastname" placeholder="Last Name" value="Juan Jose">--}}
                         {!! Form::text('lastname', null, ['placeholder' => 'Doe']) !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
                     <div class="profile-entry field-editor-input">
                         {{--<input type="url" placeholder="Website" name="website" value="http://www.juanjose.com">--}}
                         {!! Form::text('website', $user->website, ['placeholder' => 'http://johndoe.com']) !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                         <small class="counter">300 characters left</small>
                         {{--<textarea rows="5" name="about_me" placeholder="About me">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</textarea>--}}
                         {!! Form::textarea('about_me') !!}
-                        <button class="small white action">Done</button>
+                        <button class="small action">Done</button>
                     </div>
                 </div>
 
