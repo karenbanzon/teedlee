@@ -11,7 +11,7 @@ class BaseController extends Controller
     {
         if( \Auth::check() && \Session::get('errors')==null && !session('message') && !session('errors') && !\Auth::user()->is_profile_complete)
         {
-            \Request::session()->flash('message', 'Complete <a href="'.secure_url('user').'">your profile</a> to enable access to all features.');
+            \Request::session()->flash('error', 'Complete <a href="'.secure_url('user').'">your profile</a> to enable access to all features.');
         }
     }
 }
