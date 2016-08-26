@@ -2,27 +2,27 @@
 <?php include 'includes/header.php' ?>
 
 	<section class="row">
-		<div class="small-12 medium-8 medium-offset-2">
+		<div class="small-12 large-8 large-offset-2">
 			<hr>
 			<h4 class="text-center">My Account</h4>
 			<hr>
 		</div>
 		<div class="small-12">
-			<div class="card small-2 show-for-medium">
+			<div class="card small-2 show-for-large">
 				<nav class="account-nav">
 					<a href="" class="active">Profile</a>
 					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 show-for-small-only">
+			<div class="card small-12 hide-for-large">
 				<nav class="account-nav-small">
 					<a href="" class="active">Profile</a>
 					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 medium-10 padding-20">
+			<div class="card small-12 large-10 padding-20">
 				<div class="profile-detail">
 					<h6 class="label">Photo</h6>
 					<div class="profile-entry photo">

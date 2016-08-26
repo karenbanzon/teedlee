@@ -17,8 +17,8 @@ button, .button {
 	@extend .text-white;
 	font-family: $headercopy;
 	font-weight: bold;
-	font-size: 0.8125rem;
-	letter-spacing: 0.1em;
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
 	text-transform: uppercase;
 	cursor: pointer;
 
@@ -33,7 +33,7 @@ button, .button {
 		@extend .padding-0;
 		@extend .padding-left-10;
 		@extend .padding-right-10;
-		font-size: 80%;
+		font-size: 0.8125rem;
 	}
 
 	&.full {
@@ -128,7 +128,7 @@ button, .button {
 	text-align: left;
 	font-family: $headercopy;
 	text-transform: uppercase;
-	font-size: 0.8125rem;
+	font-size: 1rem;
 	letter-spacing: 0.1em;
 	&.right {
 		@extend .float-right;
@@ -149,7 +149,7 @@ button, .button {
 			@extend .text-white;
 		}
 	}
-	&.small a { font-size: 0.8rem; }
+	&.small a { font-size: 0.8125rem; }
 }
 
 
@@ -171,7 +171,7 @@ button, .button {
 	font-weight: bold;
 	&:before {
 		content: "\25CF";
-		font-size: 0.825rem;
+		font-size: 0.8125rem;
 		padding-right: 5px;
 	}
 	&.success { @extend .background-green; }
@@ -196,5 +196,12 @@ button, .button {
 			@extend .text-red;
 			border: 1px solid $red;
 		}
+	}
+}
+
+@media screen and (max-width: 63.9375em) {
+	button, .button, .dropdown-menu {
+		font-size: 2rem;
+		padding: 24px;
 	}
 }
