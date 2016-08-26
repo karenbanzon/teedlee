@@ -2,151 +2,29 @@
 <?php include 'includes/header.php' ?>
 
 	<section class="row">
-		<div class="small-12 medium-8 medium-offset-2">
+		<div class="small-12 large-8 large-offset-2">
 			<hr>
 			<h4 class="text-center">My Account</h4>
 			<hr>
 		</div>
 		<div class="small-12">
-			<div class="card small-2 show-for-medium">
+			<div class="card small-2 show-for-large">
 				<nav class="account-nav">
-					<a href="">Profile</a>
-					<a href="" class="active">Submissions</a>
+					<a href="" class="active">Profile</a>
+					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 show-for-small-only">
+			<div class="card small-12 hide-for-large">
 				<nav class="account-nav-small">
-					<a href="">Profile</a>
-					<a href="" class="active">Submissions</a>
+					<a href="" class="active">Profile</a>
+					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 medium-10 padding-20">
-				<h6>(Option 1)</h6>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Waterfalls</h6>
-							<div>
-								<span class="label-pill">Under Review</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23564</strong></small>
-								<br>
-								<small>Date Submitted: <strong>7 August 2016</strong></small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Mountains</h6>
-							<div>
-								<span class="label-pill">Internal Voting</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23565</strong></small>
-								<br>
-								<small>Date Submitted: <strong>9 August 2016</strong></small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Cities and the Metropolis</h6>
-							<div>
-								<span class="label-pill">Public Voting</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23565</strong></small>
-								<br>
-								<small>Date Submitted: <strong>11 August 2016</strong></small>
-							</div>
-							<div class="card-actions text-center">
-								<hr>
-								<a href="" class="button white">Share to get more votes!</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Waves</h6>
-							<div>
-								<span class="label-pill warning">Pending original artwork</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23565</strong></small>
-								<br>
-								<small>Date Submitted: <strong>11 August 2016</strong></small>
-							</div>
-							<div class="card-actions text-center">
-								<hr>
-								<a href="" class="button white">Submit original artwork</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Desert</h6>
-							<div>
-								<span class="label-pill success">In shop</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23565</strong></small>
-								<br>
-								<small>Date Submitted: <strong>11 August 2016</strong></small>
-							</div>
-							<div class="card-actions text-center">
-								<hr>
-								<a href="" class="button white">View in shop</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card small-12 medium-6">
-					<div class="card-container">
-						<div>
-							<img src="http://placehold.it/400x300" alt="">
-						</div>
-						<div class="card-body item">
-							<h6>Desert</h6>
-							<div>
-								<span class="label-pill error">Declined</span>
-							</div>
-							<div>
-								<small>Design ID: <strong>23565</strong></small>
-								<br>
-								<small>Date Submitted: <strong>11 August 2016</strong></small>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="card small-12 large-10 padding-20">
 				<div class="card small-12">
-					<hr>
-					<h6>(Option 2)</h6>
+					<h6>Published</h6>
 					<table style="width: 100%;">
 						<thead>
 							<tr>

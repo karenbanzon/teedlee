@@ -2,32 +2,33 @@
 <?php include 'includes/header.php' ?>
 
 	<section class="row">
-		<div class="small-12 medium-8 medium-offset-2">
+		<div class="small-12 large-8 large-offset-2">
 			<hr>
 			<h4 class="text-center">My Account</h4>
 			<hr>
 		</div>
 		<div class="small-12">
-			<div class="card small-2 show-for-medium">
+			<div class="card small-2 show-for-large">
 				<nav class="account-nav">
 					<a href="" class="active">Profile</a>
 					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 show-for-small-only">
+			<div class="card small-12 hide-for-large">
 				<nav class="account-nav-small">
 					<a href="" class="active">Profile</a>
 					<a href="">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
-			<div class="card small-12 medium-10 padding-20">
+			<div class="card small-12 large-10 padding-20">
 				<div class="profile-detail">
 					<h6 class="label">Photo</h6>
 					<div class="profile-entry photo">
 						<img src="http://placehold.it/150x150">
 						<button class="small white">Upload new</button>
+						<button class="small">Save</button>
 					</div>
 				</div>
 				<div class="profile-detail">
@@ -41,7 +42,7 @@
 					<h6 class="label">Alias</h6>
 					<div class="profile-entry editing">
 						<input type="text" placeholder="Alias" value="Juan Jose">
-						<button class="small white">Save</button>
+						<button class="small">Done</button>
 					</div>
 				</div>
 				<div class="profile-detail">
@@ -55,7 +56,7 @@
 					<h6 class="label">Username</h6>
 					<div class="profile-entry editing">
 						<input type="text" placeholder="Username" value="juanjose">
-						<button class="small white">Save</button>
+						<button class="small">Done</button>
 					</div>
 				</div>
 				<div class="profile-detail">
@@ -69,7 +70,7 @@
 					<h6 class="label">Website</h6>
 					<div class="profile-entry editing">
 						<input type="text" placeholder="Website" value="http://www.juanjose.com">
-						<button class="small white">Save</button>
+						<button class="small">Done</button>
 					</div>
 				</div>
 				<div class="profile-detail">
@@ -84,7 +85,7 @@
 					<div class="profile-entry editing">
 						<small>300 characters left</small>
 						<textarea rows="5" placeholder="About me">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</textarea>
-						<button class="small white">Save</button>
+						<button class="small">Done</button>
 					</div>
 				</div>
 				<div class="profile-detail">

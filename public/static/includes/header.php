@@ -16,13 +16,13 @@
 					<section class="row">
 						<nav class="header text-right ">
 							<a href="" class="brand"><img src="images/logo.png"></a>
-							<a href="" class="show-for-medium"><span class="icon icon-search"></span></a>
-							<a href="" class="show-for-medium">Shop</a>
-							<a href="" class="show-for-medium">Submit</a>
-							<a href="" class="show-for-medium">Vote</a>
-							<a href="" class="show-for-medium"><span class="icon icon-shopping-cart"></span></a>
-							<a href="" class="show-for-medium"><span class="icon icon-user"></span></a>
-							<a href="" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>
+							<a href="" class="show-for-large"><span class="icon icon-search"></span></a>
+							<a href="" class="show-for-large">Shop</a>
+							<a href="" class="show-for-large">Submit</a>
+							<a href="" class="show-for-large">Vote</a>
+							<a href="" class="show-for-large"><span class="icon icon-shopping-cart"></span></a>
+							<a href="" class="show-for-large"><span class="icon icon-user"></span></a>
+							<a href="" class="toggle-nav hide-for-large"><span class="icon icon-menu"></span></a>
 						</nav>
 					</section>
 				</header>
