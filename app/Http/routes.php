@@ -22,5 +22,6 @@ Route::get('user', 'UserController@index');
 Route::post('user/create', 'UserController@create');
 Route::get('user/activate/{user}/{token}', 'UserController@activate');
 Route::get('user/profile', 'UserController@profile');
+Route::post('user/update', 'UserController@update');
 Route::get('user/submissions', 'UserController@submissions');
 Route::get('user/sales', 'UserController@sales');

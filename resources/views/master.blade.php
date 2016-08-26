@@ -2,12 +2,9 @@
 <html>
 <head>
     <title>Teedlee</title>
-    {!! Html::script('bower_components/jquery/dist/jquery.min.css') !!}
-    {{--{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}--}}
-    {{--{!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}--}}
     {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
     {!! Html::style('css/style.css') !!}
-    {{--{!! Html::style('css/app.min.css') !!}--}}
+    {!! Html::style('css/app.min.css') !!}
     @yield('head')
 </head>
 <body>
@@ -75,8 +72,10 @@
                 Copyright &copy; 2016, Teedlee Arts Inc.
             </footer>
 
-            {{--<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>--}}
+            {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
             {!! Html::script('js/ui.js') !!}
+            {!! Html::script('js/script.js') !!}
+            @yield('scripts')
         </div>
     </div>
 </body>

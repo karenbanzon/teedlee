@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('city_id');
             $table->unsignedInteger('province_id');
             $table->longText('about_me');
-            $table->string('avatar');
+            $table->string('avatar')->default('http://www.24city.org/images/no-photo.jpg');
             $table->string('website');
             $table->enum('status',['inactive','active','banned'])->default('inactive');
             $table->boolean('is_premium')->default(false);

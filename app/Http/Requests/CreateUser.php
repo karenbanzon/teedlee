@@ -28,7 +28,6 @@ class CreateUser extends Request
             'email' => 'required|email|unique:users',
 //            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed',
             'password' => 'required|min:6|max:20|alphanum',
-//            'password_confirmation' => 'required',
         ];
     }
 

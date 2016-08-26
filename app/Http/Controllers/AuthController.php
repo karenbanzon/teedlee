@@ -15,7 +15,7 @@ class AuthController extends BaseController
         if( Auth::attempt($request->only(['email', 'password'])) )
         {
             return redirect('/')
-                ->with('message', 'Welcome back ' . \Auth::user()->firstname ?: \Auth::user()->email . '!');
+                ->with('message', 'Welcome back ' . (\Auth::user()->firstname ?: \Auth::user()->email) . '!');
         } else {
             return redirect('login')
                 ->with('error', 'Invalid login credentials')

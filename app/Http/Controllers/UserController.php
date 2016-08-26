@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\User;
 use Teedlee\Http\Requests\CreateUser;
+use Teedlee\Http\Requests\UpdateUser;
 
 class UserController extends BaseController
 {
@@ -19,7 +20,9 @@ class UserController extends BaseController
 
     public function index()
     {
-        return view('user/index');
+        return view('user/index')
+            ->with('user', \Auth::user())
+            ;
     }
 
     public function create(CreateUser $request)
@@ -39,6 +42,23 @@ class UserController extends BaseController
         return redirect('')->with('message', 'Activation email sent to '.$user->email.'.');
     }
 
+    public function update(UpdateUser $data)
+    {
+        $user = $this->model->find(\Auth::user()->id);
+        $data = array_merge($user->toArray(), $data->toArray());
+
+        if( $avatar = \Request::file('avatar') )
+        {
+            $filename = 'avatar.'.$avatar->getClientOriginalExtension();
+            $avatar->move(public_path('users'.DIRECTORY_SEPARATOR.$user->id), $filename);
+            $data['avatar'] = url('users/'.$user->id.'/'.$filename);
+        }
+
+        unset($data['_token']);
+        $user->where('id', \Auth::user()->id)->update($data);
+        return redirect()->back()->with('message', 'Profile successfully updated');
+    }
+
     public function send_activation_email(User $user)
     {
         $user->link = url('user/activate/'.$user->id.'/'.sha1($user->email.$user->username));
@@ -50,7 +70,6 @@ class UserController extends BaseController
 
     public function activate(User $user, $token)
     {
-//        dd($user->toArray());
         if( sha1($user->email.$user->username)==$token && $user->status != 'inactive') {
             return redirect('')->with('error', 'Invalid activation link');
         } else if( sha1($user->email.$user->username)==$token )
@@ -61,11 +80,6 @@ class UserController extends BaseController
         } else {
             return redirect('')->with('error', 'Activation token is invalid');
         }
-    }
-
-    public function profile()
-    {
-        return view('user/profile');
     }
 
     public function submissions()
