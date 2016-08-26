@@ -4,6 +4,7 @@ namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
+use Teedlee\Providers\AuthWrapperProvider as Auth;
 use Teedlee\Models\SocialAccount;
 use Socialite;
 
@@ -11,10 +12,10 @@ class AuthController extends BaseController
 {
     public function index(Request $request)
     {
-        if( \Auth::attempt($request->only(['email', 'password'])) )
+        if( Auth::attempt($request->only(['email', 'password'])) )
         {
             return redirect('/')
-                ->with('message', 'Welcome back ' . \Auth::user()->firstname) . '!';
+                ->with('message', 'Welcome back ' . \Auth::user()->firstname ?: \Auth::user()->email . '!');
         } else {
             return redirect('login')
                 ->with('error', 'Invalid login credentials')

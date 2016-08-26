@@ -16,12 +16,12 @@
                 <div class="card-container padding-20">
                     {!! Form::open(['url' => 'auth']) !!}
                         <div class="form-field block">
-                            <label>Email</label>
-                            <input type="email" name="email" placeholder="mail@server.com">
+                            <label>Username/Email</label>
+                            <input type="text" name="email" placeholder="johndoe" required>
                         </div>
                         <div class="form-field block">
                             <label>Password</label>
-                            <input type="password" name="password">
+                            <input type="password" name="password" required>
                         </div>
                         <button type="submit">Login</button>
                     {!! Form::close() !!}
