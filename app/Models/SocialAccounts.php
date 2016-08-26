@@ -33,7 +33,6 @@ class SocialAccount extends Model
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
-
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : " ",
@@ -44,6 +43,7 @@ class SocialAccount extends Model
                     'province_id' => 1,
                     'status' => 'active',
                 ]);
+                mkdir(public_path('users'.DIRECTORY_SEPARATOR.$user->id));
             }
 
             $account->user()->associate($user);

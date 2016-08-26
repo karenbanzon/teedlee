@@ -23,7 +23,8 @@
                             <label>Password</label>
                             <input type="password" name="password" required>
                         </div>
-                        <button type="submit">Login</button>
+                        <button type="submit" class="pull-left">Login</button>
+                        <a href="{!! url('signup') !!}" class="pull-right">Create an account</a>
                     {!! Form::close() !!}
                 </div>
             </div>
