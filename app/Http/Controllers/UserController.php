@@ -62,7 +62,7 @@ class UserController extends BaseController
 
     public function send_activation_email(User $user)
     {
-        $user->link = url('user/activate/'.$user->id.'/'.sha1($user->email.$user->username));
+        $user->link = secure_url('user/activate/'.$user->id.'/'.sha1($user->email.$user->username));
         \Mail::send('user.email.activation', $user->toArray(), function ($m) use ($user) {
             $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
             $m->to($user->email, $user->username)->subject('Account activation');
