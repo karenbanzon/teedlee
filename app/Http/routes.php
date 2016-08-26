@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::group(['middleware' => ['http']], function() {
+    Route::get('/', 'HomeController@index');
+    Route::get('shop/', 'ShopController@index');
+});
 
 Route::group(['middleware' => ['https']], function() {
     Route::post('auth', 'AuthController@index');

@@ -47,6 +47,7 @@ class UserController extends BaseController
     {
         $user = $this->model->find(\Auth::user()->id);
         $data = array_merge($user->toArray(), $data->toArray());
+        $data['is_profile_complete']=1;
 
         if( $avatar = \Request::file('avatar') )
         {

@@ -38,6 +38,10 @@ class Kernel extends HttpKernel
         'https' => [
             \Teedlee\Http\Middleware\HttpsRequire::class,
         ],
+
+        'http' => [
+            \Teedlee\Http\Middleware\HttpRequire::class,
+        ],
     ];
 
     /**
