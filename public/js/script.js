@@ -15,27 +15,33 @@ function imgInputPreview(obj, target) {
 };
 
 //Form field editor
-$(function(){
+fieldEditorReset = function() {
     $('.field-editor .field-editor-input').hide();
+    $('.field-editor .field-editor-preview').show();
+};
 
-    $('.field-editor .action').click(function(e) {
+$(function () {
+    fieldEditorReset();
+
+    $('.field-editor .action').click(function (e) {
         e.preventDefault();
 
         var parent = $(this).closest('.field-editor');
         var preview = parent.find('.field-editor-preview');
         var input = parent.find('.field-editor-input');
         var name = parent.attr('rel');
-        console.log('name: ' + name);
 
-       if( $(this).parent().hasClass('field-editor-preview') ) {
-           preview.hide();
-           input.show();
-       } else {
-           var value = input.find('[name="'+name+'"]').val();
-           console.log('value: ' + value);
-           preview.find('.profile-entry-data').html(value);
-           preview.show();
-           input.hide();
-       }
+        fieldEditorReset();
+
+        if ($(this).parent().hasClass('field-editor-preview')) {
+            preview.hide();
+            input.show();
+        } else {
+            var value = input.find('[name="' + name + '"]').val();
+            console.log('value: ' + value);
+            preview.find('.profile-entry-data').html(value);
+            preview.show();
+            input.hide();
+        }
     });
 });
