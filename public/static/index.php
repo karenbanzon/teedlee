@@ -17,6 +17,11 @@
 						<li><a href="template-account-profile.php">Profile</a></li>
 						<li><a href="template-account-submissions.php">Submissions</a></li>
 					</ul>
+					<li>Public</li>
+					<ul>
+						<li><a href="template-user-page.php">Public Profile</a></li>
+						<li><a href="template-voting.php">Voting</a></li>
+					</ul>
 				</ul>
 			</div>
 		</section>

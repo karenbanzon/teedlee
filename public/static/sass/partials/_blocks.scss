@@ -91,6 +91,15 @@ header {
 	}
 }
 
+.vote-actions {
+	a.star {
+		@extend .padding-10;
+		font-size: 3em;
+		color: $platinum;
+		&.colored { color: $yellow }
+	}
+}
+
 // header, .header-nav-background {
 // 	width: 100%;
 // 	position: fixed;

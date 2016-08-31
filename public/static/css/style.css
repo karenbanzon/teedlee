@@ -170,7 +170,7 @@
 }
 
 /* line 57, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_utility.scss */
-.padding-10, .row > *, .dropdown-menu a, input, textarea, select, table th, table td, figcaption, pre, header nav a, .account-nav a, .account-nav-small a, .profile-detail .profile-entry, .card .card-header, .card .card-body, .card .card-actions, .search-bar, .alert {
+.padding-10, .row > *, .dropdown-menu a, input, textarea, select, table th, table td, figcaption, pre, header nav a, .account-nav a, .account-nav-small a, .profile-detail .profile-entry, .vote-actions a.star, .card .card-header, .card .card-body, .card .card-actions, .search-bar, .alert {
   padding: 10px;
 }
 
@@ -3426,7 +3426,7 @@ output {
 /* line 82, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_forms.scss */
 input, textarea, select {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.125rem;
 }
 
 /* line 88, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_forms.scss */
@@ -3617,7 +3617,18 @@ header nav .toggle-nav {
   font-style: italic;
 }
 
-/* line 103, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_blocks.scss */
+/* line 95, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_blocks.scss */
+.vote-actions a.star {
+  font-size: 3em;
+  color: #e7e7e7;
+}
+
+/* line 99, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_blocks.scss */
+.vote-actions a.star.colored {
+  color: #f2b520;
+}
+
+/* line 112, /Users/gpsea/Desktop/teedlee/public/static/sass/partials/_blocks.scss */
 footer {
   margin-top: 60px;
 }

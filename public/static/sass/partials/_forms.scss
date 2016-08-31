@@ -84,7 +84,7 @@ input, textarea, select {
 	@extend .padding-10;
 	@extend .border-subtle;
 	font-family: $bodycopy;
-  font-size: 2rem;
+  font-size: 1.125rem;
 	&:focus {
 		@include single-box-shadow(0px, 0px, 3px, 0px, $yellow);
 		outline: none;
