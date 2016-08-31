@@ -23,7 +23,7 @@
 
 .card-body.item {
 	.item-name, .item-price { @extend .margin-bottom-20; }
-	.item-price { @extend .text-red; }
+	// .item-price { @extend .text-red; }
 	.item-details {
 		@extend .text-ash;
 		border-top: 1px solid $subtle;
