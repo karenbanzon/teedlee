@@ -38,7 +38,6 @@ $(function () {
             input.show();
         } else {
             var value = input.find('[name="' + name + '"]').val();
-            console.log('value: ' + value);
             preview.find('.profile-entry-data').html(value);
             preview.show();
             input.hide();

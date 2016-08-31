@@ -19,9 +19,8 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->string('tags', 255);
             $table->decimal('price', 10, 2);
-            $table->enum('status', ['submitted', 'internal_voting', 'public_voting', 'public_voting_success', 'public_voting_fail', 'pre_production', 'production', 'publication', 'unavailable']);
+            $table->enum('status', ['submitted', 'internal_voting', 'public_voting', 'public_voting_success', 'public_voting_fail', 'awaiting_orig_design', 'publication', 'production', 'unavailable']);
             $table->timestamps();
-            $table->rememberToken();
 
             $table->foreign('user_id')->references('id')->on('users');
         });

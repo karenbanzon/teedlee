@@ -86,7 +86,9 @@ class UserController extends BaseController
 
     public function submissions()
     {
-        return view('user/submissions');
+        return view('user/submissions')
+            ->with('submissions', \Teedlee\User::find(\Auth::user()->id)->submissions)
+            ;
     }
 
     public function sales()

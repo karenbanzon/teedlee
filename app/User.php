@@ -34,4 +34,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function submissions()
+    {
+        return $this->hasMany('\Teedlee\Models\Submission');
+    }
 }
