@@ -2,7 +2,8 @@ table {
 	thead {
 		// @extend .background-darkgray;
 		// @extend .text-white;
-		@extend .h6;
+		font-family: $headercopy;
+		text-transform: uppercase;
 		border-top: 2px solid $darkgray;
 		border-bottom: 2px solid $darkgray;
 	}
