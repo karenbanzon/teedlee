@@ -100,7 +100,7 @@
 }
 
 /* line 42, ../sass/partials/_utility.scss */
-.margin-top-20, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, table thead, hr {
+.margin-top-20, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, hr {
   margin-top: 20px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 /* line 45, ../sass/partials/_utility.scss */
-.margin-bottom-20, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, table thead, p, hr, .form-field, .card-body.item .item-name, .card-body.item .item-price {
+.margin-bottom-20, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, hr, .form-field, .card-body.item .item-name, .card-body.item .item-price {
   margin-bottom: 20px;
 }
 
@@ -429,7 +429,6 @@ h6,
 .h4,
 .h5,
 .h6,
-table thead,
 button.white,
 .button.white,
 button.white:hover,
@@ -493,7 +492,7 @@ code {
 }
 
 /* line 32, ../sass/partials/_type.scss */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, table thead {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.25em;
   letter-spacing: 0.1em;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
@@ -529,7 +528,7 @@ h5, .h5 {
 }
 
 /* line 50, ../sass/partials/_type.scss */
-h6, .h6, table thead {
+h6, .h6 {
   font-size: 1.5rem;
 }
 
@@ -3567,11 +3566,13 @@ input:focus, textarea:focus, select:focus {
 
 /* line 2, ../sass/partials/_tables.scss */
 table thead {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   border-top: 2px solid #333333;
   border-bottom: 2px solid #333333;
 }
 
-/* line 25, ../sass/partials/_tables.scss */
+/* line 26, ../sass/partials/_tables.scss */
 .table-data .data-set .label {
   vertical-align: middle;
   font-size: 0.8em;

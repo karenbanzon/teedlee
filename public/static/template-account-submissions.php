@@ -10,8 +10,8 @@
 		<div class="small-12">
 			<div class="card small-2 show-for-large">
 				<nav class="account-nav">
-					<a href="" class="active">Profile</a>
-					<a href="">Submissions</a>
+					<a href="">Profile</a>
+					<a href="" class="active">Submissions</a>
 					<a href="">Sales</a>
 				</nav>
 			</div>
@@ -28,55 +28,126 @@
 					<table style="width: 100%;">
 						<thead>
 							<tr>
-								<th>Design ID</th>
-								<th>Name</th>
+								<th>Design</th>
+								<th>Title</th>
 								<th>Date Submitted</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waterfalls</td>
+								<td>7 August 2016</td>
+								<td>
+									<a href="" class="button tiny white">View in shop</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waves</td>
+								<td>9 August 2016</td>
+								<td>
+									<a href="" class="button tiny white">View in shop</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="margin-top-20 card small-12">
+					<h6>Pending original artwork</h6>
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th>Design</th>
+								<th>Title</th>
 								<th>Status</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>11062</td>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
 								<td>Waterfalls</td>
-								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill">Under Review</span></td>
-								<td class="text-right"></td>
+								<td>Pending original artwork</td>
+								<td>
+									<a href="" class="button tiny white">Submit</a>
+								</td>
 							</tr>
 							<tr>
-								<td>11063</td>
-								<td>Mountains</td>
-								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill">Internal Voting</span></td>
-								<td class="text-right"></td>
-							</tr>
-							<tr>
-								<td>11064</td>
-								<td>Cities</td>
-								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill">Public Voting</span></td>
-								<td class="text-right"><a href="" class="button tiny white">Share</a>
-							</tr>
-							<tr>
-								<td>11065</td>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
 								<td>Waves</td>
+								<td>Resubmission needed</td>
+								<td>
+									<a href="" class="button tiny white">Submit</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="margin-top-20 card small-12">
+					<h6>For Voting</h6>
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th>Design</th>
+								<th>Title</th>
+								<th>Type</th>
+								<th>End Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waterfalls</td>
+								<td>Internal Voting</td>
 								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill warning">Pending original artwork</span></td>
-								<td class="text-right"><a href="" class="button tiny white">Submit</a>
 							</tr>
 							<tr>
-								<td>11066</td>
-								<td>Desert</td>
-								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill success">In shop</span></td>
-								<td class="text-right"><a href="" class="button tiny white">View in shop</a>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waves</td>
+								<td>Public Voting</td>
+								<td>9 August 2016</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="margin-top-20 card small-12">
+					<h6>Declined</h6>
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th>Design</th>
+								<th>Title</th>
+								<th>Reason</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waterfalls</td>
+								<td>Offensive graphic</td>
 							</tr>
 							<tr>
-								<td>11066</td>
-								<td>Desert</td>
-								<td>7 August 2016</td>
-								<td class="text-left"><span class="label-pill error">Declined</span></td>
-								<td></a>
+								<td>
+									<img src="http://placehold.it/160x120">
+								</td>
+								<td>Waves</td>
+								<td>Low score</td>
 							</tr>
 						</tbody>
 					</table>
