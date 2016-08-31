@@ -13,7 +13,7 @@
                 @foreach($submissions as $submission)
                     <div class="card small-12 medium-6">
                         <div class="card-container">
-                            <div style="background-image: url({!! $submission->images[0]->path !!}); height:400px; background-repeat: no-repeat; background-size: cover;">
+                            <div class="submission-thumbnail" style="background-image: url({!! $submission->images[0]->path !!});">
                                 {{--<img src="http://placehold.it/400x300" alt="">--}}
                             </div>
                             <div class="card-body item">
