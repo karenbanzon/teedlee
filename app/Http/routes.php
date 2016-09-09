@@ -35,3 +35,6 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('user/sales', 'UserController@sales');
 });
 
+Route::group(['middleware' => ['admin', 'https']], function() {
+    Route::get('admin', 'AdminController@index');
+});
