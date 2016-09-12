@@ -39,4 +39,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('\Teedlee\Models\Submission');
     }
+
+    public function submissions_grouped()
+    {
+        return \Teedlee\Models\Submission::group($this->submissions()
+            ->where('status', '!=', 'draft')
+            ->get())
+        ;
+    }
 }

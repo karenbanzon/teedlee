@@ -42,6 +42,10 @@ class Kernel extends HttpKernel
         'http' => [
             \Teedlee\Http\Middleware\HttpRequire::class,
         ],
+
+        'admin' => [
+            \Teedlee\Http\Middleware\AdminRequire::class,
+        ],
     ];
 
     /**

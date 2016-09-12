@@ -1,216 +1,65 @@
-<?php #dd($submissions->toArray()); ?>
 @extends('master')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <section class="row">
-        <div class="small-12 medium-8 medium-offset-2">
+        <div class="small-12 large-8 large-offset-2">
             <hr>
             <h4 class="text-center">My Account</h4>
             <hr>
         </div>
         <div class="small-12">
             @include('user/sidebar')
-            <div class="card small-12 medium-10 padding-20">
-                @foreach($submissions as $submission)
-                    <div class="card small-12 medium-6">
-                        <div class="card-container">
-                            <div class="submission-thumbnail" style="background-image: url({!! $submission->images[0]->path !!});">
-                                {{--<img src="http://placehold.it/400x300" alt="">--}}
-                            </div>
-                            <div class="card-body item">
-                                <h6>{!! $submission->title !!}</h6>
-                                <div>
-                                    <span class="label-pill {!! $submission->status_style !!}">{!! $submission->shop_status !!}</span>
-                                </div>
-                                <div>
-                                    <small>Design ID: <strong>{!! $submission->id !!}</strong></small>
-                                    <br>
-                                    <small>Date Submitted: <strong>{!! $submission->created_at !!}</strong></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+            <div class="card small-12 large-10 padding-20">
+                @foreach($submissions as $status => $group)
+                <div class="card small-12">
+                    <h6>{!! $status !!}</h6>
+                    <table style="width: 100%;">
+                        <thead>
+                        <tr>
+                            <th>Design</th>
+                            <th>Title</th>
+                            <th>Date Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($group as $submission)
+                        <tr>
+                            <td width="25%">
+                                @if( isset($submission->images[0]) )
+                                {!! Html::image($submission->images[0]->path, null, []) !!}
+                                @endif
+                                @if($submission->status=='submitted_orig_artwork')
+                                    <div class="small">
+                                        <a href="{!! url('users/'.\Auth::user()->id.'/'.$submission->id.'.orig.psd') !!}" target="_blank">
+                                            <span class="fa fa-fw fa-cloud-download"></span> Original artwork
+                                        </a>
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                {!! $submission->title !!}
+                            </td>
+                            <td>{!! date('d M Y', strtotime($submission->created_at)) !!}</td>
+                            <td>
+                                {!! Form::open(['url' => url('user/submissions/'.$submission->id.'/artwork'), 'files' => true]) !!}
+                                @if( $submission->shop_status == 'Published' )
+                                <a href="{!! shop_url($submission->title) !!}" class="button tiny white">View in shop</a>
+                                @elseif( $submission->shop_status == 'Pending Original Artwork' )
+                                <a href="#" class="button tiny white upload-trigger" rel="[name='artwork" data-id="{!! $submission->id !!}">Submit</a>
+                                {!! Form::file('artwork', ['class' => 'hidden hide', 'accept' => '.psd']) !!}
+                                @endif
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 
-                {{--<h6>(Option 1)</h6>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Waterfalls</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill">Under Review</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23564</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>7 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Mountains</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill">Internal Voting</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23565</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>9 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Cities and the Metropolis</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill">Public Voting</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23565</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>11 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                            {{--<div class="card-actions text-center">--}}
-                                {{--<hr>--}}
-                                {{--<a href="" class="button white">Share to get more votes!</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Waves</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill warning">Pending original artwork</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23565</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>11 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                            {{--<div class="card-actions text-center">--}}
-                                {{--<hr>--}}
-                                {{--<a href="" class="button white">Submit original artwork</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Desert</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill success">In shop</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23565</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>11 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                            {{--<div class="card-actions text-center">--}}
-                                {{--<hr>--}}
-                                {{--<a href="" class="button white">View in shop</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="card small-12 medium-6">--}}
-                    {{--<div class="card-container">--}}
-                        {{--<div>--}}
-                            {{--<img src="http://placehold.it/400x300" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body item">--}}
-                            {{--<h6>Desert</h6>--}}
-                            {{--<div>--}}
-                                {{--<span class="label-pill error">Declined</span>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<small>Design ID: <strong>23565</strong></small>--}}
-                                {{--<br>--}}
-                                {{--<small>Date Submitted: <strong>11 August 2016</strong></small>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div>&nbsp;</div>
                 </div>
-                {{--<div class="card small-12">--}}
-                    {{--<hr>--}}
-                    {{--<h6>(Option 2)</h6>--}}
-                    {{--<table style="width: 100%;">--}}
-                        {{--<thead>--}}
-                        {{--<tr>--}}
-                            {{--<th>Design ID</th>--}}
-                            {{--<th>Name</th>--}}
-                            {{--<th>Date Submitted</th>--}}
-                            {{--<th>Status</th>--}}
-                            {{--<th>Actions</th>--}}
-                        {{--</tr>--}}
-                        {{--</thead>--}}
-                        {{--<tbody>--}}
-                        {{--<tr>--}}
-                            {{--<td>11062</td>--}}
-                            {{--<td>Waterfalls</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill">Under Review</span></td>--}}
-                            {{--<td class="text-right"></td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td>11063</td>--}}
-                            {{--<td>Mountains</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill">Internal Voting</span></td>--}}
-                            {{--<td class="text-right"></td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td>11064</td>--}}
-                            {{--<td>Cities</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill">Public Voting</span></td>--}}
-                            {{--<td class="text-right"><a href="" class="button tiny white">Share</a>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td>11065</td>--}}
-                            {{--<td>Waves</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill warning">Pending original artwork</span></td>--}}
-                            {{--<td class="text-right"><a href="" class="button tiny white">Submit</a>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td>11066</td>--}}
-                            {{--<td>Desert</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill success">In shop</span></td>--}}
-                            {{--<td class="text-right"><a href="" class="button tiny white">View in shop</a>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td>11066</td>--}}
-                            {{--<td>Desert</td>--}}
-                            {{--<td>7 August 2016</td>--}}
-                            {{--<td class="text-left"><span class="label-pill error">Declined</span></td>--}}
-                            {{--<td></a>--}}
-                        {{--</tr>--}}
-                        {{--</tbody>--}}
-                    {{--</table>--}}
-                {{--</div>--}}
+                @endforeach
             </div>
         </div>
     </section>

@@ -2,6 +2,7 @@
 
 namespace Teedlee\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
@@ -22,13 +23,24 @@ class Submission extends Model
 
     public function getShopStatusAttribute()
     {
-        if($this->status=='submitted')
-        {
+        if( in_array($this->status, ['submitted', 'submitted_orig_artwork']) ) {
             return 'Under Review';
+
+        } else if( in_array($this->status, ['public_voting', 'internal_voting']) )
+        {
+            return 'For Voting';
 
         } else if($this->status=='public_voting_fail')
         {
             return 'Declined';
+
+        } else if($this->status=='awaiting_orig_artwork')
+        {
+            return 'Pending Original Artwork';
+
+        } else if( in_array($this->status, ['public_voting_success', 'publication', 'production']) )
+        {
+            return 'Published';
 
         } else {
             return str_replace('_', ' ', title_case($this->status));
@@ -50,7 +62,24 @@ class Submission extends Model
             return 'success';
 
         } else {
-            return '';
+            return 'default';
         }
+    }
+
+    public static function group(Collection $submissions = null)
+    {
+        $response = [];
+        $status = null;
+
+        foreach( $submissions as $submission )
+        {
+//            if(  )
+//            {
+//
+//            }
+            $response[$submission->shop_status][] = $submission;
+        }
+
+        return $response;
     }
 }

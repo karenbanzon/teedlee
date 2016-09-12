@@ -29,6 +29,8 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         \Route::model('user', 'Teedlee\User');
+        \Route::model('submission', 'Teedlee\Models\Submission');
+        \Route::model('submissions', 'Teedlee\Models\Submission');
     }
 
     /**

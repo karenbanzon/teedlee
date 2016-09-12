@@ -15,6 +15,7 @@
             <div class="card small-12 medium-8 medium-offset-2">
                 <div class="card-container padding-20">
                     {!! Form::open(['url' => 'auth']) !!}
+                        {!! Form::hidden('redirect', $redirect) !!}
                         <div class="form-field block">
                             <label>Username/Email</label>
                             <input type="text" name="email" placeholder="johndoe" required>

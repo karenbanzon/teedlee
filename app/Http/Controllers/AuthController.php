@@ -14,7 +14,8 @@ class AuthController extends BaseController
     {
         if( Auth::attempt($request->only(['email', 'password'])) )
         {
-            return redirect('/')
+            $route = $request->get('redirect') ?: '/';
+            return redirect($route)
                 ->with('message', 'Welcome back ' . (\Auth::user()->firstname ?: \Auth::user()->email) . '!');
         } else {
             return redirect('login')
@@ -23,9 +24,10 @@ class AuthController extends BaseController
         }
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        return view('auth/login');
+        return view('auth/login')
+            ->with('redirect', $request->get('redirect'));
     }
 
     public function oauth($service)

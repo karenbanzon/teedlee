@@ -2011,19 +2011,19 @@ class DatabaseSeeder extends Seeder
             ['user_id' => '1', 'title' => 'Test Submission 3', 'description' => 'Test Submission 3', 'status' => 'public_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '1', 'title' => 'Test Submission 4', 'description' => 'Test Submission 4', 'status' => 'public_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '1', 'title' => 'Test Submission 5', 'description' => 'Test Submission 5', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
-            ['user_id' => '1', 'title' => 'Test Submission 6', 'description' => 'Test Submission 6', 'status' => 'production', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '1', 'title' => 'Test Submission 6', 'description' => 'Test Submission 6', 'status' => 'awaiting_orig_artwork', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 7', 'description' => 'Test Submission 7', 'status' => 'submitted', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 8', 'description' => 'Test Submission 8', 'status' => 'internal_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 9', 'description' => 'Test Submission 9', 'status' => 'public_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 10', 'description' => 'Test Submission 10', 'status' => 'public_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 11', 'description' => 'Test Submission 11', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
-            ['user_id' => '2', 'title' => 'Test Submission 12', 'description' => 'Test Submission 12', 'status' => 'production', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '2', 'title' => 'Test Submission 12', 'description' => 'Test Submission 12', 'status' => 'awaiting_orig_artwork', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 13', 'description' => 'Test Submission 13', 'status' => 'submitted', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 14', 'description' => 'Test Submission 14', 'status' => 'internal_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 15', 'description' => 'Test Submission 15', 'status' => 'public_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 16', 'description' => 'Test Submission 16', 'status' => 'public_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 17', 'description' => 'Test Submission 17', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
-            ['user_id' => '3', 'title' => 'Test Submission 18', 'description' => 'Test Submission 18', 'status' => 'production', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '3', 'title' => 'Test Submission 18', 'description' => 'Test Submission 18', 'status' => 'awaiting_orig_artwork', 'created_at' => Carbon::now()->toDateTimeString()],
         ]);
 
         return $this;

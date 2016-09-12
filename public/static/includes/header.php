@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+<!--		<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">-->
 	</head>
 	<body>
 		<!-- <div class="header-nav-background">

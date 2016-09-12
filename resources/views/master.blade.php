@@ -3,8 +3,6 @@
 <head>
     <title>Teedlee</title>
     {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
-    {!! Html::style('css/style.css') !!}
-    {!! Html::style('css/app.min.css') !!}
     @yield('head')
 </head>
 <body>
@@ -23,8 +21,10 @@
 
             {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
             {!! Html::script('js/ui.js') !!}
-            {!! Html::script('js/script.js') !!}
             @yield('scripts')
+            {!! Html::script('js/script.js') !!}
+            {!! Html::style('css/style.css') !!}
+            {!! Html::style('css/app.min.css') !!}
         </div>
     </div>
 </body>

@@ -32,7 +32,11 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('user/profile', 'UserController@profile');
     Route::post('user/update', 'UserController@update');
     Route::get('user/submissions', 'UserController@submissions');
+    Route::post('user/submissions/{submission}/artwork', 'UserController@artwork');
     Route::get('user/sales', 'UserController@sales');
+    Route::resource('submissions', 'SubmissionController');
+    Route::get('submit', 'SubmissionController@create');
+    Route::resource('submission-image', 'SubmissionImageController');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {

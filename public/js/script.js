@@ -44,3 +44,15 @@ $(function () {
         }
     });
 });
+
+$(function() {
+    $('.upload-trigger').on('click', function(e) {
+        e.preventDefault();
+        var target = $($(this).attr('rel'));
+        target.click();
+
+        target.on('change', function(e) {
+            target.closest('form').submit();
+        });
+    });
+});

@@ -87,8 +87,22 @@ class UserController extends BaseController
     public function submissions()
     {
         return view('user/submissions')
-            ->with('submissions', \Teedlee\User::find(\Auth::user()->id)->submissions)
+            ->with('submissions', \Teedlee\User::find(\Auth::user()->id)->submissions_grouped())
             ;
+    }
+
+    public function artwork(Request $request, \Teedlee\Models\Submission $submission)
+    {
+
+        if( $file = \Request::file('artwork') )
+        {
+            $filename = $submission->id.'.orig.psd';
+            $file->move(public_path('users'.DIRECTORY_SEPARATOR.\Auth::user()->id), $filename);
+            $submission->status = 'submitted_orig_artwork';
+            $submission->save();
+        }
+
+        return redirect('user/submissions');
     }
 
     public function sales()
