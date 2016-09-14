@@ -48,6 +48,7 @@
     {!! Html::style('bower_components/slick-carousel/slick/slick.css') !!}
     {!! Html::style('bower_components/slick-carousel/slick/slick-theme.css') !!}
     {!! Html::script('bower_components/AsterGates/agrating/agrating.js') !!}
+    {!! Html::script('bower_components/jquery-touchswipe/jquery.touchSwipe.min.js') !!}
     <script>
         $(function() {
             $('#voting').agrating({

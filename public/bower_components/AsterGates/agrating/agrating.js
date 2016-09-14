@@ -1,3 +1,9 @@
+/*!
+ * Rating module for Teedlee.PH
+ * Copyright 2016 Jhourlad Estrella
+ * Licensed under the MIT license
+ */
+
 (function( $ ) {
     $.fn.agrating = function( options )
     {
@@ -50,7 +56,7 @@
                     '_token' : token,
 
                 }).done(function( data ) {
-                    advance();
+                    next();
 
                 }).fail(function( data ){
                     alert(data.responseText);
@@ -59,16 +65,24 @@
 
             skip.on('click', function(e) {
                 e.preventDefault();
-                advance();
+                next();
             });
 
             container.slick({
                 "slideToShow": 1,
             });
 
+            me.swipe({
+                swipe : function(event, direction, distance, duration, fingerCount, fingerData)
+                {
+                    if( direction == 'up' ) {
+                        next();
+                    }
+                }
+            });
+
             settings.start--;
-            advance();
-            // update(settings.data[settings.start]);
+            next();
         });
 
         function activate(obj)
@@ -106,7 +120,7 @@
             });
         }
 
-        function advance()
+        function next()
         {
             if( settings.data.length > 0 && settings.start < settings.data.length ) {
                 settings.start++;
@@ -116,7 +130,7 @@
                 });
 
             } else {
-                me.html('<h3 class="text-center">Congratulations!<br/>You have completed the public voting.<br/>Please check back again for more.</h3>');
+                me.html('<h3 class="text-center">Congratulations!<br/>You have completed voting on all designs.<br/>Please check back again for more.</h3>');
             }
         }
     };
