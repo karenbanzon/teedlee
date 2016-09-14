@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     protected $fillable = ['user_id', 'title', 'description', 'status', 'created_at'];
-    protected $with = ['images'];
+    protected $with = ['user','images'];
     protected $appends= ['shop_status', 'status_style'];
 
     public function user()

@@ -16,12 +16,13 @@ class CreateVotesTable extends Migration
             $table->increments('id');
             $table->enum('type', ['internal', 'external']);
             $table->unsignedInteger('user_id');
-            $table->string('guest_token', 255);
-            $table->unsignedInteger('product_id')->required();
+            $table->unsignedInteger('submission_id')->required();
             $table->decimal('rating', 4, 2);
+            $table->string('comment', 1024);
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('submission_id')->references('id')->on('submissions');
         });
     }
 

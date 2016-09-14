@@ -47,4 +47,26 @@ class User extends Authenticatable
             ->get())
         ;
     }
+
+    /**
+     * @param null
+     */
+    public function votes ()
+    {
+        return $this->hasMany('Teedlee\Models\Vote');
+    }
+
+    /**
+     * @param null
+     */
+    public function votes_que ()
+    {
+        $voted = \Auth::user()->votes()->pluck('id');
+        $submissions = (new \Teedlee\Models\Submission())
+            ->whereNotIn('id', $voted)
+            ->where('status', 'public_voting')
+            ->get();
+
+        return $submissions;
+    }
 }

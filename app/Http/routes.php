@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::resource('submissions', 'SubmissionController');
     Route::get('submit', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
+    Route::resource('vote', 'VoteController');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {

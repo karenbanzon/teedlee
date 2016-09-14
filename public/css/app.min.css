@@ -33,3 +33,15 @@
     display: block;
     margin-top: 1.4rem;
 }
+
+.slick-prev, .slick-next {
+    z-index: 100;
+}
+
+.slick-prev {
+    left: 5%;
+}
+
+.slick-next {
+    right: 5%;
+}
