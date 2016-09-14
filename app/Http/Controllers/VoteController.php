@@ -2,6 +2,7 @@
 
 namespace Teedlee\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Models\Vote;
@@ -40,16 +41,31 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        $model = (new \Teedlee\Models\Vote())
-                    ->where('submission_id', $request->submission_id)
-                    ->where('user_id', \Auth::user()->id)
-        ;
+//        return response()->json($request->all());
+//        return response()->json(['id' => $request->submission_id, 'rating' => $request->rating]);
 
-        if( $model->count() )
-        {
-            return response('You already rated this submission.', 500);
-        } else {
+        if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
+            $model = (new \Teedlee\Models\Vote())
+                        ->where('submission_id', $request->submission_id)
+                        ->where('user_id', \Auth::user()->id)
+            ;
+
+            if( $model->count() )
+            {
+                return response('You already rated this submission.', 500);
+            } else {
+                \Teedlee\Models\Vote::create([
+                    'user_id' => \Auth::user()->id,
+                    'type' => 'public',
+                    'submission_id' => $request->submission_id*1,
+                    'rating' => $request->rating*1,
+                    'comment' => trim($request->comment),
+                    'created_at' => Carbon::now()->toDateTimeString(),
+                ]);
+            }
             return response('Rating successful.', 200);
+        } else {
+            return response('Rating is required', 500);
         }
     }
 

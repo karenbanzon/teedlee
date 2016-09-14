@@ -61,11 +61,15 @@ class User extends Authenticatable
      */
     public function votes_que ()
     {
-        $voted = \Auth::user()->votes()->pluck('id');
+        $voted = \Auth::user()->votes()->pluck('submission_id');
+//        dd($voted);
+
         $submissions = (new \Teedlee\Models\Submission())
             ->whereNotIn('id', $voted)
             ->where('status', 'public_voting')
             ->get();
+
+//        dd($submissions->toArray());
 
         return $submissions;
     }

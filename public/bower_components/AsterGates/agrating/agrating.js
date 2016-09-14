@@ -44,7 +44,7 @@
             vote.on('click', function(e) {
                 e.preventDefault();
                 $.post('/vote', {
-                    'id' : me.find('[name="submission_id"]').val(),
+                    'submission_id' : me.find('[name="submission_id"]').val(),
                     'rating' : rating.val(),
                     'comment' : me.find('[name="comment"]').val(),
                     '_token' : token,
@@ -53,7 +53,7 @@
                     advance();
 
                 }).fail(function( data ){
-                    advance();
+                    alert(data.responseText);
                 });
             });
 
@@ -66,7 +66,9 @@
                 "slideToShow": 1,
             });
 
-            update(settings.data[settings.start]);
+            settings.start--;
+            advance();
+            // update(settings.data[settings.start]);
         });
 
         function activate(obj)
@@ -106,7 +108,7 @@
 
         function advance()
         {
-            if( settings.start < settings.data.length ) {
+            if( settings.data.length > 0 && settings.start < settings.data.length ) {
                 settings.start++;
                 update(settings.data[settings.start]);
                 me.fadeOut('fast', function() {
@@ -114,7 +116,7 @@
                 });
 
             } else {
-                me.html('<h3 class="text-center">Congratulations!<br/>You have completed the public voting.</h3>');
+                me.html('<h3 class="text-center">Congratulations!<br/>You have completed the public voting.<br/>Please check back again for more.</h3>');
             }
         }
     };
