@@ -13,7 +13,7 @@
             <a href="{!! url('user') !!}"><span class="icon icon-user"></span> My Account</a>
             <a href="{!! url('logout') !!}"><span class="icon icon-log-out"></span> Logout</a>
         @else
-            <a href="{!! url('login') !!}" class="show-for-large">Login</a>
+            <a href="{!! url('login') !!}"><span class="icon icon-user"></span> Login</a>
         @endif
     </nav>
 </div>

@@ -25,14 +25,14 @@
                             <input type="password" name="password" required>
                         </div>
                         <button type="submit" class="pull-left">Login</button>
-                        <a href="{!! url('signup') !!}" class="pull-right">Create an account</a>
                     {!! Form::close() !!}
                 </div>
-                <div class="text-center">
+            </div>
+
+            <div class="text-center small-12 medium-8 medium-offset-2">
                 Don't have an account yet?
                 <br>
-                <a href="{!! url('signup') !!}" class="show-for-large">Sign Up here.</a>
-            </div>
+                <a href="{!! url('signup') !!}" class="show-for-large">Sign up here.</a>
             </div>
         </div>
     </section>
