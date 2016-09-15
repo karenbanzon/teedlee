@@ -16,6 +16,9 @@ Route::group(['middleware' => ['http']], function() {
     Route::get('shop/', 'ShopController@index');
 });
 
+Route::get('devdeploy', 'UtilsController@dev_deploy');
+
+
 Route::group(['middleware' => ['https']], function() {
     Route::post('auth', 'AuthController@index');
     Route::get('login', 'AuthController@login');
