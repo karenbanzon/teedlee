@@ -28,12 +28,11 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-
-            <div class="text-center small-12 medium-8 medium-offset-2">
-                Don't have an account yet?
-                <br>
-                <a href="{!! url('signup') !!}" class="show-for-large">Sign up here.</a>
-            </div>
+        </div>
+        <div class="text-center small-12 medium-8 medium-offset-2">
+            Don't have an account yet?
+            <br>
+            <a href="{!! url('signup') !!}" class="show-for-large">Sign up here.</a>
         </div>
     </section>
 @endsection

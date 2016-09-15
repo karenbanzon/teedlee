@@ -45,5 +45,10 @@
                 </div>
             </div>
         </div>
+        <div class="text-center small-12 medium-8 medium-offset-2">
+            Already have an account?
+            <br>
+            <a href="{!! url('login') !!}" class="show-for-large">Login here.</a>
+        </div>
     </section>
 @endsection
