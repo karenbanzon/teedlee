@@ -31,13 +31,16 @@
                                     <input type="hidden" name="rating" />
                                 </div>
                             {!! Form::close() !!}
+                            <div class="text-center">
+                                <a href="">View comments</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card small-12 large-8 large-offset-2 text-center">
                 <a href="" class="button" id="ag-vote">Vote</a>
-                <a href="" class="button white" id="ag-skip">Skip</a>
+                <a href="" class="button white" id="ag-skip">Next</a>
             </div>
         </div>
     </section>

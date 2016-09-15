@@ -29,6 +29,9 @@
                     {!! Form::close() !!}
                 </div>
             </div>
+            <div class="text-center">
+                Don't have an account yet? <a href="{!! url('signup') !!}" class="show-for-large">Sign Up here.</a>
+            </div>
         </div>
     </section>
 @endsection

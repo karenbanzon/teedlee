@@ -8,6 +8,12 @@
     </nav>
     <hr>
     <nav class="secondary">
+        @if( \Auth::check() )
+            <a href="{!! url('user') !!}" class="show-for-large"><span class="icon icon-user"></span></a>
+            {{--<a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>--}}
+        @else
+            <a href="{!! url('login') !!}" class="show-for-large">Login</a>
+        @endif
         <a href="{!! url('cart') !!}"><span class="icon icon-shopping-cart"></span> Cart</a>
         <a href="{!! url('user') !!}"><span class="icon icon-user"></span> My Account</a>
         <a href="{!! url('logout') !!}"><span class="icon icon-log-out"></span> Logout</a>
@@ -28,7 +34,6 @@
                 {{--<a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>--}}
             @else
                 <a href="{!! url('login') !!}" class="show-for-large">Login</a>
-                <a href="{!! url('signup') !!}" class="show-for-large">Sign up</a>
             @endif
 
             <a href="{!! url('cart') !!}" class="show-for-large"><span class="icon icon-shopping-cart"></span></a>
