@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 use Teedlee\Http\Requests;
 
-class UtilsController extends Controller
+class UtilsController extends BaseController
 {
     public function dev_deploy()
     {
-        dd(shell_exec('sudo devdeploy.sh'));
+        return shell_exec('timeout 999999999s sudo devdeploy.sh');
     }
 }
