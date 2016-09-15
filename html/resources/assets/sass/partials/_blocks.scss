@@ -1,0 +1,40 @@
+header {
+	border-bottom: 1px solid #e7e7e7;
+	nav {
+		height: 70px;
+		a {
+			@extend .padding-10;
+			@extend .display-inline-block;
+			line-height: 50px;
+			text-transform: uppercase;
+			font-family: $headercopy;
+			font-weight: medium;
+		}
+		.brand {
+			@extend .float-left;
+			img { height: 50px; }
+		}
+		.toggle-nav {
+			font-size: 2.313rem;
+		}
+	}
+}
+
+.header-nav-background {
+	background-color: #fff;
+	border-bottom: 1px solid #e7e7e7;
+	height: 90px;
+	margin-bottom: -90px;
+}
+
+// header, .header-nav-background {
+// 	width: 100%;
+// 	position: fixed;
+// 	top: 0;
+// 	z-index: 2;
+// }
+
+footer {
+	@extend .background-platinum;
+	margin-top: 60px;
+}
