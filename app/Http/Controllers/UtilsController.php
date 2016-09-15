@@ -10,6 +10,13 @@ class UtilsController extends BaseController
 {
     public function dev_deploy()
     {
-        return shell_exec('timeout 999999999s sudo devdeploy.sh');
+        $proc = popen('sudo devdeploy.sh', 'r');
+        echo '<pre>';
+        while (!feof($proc))
+        {
+            echo fread($proc, 4096);
+            @ flush();
+        }
+        echo '</pre>';
     }
 }
