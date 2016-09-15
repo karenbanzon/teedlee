@@ -1,3 +1,5 @@
+//Header
+
 header {
 	border-bottom: 1px solid #e7e7e7;
 	nav {
@@ -27,12 +29,86 @@ header {
 	margin-bottom: -90px;
 }
 
+// My Account
+
+.account-nav {
+	border-right: 1px solid $platinum;
+	a {
+		@extend .padding-10;
+		@extend .text-right;
+		@extend .display-block;
+		transition: all 0.5s ease-in-ease-out;
+		color: $darkgray;
+		&:hover, &.active {
+			padding-right: 15px;
+			border-right: 2px solid $yellow;
+			font-weight: bold;
+		}
+	}
+}
+
+.account-nav-small {
+	border-bottom: 1px solid $platinum;
+	@extend .text-center;
+	a {
+		@extend .padding-10;
+		@extend .text-center;
+		@extend .display-inline-block;
+		transition: all 0.5s ease-in-ease-out;
+		color: $darkgray;
+		&:hover, &.active {
+			border-bottom: 2px solid $yellow;
+			font-weight: bold;
+		}
+	}
+}
+
+.profile-detail {
+	.label {
+		@extend .display-inline-block;
+		@extend .text-right;
+		width: 20%;
+	}
+	.profile-entry {
+		@extend .display-inline-block;
+		@extend .padding-10;
+		width: 75%;
+		&.alias, &.website {
+			border-bottom: 1px solid $platinum;
+		}
+		&.photo img {
+			@include border-radius(50%);
+			border: 2px solid $platinum;
+			width: 150px;
+			height: 150px;
+		}
+		&.editing textarea { width: 100%; }
+		.profile-action { @extend .float-right;
+		}
+		.unfilled {
+			@extend .text-ash;
+			font-style: italic;
+		}
+	}
+}
+
+.vote-actions {
+	a.star {
+		@extend .padding-10;
+		font-size: 3em;
+		color: $platinum;
+		&.colored { color: $yellow }
+	}
+}
+
 // header, .header-nav-background {
 // 	width: 100%;
 // 	position: fixed;
 // 	top: 0;
 // 	z-index: 2;
 // }
+
+// Footer
 
 footer {
 	@extend .background-platinum;
