@@ -28,9 +28,11 @@
                         <a href="{!! url('signup') !!}" class="pull-right">Create an account</a>
                     {!! Form::close() !!}
                 </div>
+                <div class="text-center">
+                Don't have an account yet?
+                <br>
+                <a href="{!! url('signup') !!}" class="show-for-large">Sign Up here.</a>
             </div>
-            <div class="text-center">
-                Don't have an account yet? <a href="{!! url('signup') !!}" class="show-for-large">Sign Up here.</a>
             </div>
         </div>
     </section>
