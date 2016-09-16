@@ -2,7 +2,7 @@
     <h4 class="padding-20">Menu</h4>
     <hr>
     <nav>
-        <a href="{!! url('shop') !!}">Shop</a>
+        <a href="http://teedlee.myshopify.com">Shop</a>
         <a href="{!! url('submit') !!}">Submit</a>
         <a href="{!! url('vote') !!}">Vote</a>
     </nav>
