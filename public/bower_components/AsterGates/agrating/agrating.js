@@ -72,14 +72,14 @@
                 "slideToShow": 1,
             });
 
-            me.swipe({
-                swipe : function(event, direction, distance, duration, fingerCount, fingerData)
-                {
-                    if( direction == 'up' ) {
-                        next();
-                    }
-                }
-            });
+            // me.swipe({
+            //     swipe : function(event, direction, distance, duration, fingerCount, fingerData)
+            //     {
+            //         if( direction == 'up' ) {
+            //             next();
+            //         }
+            //     }
+            // });
 
             settings.start--;
             next();
