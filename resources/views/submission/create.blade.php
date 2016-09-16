@@ -1,4 +1,10 @@
 @extends('master')
+
+@section('head')
+    {!! Html::style('bower_components/dropzone/dist/min/dropzone.min.css') !!}
+    {!! Html::style('bower_components/dropzone/dist/min/basic.min.css') !!}
+@endsection
+
 @section('content')
     <section class="row">
         <div class="small-12 large-8 large-offset-2">
@@ -47,8 +53,6 @@
 @section('scripts')
 
     {!! Html::script('bower_components/dropzone/dist/min/dropzone.min.js') !!}
-    {!! Html::style('bower_components/dropzone/dist/min/dropzone.min.css') !!}
-    {!! Html::style('bower_components/dropzone/dist/min/basic.min.css') !!}
     <script>
         Dropzone.autoDiscover=false;
 

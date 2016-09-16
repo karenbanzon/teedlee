@@ -4,6 +4,8 @@
     <title>Teedlee</title>
     {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
     @yield('head')
+    {!! Html::style('css/style.css') !!}
+    {!! Html::style('css/app.min.css') !!}
 </head>
 <body>
     <div id="site-wrapper">
@@ -23,8 +25,6 @@
             {!! Html::script('js/ui.js') !!}
             @yield('scripts')
             {!! Html::script('js/script.js') !!}
-            {!! Html::style('css/style.css') !!}
-            {!! Html::style('css/app.min.css') !!}
         </div>
     </div>
 </body>
