@@ -32,6 +32,8 @@ class SubmissionController extends BaseController
             'title' => 'Design #'.\Auth::user()->id.'-'.time(),
             'description' => ' ',
             'status' => 'draft',
+            'tags' => ' ',
+            'price' => 0,
             'created_at' => Carbon::now()->toDateTimeString()
         ]));
     }
