@@ -34,8 +34,8 @@
                     <div class="profile-entry">
                         <div id="uploader" class="dropzone">
                             <div class="dz-message needsclick">
-                                Drop image files here or click to upload.<br>
-                                {{--<span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>--}}
+                                <p>Drop image files here or click to upload.</p>
+                                <span class="small">Note: Only JPG and PNG files are allowed.</span>
                             </div>
                         </div>
                     </div>
