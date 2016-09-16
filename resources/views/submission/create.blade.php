@@ -35,7 +35,7 @@
                         <div id="uploader" class="dropzone">
                             <div class="dz-message needsclick">
                                 <p>Drop image files here or click to upload.</p>
-                                <span class="small">Note: Only JPG and PNG files are allowed.</span>
+                                <span class="small">Note: Only JPG and PNG with 600x800 dimensions files are allowed.</span>
                             </div>
                         </div>
                     </div>
@@ -57,8 +57,28 @@
         Dropzone.autoDiscover=false;
 
         $(function() {
+            var maxImageWidth = 800, maxImageHeight = 600;
+
             $("div#uploader").dropzone({
+                acceptedFiles: "image/jpg,image/jpeg,image/png",
                 url: "{!! secure_url('submission-image') !!}",
+
+                init: function() {
+                    this.on("thumbnail", function(file) {
+                        if (file.width != maxImageWidth || file.height != maxImageHeight) {
+                            file.rejectDimensions();
+                        }
+                        else {
+                            file.acceptDimensions();
+                        }
+                    });
+                },
+
+                accept: function(file, done) {
+                    file.acceptDimensions = done;
+                    file.rejectDimensions = function() { done("Invalid dimension."); };
+                },
+
                 sending: function(file, xhr, formData) {
                     formData.append("_token", $('input[name="_token"]').val());
                     formData.append("submission_id", {!! $submission->id !!});
