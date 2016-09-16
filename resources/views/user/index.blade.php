@@ -1,5 +1,10 @@
 @extends('master')
 @section('content')
+    <style>
+        #avatar-preview {
+            background-image: url({!! $user->avatar ?: 'http://placehold.it/150x150' !!});
+        }
+    </style>
     <section class="row">
         <div class="small-12 large-8 large-offset-2">
             <hr>
@@ -14,9 +19,8 @@
                     <h6 class="label">Photo</h6>
                     <div class="profile-entry photo">
                         <label for="avatar">
-                            {!! Html::image($user->avatar ?: 'http://placehold.it/150x150', null, ['id' => 'avatar-preview']) !!}
+                            <div id ='avatar-preview'></div>
                             <label for="avatar" type="button" class="button small white">Upload new</label>
-                            {{--<input type="file" name="avatar" id="avatar" style="display: none;">--}}
                             {!! Form::file('avatar', ['id'=> 'avatar', 'style'=> 'display: none']) !!}
                         </label>
                     </div>
@@ -120,10 +124,6 @@
 @section('scripts')
     <script>
         $(function(){
-            $('#avatar-trigger').click(function(){
-                $('[name="avatar-trigger"]').click();
-            });
-
             $('#avatar').change(function(){
                 imgInputPreview($(this), $('#avatar-preview'));
             });

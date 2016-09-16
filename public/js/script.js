@@ -7,7 +7,7 @@ function imgInputPreview(obj, target) {
         var oFReader = new FileReader();
 
         oFReader.onload = function (oFREvent) {
-            console.log(target.attr('src', oFREvent.target.result));
+            target.css('background-image', 'url('+oFREvent.target.result+')');
         };
 
         oFReader.readAsDataURL((obj)[0].files[0]);
