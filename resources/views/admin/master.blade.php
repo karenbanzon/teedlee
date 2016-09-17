@@ -86,6 +86,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{!! url('admin/submissions/awaiting_orig_artwork') !!}">
+                                Awaiting Artwork
+                            </a>
+                        </li>
+                        <li>
                             <a href="{!! url('admin/submissions/publication') !!}">
                                 For Publication
                             </a>

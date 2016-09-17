@@ -53,7 +53,7 @@ class Submission extends Model
         {
             return 'warning';
 
-        } else if($this->status=='public_voting_fail')
+        } else if( strpos($this->status, 'fail') !== false)
         {
             return 'error';
 

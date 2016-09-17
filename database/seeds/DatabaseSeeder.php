@@ -2016,7 +2016,7 @@ class DatabaseSeeder extends Seeder
             ['user_id' => '1', 'title' => 'Test Submission 5', 'slug' => 'test-submission-5',  'description' => 'Test Submission 5', 'status' => 'submitted', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '1', 'title' => 'Test Submission 6', 'slug' => 'test-submission-6',  'description' => 'Test Submission 6', 'status' => 'awaiting_orig_artwork', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 7', 'slug' => 'test-submission-7',  'description' => 'Test Submission 7', 'status' => 'submitted', 'created_at' => Carbon::now()->toDateTimeString()],
-            ['user_id' => '2', 'title' => 'Test Submission 8', 'slug' => 'test-submission-8',  'description' => 'Test Submission 8', 'status' => 'internal_voting', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '2', 'title' => 'Test Submission 8', 'slug' => 'test-submission-8',  'description' => 'Test Submission 8', 'status' => 'internal_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 9', 'slug' => 'test-submission-9',  'description' => 'Test Submission 9', 'status' => 'public_voting', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 10', 'slug' => 'test-submission-10',  'description' => 'Test Submission 10', 'status' => 'public_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '2', 'title' => 'Test Submission 11', 'slug' => 'test-submission-11',  'description' => 'Test Submission 11', 'status' => 'submitted', 'created_at' => Carbon::now()->toDateTimeString()],
