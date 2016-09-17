@@ -1808,11 +1808,12 @@ class DatabaseSeeder extends Seeder
                 'province_id' => 1,
                 'about_me' => '',
                 'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'website' => '',
                 'status' => 'active',
                 'is_premium' => 0,
-                'is_profile_complete' => 0,
+                'is_profile_complete' => false,
                 'created_at' => date('Y-m-d'),
-                'updated_at' => '',
+                'updated_at' => null,
                 'remember_token' => ''
             ],
             [
@@ -1831,11 +1832,12 @@ class DatabaseSeeder extends Seeder
                 'province_id' => 1,
                 'about_me' => '',
                 'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'website' => '',
                 'status' => 'active',
                 'is_premium' => 0,
-                'is_profile_complete' => 0,
+                'is_profile_complete' => false,
                 'created_at' => date('Y-m-d'),
-                'updated_at' => '',
+                'updated_at' => null,
                 'remember_token' => ''
             ],
             [
@@ -1854,11 +1856,12 @@ class DatabaseSeeder extends Seeder
                 'province_id' => 1,
                 'about_me' => '',
                 'avatar' => 'http://www.24city.org/images/no-photo.jpg',
+                'website' => '',
                 'status' => 'active',
                 'is_premium' => 0,
-                'is_profile_complete' => 0,
+                'is_profile_complete' => false,
                 'created_at' => date('Y-m-d'),
-                'updated_at' => '',
+                'updated_at' => null,
                 'remember_token' => ''
             ],
         ]);
@@ -2024,6 +2027,15 @@ class DatabaseSeeder extends Seeder
             ['user_id' => '3', 'title' => 'Test Submission 16', 'description' => 'Test Submission 16', 'status' => 'public_voting_fail', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 17', 'description' => 'Test Submission 17', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
             ['user_id' => '3', 'title' => 'Test Submission 18', 'description' => 'Test Submission 18', 'status' => 'awaiting_orig_artwork', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '1', 'title' => 'Pagong Begins', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '1', 'title' => 'Sneaker Skull', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '1', 'title' => 'Sneaker Skull', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '2', 'title' => 'Death By Diet', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '2', 'title' => 'Dapper Trooper', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '2', 'title' => 'Dope', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '3', 'title' => 'Rock On', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '3', 'title' => 'Stoked', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
+            ['user_id' => '3', 'title' => 'Sun', 'description' => ' ', 'status' => 'publication', 'created_at' => Carbon::now()->toDateTimeString()],
         ]);
 
         return $this;
