@@ -62,7 +62,7 @@ class Submission extends Model
             return 'success';
 
         } else {
-            return 'default';
+            return 'info';
         }
     }
 
@@ -73,10 +73,6 @@ class Submission extends Model
 
         foreach( $submissions as $submission )
         {
-//            if(  )
-//            {
-//
-//            }
             $response[$submission->shop_status][] = $submission;
         }
 

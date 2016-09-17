@@ -9,7 +9,7 @@
     {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css') !!}
     {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css') !!}
     {!! Html::style('bower_components/AdminLTE/dist/css/AdminLTE.min.css') !!}
-    {!! Html::style('bower_components/AdminLTE/dist/css/skins/_all-skins.min.css') !!}
+    {!! Html::style('bower_components/AdminLTE/dist/css/skins/skin-blue.min.css') !!}
     <!--[if lt IE 9]>
     {!! Html::script('//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') !!}
     {!! Html::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') !!}
@@ -49,11 +49,9 @@
             <div class="user-panel">
                 <div class="pull-left image">
                     {!! Html::image(\Auth::user()->avatar, '', ['class' => "img-circle"]) !!}
-                    {{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
                 </div>
                 <div class="pull-left info">
                     <p>{!! \Auth::user()->firstname.' '.\Auth::user()->lastname !!}</p>
-                    {{--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -64,13 +62,38 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{!! url('admin/submissions') !!}"><i class="fa fa-cloud-upload"></i>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-cloud-upload"></i>
                         <span>Submissions</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{!! url('admin/submissions/submitted') !!}">
+                                New
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{!! url('admin/submissions/internal_voting') !!}">
+                                Internal Voting
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{!! url('admin/submissions/public_voting') !!}">
+                                Public Voting
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{!! url('admin/submissions/publication') !!}">
+                                For Publication
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="{!! url('logout') !!}"><i class="fa fa-home"></i>
+                    <a href="{!! url('logout') !!}"><i class="fa fa-sign-out"></i>
                         <span>Logout</span>
                     </a>
                 </li>
@@ -110,11 +133,11 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        {{--<div class="pull-right hidden-xs">--}}
-            {{--<b>Version</b> 2.3.6--}}
-        {{--</div>--}}
-        {{--<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights--}}
-        {{--reserved.--}}
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2016 <a href="http://teedlee.ph">Teedlee</a>.</strong> All rights
+        reserved.
     </footer>
 </div>
 {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
@@ -122,6 +145,6 @@
 {!! Html::script('bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') !!}
 {!! Html::script('bower_components/AdminLTE/plugins/fastclick/fastclick.js') !!}
 {!! Html::script('bower_components/AdminLTE/dist/js/app.min.js') !!}
-{{--<script src="../../dist/js/demo.js"></script>--}}
+@yield('scripts')
 </body>
 </html>

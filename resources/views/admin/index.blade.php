@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('admin/master')
 @section('content')
     {{--<section class="row">--}}
         {{--<h1>ADMIN</h1>--}}
