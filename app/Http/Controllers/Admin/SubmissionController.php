@@ -17,7 +17,7 @@ class SubmissionController extends Controller
     public function byStatus($submissions)
     {
         return view('admin.submission.index')
-            ->with('title', $submissions->count() > 0 ? $submissions->first()->shop_status : 'All')
+            ->with('title', $submissions->count() > 0 ? title_case(str_replace('_', ' ', $submissions->first()->status)) : 'All')
             ->with('submissions', $submissions);
     }
 }
