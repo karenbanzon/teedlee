@@ -70,18 +70,38 @@
                         <p><a href="{!! url('admin/submission/promote/'.$submission->id.'/internal_voting') !!}" class="btn btn-primary">Yes, start internal voting</a></p>
                         <div class="clr"></div>
                     </div>
-                @elseif( $submission->status == 'internal_voting' )
-                    <div class="alert alert-info">
-                        <p>Internal voting has been started for this item and currently awaiting for results which will end on {!! $submission->internal_voting_end !!}</p>
-                        <div class="clr"></div>
-                    </div>
+
+                @elseif( strpos($submission->status, 'internal_voting') !== false || $submission->status == 'awaiting_orig_artwork' )
+
+                    @if($submission->status == 'internal_voting_fail')
+                        <div class="alert alert-danger">
+                            <p>Internal voting has failed for this item and was rejected ({!! $submission->votes->internal->average !!} stars).</p>
+                            <div class="clr"></div>
+                        </div>
+
+                    @elseif( $submission->status == 'awaiting_orig_artwork' )
+                        <div class="alert alert-success">
+                            <p>
+                                Internal voting has ended for this item was successful ({!! $submission->votes->internal->average !!} stars). <br/>
+                                System is now waiting for artist to upload original artwork.
+                            </p>
+                            {{--<p><a href="{!! url('admin/submission/promote/'.$submission->id.'/awaiting_orig_artwork') !!}" class="btn btn-warning">Request for original artwork</a></p>--}}
+                            <div class="clr"></div>
+                        </div>
+
+                    @else
+                        <div class="alert alert-info">
+                            <p>Internal voting has been started for this item and currently awaiting for results which will end on {!! $submission->internal_voting_end !!}</p>
+                            <div class="clr"></div>
+                        </div>
+                    @endif
 
                     <div class="box box-primary">
                         <div class="box-header with-border text-bold">
                             Internal Votes
                         </div>
                         <div class="box-body">
-                            @foreach( $submission->votes->internal as $index => $vote )
+                            @foreach( $submission->votes->internal->items as $index => $vote )
                             <?php
                                 $has_voted = !$has_voted && $vote->user->id == \Auth::user()->id;
                                 $rating += $vote->rating;

@@ -30,7 +30,7 @@
                                 @if( isset($submission->images[0]) )
                                 {!! Html::image($submission->images[0]->path, null, []) !!}
                                 @endif
-                                @if($submission->status=='submitted_orig_artwork')
+                                @if($submission->status=='orig_artwork_submitted')
                                     <div class="small">
                                         <a href="{!! url('users/'.\Auth::user()->id.'/'.$submission->id.'.orig.psd') !!}" target="_blank">
                                             <span class="fa fa-fw fa-cloud-download"></span> Original artwork
@@ -47,8 +47,8 @@
                                 @if( $submission->shop_status == 'Published' )
                                 <a href="{!! shop_url($submission->title) !!}" class="button tiny white">View in shop</a>
                                 @elseif( $submission->shop_status == 'Pending Original Artwork' )
-                                <a href="#" class="button tiny white upload-trigger" rel="[name='artwork" data-id="{!! $submission->id !!}">Submit</a>
-                                {!! Form::file('artwork', ['class' => 'hidden hide', 'accept' => '.psd']) !!}
+                                <a href="#" class="button tiny white upload-trigger" rel="#artwork-{!! $submission->id !!}" data-id="{!! $submission->id !!}">Submit</a>
+                                {!! Form::file('artwork', ['class' => 'hidden hide', 'accept' => '.psd', 'id' => 'artwork-'.$submission->id]) !!}
                                 @endif
                                 {!! Form::close() !!}
                             </td>

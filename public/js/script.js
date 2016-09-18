@@ -46,7 +46,8 @@ $(function () {
 });
 
 $(function() {
-    $('.upload-trigger').on('click', function(e) {
+    $('.upload-trigger').unbind('click').on('click', function(e) {
+        e.stopImmediatePropagation();
         e.preventDefault();
         var target = $($(this).attr('rel'));
         target.click();

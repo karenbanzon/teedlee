@@ -83,27 +83,20 @@ class Submission extends Model
     public function getVotesAttribute()
     {
         return (object) [
-            'internal' => $this->internal_votes(),
-            'public' =>  $this->public_votes(),
+            'internal' => $this->votesByType('internal'),
+            'public' =>  $this->votesByType('external'),
         ];
     }
 
-    public function internal_votes()
+    public function votesByType($type)
     {
-        return \Teedlee\Models\Vote::
-        where('submission_id', $this->id)
-            ->where('type', 'internal')
-            ->get()
-            ;
-    }
+        $votes = \Teedlee\Models\Vote::where('submission_id', $this->id)->where('type', $type)->get();
 
-    public function public_votes()
-    {
-        return \Teedlee\Models\Vote::
-        where('submission_id', $this->id)
-            ->where('type', 'external')
-            ->get()
-            ;
+        return (object) [
+            'items' => $votes,
+            'average' => $votes->avg('rating')
+        ];
+
     }
 
     public function getInternalVotingEndAttribute()
@@ -114,4 +107,47 @@ class Submission extends Model
     public function getPublicVotingEndAttribute()
     {
         return $this->public_voting_start ? (Carbon::parse($this->public_voting_start))->addDays(7)->toDateTimeString() : null;
-    }}
+    }
+
+    public function searchAndExpire()
+    {
+//        Internal voting
+        $submissions = $this
+            ->where('internal_voting_start', '<>', null)
+            ->where('internal_voting_start', '<=', Carbon::parse($this->internal_voting_start)->addDays(7))
+            ->get()
+        ;
+
+        foreach ( $submissions as $submission )
+        {
+            if($submission->votes->internal->average < 3.5)
+            {
+                $status = 'public_voting';
+            } else {
+                $status = 'awaiting_orig_artwork';
+            }
+
+            $submission->status = $status;
+            $submission->save();
+        }
+
+//        Public voting
+        $submissions = $this
+            ->where('public_voting_start', '<>', null)
+            ->where('public_voting_start', '<=', Carbon::parse($this->public_voting_start)->addDays(7))
+            ->get();
+
+        foreach ( $submissions as $submission )
+        {
+            if($submission->votes->public->average < 3.5)
+            {
+                $status = 'public_voting_fail';
+
+            } else {
+                $status = 'public_voting_success';
+
+            }
+            $submission->save();
+        }
+    }
+}
