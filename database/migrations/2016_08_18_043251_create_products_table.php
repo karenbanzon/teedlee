@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->string('tags', 255)->default('');
             $table->decimal('price', 10, 2)->default(0);
+            $table->dateTime('internal_voting_start')->nullable();
+            $table->dateTime('public_voting_start')->nullable();
             $table->enum('status', ['draft', 'submitted', 'internal_voting', 'internal_voting_fail', 'public_voting', 'public_voting_success', 'public_voting_fail', 'awaiting_orig_artwork', 'orig_artwork_submitted', 'publication', 'unavailable']);
             $table->timestamps();
 

@@ -2,15 +2,12 @@
 
 namespace Teedlee\Http\Controllers\Admin;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use Teedlee\Http\Requests;
 use Teedlee\Http\Controllers\Controller;
-use Teedlee\Models\Submission;
 
-class SubmissionController extends Controller
+class Temp extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,44 +16,7 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        return view('admin.submission.index');
-    }
-
-    /**
-     * Display a listing of the resource by status.
-     * @param  Collection $submissions
-     * @return \Illuminate\Http\Response
-     */
-    public function byStatus(Collection $submissions)
-    {
-        return view('admin.submission.index')
-            ->with('title', $submissions->count() > 0 ? title_case(str_replace('_', ' ', $submissions->first()->status)) : 'All')
-            ->with('submissions', $submissions);
-    }
-
-    /**
-     * Set status
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function promote(Submission $submission, $status)
-    {
-        $now = Carbon::now();
-
-        $submission->status = $status;
-
-        if($status=='internal_voting')
-        {
-            $submission->internal_voting_start = $now;
-        }
-
-        if($status=='public_voting') {
-            $submission->public_voting_start = $now;
-        }
-
-        $submission->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -97,15 +57,9 @@ class SubmissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Submission $submission)
+    public function edit($id)
     {
-//        dd($submission->toArray());
-
-        return view('admin.submission.edit')
-            ->with('submission', $submission)
-            ->with('has_voted', false)
-            ->with('rating', 0)
-            ;
+        //
     }
 
     /**

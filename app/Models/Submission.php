@@ -2,14 +2,15 @@
 
 namespace Teedlee\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
 {
-    protected $fillable = ['user_id', 'title', 'slug', 'description', 'tags', 'price', 'status', 'created_at'];
+    protected $fillable = ['user_id', 'title', 'slug', 'description', 'tags', 'price', 'status', 'internal_voting_start', 'public_voting_start', 'created_at'];
     protected $with = ['user','images'];
-    protected $appends= ['shop_status', 'status_style'];
+    protected $appends= ['shop_status', 'status_style', 'votes', 'internal_voting_end', 'public_voting_end' ];
 
     public function user()
     {
@@ -78,4 +79,39 @@ class Submission extends Model
 
         return $response;
     }
-}
+
+    public function getVotesAttribute()
+    {
+        return (object) [
+            'internal' => $this->internal_votes(),
+            'public' =>  $this->public_votes(),
+        ];
+    }
+
+    public function internal_votes()
+    {
+        return \Teedlee\Models\Vote::
+        where('submission_id', $this->id)
+            ->where('type', 'internal')
+            ->get()
+            ;
+    }
+
+    public function public_votes()
+    {
+        return \Teedlee\Models\Vote::
+        where('submission_id', $this->id)
+            ->where('type', 'external')
+            ->get()
+            ;
+    }
+
+    public function getInternalVotingEndAttribute()
+    {
+        return $this->internal_voting_start ? (Carbon::parse($this->internal_voting_start))->addDays(7)->toDateTimeString() : null;
+    }
+
+    public function getPublicVotingEndAttribute()
+    {
+        return $this->public_voting_start ? (Carbon::parse($this->public_voting_start))->addDays(7)->toDateTimeString() : null;
+    }}

@@ -14,6 +14,9 @@
     {!! Html::script('//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') !!}
     {!! Html::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') !!}
     <![endif]-->
+    @yield('head')
+    {{--{!! Html::style('css/style.css') !!}--}}
+    {!! Html::style('css/app.min.css') !!}
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -149,6 +152,8 @@
 {!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
 {!! Html::script('bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') !!}
 {!! Html::script('bower_components/AdminLTE/plugins/fastclick/fastclick.js') !!}
+{!! Html::script('js/ui.js') !!}
+{!! Html::script('js/script.js') !!}
 {!! Html::script('bower_components/AdminLTE/dist/js/app.min.js') !!}
 @yield('scripts')
 </body>

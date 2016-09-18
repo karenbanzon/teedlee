@@ -18,7 +18,7 @@
                             <th colspan="2">Submission</th>
                             <th>Artist</th>
                             <th>Date Submitted</th>
-                            {{--<th>Actions</th>--}}
+                            <th class="text-center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,7 +33,10 @@
                             </td>
                             <td>{!! $submission->user->username !!}</td>
                             <td>{!! $submission->created_at !!}</td>
-                            {{--<td>&nbsp;</td>--}}
+                            <td class="h4 text-center">
+                                <a href="{!! url('admin/submission/'.$submission->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
+                                <a href="#"><span class="fa fa-eye"></span></a>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>
@@ -42,7 +45,7 @@
                             <th colspan="2">Submission</th>
                             <th>Artist</th>
                             <th>Date Submitted</th>
-                            {{--<th>Actions</th>--}}
+                            <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -65,7 +68,7 @@
             "searching": false,
             "ordering": true,
             "info": true,
-            "autoWidth": false
+            "autoWidth": true
         });
     });
 </script>

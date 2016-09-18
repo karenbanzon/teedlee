@@ -33,4 +33,6 @@ Route::group(['middleware' => ['admin', 'https']], function() {
     Route::get('admin', 'Admin\IndexController@index');
     Route::get('admin/submissions', 'Admin\SubmissionController@index');
     Route::get('admin/submissions/{submission_status}', 'Admin\SubmissionController@byStatus');
+    Route::resource('admin/submission', 'Admin\SubmissionController');
+    Route::any('admin/submission/promote/{submission}/{status}', 'Admin\SubmissionController@promote');
 });

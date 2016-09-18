@@ -41,9 +41,6 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-//        return response()->json($request->all());
-//        return response()->json(['id' => $request->submission_id, 'rating' => $request->rating]);
-
         if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
             $model = (new \Teedlee\Models\Vote())
                         ->where('submission_id', $request->submission_id)

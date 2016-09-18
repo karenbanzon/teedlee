@@ -1,3 +1,16 @@
+.cover {
+    background-position: center;
+    background-size: cover;
+}
+
+.clr {
+    clear: both;
+}
+
+.pd10 {
+    padding: 10px;
+}
+
 .profile-detail .label {
     vertical-align: middle;
 }
@@ -44,4 +57,8 @@
 
 .slick-next {
     right: 5%;
+}
+
+.direct-chat-messages {
+    height: auto;
 }
