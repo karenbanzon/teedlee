@@ -65,6 +65,11 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{!! url('admin/user') !!}"><i class="fa fa-dashboard"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-cloud-upload"></i>
                         <span>Submissions</span>

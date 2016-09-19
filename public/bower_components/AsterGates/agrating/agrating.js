@@ -11,6 +11,7 @@
         var container = me.find('#ag-images');
         var stars = me.find('.star');
         var rating = me.find('input[name="rating"]');
+        var comment = me.find('textarea[name="comment"]');
         var vote = me.find('#ag-vote');
         var skip = me.find('#ag-skip');
         var token = me.find('input[name="_token"]').val();

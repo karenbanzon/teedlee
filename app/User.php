@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+//    protected $appends = ['group_name'];
+    protected $with = ['user_group'];
     use Notifiable;
 
     /**
@@ -37,6 +39,16 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function user_group()
+    {
+        return $this->belongsTo('\Teedlee\Models\UserGroup');
+    }
+
+//    public function getGroupNameAttribute()
+//    {
+//        return $this->user_group->name;
+//    }
 
     public function submissions()
     {
