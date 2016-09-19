@@ -17,8 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.user.index')->with('users', $users);
+        return view('admin.user.index')
+            ->with('users', User::all());
     }
 
     /**
@@ -39,7 +39,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request = $request->except('_token');
+        $user = \Teedlee\User::findOrNew($request['id']);
+
+        if( $request['id'] )
+        {
+            if( isset($request['password']) )
+            {
+                $request['password'] = \Hash::make($request['password']);
+            } else {
+                $request['password'] = $user->password;
+            }
+
+            $user->update($request);
+
+        } else {
+            if (isset($request['password'])) {
+                $request['password'] = \Hash::make($request['password']);
+            } else {
+                $request['password'] = \Hash::make('12345678');
+            }
+
+            $user->create($request);
+        }
+
+        return redirect('admin/user');
     }
 
     /**
@@ -59,9 +83,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user)
     {
-        //
+        return view('admin.user.edit')
+            ->with('cities', \Teedlee\Models\City::all()->pluck('name'))
+            ->with('provinces', \Teedlee\Models\Province::all()->pluck('name'))
+            ->with('user', $user);
     }
 
     /**
