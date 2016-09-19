@@ -30,7 +30,6 @@ class UserController extends Controller
     {
         $user = new \Teedlee\User();
         $user->user_group_id = 5;
-//        $user->user_group = new \Teedlee\Models\UserGroup();
         return $this->edit($user);
     }
 

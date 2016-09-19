@@ -48,6 +48,10 @@ class UserController extends BaseController
         $user = $this->model->find(\Auth::user()->id);
         $data = array_merge($user->toArray(), $data->toArray());
         $data['is_profile_complete']=1;
+        unset($data['user_group']);
+        unset($data['_token']);
+        unset($data['created_at']);
+        unset($data['updated_at']);
 
         if( $avatar = \Request::file('avatar') )
         {
