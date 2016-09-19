@@ -113,6 +113,7 @@ class Submission extends Model
     {
 //        Internal voting
         $submissions = $this
+            ->where('status', 'internal_voting')
             ->where('internal_voting_start', '<>', null)
             ->where('internal_voting_start', '<=', Carbon::parse($this->internal_voting_start)->addDays(7))
             ->get()
@@ -133,6 +134,7 @@ class Submission extends Model
 
 //        Public voting
         $submissions = $this
+            ->where('status', 'public_voting')
             ->where('public_voting_start', '<>', null)
             ->where('public_voting_start', '<=', Carbon::parse($this->public_voting_start)->addDays(7))
             ->get();

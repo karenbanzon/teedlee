@@ -99,8 +99,6 @@ class SubmissionController extends Controller
      */
     public function edit(Submission $submission)
     {
-//        dd($submission->toArray());
-
         return view('admin.submission.edit')
             ->with('submission', $submission)
             ->with('has_voted', false)
