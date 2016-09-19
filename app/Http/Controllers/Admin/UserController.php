@@ -28,7 +28,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = new \Teedlee\User();
+        $user->user_group_id = 5;
+//        $user->user_group = new \Teedlee\Models\UserGroup();
+        return $this->edit($user);
     }
 
     /**
@@ -86,8 +89,9 @@ class UserController extends Controller
     public function edit($user)
     {
         return view('admin.user.edit')
-            ->with('cities', \Teedlee\Models\City::all()->pluck('name'))
-            ->with('provinces', \Teedlee\Models\Province::all()->pluck('name'))
+            ->with('user_groups', \Teedlee\Models\UserGroup::all()->pluck('name', 'id'))
+            ->with('cities', \Teedlee\Models\City::all()->pluck('name', 'id'))
+            ->with('provinces', \Teedlee\Models\Province::all()->pluck('name', 'id'))
             ->with('user', $user);
     }
 

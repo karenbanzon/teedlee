@@ -8,7 +8,6 @@
         <div class="col-xs-12">
             {!! Form::model($user, ['url' => 'admin/user', 'class' => 'form-horizontal']) !!}
             {!! Form::hidden('id') !!}
-            {!! Form::hidden('user_group_id') !!}
             <div class="box box-primary">
                 <div class="box-body box-profile">
                     <div class="col-md-6">
@@ -22,8 +21,13 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
+                                    <label for="user_group_id" class="col-sm-3 control-label">Group</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::select('user_group_id', $user_groups, null, [ 'class' => "form-control" ]) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="email" class="col-sm-3 control-label">Email</label>
-
                                     <div class="col-sm-9">
                                         {!! Form::email('email', null, [ 'class' => "form-control" ]) !!}
                                     </div>
