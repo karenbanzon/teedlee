@@ -29,7 +29,13 @@
                                 <p>
                                     {!! $submission->title !!}
                                 </p>
-                                <small class="label alert-{!! $submission->status_style !!}">{!! $submission->shop_status !!}</small>
+                                <small class="label alert-{!! $submission->status_style !!}">{!! c($submission->status) !!}</small>
+                                @if( strpos($submission->status, 'internal_voting') !== false )
+                                <small class="label">{!! stars($submission->votes->internal->average) !!}</small>
+                                @endif
+                                @if( strpos($submission->status, 'public_voting') !== false )
+                                    <small class="label">{!! stars($submission->votes->public->average) !!}</small>
+                                @endif
                             </td>
                             <td>{!! $submission->user->username !!}</td>
                             <td>{!! $submission->created_at !!}</td>

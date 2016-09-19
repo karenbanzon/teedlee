@@ -53,7 +53,7 @@ class VoteController extends Controller
             } else {
                 \Teedlee\Models\Vote::create([
                     'user_id' => \Auth::user()->id,
-                    'type' => 'public',
+                    'type' => 'external',
                     'submission_id' => $request->submission_id*1,
                     'rating' => $request->rating*1,
                     'comment' => trim($request->comment),
