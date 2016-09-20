@@ -66,16 +66,14 @@ $(function () {
             appId: '173048843120426',
             version: 'v2.7' // or v2.1, v2.2, v2.3, ...
         });
-        $('#loginbutton,#feedbutton').removeAttr('disabled');
-        FB.getLoginStatus(updateStatusCallback);
-    });
 
-    FB.getLoginStatus(function() {
+        $('#loginbutton,#feedbutton').removeAttr('disabled');
+
+        // FB.getLoginStatus(updateStatusCallback);
     });
 
     $('.fb-share').on('click', function(e){
         var me = $(this);
-        alert(me.attr('href'));
         e.preventDefault();
         FB.ui({
             method: 'share',
