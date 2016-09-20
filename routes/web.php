@@ -1,10 +1,5 @@
 <?php
 
-Route::group(['middleware' => ['http']], function() {
-    Route::get('/', 'HomeController@index');
-    Route::get('shop/', 'ShopController@index');
-});
-
 Route::group(['middleware' => ['https']], function() {
     Route::post('auth', 'AuthController@index');
     Route::get('login', 'AuthController@login');
@@ -37,3 +32,12 @@ Route::group(['middleware' => ['admin', 'https']], function() {
     Route::any('admin/submission/promote/{submission}/{status}', 'Admin\SubmissionController@promote');
     Route::resource('admin/user', 'Admin\UserController');
 });
+
+Route::group(['middleware' => ['http']], function() {
+    Route::get('/', 'HomeController@index');
+    Route::get('shop/', 'ShopController@index');
+    Route::get('shop/', 'ShopController@index');
+    Route::get('{username}', 'UserController@show');
+});
+
+

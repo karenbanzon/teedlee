@@ -28,6 +28,14 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         \Route::model('user', 'Teedlee\User');
+        \Route::bind('username', function($username) {
+            if( $user = \Teedlee\User::whereUsername($username)->first() )
+            {
+                return $user;
+            } else {
+                abort(404, 'Page not found.');
+            }
+        });
         \Route::model('submission', 'Teedlee\Models\Submission');
         \Route::model('submissions', 'Teedlee\Models\Submission');
         \Route::model('vote', 'Teedlee\Models\Vote');

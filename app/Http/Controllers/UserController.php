@@ -65,6 +65,11 @@ class UserController extends BaseController
         return redirect()->back()->with('message', 'Profile successfully updated');
     }
 
+    public function show($user)
+    {
+        dd($user->toArray());
+    }
+
     public function send_activation_email(User $user)
     {
         $user->link = secure_url('user/activate/'.$user->id.'/'.sha1($user->email.$user->username));
