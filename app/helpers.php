@@ -14,7 +14,7 @@ function c($string)
 
 function stars($count)
 {
-    return str_repeat('<span class="fa fa-star text-yellow"></span>', $count);
+    return str_repeat('<span class="icon icon-star text-yellow"></span>', $count);
 }
 
 function shop_url($string)

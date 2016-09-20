@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-//    protected $appends = ['group_name'];
+    protected $appends = ['rating'];
     protected $with = ['user_group'];
     use Notifiable;
 
@@ -51,10 +51,32 @@ class User extends Authenticatable
         return $this->belongsTo('\Teedlee\Models\UserGroup');
     }
 
-//    public function getGroupNameAttribute()
-//    {
-//        return $this->user_group->name;
-//    }
+    public function getRatingAttribute()
+    {
+        $submissions = $this->submissions->where('status', 'publication');
+
+//        This simple query is too low
+        $rating = $submissions->avg('votes.internal.average');
+        $count = 1;
+
+        if( $public = $submissions->avg('votes.public.average') )
+        {
+            $rating = ($rating*2) + $public;
+            $count = 3;
+        }
+
+        return $rating / $count;
+
+//        ...going manual instead
+//        $rating = 0; $count = 0;
+//        foreach ( $submissions as $submission )
+//        {
+//            $rating += $submission->votes->internal->average*1 + $submission->votes->public->average*1;
+//            $count++;
+//        }
+
+//        return $count ? $rating / $count : 0;
+    }
 
     public function submissions()
     {

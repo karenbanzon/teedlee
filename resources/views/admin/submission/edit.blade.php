@@ -85,7 +85,22 @@
 
                 @elseif( $submission->status == 'publication' )
                     <div class="alert alert-info">
-                        <p>This item has been published and is now in production mode.</p>
+                        <p>
+                            This item has been published and is now in production mode.<br/>
+                            Don't forget to set the correct Shopify link below for this item.
+                        </p>
+                    </div>
+
+                    <div class="alert alert-info">
+                        {!! Form::open(['url'=>'admin/submission/'.$submission->id.'/shopify-link']) !!}
+                            {!! Form::label('shopify_link', 'Shopify link') !!}
+                            <div class="input-group">
+                                {!! Form::url('shopify_link', $submission->shopify_link, ['class' => 'form-control']) !!}
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-warning btn-flat">Submit</button>
+                                </span>
+                            </div>
+                        {!! Form::close() !!}
                     </div>
 
                 @elseif( strpos($submission->status, 'internal_voting') !== false || strpos($submission->status, 'orig_artwork') !== false)

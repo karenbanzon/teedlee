@@ -23,6 +23,18 @@ class SubmissionController extends Controller
     }
 
     /**
+     * Set link to Shopify product
+     * @param  \Teedlee\Models\Submission $submissions
+     * @return \Illuminate\Http\Response
+     */
+    public function shopify_link(Request $request, Submission $submission)
+    {
+        $submission->shopify_link = $request->shopify_link;
+        $submission->save();
+        return redirect()->back()->with('message', 'Shopify link successfully set for this item.');
+    }
+
+    /**
      * Display a listing of the resource by status.
      * @param  Collection $submissions
      * @return \Illuminate\Http\Response

@@ -67,10 +67,9 @@ class UserController extends BaseController
 
     public function show($user)
     {
-//        dd($user->toArray());
+//        dd($user->rating);
         return view('user/show')
-            ->with('user', $user)
-            ->with('submissions', $user->submissions->where('status', 'publication'));
+            ->with('user', $user);
     }
 
     public function send_activation_email(User $user)

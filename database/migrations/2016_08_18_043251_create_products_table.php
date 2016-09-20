@@ -18,11 +18,12 @@ class CreateProductsTable extends Migration
             $table->string('title', 50)->requried();
             $table->string('slug', 50)->requried();
             $table->longText('description');
-            $table->string('tags', 255)->default('');
+            $table->string('tags', 255)->nullable()->default(null);
             $table->decimal('price', 10, 2)->default(0);
-            $table->dateTime('internal_voting_start')->nullable();
-            $table->dateTime('public_voting_start')->nullable();
+            $table->dateTime('internal_voting_start')->nullable()->default(null);
+            $table->dateTime('public_voting_start')->nullable()->default(null);
             $table->enum('status', ['draft', 'submitted', 'internal_voting', 'internal_voting_fail', 'public_voting', 'public_voting_success', 'public_voting_fail', 'awaiting_orig_artwork', 'orig_artwork_submitted', 'publication', 'unavailable']);
+            $table->string('shopify_link')->default('http://teedlee.myshopify.com/');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
