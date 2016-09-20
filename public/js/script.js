@@ -60,6 +60,7 @@ $(function() {
 
 $(function () {
     $.ajaxSetup({ cache: true });
+
     $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
         FB.init({
             appId: '173048843120426',
@@ -67,6 +68,9 @@ $(function () {
         });
         $('#loginbutton,#feedbutton').removeAttr('disabled');
         FB.getLoginStatus(updateStatusCallback);
+    });
+
+    FB.getLoginStatus(function() {
     });
 
     $('.fb-share').on('click', function(e){
