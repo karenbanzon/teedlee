@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('title', 50)->requried();
-            $table->string('slug', 50)->requried();
+            $table->string('slug', 50)->nullable()->default(null);
             $table->longText('description');
             $table->string('tags', 255)->nullable()->default(null);
             $table->decimal('price', 10, 2)->default(0);
