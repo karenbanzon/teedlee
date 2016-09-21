@@ -23,7 +23,7 @@
         <nav class="header text-right ">
             <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
             <a href="{!! url('search') !!}" class="show-for-large"><span class="icon icon-search"></span></a>
-            <a href="{!! url('shop') !!}" class="show-for-large">Shop</a>
+            <a href="http://teedlee.myshopify.com" class="show-for-large">Shop</a>
             <a href="{!! url('submit') !!}" class="show-for-large">Submit</a>
             <a href="{!! url('vote') !!}" class="show-for-large">Vote</a>
 

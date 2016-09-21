@@ -69,7 +69,14 @@ class Submission extends Model
 
     public static function group(Collection $submissions = null)
     {
-        $response = [];
+        $response = [
+            'Published' => [],
+            'Pending Original Artwork' => [],
+            'For Voting' => [],
+            'Under Review' => [],
+            'Declined' => [],
+        ];
+
         $status = null;
 
         foreach( $submissions as $submission )
@@ -77,7 +84,7 @@ class Submission extends Model
             $response[$submission->shop_status][] = $submission;
         }
 
-        return $response;
+        return array_filter($response);
     }
 
     public function getVotesAttribute()
