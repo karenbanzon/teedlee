@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75e5f12e-551a-445d-9fca-f56eb83ac9fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Submission.php" afterPath="$PROJECT_DIR$/app/Models/Submission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Vote.php" afterPath="$PROJECT_DIR$/app/Models/Vote.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_18_071443_create_votes_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_18_071443_create_votes_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php" />
     </list>
     <ignored path="dev.teedlee.iws" />
@@ -28,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VoteController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VoteController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="666">
               <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
             </state>
@@ -48,12 +44,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="208" column="60" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
-              <folding />
+            <state relative-caret-position="283">
+              <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
+              <folding>
+                <element signature="e#10485#10491#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,10 +119,10 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_08_18_043251_create_products_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Submission.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SubmissionController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_18_071443_create_votes_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Vote.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -507,12 +505,12 @@
       <workItem from="1474363588296" duration="14747000" />
       <workItem from="1474419491719" duration="934000" />
       <workItem from="1474423528381" duration="486000" />
-      <workItem from="1474424197890" duration="6455000" />
+      <workItem from="1474424197890" duration="6980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100758000" />
+    <option name="totallyTimeSpent" value="101283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1313" height="744" extended-state="6" />
@@ -911,14 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="208" column="60" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Vote.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -929,9 +919,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="666">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
+          <folding>
+            <element signature="e#10485#10491#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

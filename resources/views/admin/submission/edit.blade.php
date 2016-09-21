@@ -171,6 +171,13 @@
                                         <div class="direct-chat-text">
                                             {!! stars($vote->rating) !!}
                                             {!! $vote->comment !!}
+                                            @if( $vote->flags )
+                                                <div class="clr">
+                                                @foreach( json_decode($vote->flags) as $flag )
+                                                    <small class="label bg-red">{!! $submission->flag_list[$flag-1] !!}</small>&nbsp;
+                                                @endforeach
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -188,13 +195,13 @@
                                     <label for="rating" class="col-sm-2 control-label">Rating</label>
                                     <div class="col-sm-2">
                                         <input type="number" min="1" max="5" class="form-control" name="rating"
-                                               value="3" placeholder="Rating">
+                                               value="3" placeholder="Rating" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="comment" class="col-sm-2 control-label">Comment</label>
                                     <div class="col-md-8">
-                                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5']) !!}
+                                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5', 'required' => 'required']) !!}
                                     </div>
                                 </div>
 
