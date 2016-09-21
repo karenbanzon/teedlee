@@ -8,7 +8,7 @@ class Vote extends Model
 {
     public $with = ['user'];
 
-    protected $fillable = ['user_id', 'submission_id', 'rating', 'type', 'comment', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'submission_id', 'rating', 'type', 'comment', 'flags', 'created_at', 'updated_at'];
 
     public function user()
     {

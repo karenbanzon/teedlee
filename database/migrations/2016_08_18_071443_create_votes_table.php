@@ -19,6 +19,7 @@ class CreateVotesTable extends Migration
             $table->unsignedInteger('submission_id')->required();
             $table->decimal('rating', 4, 2);
             $table->string('comment', 1024);
+            $table->string('flags')->nullable()->default(null);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

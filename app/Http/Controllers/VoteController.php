@@ -41,6 +41,8 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
             $model = (new \Teedlee\Models\Vote())
                         ->where('submission_id', $request->submission_id)
@@ -51,14 +53,16 @@ class VoteController extends Controller
             {
                 return response('You already rated this submission.', 500);
             } else {
-                \Teedlee\Models\Vote::create([
+                $data = [
                     'user_id' => \Auth::user()->id,
-                    'type' => 'external',
+                    'type' => $request->type ?: 'external',
                     'submission_id' => $request->submission_id*1,
                     'rating' => $request->rating*1,
                     'comment' => trim($request->comment),
+                    'flags' => $request->flags ? json_encode($request->flags) : null,
                     'created_at' => Carbon::now()->toDateTimeString(),
-                ]);
+                ];
+                \Teedlee\Models\Vote::create($data);
             }
             return response('Rating successful.', 200);
         } else {

@@ -12,6 +12,8 @@ class Submission extends Model
     protected $with = ['user','images'];
     protected $appends= ['shop_status', 'status_style', 'votes', 'internal_voting_end', 'public_voting_end' ];
 
+    public $flag_list = ['Copyright or trademark infringement', 'Extreme profanity', 'Pornography', 'Racism', 'Religious, political and gender affront'];
+
     public function user()
     {
         return $this->belongsTo('\Teedlee\User');

@@ -62,7 +62,7 @@
                                     @if( $submission->status == 'orig_artwork_submitted' || $submission->status == 'publication' )
                                         {!! Html::link(url('users/'.$submission->user_id.'/'.$submission->id.'.orig.psd'), 'Download') !!}
                                     @else
-                                    None
+                                        None
                                     @endif
                                 </span>
                             </li>
@@ -79,7 +79,7 @@
                             Do you wish to start the internal voting process for this submission?
                         </p>
                         <p><a href="{!! url('admin/submission/promote/'.$submission->id.'/internal_voting') !!}"
-                              class="btn btn-sm btn-primary">Yes, start internal voting</a></p>
+                              class="btn btn-sm btn-primary">Approve for Internal Voting</a></p>
                         <div class="clr"></div>
                     </div>
 
@@ -93,13 +93,13 @@
 
                     <div class="alert alert-info">
                         {!! Form::open(['url'=>'admin/submission/'.$submission->id.'/shopify-link']) !!}
-                            {!! Form::label('shopify_link', 'Shopify link') !!}
-                            <div class="input-group">
-                                {!! Form::url('shopify_link', $submission->shopify_link, ['class' => 'form-control']) !!}
-                                <span class="input-group-btn">
+                        {!! Form::label('shopify_link', 'Shopify link') !!}
+                        <div class="input-group">
+                            {!! Form::url('shopify_link', $submission->shopify_link, ['class' => 'form-control']) !!}
+                            <span class="input-group-btn">
                                     <button type="submit" class="btn btn-warning btn-flat">Submit</button>
                                 </span>
-                            </div>
+                        </div>
                         {!! Form::close() !!}
                     </div>
 
@@ -183,6 +183,7 @@
 
                                 {!! \Form::open(['url' => 'vote', 'class' => 'form-horizontal']) !!}
                                 {!! Form::hidden('submission_id', $submission->id) !!}
+                                {!! Form::hidden('type', 'internal') !!}
                                 <div class="form-group">
                                     <label for="rating" class="col-sm-2 control-label">Rating</label>
                                     <div class="col-sm-2">
@@ -192,70 +193,86 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="comment" class="col-sm-2 control-label">Comment</label>
-                                    <div class="col-sm-10">
-                                        {!! Form::textarea('comment') !!}
+                                    <div class="col-md-8">
+                                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5']) !!}
                                     </div>
                                 </div>
+
+                                {{--<div class="form-group">--}}
+                                    {{--<label class="col-sm-2 control-label">Flags</label>--}}
+                                {{--</div>--}}
+
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">&nbsp;</label>
+                                    @foreach($submission->flag_list as $index => $list)
+                                    <div class="col-sm-2">&nbsp;</div>
                                     <div class="col-sm-10">
-                                        <button class="btn btn-primary">Submit</button>
+                                        {!! Form::checkbox('flags[]', $index+1, null) !!}
+                                        {!! $list !!}
                                     </div>
+                                    @endforeach
                                 </div>
-                                {!! Form::close() !!}
-                            @endif
-
                         </div>
-                        <div class="box-footer text-bold">
-                            Average
-                            Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
-                            ({!! round($rating/($index+1), 2) !!})
-                        </div>
-                        <div class="clr"></div>
                     </div>
-
-                @elseif( strpos($submission->status, 'public_voting') !== false )
-                    <div class="box box-primary">
-                        <div class="box-header with-border text-bold">
-                            Public Votes
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">&nbsp;</label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary">Submit</button>
                         </div>
-                        <div class="box-body">
-                            <?php $vote = 0; ?>
-                            @foreach( $submission->votes->public->items as $index => $vote )
-                                <?php
-                                $rating += $vote->rating;
-                                ?>
-                                <div class="direct-chat-messages">
-                                    <div class="direct-chat-msg {!! $index % 2 == 0 ? 'left' : 'right' !!}">
-                                        <div class="direct-chat-info clearfix">
-                                            <span class="direct-chat-name pull-{!! $index % 2 == 0 ? 'left' : 'right' !!}">{!! $vote->user->username !!}</span>
-                                            <span class="direct-chat-timestamp pull-{!! $index % 2 == 0 ? 'right' : 'left' !!}">
-                                            {!! $vote->created_at !!}
-                                        </span>
-                                        </div>
-                                        <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="{!! $vote->user->avatar !!}"
-                                             alt="Message User Image"><!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            {!! stars($vote->rating) !!}
-                                            {!! $vote->comment !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="box-footer text-bold">
-                            Average
-                            Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
-                            ({!! round($rating/($index+1), 2) !!})
-                        </div>
-                        <div class="clr"></div>
                     </div>
+                    {!! Form::close() !!}
                 @endif
+
+            </div>
+            <div class="box-footer text-bold">
+                Average
+                Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
+                ({!! round($rating/($index+1), 2) !!})
             </div>
             <div class="clr"></div>
         </div>
-        <div class="clr"></div>
+
+        @elseif( strpos($submission->status, 'public_voting') !== false )
+            <div class="box box-primary">
+                <div class="box-header with-border text-bold">
+                    Public Votes
+                </div>
+                <div class="box-body">
+                    <?php $vote = 0; ?>
+                    @foreach( $submission->votes->public->items as $index => $vote )
+                        <?php
+                        $rating += $vote->rating;
+                        ?>
+                        <div class="direct-chat-messages">
+                            <div class="direct-chat-msg {!! $index % 2 == 0 ? 'left' : 'right' !!}">
+                                <div class="direct-chat-info clearfix">
+                                    <span class="direct-chat-name pull-{!! $index % 2 == 0 ? 'left' : 'right' !!}">{!! $vote->user->username !!}</span>
+                                    <span class="direct-chat-timestamp pull-{!! $index % 2 == 0 ? 'right' : 'left' !!}">
+                                            {!! $vote->created_at !!}
+                                        </span>
+                                </div>
+                                <!-- /.direct-chat-info -->
+                                <img class="direct-chat-img" src="{!! $vote->user->avatar !!}"
+                                     alt="Message User Image"><!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    {!! stars($vote->rating) !!}
+                                    {!! $vote->comment !!}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="box-footer text-bold">
+                    Average
+                    Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
+                    ({!! round($rating/($index+1), 2) !!})
+                </div>
+                <div class="clr"></div>
+            </div>
+            @endif
+            </div>
+            <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
     </section>
 @endsection
 
