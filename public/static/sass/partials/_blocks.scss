@@ -114,3 +114,76 @@ footer {
 	@extend .background-platinum;
 	margin-top: 60px;
 }
+
+
+// Full Screen Slider
+
+#slides {
+  position: relative;
+  .slides-container {
+    display: none;
+  }
+  .scrollable {
+    @extend .clearfix;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+  }
+}
+
+// Optional
+.slides-navigation {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  top: 46%;
+  width: 100%;
+  a {
+  	@extend .padding-10;
+  	color: $white;
+    position: absolute;
+    display: block;
+    font-size: 4rem;
+    &.prev {
+      left: 0;
+    }
+    &.next {
+      right: 0;
+    }
+  }
+}
+.slides-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  a {
+    border: 2px solid #222;
+    border-radius: 15px;
+    width: 10px;
+    height: 10px;
+    @include inline-block;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
+    margin: 2px;
+    overflow: hidden;
+    text-indent: -100%;
+    &.current {
+      background: #222;
+    }
+  }
+}
+.slides-overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	h1 { margin-top: 325px; }
+	h1, p { color: $white; }
+}

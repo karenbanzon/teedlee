@@ -22,6 +22,11 @@
 						<li><a href="template-user-page.php">Public Profile</a></li>
 						<li><a href="template-voting.php">Voting</a></li>
 					</ul>
+					<li>Error Pages</li>
+					<ul>
+						<li><a href="template-404.php">404</a></li>
+						<li><a href="template-403.php">403</a></li>
+					</ul>
 				</ul>
 			</div>
 		</section>

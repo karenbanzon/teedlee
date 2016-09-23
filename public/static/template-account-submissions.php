@@ -60,6 +60,7 @@
 				</div>
 				<div class="margin-top-20 card small-12">
 					<h6>Pending original artwork</h6>
+					<small>Original artwork should be in <span class="label-pill hollow">PSD</span> , <span class="label-pill hollow">AI</span> , or <span class="label-pill hollow">EPS</span>. Maximum file size is <strong>20MB</strong>.</small>
 					<table style="width: 100%;">
 						<thead>
 							<tr>

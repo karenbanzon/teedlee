@@ -4,6 +4,7 @@
 
 .card {
 	@extend .float-left;
+	&.borderless .card-container { border: none; }
 	.card-container {
 		@extend .margin-10;
 		@extend .overflow-hidden;

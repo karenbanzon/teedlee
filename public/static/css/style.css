@@ -170,7 +170,7 @@
 }
 
 /* line 57, ../sass/partials/_utility.scss */
-.padding-10, .row > *, .dropdown-menu a, input, textarea, select, table th, table td, figcaption, pre, header nav a, .account-nav a, .account-nav-small a, .profile-detail .profile-entry, .vote-actions a.star, .card .card-header, .card .card-body, .card .card-actions, .search-bar, .alert {
+.padding-10, .row > *, .dropdown-menu a, input, textarea, select, table th, table td, figcaption, pre, header nav a, .account-nav a, .account-nav-small a, .profile-detail .profile-entry, .vote-actions a.star, .slides-navigation a, .card .card-header, .card .card-body, .card .card-actions, .search-bar, .alert {
   padding: 10px;
 }
 
@@ -682,7 +682,7 @@ blockquote:after, .blockquote:after {
 }
 
 /* line 92, ../sass/partials/_icons.scss */
-.icon-chevron-left:before {
+.icon-left:before {
   content: "";
 }
 
@@ -788,13 +788,13 @@ img {
 }
 
 /* line 12, ../sass/partials/_grid.scss */
-.clearfix:before, hr:before, .clearfix:after, hr:after {
+.clearfix:before, hr:before, #slides .scrollable:before, .clearfix:after, hr:after, #slides .scrollable:after {
   content: " ";
   display: table;
 }
 
 /* line 15, ../sass/partials/_grid.scss */
-.clearfix:after, hr:after {
+.clearfix:after, hr:after, #slides .scrollable:after {
   clear: both;
 }
 
@@ -3729,72 +3729,166 @@ footer {
   margin-top: 60px;
 }
 
+/* line 121, ../sass/partials/_blocks.scss */
+#slides {
+  position: relative;
+}
+/* line 123, ../sass/partials/_blocks.scss */
+#slides .slides-container {
+  display: none;
+}
+/* line 126, ../sass/partials/_blocks.scss */
+#slides .scrollable {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+
+/* line 138, ../sass/partials/_blocks.scss */
+.slides-navigation {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  top: 46%;
+  width: 100%;
+}
+/* line 144, ../sass/partials/_blocks.scss */
+.slides-navigation a {
+  color: #fff;
+  position: absolute;
+  display: block;
+  font-size: 4rem;
+}
+/* line 150, ../sass/partials/_blocks.scss */
+.slides-navigation a.prev {
+  left: 0;
+}
+/* line 153, ../sass/partials/_blocks.scss */
+.slides-navigation a.next {
+  right: 0;
+}
+
+/* line 158, ../sass/partials/_blocks.scss */
+.slides-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+/* line 164, ../sass/partials/_blocks.scss */
+.slides-pagination a {
+  border: 2px solid #222;
+  border-radius: 15px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=");
+  margin: 2px;
+  overflow: hidden;
+  text-indent: -100%;
+}
+/* line 174, ../sass/partials/_blocks.scss */
+.slides-pagination a.current {
+  background: #222;
+}
+
+/* line 179, ../sass/partials/_blocks.scss */
+.slides-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 187, ../sass/partials/_blocks.scss */
+.slides-overlay h1 {
+  margin-top: 325px;
+}
+/* line 188, ../sass/partials/_blocks.scss */
+.slides-overlay h1, .slides-overlay p {
+  color: #fff;
+}
+
 /* line 7, ../sass/partials/_molecules.scss */
+.card.borderless .card-container {
+  border: none;
+}
+/* line 8, ../sass/partials/_molecules.scss */
 .card .card-container {
   border: 1px solid #e7e7e7;
 }
-/* line 17, ../sass/partials/_molecules.scss */
+/* line 18, ../sass/partials/_molecules.scss */
 .card .card-body, .card .card-actions {
   width: 100%;
 }
-/* line 21, ../sass/partials/_molecules.scss */
+/* line 22, ../sass/partials/_molecules.scss */
 .card img {
   width: 100%;
 }
 
-/* line 27, ../sass/partials/_molecules.scss */
+/* line 28, ../sass/partials/_molecules.scss */
 .card-body.item .item-details {
   border-top: 1px solid #e7e7e7;
 }
 
-/* line 38, ../sass/partials/_molecules.scss */
+/* line 39, ../sass/partials/_molecules.scss */
 .search-bar input {
   border: none;
   font-size: 1.25em;
   width: 75%;
 }
-/* line 42, ../sass/partials/_molecules.scss */
+/* line 43, ../sass/partials/_molecules.scss */
 .search-bar input:focus {
   box-shadow: none;
 }
-/* line 51, ../sass/partials/_molecules.scss */
+/* line 52, ../sass/partials/_molecules.scss */
 .search-bar .search-field .dropdown {
   margin-right: -15px;
 }
 
-/* line 66, ../sass/partials/_molecules.scss */
+/* line 67, ../sass/partials/_molecules.scss */
 .alert:hover {
   background: #3d3d3d;
   color: #ffffff;
 }
-/* line 70, ../sass/partials/_molecules.scss */
+/* line 71, ../sass/partials/_molecules.scss */
 .alert.hollow {
   border: 1px solid #333333;
 }
-/* line 77, ../sass/partials/_molecules.scss */
+/* line 78, ../sass/partials/_molecules.scss */
 .alert.success:hover {
   background: #b4bc14;
   color: #ffffff;
 }
-/* line 81, ../sass/partials/_molecules.scss */
+/* line 82, ../sass/partials/_molecules.scss */
 .alert.success.hollow {
   border: 1px solid #aab20a;
 }
-/* line 89, ../sass/partials/_molecules.scss */
+/* line 90, ../sass/partials/_molecules.scss */
 .alert.warning:hover {
   background: #f7801c;
   color: #ffffff;
 }
-/* line 93, ../sass/partials/_molecules.scss */
+/* line 94, ../sass/partials/_molecules.scss */
 .alert.warning.hollow {
   border: 1px solid #ed7612;
 }
-/* line 101, ../sass/partials/_molecules.scss */
+/* line 102, ../sass/partials/_molecules.scss */
 .alert.error:hover {
   background: #df2940;
   color: #ffffff;
 }
-/* line 105, ../sass/partials/_molecules.scss */
+/* line 106, ../sass/partials/_molecules.scss */
 .alert.error.hollow {
   border: 1px solid #d51f36;
 }
