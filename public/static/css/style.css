@@ -160,7 +160,7 @@
 }
 
 /* line 55, ../sass/partials/_utility.scss */
-.padding-0, button.tiny, .button.tiny, html, body {
+.padding-0, html, body {
   padding: 0px;
 }
 
@@ -190,7 +190,7 @@
 }
 
 /* line 61, ../sass/partials/_utility.scss */
-.padding-top-5, button.small, .button.small, .search-bar .search-field .dropdown {
+.padding-top-5, button.small, .button.small, button.tiny, .button.tiny, .search-bar .search-field .dropdown {
   padding-top: 5px;
 }
 
@@ -205,17 +205,17 @@
 }
 
 /* line 64, ../sass/partials/_utility.scss */
-.padding-bottom-5, button.small, .button.small {
+.padding-bottom-5, button.small, .button.small, button.tiny, .button.tiny {
   padding-bottom: 5px;
 }
 
 /* line 65, ../sass/partials/_utility.scss */
-.padding-left-20, button, .button {
+.padding-left-20, button, .button, button.small, .button.small {
   padding-left: 20px;
 }
 
 /* line 66, ../sass/partials/_utility.scss */
-.padding-left-10, button.small, .button.small, button.tiny, .button.tiny {
+.padding-left-10, button.tiny, .button.tiny {
   padding-left: 10px;
 }
 
@@ -225,12 +225,12 @@
 }
 
 /* line 68, ../sass/partials/_utility.scss */
-.padding-right-20, button, .button {
+.padding-right-20, button, .button, button.small, .button.small {
   padding-right: 20px;
 }
 
 /* line 69, ../sass/partials/_utility.scss */
-.padding-right-10, button.small, .button.small, button.tiny, .button.tiny {
+.padding-right-10, button.tiny, .button.tiny {
   padding-right: 10px;
 }
 
@@ -496,7 +496,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.25em;
   letter-spacing: 0.1em;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  font-weight: bold;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3319,7 +3318,6 @@ button, .button {
   -webkit-transition: background, 0.2s;
   transition: background, 0.2s;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  font-weight: bold;
   font-size: 1rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
@@ -3329,62 +3327,62 @@ button, .button {
 button.tiny, .button.tiny {
   font-size: 0.8125rem;
 }
-/* line 44, ../sass/partials/_atoms.scss */
+/* line 45, ../sass/partials/_atoms.scss */
 button:hover, button:focus, .button:hover, .button:focus {
   background: #ffc934;
 }
-/* line 51, ../sass/partials/_atoms.scss */
+/* line 52, ../sass/partials/_atoms.scss */
 button.error:hover, button.error:focus, .button.error:hover, .button.error:focus {
   background: #e9334a;
 }
-/* line 56, ../sass/partials/_atoms.scss */
+/* line 57, ../sass/partials/_atoms.scss */
 button.warning:hover, button.warning:focus, .button.warning:hover, .button.warning:focus {
   background: #ff8a26;
 }
-/* line 61, ../sass/partials/_atoms.scss */
+/* line 62, ../sass/partials/_atoms.scss */
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
   background: #bec61e;
 }
-/* line 66, ../sass/partials/_atoms.scss */
+/* line 67, ../sass/partials/_atoms.scss */
 button.neutral:hover, button.neutral:focus, .button.neutral:hover, .button.neutral:focus {
   background: #474747;
 }
-/* line 69, ../sass/partials/_atoms.scss */
+/* line 70, ../sass/partials/_atoms.scss */
 button.disabled, .button.disabled {
   cursor: default;
 }
-/* line 72, ../sass/partials/_atoms.scss */
+/* line 73, ../sass/partials/_atoms.scss */
 button.disabled:hover, button.disabled:focus, .button.disabled:hover, .button.disabled:focus {
   background: #aaa;
 }
-/* line 75, ../sass/partials/_atoms.scss */
+/* line 76, ../sass/partials/_atoms.scss */
 button.white, .button.white {
   border: 1px solid #aaa;
 }
-/* line 79, ../sass/partials/_atoms.scss */
+/* line 80, ../sass/partials/_atoms.scss */
 button.white:hover, button.white:focus, .button.white:hover, .button.white:focus {
   border: 1px solid #333333;
 }
 
-/* line 93, ../sass/partials/_atoms.scss */
+/* line 94, ../sass/partials/_atoms.scss */
 .button-group {
   padding: 10px 0;
 }
-/* line 95, ../sass/partials/_atoms.scss */
+/* line 96, ../sass/partials/_atoms.scss */
 .button-group button, .button-group .button {
   margin-right: -6px;
 }
-/* line 97, ../sass/partials/_atoms.scss */
+/* line 98, ../sass/partials/_atoms.scss */
 .button-group button.white:hover, .button-group button.white:focus, .button-group .button.white:hover, .button-group .button.white:focus {
   border-color: #aaa;
 }
 
-/* line 110, ../sass/partials/_atoms.scss */
+/* line 111, ../sass/partials/_atoms.scss */
 .dropdown {
   position: relative;
 }
 
-/* line 115, ../sass/partials/_atoms.scss */
+/* line 116, ../sass/partials/_atoms.scss */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -3404,21 +3402,21 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
   font-size: 1rem;
   letter-spacing: 0.1em;
 }
-/* line 133, ../sass/partials/_atoms.scss */
+/* line 134, ../sass/partials/_atoms.scss */
 .dropdown-menu.right {
   right: 0;
   left: auto;
 }
-/* line 138, ../sass/partials/_atoms.scss */
+/* line 139, ../sass/partials/_atoms.scss */
 .dropdown-menu a {
   border-bottom: 1px solid #e7e7e7;
 }
-/* line 152, ../sass/partials/_atoms.scss */
+/* line 153, ../sass/partials/_atoms.scss */
 .dropdown-menu.small a {
   font-size: 0.8125rem;
 }
 
-/* line 161, ../sass/partials/_atoms.scss */
+/* line 162, ../sass/partials/_atoms.scss */
 .label-pill {
   -moz-transition: background, 0.2s;
   -o-transition: background, 0.2s;
@@ -3430,31 +3428,31 @@ button.white:hover, button.white:focus, .button.white:hover, .button.white:focus
   text-transform: uppercase;
   font-weight: bold;
 }
-/* line 172, ../sass/partials/_atoms.scss */
+/* line 173, ../sass/partials/_atoms.scss */
 .label-pill:before {
   content: "\25CF";
   font-size: 0.8125rem;
   padding-right: 5px;
 }
-/* line 180, ../sass/partials/_atoms.scss */
+/* line 181, ../sass/partials/_atoms.scss */
 .label-pill.hollow {
   border: 1px solid #333333;
 }
-/* line 184, ../sass/partials/_atoms.scss */
+/* line 185, ../sass/partials/_atoms.scss */
 .label-pill.hollow.success {
   border: 1px solid #aab20a;
 }
-/* line 189, ../sass/partials/_atoms.scss */
+/* line 190, ../sass/partials/_atoms.scss */
 .label-pill.hollow.warning {
   border: 1px solid #ed7612;
 }
-/* line 194, ../sass/partials/_atoms.scss */
+/* line 195, ../sass/partials/_atoms.scss */
 .label-pill.hollow.error {
   border: 1px solid #d51f36;
 }
 
 @media screen and (max-width: 63.9375em) {
-  /* line 203, ../sass/partials/_atoms.scss */
+  /* line 204, ../sass/partials/_atoms.scss */
   button, .button, .dropdown-menu {
     font-size: 2rem;
     padding: 24px;

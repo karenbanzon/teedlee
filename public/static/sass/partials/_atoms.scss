@@ -16,7 +16,7 @@ button, .button {
 	@extend .background-yellow;
 	@extend .text-white;
 	font-family: $headercopy;
-	font-weight: bold;
+	// font-weight: bold;
 	font-size: 1rem;
 	letter-spacing: 0.1rem;
 	text-transform: uppercase;
@@ -25,12 +25,13 @@ button, .button {
 	&.small {
 		@extend .padding-top-5;
 		@extend .padding-bottom-5;
-		@extend .padding-left-10;
-		@extend .padding-right-10;
+		@extend .padding-left-20;
+		@extend .padding-right-20;
 	}
 
 	&.tiny {
-		@extend .padding-0;
+		@extend .padding-top-5;
+		@extend .padding-bottom-5;
 		@extend .padding-left-10;
 		@extend .padding-right-10;
 		font-size: 0.8125rem;
