@@ -1,3 +1,12 @@
+//Wrapper
+#site-wrapper {
+    min-height:100%;
+}
+
+#site-canvas {
+    padding-bottom: 100px;
+}
+
 //Header
 
 header {
@@ -112,7 +121,15 @@ header {
 
 footer {
 	@extend .background-platinum;
-	margin-top: 60px;
+	// margin-top: 60px;
+    position:absolute;
+    width: 100%;
+    bottom:0;
+    left:0;
+    a {
+        color: $neutral;
+        padding: 0 20px;
+    }
 }
 
 
