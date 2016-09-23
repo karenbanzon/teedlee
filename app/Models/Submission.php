@@ -24,6 +24,12 @@ class Submission extends Model
         return $this->hasMany('\Teedlee\Models\SubmissionImage');
     }
 
+    public function flags()
+    {
+        return \Teedlee\Models\Vote::where('submission_id', $this->id)
+            ->where('flags', '<>', null)->get();
+    }
+
     public function getShopStatusAttribute()
     {
         if( in_array($this->status, ['submitted', 'submitted_orig_artwork']) ) {
@@ -130,9 +136,16 @@ class Submission extends Model
 
         foreach ( $submissions as $submission )
         {
-            if($submission->votes->internal->average < 3.5)
+            if($submission->flags()->count())
             {
-                $status = 'public_voting';
+                $status = 'internal_voting_fail';
+
+            } else if($submission->votes->internal->average < 3.5) {
+                $status = 'internal_voting_fail';
+
+            } else if($submission->votes->internal->average < 3.5)
+            {
+                $status = 'internal_voting';
             } else {
                 $status = 'awaiting_orig_artwork';
             }

@@ -60,7 +60,7 @@
                             <li class="list-group-item">
                                 <b>Orig Artwork</b> <span class="pull-right">
                                     @if( $submission->status == 'orig_artwork_submitted' || $submission->status == 'publication' )
-                                        {!! Html::link(url('users/'.$submission->user_id.'/'.$submission->id.'.orig.psd'), 'Download') !!}
+                                        {!! Html::link(url('users/'.$submission->user_id.'/'.$submission->id.'.orig.psd'), 'Download', ['target' => '_blank']) !!}
                                     @else
                                         None
                                     @endif
@@ -95,10 +95,13 @@
                         {!! Form::open(['url'=>'admin/submission/'.$submission->id.'/shopify-link']) !!}
                         {!! Form::label('shopify_link', 'Shopify link') !!}
                         <div class="input-group">
+                            <span class="input-group-btn">
+                                <a href="{!! $submission->shopify_link !!}" class="btn btn-default btn-flat text-black" target="_blank"><span class="fa fa-eye"></span></a>
+                            </span>
                             {!! Form::url('shopify_link', $submission->shopify_link, ['class' => 'form-control']) !!}
                             <span class="input-group-btn">
                                     <button type="submit" class="btn btn-warning btn-flat">Submit</button>
-                                </span>
+                            </span>
                         </div>
                         {!! Form::close() !!}
                     </div>
@@ -107,8 +110,8 @@
 
                     @if($submission->status == 'internal_voting_fail')
                         <div class="alert alert-danger">
-                            <p>Internal voting has failed for this item and was rejected
-                                ({!! $submission->votes->internal->average !!} stars).</p>
+                            <p>Internal voting has failed for this item and was rejected:
+                                {!! $submission->votes->internal->average !!} starred, {!! $flags !!} flagged.</p>
                             <div class="clr"></div>
                         </div>
 
@@ -188,7 +191,7 @@
                                     <p>You haven't cast your vote for this submission yet.</p>
                                 </div>
 
-                                {!! \Form::open(['url' => 'vote', 'class' => 'form-horizontal']) !!}
+                                {!! Form::open(['url' => 'vote', 'class' => 'form-horizontal']) !!}
                                 {!! Form::hidden('submission_id', $submission->id) !!}
                                 {!! Form::hidden('type', 'internal') !!}
                                 <div class="form-group">
@@ -198,6 +201,7 @@
                                                value="3" placeholder="Rating" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="comment" class="col-sm-2 control-label">Comment</label>
                                     <div class="col-md-8">
@@ -228,8 +232,8 @@
                     </div>
                     {!! Form::close() !!}
                 @endif
-
             </div>
+
             <div class="box-footer text-bold">
                 Average
                 Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
@@ -276,9 +280,30 @@
                 <div class="clr"></div>
             </div>
             @endif
+
+            <div class="box box-warning">
+                <div class="box-header with-border text-bold">
+                    Contact the Artist
+                </div>
+
+                <div class="box-body">
+                    {!! Form::open(['url' => 'message']) !!}
+                        {!! Form::hidden('user_id', $submission->user_id) !!}
+                        {!! Form::hidden('submission_id', $submission->id) !!}
+                        <div class="form-group">
+                            {!! Form::text('subject', null, ['class' => 'form-control', 'placeholder' => 'Subject']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::textarea('message', null, ['class' => 'form-control', 'placeholder' => 'Message']) !!}
+                        </div>
+                        <button class="btn btn-primary">Send</button>
+                    {!! Form::close() !!}
+                </div>
+
+                <div class="clr"></div>
             </div>
+
             <div class="clr"></div>
-            </div>
             <div class="clr"></div>
     </section>
 @endsection

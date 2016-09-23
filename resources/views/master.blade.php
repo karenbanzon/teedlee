@@ -20,12 +20,12 @@
             <footer class="text-center padding-20">
                 Copyright &copy; 2016, Teedlee Arts Inc.
             </footer>
-
-            {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
-            {!! Html::script('js/ui.js') !!}
-            @yield('scripts')
-            {!! Html::script('js/script.js') !!}
         </div>
     </div>
+
+    {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
+    {!! Html::script('js/ui.js') !!}
+    @yield('scripts')
+    {!! Html::script('js/script.js') !!}
 </body>
 </html>

@@ -113,6 +113,7 @@ class SubmissionController extends Controller
     {
         return view('admin.submission.edit')
             ->with('submission', $submission)
+            ->with('flags', $submission->flags()->count())
             ->with('has_voted', false)
             ->with('rating', 0)
             ;
