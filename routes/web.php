@@ -35,7 +35,7 @@ Route::group(['middleware' => ['admin', 'https']], function() {
 });
 
 Route::group(['middleware' => ['http']], function() {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('shop/', 'ShopController@index');
     Route::get('shop/', 'ShopController@index');
     Route::get('{username}', 'UserController@show');

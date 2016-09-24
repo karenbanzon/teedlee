@@ -21,7 +21,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
     <header class="main-header">
         <!-- Logo -->
         <a href="{!! url('admin') !!}" class="logo">
@@ -66,7 +65,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{!! url('admin/user') !!}"><i class="fa fa-dashboard"></i>
+                    <a href="{!! url('admin/user') !!}"><i class="fa fa-users"></i>
                         <span>Users</span>
                     </a>
                 </li>

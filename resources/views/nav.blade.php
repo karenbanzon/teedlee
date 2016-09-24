@@ -18,7 +18,7 @@
     </nav>
 </div>
 
-<header>
+<header id="main-header">
     <section class="row">
         <nav class="header text-right ">
             <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>

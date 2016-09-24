@@ -12,11 +12,12 @@
         <div id="site-canvas">
             @include('nav')
             @include('alerts')
-
-            <section class="row">
+            @if( \Route::is('home') )
+                @include('home.slider')
+            @endif
+            <section class="row after-header">
                 @yield('content')
             </section>
-
             <footer class="text-center padding-20">
                 Copyright &copy; 2016, Teedlee Arts Inc.
             </footer>
