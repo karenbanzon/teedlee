@@ -104,12 +104,21 @@ class UserController extends BaseController
 
     public function artwork(Request $request, \Teedlee\Models\Submission $submission)
     {
-        if( $file = \Request::file('artwork') )
-        {
-            $filename = $submission->id.'.orig.psd';
-            $file->move(public_path('users'.DIRECTORY_SEPARATOR.\Auth::user()->id), $filename);
-            $submission->status = 'orig_artwork_submitted';
-            $submission->save();
+        $request->request->add([
+            'id' => $submission->id,
+            'status' => 'orig_artwork_submitted'
+        ]);
+
+//        dd($request->toArray());
+
+        if( $this->validate($request, $submission->rules('artwork')) ) {
+
+            if ($file = \Request::file('artwork')) {
+                $filename = $submission->id . '.orig.'.$file->extension();
+                $file->move(public_path('users' . DIRECTORY_SEPARATOR . \Auth::user()->id), $filename);
+                $submission->status = $request->status;
+                $submission->save();
+            }
         }
 
         return redirect('user/submissions');

@@ -48,7 +48,7 @@
                                 <a href="{!! shop_url($submission->title) !!}" class="button tiny white">View in shop</a>
                                 @elseif( $submission->shop_status == 'Pending Original Artwork' )
                                 <a href="#" class="button tiny white upload-trigger" rel="#artwork-{!! $submission->id !!}" data-id="{!! $submission->id !!}">Submit</a>
-                                {!! Form::file('artwork', ['class' => 'hidden hide', 'accept' => '.psd', 'id' => 'artwork-'.$submission->id]) !!}
+                                {!! Form::file('artwork', ['class' => 'hidden hide', 'accept' => '.psd,.ai,eps', 'id' => 'artwork-'.$submission->id]) !!}
                                 @endif
                                 {!! Form::close() !!}
                             </td>

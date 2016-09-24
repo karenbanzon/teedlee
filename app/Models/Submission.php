@@ -14,6 +14,19 @@ class Submission extends Model
 
     public $flag_list = ['Copyright or trademark infringement', 'Extreme profanity', 'Pornography', 'Racism', 'Religious, political and gender affront'];
 
+    public function rules($rule)
+    {
+        $rules = [
+            'artwork' => [
+                'id' => 'required|exists:submissions',
+                'artwork' => 'required|mimes:psd,ai,eps',
+                'status' => 'required',
+            ],
+        ];
+
+        return $rules[$rule];
+    }
+
     public function user()
     {
         return $this->belongsTo('\Teedlee\User');
