@@ -1,3 +1,10 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
 #main-header {
     border-bottom: 1px solid #e7e7e7;
     z-index: 1000;
@@ -74,3 +81,6 @@
     height: auto;
 }
 
+.site-canvas {
+    min-height: 100%;
+}

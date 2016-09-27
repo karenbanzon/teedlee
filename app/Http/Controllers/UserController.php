@@ -67,7 +67,7 @@ class UserController extends BaseController
 
     public function show($user)
     {
-//        dd($user->rating);
+//        dd($user->toArray());
         return view('user/show')
             ->with('user', $user);
     }

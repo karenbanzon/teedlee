@@ -1,7 +1,7 @@
-@extends('master');
+@extends('master')
 
 @section('content')
-    @include('fb');
+    @include('fb')
     <section class="row">
         <div class="small-12 large-8 large-offset-2">
             <hr>
@@ -14,7 +14,7 @@
             </div>
             <div class="small-6 columns">
                 <p><strong>Joined</strong>: {!! $user->created_at !!}</p>
-                <p><strong>Average score</strong>: {!! $user->rating !!} {!! stars($user->rating*1) !!} </p>
+                <p><strong>Average score</strong>: {!! $user->rating() !!} {!! stars($user->rating()*1) !!} </p>
             </div>
         </div>
         <div class="small-12 columns">
@@ -36,7 +36,9 @@
                 </div>
             </div>
             @endforeach
-
+            <div class="clr"></div>
         </div>
+        <div class="clr"></div>
     </section>
+    <div class="clr"></div>
 @endsection
