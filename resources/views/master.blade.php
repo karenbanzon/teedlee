@@ -18,7 +18,6 @@
             <section class="row after-header">
                 @yield('content')
             </section>
-            {{--<div class="clr after-header">&nbsp;</div>--}}
         </div>
         @include('footer')
     </div>

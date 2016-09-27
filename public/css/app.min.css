@@ -7,8 +7,8 @@ body, html {
 
 #main-header {
     border-bottom: 1px solid #e7e7e7;
-    z-index: 1000;
-    position: absolute;
+    /*z-index: 1000;*/
+    /*position: absolute;*/
     width: 100%;
 }
 
