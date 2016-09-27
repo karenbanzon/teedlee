@@ -14,7 +14,7 @@
         </div>
         <div class="small-12">
             @include('user/sidebar')
-            <div class="card small-8 large-12">
+            <div class="card small-12 large-8">
                 {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
                 <input type="hidden" value="PUT" name="_method">
                 <div class="card small-12 medium-10 padding-20">
