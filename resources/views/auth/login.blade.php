@@ -18,11 +18,11 @@
                         {!! Form::hidden('redirect', $redirect) !!}
                         <div class="form-field block">
                             <label>Username/Email</label>
-                            <input type="text" name="email" placeholder="johndoe" required>
+                            <input type="text" name="email" placeholder="mail@server.com" required>
                         </div>
                         <div class="form-field block">
                             <label>Password</label>
-                            <input type="password" name="password" required>
+                            <input type="password" name="password" placeholder="Password" required>
                         </div>
                         <button type="submit" class="pull-left">Login</button>
                     {!! Form::close() !!}

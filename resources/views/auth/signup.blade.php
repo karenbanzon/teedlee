@@ -17,7 +17,7 @@
                     {!! Form::open(['url' => 'user/create']) !!}
                         <div class="form-field block">
                             <label>Desired Username</label>
-                            <input type="text" name="username" value="{!! old('username') !!}" placeholder="juanbayani" required class="form-control">
+                            <input type="text" name="username" value="{!! old('username') !!}" placeholder="Username" required class="form-control">
                         </div>
                         <div class="form-field block">
                             <label>Email</label>
@@ -26,12 +26,12 @@
 
                         <div class="form-field block">
                             <label>Password</label>
-                            <input type="password" name="password" required class="form-control">
+                            <input type="password" name="password" placeholder="Password" required class="form-control">
                         </div>
 
                         <div class="form-field block">
                             <label>Confirm Password</label>
-                            <input type="password" name="password_confirmation" required class="form-control">
+                            <input type="password" name="password_confirmation" placeholder="Re-type Password" required class="form-control">
                         </div>
 
                         <div class="form-field block small">
