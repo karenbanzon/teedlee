@@ -28,7 +28,7 @@
         <div class="card borderless small-12 large-4 text-center">
             <div class="card-container">
                 <hr>
-                <h2>Vote for designs</h2>
+                <h2>Vote on designs</h2>
                 <hr>
                 <p>Be our guest. Help us choose!</p>
                 <img src="http://unsplash.it/400/600/?random" alt="">
@@ -44,7 +44,7 @@
             <img src="http://unsplash.it/600/400/?random" alt="">
             <h4>Make art, make a living!</h4>
             <p>We want to make it easier for you to make a living from living out your passion.</p>
-            <a href="" class="button small neutral">Learn more</a>
+            <a href="" class="button small neutral">Learn more &rarr;</a>
         </section>
         <hr>
         <section class="small-12 large-8 large-offset-2 text-center">
