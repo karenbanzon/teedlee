@@ -14,7 +14,7 @@ class AuthController extends BaseController
     {
         if( \Auth::attempt($request->only(['email', 'password'])) )
         {
-            $route = $request->get('redirect') ?: '/';
+            $route = $request->get('redirect') ?: (\Auth::user()->user_group->id==1) ? 'admin' : '/';
             return redirect($route)
                 ->with('message', 'Welcome back ' . (\Auth::user()->firstname ?: \Auth::user()->email) . '!');
         } else {

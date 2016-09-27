@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $appends = ['rating'];
+//    protected $appends = ['rating'];
     protected $with = ['user_group'];
     use Notifiable;
 
@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->belongsTo('\Teedlee\Models\UserGroup');
     }
 
-    public function getRatingAttribute()
+    public function rating()
     {
         $submissions = $this->submissions->where('status', 'publication');
 
