@@ -48,13 +48,13 @@ class Submission extends Model
         if( in_array($this->status, ['submitted', 'submitted_orig_artwork']) ) {
             return 'Under Review';
 
-        } else if( in_array($this->status, ['public_voting', 'internal_voting']) )
-        {
-            return 'For Voting';
-
-        } else if($this->status=='public_voting_fail')
+        } else if(strpos($this->status, 'voting_fail'))
         {
             return 'Declined';
+
+        } else if( strpos($this->status, 'voting') )
+        {
+            return 'For Voting';
 
         } else if($this->status=='awaiting_orig_artwork')
         {

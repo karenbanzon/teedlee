@@ -14,12 +14,17 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($submission=null)
     {
-        $submissions = \Auth::user()->votes_que();
+        if( $submission )
+        {
+            $submissions = [$submission];
+        } else {
+            $submissions = \Auth::user()->votes_que()->toArray();
+        }
 
         return view('voting.index')
-            ->with('submissions', json_encode(array_reverse($submissions->toArray())))
+            ->with('submissions', json_encode(array_reverse($submissions)))
         ;
     }
 
