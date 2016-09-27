@@ -14,38 +14,40 @@
         </div>
         <div class="small-12">
             @include('user/sidebar')
-            {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
-            <input type="hidden" value="PUT" name="_method">
-            <div class="card small-12 medium-10 padding-20">
-                <div class="profile-detail field-editor" rel="title">
-                    <h6 class="label">Title</h6>
-                    <div class="profile-entry alias field-editor-preview">
-                        <span class="profile-entry-data">{!! old('title', $submission->title) !!}</span>
-                        <a class="profile-action action" href="#" data-target="title"><span class="icon icon-pencil"></span></a>
+            <div class="card small-12 large-8">
+                {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
+                <input type="hidden" value="PUT" name="_method">
+                <div class="card small-12 medium-10 padding-20">
+                    <div class="profile-detail field-editor" rel="title">
+                        <h6 class="label">Title</h6>
+                        <div class="profile-entry alias field-editor-preview">
+                            <span class="profile-entry-data">{!! old('title', $submission->title) !!}</span>
+                            <a class="profile-action action" href="#" data-target="title"><span class="icon icon-pencil"></span></a>
+                        </div>
+                        <div class="profile-entry editing field-editor-input">
+                            {!! Form::text('title', null, ['placeholder' => 'Title']) !!}
+                            <button class="small action">Done</button>
+                        </div>
                     </div>
-                    <div class="profile-entry editing field-editor-input">
-                        {!! Form::text('title', null, ['placeholder' => 'Title']) !!}
-                        <button class="small action">Done</button>
-                    </div>
-                </div>
 
-                <div class="profile-detail">
-                    <h6 class="label vtop">Images</h6>
-                    <div class="profile-entry">
-                        <div id="uploader" class="dropzone">
-                            <div class="dz-message needsclick">
-                                <p>Drop image files here or click to upload.</p>
-                                <span class="small">Note: Only JPG and PNG with 600x800 dimensions files are allowed.</span>
+                    <div class="profile-detail">
+                        <h6 class="label vtop">Images</h6>
+                        <div class="profile-entry">
+                            <div id="uploader" class="dropzone">
+                                <div class="dz-message needsclick">
+                                    <p>Drop image files here or click to upload.</p>
+                                    <span class="small">Note: Only JPG and PNG with 600x800 dimensions files are allowed.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="profile-detail">
-                    <h6 class="label"><button type="submit">Submit</button></h6>
+                    <div class="profile-detail">
+                        <h6 class="label"><button type="submit">Submit</button></h6>
+                    </div>
                 </div>
+                {!! Form::close() !!}
             </div>
-            {!! Form::close() !!}
         </div>
     </section>
 @endsection
