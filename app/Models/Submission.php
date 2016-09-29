@@ -56,7 +56,7 @@ class Submission extends Model
         {
             return 'For Voting';
 
-        } else if($this->status=='awaiting_orig_artwork')
+        } else if($this->status=='awaiting_orig_artwork' || $this->status=='orig_artwork_resubmit')
         {
             return 'Pending Original Artwork';
 
@@ -65,6 +65,7 @@ class Submission extends Model
             return 'Published';
 
         } else {
+            abort(500, $this->status. ' status is invalid');
             return str_replace('_', ' ', title_case($this->status));
         }
     }
@@ -100,6 +101,7 @@ class Submission extends Model
 
         $status = null;
 
+        dd($submissions->toArray());
         foreach( $submissions as $submission )
         {
             $response[$submission->shop_status][] = $submission;
@@ -139,16 +141,23 @@ class Submission extends Model
 
     public function searchAndExpire()
     {
+        \DB::enableQueryLog();
+
 //        Internal voting
         $submissions = $this
             ->where('status', 'internal_voting')
             ->where('internal_voting_start', '<>', null)
-            ->where('internal_voting_start', '<=', Carbon::parse($this->internal_voting_start)->addDays(7))
+            ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'),  '<=', \DB::raw('NOW()') )
             ->get()
         ;
 
+//        dd(\DB::getQueryLog());
+//        dd($submissions);
+
         foreach ( $submissions as $submission )
         {
+            $status = 'wew';
+
             if($submission->flags()->count())
             {
                 $status = 'internal_voting_fail';
@@ -156,9 +165,6 @@ class Submission extends Model
             } else if($submission->votes->internal->average < 3.5) {
                 $status = 'internal_voting_fail';
 
-            } else if($submission->votes->internal->average < 3.5)
-            {
-                $status = 'internal_voting';
             } else {
                 $status = 'awaiting_orig_artwork';
             }
@@ -171,7 +177,7 @@ class Submission extends Model
         $submissions = $this
             ->where('status', 'public_voting')
             ->where('public_voting_start', '<>', null)
-            ->where('public_voting_start', '<=', Carbon::parse($this->public_voting_start)->addDays(7))
+            ->where(\DB::raw('DATE_ADD(public_voting_start, INTERVAL 7 day)'),  '<=', \DB::raw('NOW()') )
             ->get();
 
         foreach ( $submissions as $submission )
@@ -186,5 +192,7 @@ class Submission extends Model
             }
             $submission->save();
         }
+
+        \DB::disableQueryLog();
     }
 }

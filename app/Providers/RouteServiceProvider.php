@@ -39,8 +39,8 @@ class RouteServiceProvider extends ServiceProvider
         \Route::model('submission', 'Teedlee\Models\Submission');
         \Route::model('submissions', 'Teedlee\Models\Submission');
         \Route::model('vote', 'Teedlee\Models\Vote');
-        \Route::bind('submission_status', function($value) {
-            return \Teedlee\Models\Submission::where('status', 'LIKE', $value.'%')->get();
+        \Route::bind('submission_status', function($status) {
+            return \Teedlee\Models\Submission::where('status', 'LIKE', '%'.$status.'%')->get();
         });
     }
 

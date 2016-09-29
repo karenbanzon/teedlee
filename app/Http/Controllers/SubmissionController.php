@@ -16,7 +16,7 @@ class SubmissionController extends BaseController
      */
     public function index()
     {
-        //
+        dd('xxxx');
     }
 
     /**

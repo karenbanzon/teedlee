@@ -47,23 +47,37 @@ class SubmissionController extends Controller
     }
 
     /**
+     * Display a listing of the resource by status.
+     * @param  Collection $submissions
+     * @return \Illuminate\Http\Response
+     */
+    public function byShopStatus(Collection $submissions)
+    {
+        return view('admin.submission.index')
+            ->with('title', $submissions->count() > 0 ? title_case(str_replace('_', ' ', $submissions->first()->status)) : 'All')
+            ->with('submissions', $submissions);
+    }
+
+    /**
      * Set status
      *
      * @return \Illuminate\Http\Response
      */
-    public function promote(Submission $submission, $status)
+    public function promote(Request $request, Submission $submission, $status)
     {
         $now = Carbon::now();
 
         $submission->status = $status;
 
-        if($status=='internal_voting')
-        {
+        if ($status == 'internal_voting') {
             $submission->internal_voting_start = $now;
         }
 
-        if($status=='public_voting') {
+        if ($status == 'public_voting') {
             $submission->public_voting_start = $now;
+
+        } elseif ($status == 'orig_artwork_declined') {
+            $submission->declined_reason = $request->declined_reason;
         }
 
         $submission->save();

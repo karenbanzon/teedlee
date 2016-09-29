@@ -19,4 +19,9 @@ class UtilsController extends BaseController
         }
         echo '</pre>';
     }
+
+    public function searchAndExpire()
+    {
+        (new \Teedlee\Models\Submission())->searchAndExpire();
+    }
 }

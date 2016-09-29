@@ -14,6 +14,7 @@
     {!! Html::script('//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') !!}
     {!! Html::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') !!}
     <![endif]-->
+    {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
     @yield('head')
     {{--{!! Html::style('css/style.css') !!}--}}
     {!! Html::style('css/app.min.css') !!}
@@ -93,7 +94,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{!! url('admin/submissions/awaiting_orig_artwork') !!}">
+                            <a href="{!! url('admin/submissions/orig_artwork') !!}">
                                 Awaiting Artwork
                             </a>
                         </li>
@@ -152,7 +153,6 @@
         reserved.
     </footer>
 </div>
-{!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
 {!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
 {!! Html::script('bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') !!}
 {!! Html::script('bower_components/AdminLTE/plugins/fastclick/fastclick.js') !!}

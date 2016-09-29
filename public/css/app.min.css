@@ -84,3 +84,7 @@ body, html {
 .site-canvas {
     min-height: 100%;
 }
+
+a.btn {
+    text-decoration: none;
+}
