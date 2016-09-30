@@ -7,7 +7,7 @@
                 <h2>Shop for tees &amp; hoodies</h2>
                 <hr>
                 <p>Crowdsourced. Hand picked by you.</p>
-                <img src="http://unsplash.it/400/600?random" alt="">
+                {!! Html::image('images/home/teedlee-shop-for-tees-&-hoodies.jpg', 'Shop for tees and hoodies at Teedlee') !!}
                 <br>
                 <br>
                 <a href="{!! env('SHOP_URL') !!}" class="button small white">Shop</a>
@@ -19,7 +19,7 @@
                 <h2>Submit your design</h2>
                 <hr>
                 <p>Design and sell without spending</p>
-                <img src="http://unsplash.it/400/600/?random" alt="">
+                {!! Html::image('images/home/teedlee-submit-your-design.png', 'Submit your t-shirt designs at Teedlee') !!}
                 <br>
                 <br>
                 <a href="{!! url('submit') !!}" class="button small white">Submit</a>
@@ -31,7 +31,7 @@
                 <h2>Vote on designs</h2>
                 <hr>
                 <p>Be our guest. Help us choose!</p>
-                <img src="http://unsplash.it/400/600/?random" alt="">
+                {!! Html::image('images/home/teedlee-vote-on-designs.png', 'Vote on t-shirt designs') !!}
                 <br>
                 <br>
                 <a href="{!! url('vote') !!}" class="button small white">Vote</a>
@@ -41,16 +41,16 @@
     <section class="row">
         <hr>
         <section class="small-12 large-8 large-offset-2 text-center">
-            <img src="http://unsplash.it/600/400/?random" alt="">
+            {!! Html::image('images/home/teedlee-homepage-link-make-art.png', 'Earn by submitting your t-shirt designs at Teedlee.PH') !!}
             <h4>Make art, make a living!</h4>
             <p>We want to make it easier for you to make a living from living out your passion.</p>
-            <a href="" class="button small neutral">Learn more &rarr;</a>
+            <a href="#" class="button small neutral">Learn more &rarr;</a>
         </section>
         <hr>
         <section class="small-12 large-8 large-offset-2 text-center">
-            <img src="http://unsplash.it/600/400/?random" alt="">
+            <a href="#">{!! Html::image('images/home/teedlee-homepage-link-download.png', 'Promote your t-shirt designs online') !!}</a>
             <p>Download our submission templates, submit your design, and promote your work to earn.</p>
-            <a href="" class="button small neutral">Let's get started &rarr;</a>
+            <a href="#" class="button small neutral">Let's get started &rarr;</a>
         </section>
     </section>
 @endsection
