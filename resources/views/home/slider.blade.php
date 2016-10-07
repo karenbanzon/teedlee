@@ -14,9 +14,6 @@
                 <li>
                     {!! Html::image('images/hero_slide_4.jpg', '') !!}
                 </li>
-                <li>
-                    {!! Html::image('images/hero_slide_5.jpg', '5') !!}
-                </li>
             </ul>
 
             <nav class="slides-navigation">
