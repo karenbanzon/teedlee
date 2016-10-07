@@ -41,16 +41,16 @@
     <section class="row">
         <hr>
         <section class="small-12 large-8 large-offset-2 text-center">
-            {!! Html::image('images/home/teedlee-homepage-link-make-art.png', 'Earn by submitting your t-shirt designs at Teedlee.PH') !!}
+            <a href="https://shop.teedlee.ph/pages/about">{!! Html::image('images/home/teedlee-homepage-link-make-art.png', 'Earn by submitting your t-shirt designs at Teedlee.PH') !!}</a>
             <h4>Make art, make a living!</h4>
             <p>We want to make it easier for you to make a living from living out your passion.</p>
-            <a href="#" class="button small neutral">Learn more &rarr;</a>
+            <a href="https://shop.teedlee.ph/pages/about" class="button small neutral">Learn more &rarr;</a>
         </section>
         <hr>
         <section class="small-12 large-8 large-offset-2 text-center">
-            <a href="#">{!! Html::image('images/home/teedlee-homepage-link-download.png', 'Promote your t-shirt designs online') !!}</a>
+            <a href="https://shop.teedlee.ph/pages/submit">{!! Html::image('images/home/teedlee-homepage-link-download.png', 'Promote your t-shirt designs online') !!}</a>
             <p>Download our submission templates, submit your design, and promote your work to earn.</p>
-            <a href="#" class="button small neutral">Let's get started &rarr;</a>
+            <a href="https://shop.teedlee.ph/pages/submit" class="button small neutral">Let's get started &rarr;</a>
         </section>
     </section>
 @endsection
