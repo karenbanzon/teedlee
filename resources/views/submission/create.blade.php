@@ -36,7 +36,7 @@
                             <div id="uploader" class="dropzone">
                                 <div class="dz-message needsclick">
                                     <p>Drop image files here or click to upload.</p>
-                                    <span class="small">Note: Only JPG and PNG with 756x1000 dimensions files are allowed.</span>
+                                    <span class="small">Note: Only JPG and PNG files with the original submission template size of 756 x 1000 px size will be accepted.</span>
                                 </div>
                             </div>
                         </div>
