@@ -25,7 +25,17 @@ class VoteController extends Controller
 
         return view('voting.index')
             ->with('submissions', json_encode(array_reverse($submissions)))
-        ;
+            ;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function landing()
+    {
+        return view('voting.landing');
     }
 
     /**

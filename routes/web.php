@@ -39,6 +39,7 @@ Route::group(['middleware' => ['http']], function() {
     Route::get('/', 'HomeController@index')->name('home');
 //    Route::get('shop/', 'ShopController@index');
     Route::get('expire', 'UtilsController@searchAndExpire');
+    Route::get('votes', 'VoteController@landing');
     Route::get('{username}', 'UserController@show');
 });
 

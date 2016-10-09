@@ -4,7 +4,7 @@
     <nav>
         <a href="http://teedlee.myshopify.com">Shop</a>
         <a href="{!! url('submit') !!}">Submit</a>
-        <a href="{!! url('vote') !!}">Vote</a>
+        <a href="{!! url('votes') !!}">Vote</a>
     </nav>
     <hr>
     <nav class="secondary">
@@ -25,7 +25,7 @@
             <a href="{!! url('search') !!}" class="show-for-large"><span class="icon icon-search"></span></a>
             <a href="http://teedlee.myshopify.com" class="show-for-large">Shop</a>
             <a href="{!! url('submit') !!}" class="show-for-large">Submit</a>
-            <a href="{!! url('vote') !!}" class="show-for-large">Vote</a>
+            <a href="{!! url('votes') !!}" class="show-for-large">Vote</a>
 
             @if( \Auth::check() )
                 <div class="dropdown">
