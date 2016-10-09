@@ -12,7 +12,12 @@ class AuthController extends BaseController
 {
     public function index(Request $request)
     {
-        if( \Auth::attempt($request->only(['email', 'password'])) )
+        $field = (strpos($request->email, '@') !== false) ? 'email' : 'username';
+
+        if( \Auth::attempt([
+            $field => $request->email,
+            'password' => $request->password
+        ]))
         {
             $route = $request->get('redirect') ?: (\Auth::user()->user_group->id==1) ? 'admin' : '/';
             return redirect($route)

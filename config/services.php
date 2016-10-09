@@ -35,4 +35,18 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+
+    'facebook' => [
+        'client_id' => '173048843120426',
+        'client_secret' => 'c28f658ff2fca09d79b8c1712eb60021',
+        'redirect' => env('APP_URL_SECURE').'/oauth/callback/facebook',
+    ],
+
+    'shopify' => [
+        'api_key' => '9cb47b31ab3a88d595479f558278f7a5',
+        'api_secret' => 'f2aae98f88ffdfce2383e9da7303ac4b',
+        'domain' => 'dev.teedlee.ph',
+        'token' => '',
+    ],
+
 ];
