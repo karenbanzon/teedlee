@@ -29,13 +29,24 @@ class VoteController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display voting landing page.
      *
-     * @return \Illuminate\Http\Response
+     * @return null
      */
     public function landing()
     {
         return view('voting.landing');
+    }
+
+
+    /**
+     * Display when no submissions are qued for voting.
+     *
+     * @return null
+     */
+    public function done()
+    {
+        return view('voting.done');
     }
 
     /**

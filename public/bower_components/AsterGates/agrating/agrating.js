@@ -101,6 +101,7 @@
 
         function reset()
         {
+            alert('reset');
             stars.removeClass('colored');
             rating.val('');
         }
@@ -131,7 +132,9 @@
                 });
 
             } else {
-                me.html('<h3 class="text-center">Congratulations!<br/>You have completed voting on all designs.<br/>Please check back again for more.</h3>');
+                window.location.href = '/votes/done';
+                exit;
+                // me.html('<h3 class="text-center">Congratulations!<br/>You have completed voting on all designs.<br/>Please check back again for more.</h3>');
             }
         }
     };

@@ -40,7 +40,6 @@ Route::group(['middleware' => ['http']], function() {
 //    Route::get('shop/', 'ShopController@index');
     Route::get('expire', 'UtilsController@searchAndExpire');
     Route::get('votes', 'VoteController@landing');
+    Route::get('votes/done', 'VoteController@done');
     Route::get('{username}', 'UserController@show');
 });
-
-
