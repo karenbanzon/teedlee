@@ -1,7 +1,7 @@
 <footer class="row expanded padding-20 mt20 clr">
     <div class="small-4 columns text-left">
         <a href="{!! url('about') !!}">About</a>
-        <a href="{!! env('SHOP_URL') !!}">Shop</a>
+        <a href="http://shop.teedlee.ph">Shop</a>
     </div>
     <div class="small-4 columns text-center">
         <a href="{!! env('FB_URL') !!}"><span class="icon icon-facebook"></span></a>
