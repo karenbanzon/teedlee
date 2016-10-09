@@ -28,7 +28,13 @@
             <a href="{!! url('vote') !!}" class="show-for-large">Vote</a>
 
             @if( \Auth::check() )
-                <a href="{!! url('user') !!}" class="show-for-large"><span class="icon icon-user"></span></a>
+                <div class="dropdown">
+                    <a href="#" class="show-for-large dropdown-toggle"><span class="icon icon-user"></span></a>
+                    <ul class="dropdown-menu right">
+                        <li><a href="{!! url('user') !!}">My Profile</a></li>
+                        <li><a href="{!! url('logout') !!}">Logout</a></li>
+                    </ul>
+                </div>
                 {{--<a href="{!! url('') !!}" class="toggle-nav show-for-small-only"><span class="icon icon-menu"></span></a>--}}
             @else
                 <a href="{!! url('login') !!}" class="show-for-large">Login</a>

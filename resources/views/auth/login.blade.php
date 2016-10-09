@@ -17,7 +17,7 @@
                     {!! Form::open(['url' => 'auth']) !!}
                         {!! Form::hidden('redirect', $redirect) !!}
                         <div class="form-field block">
-                            <label>Username/Email</label>
+                            <label>Email</label>
                             <input type="text" name="email" placeholder="mail@server.com" required>
                         </div>
                         <div class="form-field block">

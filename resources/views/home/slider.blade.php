@@ -24,7 +24,7 @@
             <div class="slides-overlay text-white">
                 <h1>Stand out from the crowd</h1>
                 <p>With the clothing brand powered by artists</p>
-                <a href="" class="button neutral">Learn more</a>
+                <a href="https://shop.teedlee.ph/pages/about" class="button neutral">Learn more</a>
             </div>
         </div>
     </div>

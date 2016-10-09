@@ -16,7 +16,7 @@
                 <div class="card-container padding-20">
                     {!! Form::open(['url' => 'user/create']) !!}
                         <div class="form-field block">
-                            <label>Desired Username</label>
+                            <label>Username</label>
                             <input type="text" name="username" value="{!! old('username') !!}" placeholder="Username" required class="form-control">
                         </div>
                         <div class="form-field block">

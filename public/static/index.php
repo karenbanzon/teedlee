@@ -12,15 +12,22 @@
 					<li><a href="template-home.php">Home</a></li>
 					<li><a href="template-login.php">Login</a></li>
 					<li><a href="template-register.php">Register</a></li>
+					<li><a href="template-welcome.php">Welcome</a></li>
 					<li>My Account</li>
 					<ul>
 						<li><a href="template-account-profile.php">Profile</a></li>
 						<li><a href="template-account-submissions.php">Submissions</a></li>
+						<li><a href="template-account-submissions-empty.php">Submissions (Empty State)</a></li>
+						<li><a href="template-account-sales-coming-soon.php">Sales (Coming Soon)</a></li>
 					</ul>
 					<li>Public</li>
 					<ul>
 						<li><a href="template-user-page.php">Public Profile</a></li>
+						<li><a href="template-vote-landing.php">Vote (Landing)</a></li>
 						<li><a href="template-voting.php">Voting</a></li>
+						<li><a href="template-vote-empty-open-submission.php">Vote (Empty Open Submission)</a></li>
+						<li><a href="template-vote-empty-contest.php">Vote (Empty Contest)</a></li>
+						<li><a href="template-submit-landing.php">Submit (Landing)</a></li>
 					</ul>
 					<li>Error Pages</li>
 					<ul>

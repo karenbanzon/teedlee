@@ -21,7 +21,13 @@
 							<a href="" class="show-for-large">Submit</a>
 							<a href="" class="show-for-large">Vote</a>
 							<a href="" class="show-for-large"><span class="icon icon-shopping-cart"></span></a>
-							<a href="" class="show-for-large"><span class="icon icon-user"></span></a>
+							<div class="dropdown">
+								<a href="" class="show-for-large dropdown-toggle"><span class="icon icon-user"></span></a>
+								<ul class="dropdown-menu right">
+									<li><a href="">My Profile</a></li>
+									<li><a href="">Logout</a></li>
+								</ul>
+							</div>
 							<a href="" class="toggle-nav hide-for-large"><span class="icon icon-menu"></span></a>
 						</nav>
 					</section>
