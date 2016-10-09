@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="profile-detail">
+                    <div class="profile-detail text-center">
                         <h6 class="label"><button type="submit">Submit</button></h6>
                     </div>
                 </div>
