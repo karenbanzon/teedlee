@@ -46,8 +46,6 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
         if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
             $model = (new \Teedlee\Models\Vote())
                         ->where('submission_id', $request->submission_id)

@@ -27,6 +27,9 @@
                                 <div class="form-field block">
                                     <label>Comments</label>
                                     <textarea rows="2" placeholder="What do you think of this design?" name="comment"></textarea>
+                                    @if( \Auth::user()->user_group_id != 5)
+                                        <input type="type" name="internal" />
+                                    @endif
                                     <input type="hidden" name="submission_id" />
                                     <input type="hidden" name="rating" />
                                 </div>

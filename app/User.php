@@ -105,15 +105,23 @@ class User extends Authenticatable
     public function votes_que ()
     {
         $voted = \Auth::user()->votes()->pluck('submission_id');
-//        dd($voted);
 
-        $submissions = (new \Teedlee\Models\Submission())
-            ->whereNotIn('id', $voted)
-            ->where('status', 'public_voting')
-            ->get();
+        if( \Auth::user()->user_group_id == 5 )
+        {
+            $submissions = (new \Teedlee\Models\Submission())
+                ->whereNotIn('id', $voted)
+                ->where('status', 'public_voting');
 
-//        dd($submissions->toArray());
+        } else {
+            $submissions = (new \Teedlee\Models\Submission())
+                ->whereNotIn('id', $voted)
+                ->where('status', 'internal_voting')
+                ->where('internal_voting_start', '<>', null)
+                ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'),  '>=', \DB::raw('NOW()') );
+        }
 
-        return $submissions;
+//        dd($submissions->get()->toArray());
+
+        return $submissions->get();
     }
 }

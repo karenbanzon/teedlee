@@ -1782,6 +1782,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Staff'],
             ['name' => 'Default User'],
             ['name' => 'Designer'],
+            ['name' => 'Guest Judge'],
         ]);
 
         return $this;
