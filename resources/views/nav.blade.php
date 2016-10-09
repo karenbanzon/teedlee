@@ -2,7 +2,7 @@
     <h4 class="padding-20">Menu</h4>
     <hr>
     <nav>
-        <a href="http://teedlee.myshopify.com">Shop</a>
+        <a href="http://shop.teedlee.ph">Shop</a>
         <a href="{!! url('submit') !!}">Submit</a>
         <a href="{!! url('votes') !!}">Vote</a>
     </nav>
@@ -23,7 +23,7 @@
         <nav class="header text-right ">
             <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
             <a href="{!! url('search') !!}" class="show-for-large"><span class="icon icon-search"></span></a>
-            <a href="http://teedlee.myshopify.com" class="show-for-large">Shop</a>
+            <a href="http://shop.teedlee.ph" class="show-for-large">Shop</a>
             <a href="{!! url('submit') !!}" class="show-for-large">Submit</a>
             <a href="{!! url('votes') !!}" class="show-for-large">Vote</a>
 
@@ -40,7 +40,7 @@
                 <a href="{!! url('login') !!}" class="show-for-large">Login</a>
             @endif
 
-            <a href="{!! url('cart') !!}" class="show-for-large"><span class="icon icon-shopping-cart"></span></a>
+            <a href="http://shop.teedlee.ph/cart" class="show-for-large"><span class="icon icon-shopping-cart"></span></a>
             <a href="" class="toggle-nav hide-for-large"><span class="icon icon-menu"></span></a>
         </nav>
     </section>
