@@ -36,7 +36,7 @@
                             <div id="uploader" class="dropzone">
                                 <div class="dz-message needsclick">
                                     <p>Drop image files here or click to upload.</p>
-                                    <span class="small">Note: Only JPG and PNG with 600x800 dimensions files are allowed.</span>
+                                    <span class="small">Note: Only JPG and PNG with 756x1000 dimensions files are allowed.</span>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
         Dropzone.autoDiscover=false;
 
         $(function() {
-            var maxImageWidth = 800, maxImageHeight = 600;
+            var maxImageWidth = 756, maxImageHeight = 1000;
 
             $("div#uploader").dropzone({
                 acceptedFiles: "image/jpg,image/jpeg,image/png",
