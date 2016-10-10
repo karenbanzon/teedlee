@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75e5f12e-551a-445d-9fca-f56eb83ac9fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php" />
     </list>
     <ignored path="dev.teedlee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,39 +65,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="orig-artwork-awating.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="171" selection-start-line="5" selection-start-column="171" selection-end-line="5" selection-end-column="171" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orig-artwork-resubmit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="internal-voting-fail.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting-fail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="8" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="144">
+              <caret line="8" column="61" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="61" />
               <folding>
                 <element signature="e#329#334#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="public-voting-fail.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-fail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="88" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
-              <folding>
-                <element signature="e#325#330#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="2101" column="0" selection-start-line="2101" selection-start-column="0" selection-end-line="2101" selection-end-column="0" />
-              <folding>
-                <marker date="1476065747330" expanded="true" signature="4036:27107" ph="INSERT INTO `cities`... " />
-                <marker date="1476065747330" expanded="true" signature="27137:50811" ph="INSERT INTO `cities`... " />
-                <marker date="1476065747330" expanded="true" signature="50840:55931" ph="INSERT INTO `cities`... " />
               </folding>
             </state>
           </provider>
@@ -147,9 +143,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-started.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-success.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php" />
         <option value="$PROJECT_DIR$/public/css/app.min.css" />
-        <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/submission/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-decline-box.bladed.php" />
@@ -180,6 +174,8 @@
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting-fail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-fail.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php" />
       </list>
     </option>
   </component>
@@ -239,6 +235,106 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="submission" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teedlee" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="submission" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="edit" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -565,12 +661,12 @@
       <workItem from="1475899302288" duration="3378000" />
       <workItem from="1475976096768" duration="9066000" />
       <workItem from="1476000073339" duration="691000" />
-      <workItem from="1476010189470" duration="9756000" />
+      <workItem from="1476010189470" duration="10444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178009000" />
+    <option name="totallyTimeSpent" value="178697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="18" width="1323" height="750" extended-state="6" />
@@ -620,24 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="149" selection-start-line="4" selection-start-column="149" selection-end-line="4" selection-end-column="149" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-started.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -965,14 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/public-voting-success.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -981,12 +1055,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting-fail.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="8" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="1847">
+          <caret line="2101" column="0" selection-start-line="2101" selection-start-column="0" selection-end-line="2101" selection-end-column="0" />
           <folding>
-            <element signature="e#329#334#0#HTML" expanded="true" />
+            <marker date="1476065747330" expanded="true" signature="4036:27107" ph="INSERT INTO `cities`... " />
+            <marker date="1476065747330" expanded="true" signature="27137:50811" ph="INSERT INTO `cities`... " />
+            <marker date="1476065747330" expanded="true" signature="50840:55931" ph="INSERT INTO `cities`... " />
           </folding>
         </state>
       </provider>
@@ -1001,15 +1077,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting-fail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="2101" column="0" selection-start-line="2101" selection-start-column="0" selection-end-line="2101" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="61" />
           <folding>
-            <marker date="1476065747330" expanded="true" signature="4036:27107" ph="INSERT INTO `cities`... " />
-            <marker date="1476065747330" expanded="true" signature="27137:50811" ph="INSERT INTO `cities`... " />
-            <marker date="1476065747330" expanded="true" signature="50840:55931" ph="INSERT INTO `cities`... " />
+            <element signature="e#329#334#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/internal-voting.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-resubmit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/submission/partials/edit/orig-artwork-awating.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="171" selection-start-line="5" selection-start-column="171" selection-end-line="5" selection-end-column="171" />
+          <folding />
         </state>
       </provider>
     </entry>
