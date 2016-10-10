@@ -35,6 +35,7 @@ class SocialAccount extends Model
             if (!$user) {
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
+                    'username' => 'user'.time(),
                     'firstname' => method_exists($providerUser, 'getFirstName') ? $providerUser->getFirstName() : " ",
                     'lastname' => method_exists($providerUser, 'getLastName') ? $providerUser->getLastName() : " ",
 //                    'gender' => $providerUser->getGender()
@@ -43,7 +44,7 @@ class SocialAccount extends Model
                     'province_id' => 1,
                     'status' => 'active',
                 ]);
-                mkdir(public_path('users'.DIRECTORY_SEPARATOR.$user->id));
+                mkdir(public_path('users'.DIRECTORY_SEPARATOR.$user->id), 0775, true);
             }
 
             $account->user()->associate($user);
