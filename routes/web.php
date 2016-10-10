@@ -20,7 +20,8 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::post('user/submissions/{submission}/artwork', 'UserController@artwork');
     Route::get('user/sales', 'UserController@sales');
     Route::resource('submissions', 'SubmissionController');
-    Route::get('submit', 'SubmissionController@create');
+    Route::get('submit', 'SubmissionController@index');
+    Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
     Route::get('vote/{submission}', 'VoteController@index');
     Route::resource('vote', 'VoteController');
