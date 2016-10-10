@@ -151,7 +151,6 @@ class Submission extends Model
             ->get()
         ;
 
-//        dd(\DB::getQueryLog());
 //        dd($submissions);
 
         foreach ( $submissions as $submission )

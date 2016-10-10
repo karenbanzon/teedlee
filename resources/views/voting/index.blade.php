@@ -28,7 +28,7 @@
                                     <label>Comments</label>
                                     <textarea rows="2" placeholder="What do you think of this design?" name="comment"></textarea>
                                     @if( \Auth::user()->user_group_id != 5)
-                                        <input type="hidden" name="internal" />
+                                        <input type="hidden" name="type" value="internal" />
                                     @endif
                                     <input type="hidden" name="submission_id" />
                                     <input type="hidden" name="rating" />

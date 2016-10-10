@@ -11,6 +11,7 @@
         var container = me.find('#ag-images');
         var stars = me.find('.star');
         var rating = me.find('input[name="rating"]');
+        var type = me.find('input[name="type"]');
         var comment = me.find('textarea[name="comment"]');
         var vote = me.find('#ag-vote');
         var skip = me.find('#ag-skip');
@@ -52,6 +53,7 @@
                 e.preventDefault();
                 $.post('/vote', {
                     'submission_id' : me.find('[name="submission_id"]').val(),
+                    'type' : type.val(),
                     'rating' : rating.val(),
                     'comment' : me.find('[name="comment"]').val(),
                     '_token' : token,
@@ -101,7 +103,6 @@
 
         function reset()
         {
-            alert('reset');
             stars.removeClass('colored');
             rating.val('');
         }
@@ -125,7 +126,11 @@
         function next()
         {
             if( settings.data.length > 0 && settings.start < settings.data.length ) {
+                comment.val('');
+                rating.val('');
+
                 settings.start++;
+
                 update(settings.data[settings.start]);
                 me.fadeOut('fast', function() {
                     $(this).fadeIn('slow');
