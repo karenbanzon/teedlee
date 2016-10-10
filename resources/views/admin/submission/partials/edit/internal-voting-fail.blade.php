@@ -3,3 +3,5 @@
         {!! $submission->votes->internal->average !!} starred, {!! $flags !!} flagged.</p>
     <div class="clr"></div>
 </div>
+
+@include('admin.submission.partials.edit.internal-votes-box')
