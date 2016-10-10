@@ -33,6 +33,17 @@ body, html {
     vertical-align: middle;
 }
 
+#avatar-preview {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    border-radius: 100%;
+    border: 3px solid silver;
+    vertical-align: middle;
+}
+
 .submission-thumbnail {
     height:400px;
     background-repeat: no-repeat;

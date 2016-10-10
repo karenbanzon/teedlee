@@ -33,6 +33,7 @@ class SocialAccount extends Model
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
+//                dd($providerUser);
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'username' => 'user'.time(),
@@ -43,6 +44,7 @@ class SocialAccount extends Model
                     'city_id' => 1,
                     'province_id' => 1,
                     'status' => 'active',
+                    'avatar' => $providerUser->getAvatar(),
                 ]);
                 mkdir(public_path('users'.DIRECTORY_SEPARATOR.$user->id), 0775, true);
             }

@@ -27,8 +27,8 @@ class UpdateUser extends Request
             'avatar'=> 'image|max:2048',
             'username' => 'required|min:3|max:25|unique:users,username,'.\Auth::user()->id,
             'email' => 'required|email|unique:users,email,'.\Auth::user()->id,
-            'firstname' => 'required|min:2|max:30|alphanum',
-            'lastname' => 'required|min:2|max:30|alphanum',
+            'firstname' => 'required|min:2|max:30',
+            'lastname' => 'required|min:2|max:30',
             'website' => 'required|url|min:6|max:1024',
             'about_me' => 'required|min:20',
         ];

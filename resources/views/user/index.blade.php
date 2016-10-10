@@ -20,7 +20,7 @@
                     <div class="profile-entry photo">
                         <label for="avatar">
                             <div id ='avatar-preview'></div>
-                            <label for="avatar" type="button" class="button small white">Upload new</label>
+                            <button id="avatar-trigger" type="button" class="button small white">Upload new</button>
                             {!! Form::file('avatar', ['id'=> 'avatar', 'style'=> 'display: none']) !!}
                         </label>
                     </div>
@@ -124,6 +124,10 @@
 @section('scripts')
     <script>
         $(function(){
+            $('#avatar-trigger').click(function(){
+                $('#avatar').click();
+            });
+
             $('#avatar').change(function(){
                 imgInputPreview($(this), $('#avatar-preview'));
             });
