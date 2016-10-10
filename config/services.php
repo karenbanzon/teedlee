@@ -39,7 +39,7 @@ return [
     'facebook' => [
         'client_id' => '260663264328654', //'173048843120426',
         'client_secret' => '559e06bd6ae6cb48a9dd2de3295fcc19', //'c28f658ff2fca09d79b8c1712eb60021',
-        'redirect' => secure_url('/oauth/callback/facebook'),
+        'redirect' => 'https://teedlee.ph/oauth/callback/facebook',
     ],
 
     'shopify' => [
