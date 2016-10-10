@@ -67,6 +67,8 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
             $model = (new \Teedlee\Models\Vote())
                         ->where('submission_id', $request->submission_id)
@@ -83,7 +85,7 @@ class VoteController extends Controller
                     'submission_id' => $request->submission_id*1,
                     'rating' => $request->rating*1,
                     'comment' => trim($request->comment),
-                    'flags' => $request->flags ? json_encode($request->flags) : null,
+                    'flags' => $request->flags ? json_encode($request->flags, JSON_NUMERIC_CHECK) : null,
                     'created_at' => Carbon::now()->toDateTimeString(),
                 ];
                 \Teedlee\Models\Vote::create($data);

@@ -101,7 +101,7 @@ class Submission extends Model
 
         $status = null;
 
-        dd($submissions->toArray());
+//        dd($submissions->toArray());
         foreach( $submissions as $submission )
         {
             $response[$submission->shop_status][] = $submission;

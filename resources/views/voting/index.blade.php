@@ -27,12 +27,24 @@
                                 <div class="form-field block">
                                     <label>Comments</label>
                                     <textarea rows="2" placeholder="What do you think of this design?" name="comment"></textarea>
-                                    @if( \Auth::user()->user_group_id != 5)
-                                        <input type="hidden" name="type" value="internal" />
-                                    @endif
-                                    <input type="hidden" name="submission_id" />
-                                    <input type="hidden" name="rating" />
                                 </div>
+
+                            @if( \Auth::user()->user_group_id != 5)
+                                <input type="hidden" name="type" value="internal" />
+                                <label>Flag as inappropriate</label>
+                                <ul>
+                                @foreach((new \Teedlee\Models\Submission())->flag_list as $index => $list)
+                                        <div class="form-entry">
+                                            <label style="text-align: left;">
+                                                {!! Form::checkbox('flags[]', $index+1, null) !!}
+                                                {!! $list !!}
+                                            </label>
+                                        </div>
+                                @endforeach
+                                </ul>
+                            @endif
+                            <input type="hidden" name="submission_id" />
+                            <input type="hidden" name="rating" />
                             {!! Form::close() !!}
                             <div class="text-center">
                                 <a href="">View comments</a>

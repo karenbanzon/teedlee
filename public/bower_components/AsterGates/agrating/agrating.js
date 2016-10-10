@@ -12,6 +12,7 @@
         var stars = me.find('.star');
         var rating = me.find('input[name="rating"]');
         var type = me.find('input[name="type"]');
+        var flags = me.find('input[name="flags[]"]');
         var comment = me.find('textarea[name="comment"]');
         var vote = me.find('#ag-vote');
         var skip = me.find('#ag-skip');
@@ -51,10 +52,20 @@
 
             vote.on('click', function(e) {
                 e.preventDefault();
+
+                // console.log(flags);
+
+                var _flags = [];
+                me.find("input[name='flags[]']:checked").each(function(){
+                    _flags.push($(this).val());
+                });
+
+
                 $.post('/vote', {
                     'submission_id' : me.find('[name="submission_id"]').val(),
                     'type' : type.val(),
                     'rating' : rating.val(),
+                    'flags' : _flags,
                     'comment' : me.find('[name="comment"]').val(),
                     '_token' : token,
 
@@ -128,7 +139,7 @@
             if( settings.data.length > 0 && settings.start < settings.data.length ) {
                 comment.val('');
                 rating.val('');
-
+                flags.each(function(){ $(this).prop('checked', false); });
                 settings.start++;
 
                 update(settings.data[settings.start]);
