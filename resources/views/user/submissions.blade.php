@@ -10,7 +10,10 @@
         </div>
         <div class="small-12">
             @include('user/sidebar')
+
             <div class="card small-12 large-10 padding-20">
+                @if( false && count($submissions) )
+
                 @foreach($submissions as $status => $group)
                 <div class="card small-12">
                     <h6>{!! $status !!}</h6>
@@ -235,6 +238,10 @@
                     <div>&nbsp;</div>
                 </div>
                 @endforeach
+
+                @else
+                    @include('user.submission-empty')
+                @endif
             </div>
         </div>
     </section>
