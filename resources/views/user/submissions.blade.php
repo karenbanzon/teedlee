@@ -12,7 +12,7 @@
             @include('user/sidebar')
 
             <div class="card small-12 large-10 padding-20">
-                @if( false && count($submissions) )
+                @if( count($submissions) )
 
                 @foreach($submissions as $status => $group)
                 <div class="card small-12">
