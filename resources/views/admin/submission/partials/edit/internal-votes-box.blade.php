@@ -38,7 +38,7 @@
 
         @endforeach
 
-        @if( !$has_voted )
+        @if( false && !$has_voted )
             <div class="alert alert-warning">
                 <p>You haven't cast your vote for this submission yet.</p>
             </div>
