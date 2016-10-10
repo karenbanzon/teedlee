@@ -16,7 +16,7 @@ class AdminRequire
      */
     public function handle($request, Closure $next)
     {
-        if( !Auth::check() || (Auth::check() && !Auth::user()->user_group_id == 1) )
+        if( !Auth::check() || (Auth::check() && Auth::user()->user_group_id != 1) )
         {
             abort(403, 'You are not allowed to access this resource');
         }

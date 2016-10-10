@@ -1,3 +1,10 @@
+<div class="alert alert-info">
+    <p>
+        Public voting ends on <strong>{!! $submission->public_voting_end !!}</strong>
+    </p>
+    <div class="clr"></div>
+</div>
+
 <div class="box box-primary">
     <div class="box-header with-border text-bold">
         Public Votes
@@ -31,11 +38,14 @@
     <div class="box-footer text-bold">
         @if( count($submission->votes->public->items) )
             Average
-            Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $rating/($index+1)) !!}
-            ({!! round($rating/($index+1), 2) !!})
+            Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $submission->votes->public->average) !!}
+            ({!! round($submission->votes->public->average, 2) !!} stars / {!! $index+1 !!} votes)
         @else
             No votes yet
         @endif
     </div>
     <div class="clr"></div>
 </div>
+
+
+@include('admin.submission.partials.edit.internal-votes-box')
