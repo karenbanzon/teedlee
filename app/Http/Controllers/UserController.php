@@ -40,7 +40,12 @@ class UserController extends BaseController
         $user = $this->model->create($request);
         mkdir(public_path('users'.DIRECTORY_SEPARATOR.$user->id), 0775);
         $this->send_activation_email($user);
-        return redirect('')->with('message', 'Activation email sent to '.$user->email.'.');
+        return redirect('user/welcome');
+    }
+
+    public function welcome()
+    {
+        return view('user.welcome');
     }
 
     public function update(UpdateUser $data)

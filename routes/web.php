@@ -7,6 +7,7 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('oauth/{service}', 'AuthController@oauth');
     Route::get('oauth/callback/{service}', 'AuthController@oauthCallback');
     Route::post('user/create', 'UserController@create');
+    Route::get('user/welcome', 'UserController@welcome');
     Route::get('user/activate/{user}/{token}', 'UserController@activate');
 });
 
