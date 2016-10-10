@@ -1,11 +1,11 @@
 {!! Form::hidden('submission_id', $submission->id) !!}
 {!! Form::hidden('type', 'internal') !!}
-<div class="form-group">
-    <label for="rating" class="col-sm-2 control-label">Rating</label>
-    <div class="col-sm-2">
-        <input type="number" min="1" max="5" class="form-control" name="rating" value="3" placeholder="Rating" required>
-    </div>
-</div>
+{{--<div class="form-group">--}}
+    {{--<label for="rating" class="col-sm-2 control-label">Rating</label>--}}
+    {{--<div class="col-sm-2">--}}
+        {{--<input type="number" min="1" max="5" class="form-control" name="rating" value="3" placeholder="Rating" required>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <div class="form-group">
     <label for="comment" class="col-sm-2 control-label">Comment</label>

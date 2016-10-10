@@ -5,7 +5,6 @@
     </div>
 
     <div class="box-body">
-
         @foreach( $submission->votes->internal->items as $index => $vote )
             <?php
             $has_voted = !$has_voted && $vote->user->id == \Auth::user()->id;
@@ -24,13 +23,12 @@
                     <img class="direct-chat-img" src="{!! $vote->user->avatar !!}"
                          alt="Message User Image"><!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
-                        {!! stars($vote->rating) !!}
+                        {!! stars($vote->rating*1) !!}
                         {!! $vote->comment !!}
                         @if( $vote->flags )
                             <div class="clr">
                                 @foreach( json_decode($vote->flags) as $flag )
-                                    <small class="label bg-red">{!! $submission->flag_list[$flag-1] !!}</small>
-                                    &nbsp;
+                                    <small class="label bg-red">{!! $submission->flag_list[$flag-1] !!}</small>                                    &nbsp;
                                 @endforeach
                             </div>
                         @endif
@@ -46,6 +44,9 @@
             </div>
             @include('admin.submission.partials.edit.internal-voting-box')
         @endif
+    </div>
+    <div class="box-footer text-bold">
+        Average Rating: {!! stars($submission->votes->internal->average*1) !!} ({!! $submission->votes->internal->average*1 !!} stars)
     </div>
     {!! Form::close() !!}
 </div>
