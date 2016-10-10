@@ -6,13 +6,13 @@
 
 @section('content')
 <div class="text-center">
-    <h2 class="text-red">404 - Page not found</h2>
-    <p class="text-center">
-        <h3><i class="fa fa-danger text-red"></i>The page you are trying to access does nto exist.</h3>
-    </p>
-    <p>&nbsp;</p>
-    <p>
-        <a href="{!! url('') !!}" class="btn btn-primary btn-lg">Got to Homepage</a>
-    </p>
+    <hr>
+    <h1>Whoa!</h1>
+    <hr>
+    <div class="small-10 small-offset-1">
+        <img src="images/404.png" alt="">
+    </div>
+    <p>We can't find the page you're looking for. Maybe go back and try again?</p>
+    <a href="{!! url()->previous() !!}" class="button neutral">&larr; Go back</a>
 </div>
 @endsection

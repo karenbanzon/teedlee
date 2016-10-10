@@ -5,14 +5,16 @@
 @endsection
 
 @section('content')
-<div class="text-center">
-    <h2 class="text-red">403 - Access Denied</h2>
-    <p class="text-center">
-        <h3><i class="fa fa-danger text-red"></i>You do not have access to this resource.</h3>
-    </p>
-    <p>&nbsp;</p>
-    <p>
-        <a href="{!! secure_url('login?redirect=admin') !!}" class="btn btn-primary btn-lg">Login as Admin</a>
-    </p>
-</div>
+    <section class="row">
+        <div class="small-12 large-8 large-offset-2 text-center">
+            <hr>
+            <h1>Hold up!</h1>
+            <hr>
+            <div class="small-10 small-offset-1">
+                <img src="{!! url('images/403.png') !!}" alt="">
+            </div>
+            <p>You need admin access to see this page, sorry.</p>
+            <a href="{!! url()->previous() !!}" class="button neutral">&larr; Go back</a>
+        </div>
+    </section>
 @endsection
