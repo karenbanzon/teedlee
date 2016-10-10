@@ -61,6 +61,7 @@
                         </table>
 
                     @elseif( $status == 'Pending Original Artwork' )
+                        <small>Original artwork should be in <span class="label-pill hollow">PSD</span> , <span class="label-pill hollow">AI</span> , or <span class="label-pill hollow">EPS</span>. Maximum file size is <strong>20MB</strong>.</small>
                         <table style="width: 100%;">
                             <thead>
                             <tr>
