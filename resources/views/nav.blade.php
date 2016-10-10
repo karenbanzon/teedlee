@@ -8,6 +8,7 @@
     </nav>
     <hr>
     <nav class="secondary">
+        <a href="http://shop.teedlee.ph/search" class="show-for-large" rel="nofollow"><span class="icon icon-search"></span> Search</a>
         <a href="http://shop.teedlee.ph/cart" rel="nofollow"><span class="icon icon-shopping-cart"></span> Cart</a>
         @if( \Auth::check() )
             <a href="{!! url('user') !!}"><span class="icon icon-user"></span> My Account</a>
@@ -22,7 +23,6 @@
     <section class="row">
         <nav class="header text-right ">
             <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
-            <a href="http://shop.teedlee.ph/search" class="show-for-large" rel="nofollow"><span class="icon icon-search"></span></a>
             <a href="http://shop.teedlee.ph" class="show-for-large" rel="nofollow">Shop</a>
             <a href="{!! url('submit') !!}" class="show-for-large">Submit</a>
             <a href="{!! url('votes') !!}" class="show-for-large">Vote</a>
@@ -40,6 +40,7 @@
                 <a href="{!! url('login') !!}" class="show-for-large">Login</a>
             @endif
 
+            <a href="http://shop.teedlee.ph/search" class="show-for-large" rel="nofollow"><span class="icon icon-search"></span></a>
             <a href="http://shop.teedlee.ph/cart" class="show-for-large" rel="nofollow"><span class="icon icon-shopping-cart"></span></a>
             <a href="" class="toggle-nav hide-for-large"><span class="icon icon-menu"></span></a>
         </nav>
