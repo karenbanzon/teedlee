@@ -4,7 +4,7 @@
     <nav>
         <a href="http://shop.teedlee.ph" rel="nofollow">Shop</a>
         <a href="{!! url('submit') !!}">Submit</a>
-        <a href="{!! url('votes') !!}">Vote</a>
+        <a href="{!! url('vote') !!}">Vote</a>
     </nav>
     <hr>
     <nav class="secondary">
@@ -25,7 +25,7 @@
             <a href="{!! url('') !!}" class="brand"><img src="{!! url('images/logo.png') !!}"></a>
             <a href="http://shop.teedlee.ph" class="show-for-large" rel="nofollow">Shop</a>
             <a href="{!! url('submit') !!}" class="show-for-large">Submit</a>
-            <a href="{!! url('votes') !!}" class="show-for-large">Vote</a>
+            <a href="{!! url('vote') !!}" class="show-for-large">Vote</a>
 
             @if( \Auth::check() )
                 <div class="dropdown">

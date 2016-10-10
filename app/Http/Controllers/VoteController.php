@@ -14,18 +14,9 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($submission=null)
+    public function index()
     {
-        if( $submission )
-        {
-            $submissions = [$submission];
-        } else {
-            $submissions = \Auth::user()->votes_que()->toArray();
-        }
-
-        return view('voting.index')
-            ->with('submissions', json_encode(array_reverse($submissions)))
-            ;
+        return view('voting.index');
     }
 
     /**
@@ -54,9 +45,18 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($submission=null)
     {
-        //
+        if( $submission )
+        {
+            $submissions = [$submission];
+        } else {
+            $submissions = \Auth::user()->votes_que()->toArray();
+        }
+
+        return view('voting.create')
+            ->with('submissions', json_encode(array_reverse($submissions)))
+            ;
     }
 
     /**

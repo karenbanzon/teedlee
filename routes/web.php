@@ -23,8 +23,8 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('submit', 'SubmissionController@index');
     Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
-    Route::get('vote/{submission}', 'VoteController@index');
     Route::resource('vote', 'VoteController');
+    Route::get('vote/{submission}', 'VoteController@index');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {
@@ -41,7 +41,5 @@ Route::group(['middleware' => ['http']], function() {
     Route::get('/', 'HomeController@index')->name('home');
 //    Route::get('shop/', 'ShopController@index');
     Route::get('expire', 'UtilsController@searchAndExpire');
-    Route::get('votes', 'VoteController@landing');
-    Route::get('votes/done', 'VoteController@done');
     Route::get('{username}', 'UserController@show');
 });
