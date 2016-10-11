@@ -52,6 +52,31 @@
                     </div>
                 </div>
 
+                <div class="profile-detail field-editor" rel="password">
+                    <h6 class="label">Password</h6>
+                    <div class="profile-entry alias field-editor-preview">
+                        <span class="profile-entry-data mask">{!! old('password') ? '[hidden]' : '&nbsp;' !!}</span>
+                        <a class="profile-action action" href="#" data-target="password"><span class="icon icon-pencil"></span></a>
+                    </div>
+                    <div class="profile-entry field-editor-input">
+                        {!! Form::password('password', null, ['placeholder' => 'Password']) !!}
+                        <button class="small action">Done</button>
+                    </div>
+                </div>
+
+                @if( $user->user_group_id != 7 )
+                <div class="profile-detail field-editor" rel="password_confirmation">
+                    <h6 class="label">Re-type Password</h6>
+                    <div class="profile-entry alias field-editor-preview">
+                        <span class="profile-entry-data mask">{!! old('password_confirmation') ? '[hidden]' : '&nbsp;' !!}</span>
+                        <a class="profile-action action" href="#" data-target="password_confirmation"><span class="icon icon-pencil"></span></a>
+                    </div>
+                    <div class="profile-entry field-editor-input">
+                        {!! Form::password('password_confirmation', null, ['placeholder' => 'Re-Type Password']) !!}
+                        <button class="small action">Done</button>
+                    </div>
+                </div>
+
                 <div class="profile-detail field-editor" rel="firstname">
                     <h6 class="label">First Name</h6>
                     <div class="profile-entry alias field-editor-preview">
@@ -64,6 +89,7 @@
                         <button class="small action">Done</button>
                     </div>
                 </div>
+                @endif
 
                 <div class="profile-detail field-editor" rel="lastname">
                     <h6 class="label">Last Name</h6>

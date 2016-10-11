@@ -38,7 +38,13 @@ $(function () {
             input.show();
         } else {
             var value = input.find('[name="' + name + '"]').val();
-            preview.find('.profile-entry-data').html(value);
+            var placeholder = preview.find('.profile-entry-data');
+
+            if( placeholder.hasClass('mask') ) {
+                var value = Array(value.length+1).join('*');
+            }
+
+            placeholder.html(value);
             preview.show();
             input.hide();
         }

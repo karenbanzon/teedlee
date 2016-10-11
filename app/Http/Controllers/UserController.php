@@ -50,6 +50,8 @@ class UserController extends BaseController
 
     public function update(UpdateUser $data)
     {
+//        dd($data->toArray());
+
         $user = $this->model->find(\Auth::user()->id);
         $data = array_merge($user->toArray(), $data->toArray());
         $data['is_profile_complete']=1;
@@ -65,7 +67,15 @@ class UserController extends BaseController
             $data['avatar'] = url('users/'.$user->id.'/'.$filename);
         }
 
+        if( $data['password'] ) {
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            unset($data['password']);
+        }
+
+        unset($data['password_confirmation']);
         unset($data['_token']);
+
         $user->where('id', \Auth::user()->id)->update($data);
         return redirect()->back()->with('message', 'Profile successfully updated');
     }
