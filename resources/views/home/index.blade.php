@@ -10,7 +10,7 @@
                 {!! Html::image('images/home/teedlee-shop-for-tees-&-hoodies.jpg', 'Shop for tees and hoodies at Teedlee') !!}
                 <br>
                 <br>
-                <a href="{!! env('SHOP_URL') !!}" class="button small white">Shop</a>
+                <a href="https://shop/teedlee.ph" class="button small white">Shop</a>
             </div>
         </div>
         <div class="card borderless small-12 large-4 text-center">
