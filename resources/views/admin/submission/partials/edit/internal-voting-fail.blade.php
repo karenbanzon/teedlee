@@ -8,3 +8,4 @@
 </div>
 
 @include('admin.submission.partials.edit.internal-votes-box')
+@include('admin.submission.partials.edit.internal-voting-decline-box')

@@ -1,6 +1,5 @@
 <div class="alert alert-info">
-    <p>Internal voting has been started for this item and currently awaiting for results which
-        will end on {!! $submission->internal_voting_end !!}</p>
+    <p>Internal voting ends on <strong>{!! $submission->internal_voting_end !!}</strong></p>
     <div class="clr"></div>
 </div>
 

@@ -5,7 +5,7 @@
     </p>
 
     <p>
-        <a href="{!! url('admin/submission/promote/'.$submission->id.'/publication') !!}" class="btn btn-sm btn-primary">Approve for publication</a>
+        <a href="{!! url('admin/submission/promote/'.$submission->id.'/awaiting_orig_artwork') !!}" class="btn btn-sm btn-primary">Request Original Artwork</a>
     </p>
 
     <div class="clr"></div>

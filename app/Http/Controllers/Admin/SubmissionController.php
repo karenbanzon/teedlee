@@ -65,22 +65,46 @@ class SubmissionController extends Controller
      */
     public function promote(Request $request, Submission $submission, $status)
     {
-        $now = Carbon::now();
+//        dd($request->all());
 
+        $now = Carbon::now();
         $submission->status = $status;
+        $notify = false;
 
         if ($status == 'internal_voting') {
             $submission->internal_voting_start = $now;
 
+        } else if ($status == 'internal_voting_fail') {
+            $notify = true;
+            $title = 'Your submission was declined';
+            $submission->declined_reason = $request->declined_reason;
+
         } else if ($status == 'public_voting') {
             $submission->public_voting_start = $now;
 
+        } else if ($status == 'awaiting_orig_artwork') {
+            $notify = true;
+            $title = 'Your submission was approved!';
+
         } elseif ($status == 'orig_artwork_declined') {
+            $notify = true;
+            $title = 'Your artwork was declined';
             $submission->declined_reason = $request->declined_reason;
+
+        } elseif ($status == 'publication') {
+            $notify = true;
+            $title = 'Your design has been published!';
+        }
+
+        if( $notify )
+        {
+            \Mail::send("admin.submission.email.$status", $submission->toArray(), function ($m) use ($submission, $title) {
+                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                $m->to($submission->user->email, $submission->user->username)->subject($title);
+            });
         }
 
         $submission->save();
-
         return redirect()->back();
     }
 

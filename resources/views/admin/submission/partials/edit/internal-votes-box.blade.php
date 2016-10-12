@@ -6,11 +6,7 @@
 
     <div class="box-body">
         @foreach( $submission->votes->internal->items as $index => $vote )
-            <?php
-            $has_voted = !$has_voted && $vote->user->id == \Auth::user()->id;
-//            $rating += $vote->rating*1;
-//            dd($submission->votes->internal);
-            ?>
+            <?php $has_voted = !$has_voted && $vote->user->id == \Auth::user()->id; ?>
 
             <div class="direct-chat-messages">
                 <div class="direct-chat-msg {!! $index % 2 == 0 ? 'left' : 'right' !!}">
@@ -48,7 +44,7 @@
     </div>
     <div class="box-footer text-bold">
         Average Rating: {!! str_repeat('<span class="fa fa-star text-yellow"></span>', $submission->votes->internal->average) !!}
-        ({!! round($submission->votes->internal->average) !!} stars / {!! $index+1 !!} votes)
+        ({!! round($submission->votes->internal->average) !!} stars / {!! isset($index) ? $index+1 : '0' !!} votes)
     </div>
     {!! Form::close() !!}
 </div>
