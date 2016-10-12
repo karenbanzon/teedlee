@@ -40,7 +40,7 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('vote', 'VoteController@index');
 });
 
-Route::group(['middleware' => ['http']], function() {
+Route::group(['middleware' => ['https']], function() {
     Route::get('/', 'HomeController@index')->name('home');
 //    Route::get('shop/', 'ShopController@index');
     Route::get('expire', 'UtilsController@searchAndExpire');
