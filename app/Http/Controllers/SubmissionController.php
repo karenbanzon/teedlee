@@ -26,6 +26,9 @@ class SubmissionController extends BaseController
      */
     public function create()
     {
+
+//        TODO: Move this to store() method
+
         $submission = new Submission();
         return $this->edit($submission->create([
             'user_id' => \Auth::user()->id,
@@ -80,9 +83,20 @@ class SubmissionController extends BaseController
      */
     public function update(Request $request, $submission)
     {
+        $new = $submission->status == 'draft';
         $submission->title = $request->title;
         $submission->status = 'submitted';
         $submission->save();
+        $submission = $submission->toArray();
+
+        if( $new  )
+        {
+            $submission['link'] = secure_url('user/submissions');
+            \Mail::send('user.email.submit', $submission, function ($m) use ($submission) {
+                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                $m->to($submission['user']['email'], $submission['user']['username'])->subject('You submitted a design');
+            });
+        }
 
         return redirect('user/submissions');
     }

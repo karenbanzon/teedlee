@@ -64,8 +64,11 @@ class Submission extends Model
         {
             return 'Published';
 
+        } else if( $this->status == 'draft' ) {
+            return null;
+
         } else {
-            abort(500, $this->status. ' status is invalid');
+            abort(500, $this->status . ' status is invalid');
             return str_replace('_', ' ', title_case($this->status));
         }
     }
