@@ -27,6 +27,9 @@ class AuthController extends BaseController
 
             } else if( (\Auth::user()->user_group->id==7) ) {
                 $route = 'vote';
+
+            } else {
+                $route = '/';
             }
 
             return redirect($route)
