@@ -1,4 +1,9 @@
 @extends('master')
+
+@section('title')
+    Teedlee Signup
+@endsection
+
 @section('content')
     <section class="row">
         <div class="small-12 medium-8 medium-offset-2">

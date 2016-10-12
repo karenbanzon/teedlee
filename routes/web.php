@@ -12,8 +12,8 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
     Route::get('vote/done', 'VoteController@done');
-    Route::get('vote/{submission}', 'VoteController@create');
     Route::resource('vote', 'VoteController');
+    Route::get('vote/{submission}', 'VoteController@create');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {

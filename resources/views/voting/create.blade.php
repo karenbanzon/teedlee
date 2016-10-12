@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+    Design Voting Form
+@endsection
+
 @section('content')
     <section class="row">
         <div class="small-12 large-8 large-offset-2">

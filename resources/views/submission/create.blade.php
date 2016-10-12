@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+    T-Shirt Design Form
+@endsection
+
 @section('head')
     {!! Html::style('bower_components/dropzone/dist/min/dropzone.min.css') !!}
     {!! Html::style('bower_components/dropzone/dist/min/basic.min.css') !!}

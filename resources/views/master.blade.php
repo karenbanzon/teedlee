@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Teedlee</title>
+    <title>@yield('title', 'Teedlee')</title>
     {!! Html::style('//fonts.googleapis.com/css?family=Montserrat|Open+Sans') !!}
     {!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
     @yield('head')
