@@ -52,6 +52,8 @@ class SocialAccount extends Model
             $account->user()->associate($user);
             $account->save();
 
+            dd($user);
+
             return $user;
         }
     }
