@@ -1,6 +1,6 @@
 <footer class="row expanded padding-20 mt20 clr">
     <div class="small-4 columns text-left">
-        <a href="{!! url('about') !!}">About</a>
+        <a href="https://shop.teedlee.ph/pages/about">About</a>
         <a href="http://shop.teedlee.ph" rel="nofollow">Shop</a>
     </div>
     <div class="small-4 columns text-center">
