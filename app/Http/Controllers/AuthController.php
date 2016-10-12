@@ -19,7 +19,16 @@ class AuthController extends BaseController
             'password' => $request->password
         ]))
         {
-            $route = $request->get('redirect') ?: (\Auth::user()->user_group->id==1) ? 'admin' : '/';
+            if( $request->get('redirect') ) {
+                $route = $request->get('redirect');
+
+            } else if( (\Auth::user()->user_group->id==1) ) {
+                $route = 'admin';
+
+            } else if( (\Auth::user()->user_group->id==7) ) {
+                $route = 'vote';
+            }
+
             return redirect($route)
                 ->with('message', 'Welcome back ' . (\Auth::user()->firstname ?: \Auth::user()->email) . '!');
         } else {
