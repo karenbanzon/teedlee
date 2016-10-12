@@ -33,7 +33,7 @@
                             <td>{!! $user->created_at !!}</td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/user/'.$user->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
-                                <a href="#"><span class="fa fa-eye"></span></a>
+                                <a href="{!! url($user->username) !!}"><span class="fa fa-eye"></span></a>
                             </td>
                         </tr>
                         @endforeach
