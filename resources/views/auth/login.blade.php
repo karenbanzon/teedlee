@@ -33,11 +33,13 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-            
+
             <div class="text-center small-12 medium-8 medium-offset-2">
-                Don't have an account yet?
-                <br>
+                Don't have an account yet?<br>
                 <a href="{!! url('signup') !!}">Sign up here.</a>
+            </div>
+            <div class="text-center small-12 medium-8 medium-offset-2">
+                <a href="{!! url('recover') !!}">Recover Password</a>
             </div>
         </div>
     </section>

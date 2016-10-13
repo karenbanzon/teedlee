@@ -31,6 +31,8 @@ Route::group(['middleware' => ['https']], function() {
     Route::post('auth', 'AuthController@index');
     Route::get('login', 'AuthController@login');
     Route::get('signup', 'AuthController@signup');
+    Route::any('recover', 'AuthController@recover');
+    Route::any('recover/{user}/{hash}', 'AuthController@change');
     Route::get('oauth/{service}', 'AuthController@oauth');
     Route::get('oauth/callback/{service}', 'AuthController@oauthCallback');
     Route::post('user/create', 'UserController@create');

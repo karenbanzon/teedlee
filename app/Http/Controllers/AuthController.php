@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Providers\AuthWrapperProvider as Auth;
 use Teedlee\Models\SocialAccount;
+use Teedlee\User;
 use Socialite;
 
 class AuthController extends BaseController
@@ -45,6 +46,46 @@ class AuthController extends BaseController
     {
         return view('auth/login')
             ->with('redirect', $request->get('redirect'));
+    }
+
+    public function recover(Request $request)
+    {
+        if( $request->all() ) {
+            if( $user = User::where('email', $request->email)->first() )
+            {
+                $user->link = url('recover/'.$user->id.'/'.sha1($user->email.$user->id));
+                \Mail::send("auth.email.recover", $user->toArray(), function ($m) use ($user) {
+                    $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                    $m->to($user->email, $user->username)->subject('Password recovery');
+                });
+            }
+            return view('auth.recover_sent');
+        } else {
+            return view('auth.recover');
+        }
+    }
+
+    public function change(Request $request, User $user, $hash)
+    {
+        if( $data = $request->all() ){
+            $validator = \Validator::make($request->all(), [ 'password' => 'required|confirmed|min:6' ]);
+            if( $validator->fails() ) {
+                return redirect(\Request::url())->withErrors($validator);
+
+            } else {
+                $user->password = bcrypt($request->password);
+                $user->save();
+                return redirect('login')->with('message', 'Password successfully changed');
+            }
+
+        } else {
+            if( sha1($user->email.$user->id) == $hash )
+            {
+                return view('auth.change');
+            } else {
+                abort(500, 'Invalid hash');
+            }
+        }
     }
 
     public function oauth($service)
