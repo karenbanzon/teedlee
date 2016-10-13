@@ -52,6 +52,7 @@
                     </div>
                 </div>
 
+                @if( $user->user_group_id != 7 )
                 <div class="profile-detail field-editor" rel="password">
                     <h6 class="label">Password</h6>
                     <div class="profile-entry alias field-editor-preview">
@@ -64,7 +65,6 @@
                     </div>
                 </div>
 
-                @if( $user->user_group_id != 7 )
                 <div class="profile-detail field-editor" rel="password_confirmation">
                     <h6 class="label">Re-type Password</h6>
                     <div class="profile-entry alias field-editor-preview">
@@ -76,6 +76,7 @@
                         <button class="small action">Done</button>
                     </div>
                 </div>
+                @endif
 
                 <div class="profile-detail field-editor" rel="firstname">
                     <h6 class="label">First Name</h6>
@@ -89,7 +90,6 @@
                         <button class="small action">Done</button>
                     </div>
                 </div>
-                @endif
 
                 <div class="profile-detail field-editor" rel="lastname">
                     <h6 class="label">Last Name</h6>
