@@ -32,12 +32,28 @@
                                         {!! Form::email('email', null, [ 'class' => "form-control" ]) !!}
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="username" class="col-sm-3 control-label">User Name</label>
                                     <div class="col-sm-9">
                                         {!! Form::text('username', null, [ 'class' => "form-control" ]) !!}
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-3 control-label">Password</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::password('password', [ 'class' => "form-control" ]) !!}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password_confirmation" class="col-sm-3 control-label">Re-Type Password</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::password('password_confirmation', [ 'class' => "form-control" ]) !!}
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="firstname" class="col-sm-3 control-label">First Name</label>
                                     <div class="col-sm-9">

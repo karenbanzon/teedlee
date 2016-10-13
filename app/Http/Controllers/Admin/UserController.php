@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Http\Controllers\Controller;
 use Teedlee\User;
+use Teedlee\Http\Requests\UpdateUser;
 
 class UserController extends Controller
 {
@@ -39,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpdateUser $request)
     {
         $request = $request->except('_token');
         $user = \Teedlee\User::findOrNew($request['id']);

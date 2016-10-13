@@ -139,6 +139,7 @@
 
         <!-- Main content -->
         <section class="content">
+            @include('alerts')
             @yield('content')
         </section>
         <!-- /.content -->
