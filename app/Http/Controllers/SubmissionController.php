@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use \Teedlee\Models\Submission;
 use Carbon\Carbon;
+use Teedlee\Http\Requests\UpdateSubmission;
 
 class SubmissionController extends BaseController
 {
@@ -81,8 +82,12 @@ class SubmissionController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $submission)
+    public function update(UpdateSubmission $request, $submission)
     {
+        if( count($submission->images) < 1 ) {
+            return redirect('submissions/'.$submission->id.'/edit')->with('error', 'Upload at least 1 design image.')->withInput();
+        }
+
         $new = $submission->status == 'draft';
         $submission->title = $request->title;
         $submission->status = 'submitted';

@@ -157,6 +157,8 @@ class Submission extends Model
             ->get()
         ;
 
+//        dd($submissions->toArray());
+
         foreach ( $submissions as $submission )
         {
             $status = 'wew';
@@ -165,8 +167,12 @@ class Submission extends Model
             {
                 $status = 'internal_voting_fail';
 
-            } else if($submission->votes->total->average < 3.5) {
+            } else if($submission->votes->internal->average < 1.9) {
                 $status = 'internal_voting_fail';
+
+            } else if($submission->votes->internal->average < 3.5) {
+                $submission->public_voting_start = Carbon::now();
+                $status = 'public_voting';
 
             } else {
                 $status = 'awaiting_orig_artwork';
@@ -183,9 +189,13 @@ class Submission extends Model
             ->where(\DB::raw('DATE_ADD(public_voting_start, INTERVAL 7 day)'),  '<=', \DB::raw('NOW()') )
             ->get();
 
+//        dd($submissions->toArray());
+
         foreach ( $submissions as $submission )
         {
-            if($submission->votes->public->average < 3.5)
+            $status = $submission->status;
+
+            if($submission->votes->average*1 < 3.5)
             {
                 $status = 'public_voting_fail';
 
@@ -193,6 +203,7 @@ class Submission extends Model
                 $status = 'public_voting_success';
 
             }
+            $submission->status = $status;
             $submission->save();
         }
 
