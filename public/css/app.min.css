@@ -99,3 +99,7 @@ body, html {
 a.btn {
     text-decoration: none;
 }
+
+.dz-clickable .dz-message {
+    line-height: 1.2em;
+}

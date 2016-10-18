@@ -21,7 +21,7 @@
             <div class="card small-12 large-8">
                 {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
                 <input type="hidden" value="PUT" name="_method">
-                <div class="card small-12 medium-10 padding-20">
+                <div class="card small-12 padding-20">
                     <div class="profile-detail field-editor" rel="title">
                         <h6 class="label">Title</h6>
                         <div class="profile-entry alias field-editor-preview">
@@ -39,8 +39,8 @@
                         <div class="profile-entry">
                             <div id="uploader" class="dropzone">
                                 <div class="dz-message needsclick">
-                                    <p>Drop image files here or click to upload.</p>
-                                    <span class="small">Note: Only JPG and PNG files with the original submission template size of 756 x 1000 px size will be accepted.</span>
+                                    <p class="text-blue"><strong>Drop image files here or click to upload</strong></p>
+                                    <span class="small">Note: 3 images maximum per design.<br/>Only JPG and PNG files with the original submission template size of 756 x 1000 px size will be accepted.</span>
                                 </div>
                             </div>
                         </div>
