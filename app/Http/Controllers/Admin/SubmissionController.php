@@ -65,8 +65,6 @@ class SubmissionController extends Controller
      */
     public function promote(Request $request, Submission $submission, $status)
     {
-//        dd($request->all());
-
         $now = Carbon::now();
         $submission->status = $status;
         $notify = false;

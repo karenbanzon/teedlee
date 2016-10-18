@@ -104,7 +104,6 @@ class Submission extends Model
 
         $status = null;
 
-//        dd($submissions->toArray());
         foreach( $submissions as $submission )
         {
             $response[$submission->shop_status][] = $submission;
@@ -115,10 +114,14 @@ class Submission extends Model
 
     public function getVotesAttribute()
     {
-        return (object) [
+        $votes = (object) [
             'internal' => $this->votesByType('internal'),
             'public' =>  $this->votesByType('external'),
         ];
+
+        $votes->average = ($votes->internal->average + $votes->public->average) / 2;
+
+        return $votes;
     }
 
     public function votesByType($type)
@@ -154,8 +157,6 @@ class Submission extends Model
             ->get()
         ;
 
-//        dd($submissions);
-
         foreach ( $submissions as $submission )
         {
             $status = 'wew';
@@ -164,7 +165,7 @@ class Submission extends Model
             {
                 $status = 'internal_voting_fail';
 
-            } else if($submission->votes->internal->average < 3.5) {
+            } else if($submission->votes->total->average < 3.5) {
                 $status = 'internal_voting_fail';
 
             } else {

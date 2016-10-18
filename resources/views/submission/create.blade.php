@@ -68,6 +68,8 @@
             $("div#uploader").dropzone({
                 acceptedFiles: "image/jpg,image/jpeg,image/png",
                 url: "{!! secure_url('submission-image') !!}",
+                maxFiles: 3,
+                minFiles: 1,
 
                 init: function() {
                     this.on("thumbnail", function(file) {

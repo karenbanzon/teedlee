@@ -32,7 +32,7 @@ class SubmissionController extends BaseController
         $submission = new Submission();
         return $this->edit($submission->create([
             'user_id' => \Auth::user()->id,
-            'title' => 'Design #'.\Auth::user()->id.'-'.time(),
+            'title' => ' ',
             'description' => ' ',
             'status' => 'draft',
             'tags' => ' ',
