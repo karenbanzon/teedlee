@@ -98,17 +98,14 @@ class User extends Authenticatable
         {
             $submissions = (new \Teedlee\Models\Submission())
                 ->whereNotIn('id', $voted)
-                ->where('status', 'public_voting');
-
-        } else {
-            $submissions = (new \Teedlee\Models\Submission())
-                ->whereNotIn('id', $voted)
                 ->where('status', 'internal_voting')
                 ->where('internal_voting_start', '<>', null)
                 ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'),  '>=', \DB::raw('NOW()') );
+        } else {
+            $submissions = (new \Teedlee\Models\Submission())
+                ->whereNotIn('id', $voted)
+                ->where('status', 'public_voting');
         }
-
-//        dd($submissions->get()->toArray());
 
         return $submissions->get();
     }

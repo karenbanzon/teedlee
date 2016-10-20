@@ -1,7 +1,7 @@
 /*!
  * Rating module for Teedlee.PH
  * Copyright 2016 Jhourlad Estrella
- * Licensed under the MIT license
+ * Public license not available.
  */
 
 (function( $ ) {
@@ -136,6 +136,8 @@
 
         function next()
         {
+            console.log('length: ' + settings.data.length + ' start: ' + settings.start);
+
             if( settings.data.length > 0 && settings.start < settings.data.length ) {
                 comment.val('');
                 rating.val('');
