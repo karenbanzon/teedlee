@@ -136,9 +136,9 @@
 
         function next()
         {
-            console.log('length: ' + settings.data.length + ' start: ' + settings.start);
+            // console.log('length: ' + settings.data.length + ' start: ' + settings.start);
 
-            if( settings.data.length > 0 && settings.start < settings.data.length ) {
+            if( settings.data.length > 0 && settings.start+1 < settings.data.length ) {
                 comment.val('');
                 rating.val('');
                 flags.each(function(){ $(this).prop('checked', false); });
