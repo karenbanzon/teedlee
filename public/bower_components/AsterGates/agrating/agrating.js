@@ -1,4 +1,4 @@
-/*!
+/*
  * Rating module for Teedlee.PH
  * Copyright 2016 Jhourlad Estrella
  * Public license not available.
@@ -52,8 +52,6 @@
 
             vote.on('click', function(e) {
                 e.preventDefault();
-
-                // console.log(flags);
 
                 var _flags = [];
                 me.find("input[name='flags[]']:checked").each(function(){
@@ -136,8 +134,6 @@
 
         function next()
         {
-            // console.log('length: ' + settings.data.length + ' start: ' + settings.start);
-
             if( settings.data.length > 0 && settings.start+1 < settings.data.length ) {
                 comment.val('');
                 rating.val('');
@@ -152,7 +148,6 @@
             } else {
                 window.location.href = '/vote/done';
                 exit;
-                // me.html('<h3 class="text-center">Congratulations!<br/>You have completed voting on all designs.<br/>Please check back again for more.</h3>');
             }
         }
     };
