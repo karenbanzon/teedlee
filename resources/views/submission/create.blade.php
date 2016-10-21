@@ -23,15 +23,15 @@
                 <input type="hidden" value="PUT" name="_method">
                 <div class="card small-12 padding-20">
                     <div class="profile-detail field-editor" rel="title">
-                        <h6 class="label">Title</h6>
+                        <h6 class="label">Title<span class="text-red text-bold">*</span></h6>
                         {{--<div class="profile-entry alias field-editor-preview">--}}
                             {{--<span class="profile-entry-data">{!! old('title', $submission->title) !!}</span>--}}
                             {{--<a class="profile-action action" href="#" data-target="title"><span class="icon icon-pencil"></span></a>--}}
                         {{--</div>--}}
-                        {{--<div class="profile-entry editing field-editor-input">--}}
+                        <div class="profile-entry editing">
                             {!! Form::text('title', null, ['placeholder' => 'Title']) !!}
                             {{--<button class="small action">Done</button>--}}
-                        {{--</div>--}}
+                        </div>
                     </div>
 
                     <div class="profile-detail">
