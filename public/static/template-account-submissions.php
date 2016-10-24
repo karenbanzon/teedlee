@@ -120,7 +120,7 @@
 								</td>
 								<td>Waves</td>
 								<td>Public Voting</td>
-								<td>9 August 2016</td>
+								<td>9 August 2016<br><br><a href="" class="button tiny white">Share on FB</a></td>
 							</tr>
 						</tbody>
 					</table>
