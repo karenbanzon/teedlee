@@ -47,9 +47,9 @@
 
                     <div class="profile-detail">
                         <h6 class="label vtop">Description</h6>
-                        <small>300 characters left</small>
-                        <div class="profile-entry">
-                            <textarea rows="4">
+                        <div class="profile-entry editing">
+                            <small>300 characters left</small>
+                            <textarea rows="4" placeholder="Describe your submission">
                             </textarea>
                         </div>
                     </div>
