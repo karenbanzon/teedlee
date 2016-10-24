@@ -146,7 +146,7 @@
                                         {!! $submission->title !!}
                                     </td>
                                     <td>
-                                        {!! strpos($submission->status, 'internal') !== false ? 'Internal' : 'Public' !!}
+                                        {!! strpos($submission->status, 'internal') !== false ? 'Internal' : 'Public' !!} Voting
                                     </td>
                                     <td>
                                         {!! strpos($submission->status, 'internal') !== false ? $submission->internal_voting_end : $submission->public_voting_end !!}
