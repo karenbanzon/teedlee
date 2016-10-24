@@ -17,8 +17,7 @@
             <hr>
         </div>
         <div class="small-12">
-            @include('user/sidebar')
-            <div class="card small-12 large-8">
+            <div class="card small-12 large-8 large-offset-2">
                 {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
                 <input type="hidden" value="PUT" name="_method">
                 <div class="card small-12 padding-20">
@@ -43,6 +42,15 @@
                                     <span class="small">Note: 3 images maximum per design.<br/>Only JPG and PNG files with the original submission template size of 756 x 1000 px size will be accepted.</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <h6 class="label vtop">Description</h6>
+                        <small>300 characters left</small>
+                        <div class="profile-entry">
+                            <textarea rows="4">
+                            </textarea>
                         </div>
                     </div>
 
