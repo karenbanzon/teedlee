@@ -106,6 +106,21 @@ class SubmissionController extends Controller
         return redirect()->back();
     }
 
+    public function expire( $submission )
+    {
+        $now = Carbon::now();
+        $internal = $submission->internal_voting_start;
+        $public = $submission->public_voting_start;
+        $submission->internal_voting_start = $now;
+        $submission->public_voting_start = $now;
+        $submission->save();
+        $submission->searchAndExpire();
+        $submission->internal_voting_start = $internal;
+        $submission->public_voting_start = $public;
+
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
