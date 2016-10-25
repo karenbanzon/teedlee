@@ -157,8 +157,6 @@ class Submission extends Model
             ->get()
         ;
 
-        dd($submissions->toArray());
-
         foreach ( $submissions as $submission )
         {
             $status = 'wew';
