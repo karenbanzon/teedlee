@@ -65,7 +65,7 @@
                 <a href="" class="button" id="ag-vote">Vote</a>
                 <a href="" class="button white" id="ag-skip">Next</a>
                 @else
-                    <a href="{!! url('login?redir='.\Request::path()) !!}" class="button">Log in to vote</a>
+                    <a href="{!! url('login?redirect='.\Request::path()) !!}" class="button">Log in to vote</a>
                 @endif
             </div>
         </div>
