@@ -34,7 +34,7 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($submission=null)
+    public function create($submission=null, $referrer=null)
     {
         if( $submission )
         {

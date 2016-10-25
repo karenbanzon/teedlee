@@ -13,7 +13,6 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::resource('submission-image', 'SubmissionImageController');
     Route::get('vote/done', 'VoteController@done');
     Route::resource('vote', 'VoteController');
-    Route::get('vote/{submission}', 'VoteController@create');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {
@@ -41,11 +40,10 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('user/activate/{user}/{token}', 'UserController@activate');
     Route::get('submit', 'SubmissionController@index');
     Route::get('vote', 'VoteController@index');
-});
 
-Route::group(['middleware' => ['https']], function() {
+    Route::get('vote/{submission}/{referrer}', 'VoteController@create');
+
     Route::get('/', 'HomeController@index')->name('home');
-//    Route::get('shop/', 'ShopController@index');
     Route::get('expire', 'UtilsController@searchAndExpire');
     Route::get('{username}', 'UserController@show');
 });

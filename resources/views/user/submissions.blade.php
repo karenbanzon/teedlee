@@ -153,7 +153,7 @@
                                     </td>
                                     <td>
                                         @if( $submission->status == 'public_voting' )
-                                            <a href="{!! url('vote/'.$submission->id) !!}" class="fb-share button tiny white" target="_blank">Share</a>
+                                            <a href="{!! url('vote/'.$submission->id.'/fb') !!}" class="fb-share button tiny white" target="_blank">Share</a>
                                         @endif
                                     </td>
                                 </tr>
