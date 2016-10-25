@@ -157,7 +157,7 @@ class Submission extends Model
             ->get()
         ;
 
-//        dd($submissions->toArray());
+        dd($submissions->toArray());
 
         foreach ( $submissions as $submission )
         {

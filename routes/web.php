@@ -23,7 +23,7 @@ Route::group(['middleware' => ['admin', 'https']], function() {
     Route::post('admin/submission/{submission}/shopify-link', 'Admin\SubmissionController@shopify_link');
     Route::resource('admin/submission', 'Admin\SubmissionController');
     Route::any('admin/submission/promote/{submission}/{status}', 'Admin\SubmissionController@promote');
-    Route::any('admin/submission/expire/{submission}', 'Admin\SubmissionController@expire');
+    Route::any('admin/submission/expire/{submission}/{type}', 'Admin\SubmissionController@expire');
     Route::resource('admin/user', 'Admin\UserController');
 });
 
