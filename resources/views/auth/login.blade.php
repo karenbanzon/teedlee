@@ -22,7 +22,7 @@
                     {!! Form::open(['url' => 'auth']) !!}
                         {!! Form::hidden('redirect', $redirect) !!}
                         <div class="form-field block">
-                            <label>Email</label>
+                            <label>Username / Email</label>
                             <input type="text" name="email" placeholder="mail@server.com" required>
                         </div>
                         <div class="form-field block">

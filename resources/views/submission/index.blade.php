@@ -11,7 +11,7 @@
         <h1>Submit</h1>
         <hr>
         <h4>Open Submission</h4>
-        <p><a href=""><img src="images/got-an-idea.jpg"></a></p>
+        <p><a href="{!! url('submit/form') !!}"><img src="images/got-an-idea.jpg"></a></p>
         <a href="{!! url('submit/form') !!}" class="button white">Submit here!</a>
         <hr>
         <div class="text-left padding-20">
