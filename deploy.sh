@@ -6,16 +6,8 @@ else
       branch="$1"
 fi
 
-cd /var/repo/dev.teedlee.ph
+cd /var/www/html
 git fetch --all
 git checkout $branch
+git reset --hard $branch
 composer update
-
-#cd /var/www/html
-#git fetch --all
-#git reset --hard origin/master
-#git pull origin master
-#chown www-data:www-data ../html -R
-#composer dumpautoload
-#composer update
-#php artisan cache:clear
