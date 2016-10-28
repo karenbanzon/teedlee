@@ -10,7 +10,7 @@
     {!! Html::style('css/style.css') !!}
     {!! Html::style('css/app.min.css') !!}
     <link rel="shortcut icon" href="{!! url('favicon.png') !!}" type="image/png" />
-    @if( env('environment') == 'production' )
+    @if( env('APP_ENV') == 'production' )
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?

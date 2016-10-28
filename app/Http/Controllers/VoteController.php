@@ -40,11 +40,14 @@ class VoteController extends Controller
         {
             $submissions = [$submission];
         } else {
+            $submissions = \Auth::user()->votes_que();
+            $submission = $submissions->first();
             $submissions = \Auth::user()->votes_que()->toArray();
         }
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
+            ->with('submission', $submission)
             ;
     }
 

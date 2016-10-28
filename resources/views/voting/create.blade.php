@@ -1,7 +1,11 @@
 @extends('master')
 
+@section('head')
+    @include('open-graph')
+@endsection
+
 @section('title')
-    Design Voting Form
+    {!! $submission->title !!}
 @endsection
 
 @section('content')
