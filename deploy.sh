@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$1" != "" ]]; then
-      branch='origin/master'
+      branch='master'
 else
       branch="$1"
 fi
@@ -9,5 +9,6 @@ fi
 cd /var/www/html
 git fetch --all
 git checkout $branch
-git reset --hard $branch
+git pull origin $branch -f
 composer update
+php artisan cache:clear
