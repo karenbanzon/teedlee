@@ -6,9 +6,11 @@ else
       branch="$1"
 fi
 
-cd /var/www/html
+cd /var/www/teedlee
 git fetch --all
-git checkout $branch
-git pull origin $branch -f
+if ! git checkout "$branch";
+    then exit
+fi
+git pull origin "$branch" -f
 composer update
 php artisan cache:clear
