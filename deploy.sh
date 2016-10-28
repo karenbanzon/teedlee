@@ -1,16 +1,11 @@
 #!/bin/bash
 
-if [[ "$1" != "" ]]; then
-      branch='master'
-else
-      branch="$1"
-fi
-
-cd /var/www/teedlee
+branch=${1:-master}
+cd /var/www/html
 git fetch --all
-if ! git checkout "$branch";
+if ! git checkout $branch;
     then exit
 fi
-git pull origin "$branch" -f
+git pull origin $branch -f
 composer update
 php artisan cache:clear
