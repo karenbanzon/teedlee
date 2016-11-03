@@ -24,6 +24,7 @@ Route::group(['middleware' => ['admin', 'https']], function() {
     Route::any('admin/submission/promote/{submission}/{status}', 'Admin\SubmissionController@promote');
     Route::any('admin/submission/expire/{submission}/{type}', 'Admin\SubmissionController@expire');
     Route::resource('admin/user', 'Admin\UserController');
+    Route::get('shop/test', 'ShopController@test');
 });
 
 
@@ -40,8 +41,9 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('user/activate/{user}/{token}', 'UserController@activate');
     Route::get('submit', 'SubmissionController@index');
     Route::get('vote', 'VoteController@index');
-
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
+
+    Route::get('orders/all', 'OrderController@all');
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('expire', 'UtilsController@searchAndExpire');

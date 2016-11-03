@@ -16,6 +16,7 @@
         var comment = me.find('textarea[name="comment"]');
         var vote = me.find('#ag-vote');
         var skip = me.find('#ag-skip');
+        var share = me.find('.fb-share');
         var token = me.find('input[name="_token"]').val();
 
         var settings = $.extend({
@@ -124,6 +125,8 @@
             me.find('#ag-title').html(data.title);
             me.find('#ag-author').html(data.user.username);
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
+            me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
+            share.attr('href', '/vote/' + me.find('[name="submission_id"]').val() + '/fb');
 
             container.html('');
 
