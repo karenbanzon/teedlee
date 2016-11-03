@@ -32,6 +32,9 @@
                             <a href="" class="star star-4" data-value="4"><span class="icon icon-star"></span></a>
                             <a href="" class="star star-5" data-value="5"><span class="icon icon-star"></span></a>
                         </div>
+                        <div class="vote-share text-center">
+                            <a href="{!! url('vote/'.$submission->id.'/fb') !!}" class="fb-share button tiny white" target="_blank">Share on Facebook</a>
+                        </div>
                         <div class="vote-comments">
                             {!! Form::open(['url' => '#']) !!}
                                 <div class="form-field block">
