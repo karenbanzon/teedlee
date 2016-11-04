@@ -14,9 +14,9 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('vote/done', 'VoteController@done');
     Route::resource('vote', 'VoteController');
 
-    Route::resource('orders/all', 'OrderController@all');
+    Route::get('orders/all', 'OrderController@all');
     Route::resource('orders', 'OrderController');
-    Route::resource('user/orders/{username}', 'OrderController@vendor');
+    Route::get('user/orders/{username}', 'OrderController@vendor');
 });
 
 Route::group(['middleware' => ['admin', 'https']], function() {
