@@ -169,6 +169,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        RocketCode\Shopify\ShopifyServiceProvider::class,
 
         /*
          * Application Service Providers...

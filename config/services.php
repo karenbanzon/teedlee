@@ -43,10 +43,10 @@ return [
     ],
 
     'shopify' => [
+        'domain' => 'dev.teedlee.ph',
         'api_key' => '9cb47b31ab3a88d595479f558278f7a5',
         'api_secret' => 'f2aae98f88ffdfce2383e9da7303ac4b',
-        'domain' => 'dev.teedlee.ph',
-        'token' => '',
+        'token' => '6a462d574c77ef17de9c7c0b5a147ee3',
     ],
 
 ];
