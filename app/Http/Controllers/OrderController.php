@@ -4,6 +4,7 @@ namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
+use Teedlee\Models\Submission;
 use Teedlee\User;
 
 class OrderController extends Controller
@@ -51,8 +52,23 @@ class OrderController extends Controller
 
         foreach($this->_all() as $order)
         {
-            dd($order);
             if( strtolower($order->line_items->vendor) == strtolower($user->username) )
+            {
+                $orders[] = $order;
+            }
+        }
+
+        return $orders;
+    }
+
+
+    public function product(Submission $submission)
+    {
+        $orders = [];
+
+        foreach($this->_all() as $order)
+        {
+            if( strtolower($order->line_items->url) == strtolower($submission->shopify_link) )
             {
                 $orders[] = $order;
             }
