@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3693be5156763c5afcc2bd327518d159",
-    "content-hash": "927992ba3311de501443fae697f551d3",
+    "hash": "42aa8c033614207d342bcf612ec564d1",
+    "content-hash": "7f73ffad5733161f176b64d1e0d78bfe",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1378,16 +1378,16 @@
         },
         {
             "name": "rocket-code/shopify",
-            "version": "2.0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshrps/laravel-shopify-API-wrapper.git",
-                "reference": "adf4d5e01e248e7ed1be5245d8c2af52c454831c"
+                "reference": "8754ce106b3393b70bc74f99619602f676ff4ead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshrps/laravel-shopify-API-wrapper/zipball/adf4d5e01e248e7ed1be5245d8c2af52c454831c",
-                "reference": "adf4d5e01e248e7ed1be5245d8c2af52c454831c",
+                "url": "https://api.github.com/repos/joshrps/laravel-shopify-API-wrapper/zipball/8754ce106b3393b70bc74f99619602f676ff4ead",
+                "reference": "8754ce106b3393b70bc74f99619602f676ff4ead",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1406,7 @@
                     "email": "josh@rocketcode.io"
                 }
             ],
-            "time": "2015-07-13 14:23:48"
+            "time": "2015-08-12 14:16:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3667,7 +3667,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rocket-code/shopify": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
