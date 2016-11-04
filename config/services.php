@@ -43,12 +43,19 @@ return [
     ],
 
     'shopify' => [
+<<<<<<< HEAD
         'api_key' => '398a08ae2084aab40715f5750867dced',
         'api_secret' => '33a14b2f93fb497f593e308d9db71d97',
         'api_password' => '6a462d574c77ef17de9c7c0b5a147ee3',
         'token' => '',
         'domain' => 'teedlee.myshopify.com',
         'redirect' => 'https://'.$_SERVER['SERVER_NAME'].'/shop/callback/shopify',
+=======
+        'domain' => 'dev.teedlee.ph',
+        'api_key' => '9cb47b31ab3a88d595479f558278f7a5',
+        'api_secret' => 'f2aae98f88ffdfce2383e9da7303ac4b',
+        'token' => '6a462d574c77ef17de9c7c0b5a147ee3',
+>>>>>>> 4aba04619a807412596ad7a3470b79caeb4f24aa
     ],
 
 ];
