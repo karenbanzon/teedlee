@@ -6,20 +6,18 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Models\Submission;
 use Teedlee\User;
+use Oseintow\Shopify\Facades\Shopify;
 
 class OrderController extends Controller
 {
-    protected $api;
+    protected $shopify;
 
-    function __construct()
+    public function __construct(Shopify $shopify)
     {
-        $this->api = \App::make('ShopifyAPI', [
-            'API_KEY' => config('services.shopify.api_key'),
-            'API_SECRET' => config('services.shopify.api_secret'),
-            'SHOP_DOMAIN' => config('services.shopify.domain'),
-            'ACCESS_TOKEN' => config('services.shopify.token')
-        ]);
+        $this->shopify = Shopify::setShopUrl(config('shopify.domain'))
+            ->setAccessToken(config('shopify.token'));
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +27,7 @@ class OrderController extends Controller
     {
     }
 
-    protected function all()
+    public function all()
     {
         $orders = $this->_all();
         dd($orders);
@@ -37,12 +35,7 @@ class OrderController extends Controller
 
     protected function _all()
     {
-        $orders = $this->api->call([
-            'METHOD' => 'GET',
-            'URL' => '/admin/orders.json?status=any'
-        ]);
-
-        return $orders;
+        return $this->shopify->get("admin/orders.json", ['status' => 'any']);
     }
 
 
