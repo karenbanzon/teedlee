@@ -88,7 +88,7 @@ class ShopifyServiceProvider extends ServiceProvider
 //        print_r($orders);
         foreach( $orders as $order )
         {
-            dd($order);
+//            dd($order);
             foreach( $order->line_items as $item )
             {
                 if( $item->product_id == $product_id )
