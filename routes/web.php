@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('orders/all', 'OrderController@all');
     Route::resource('orders', 'OrderController');
     Route::get('user/orders/{username}', 'OrderController@vendor');
+    Route::get('orders/product/{product_id}', 'OrderController@sales_items');
     Route::get('products', 'SubmissionController@products');
 });
 

@@ -36,6 +36,12 @@ class ShopifyServiceProvider extends ServiceProvider
         return $this->shop->get("admin/products.json", ['vendor' => $vendor]);
     }
 
+    public function product($product_id)
+    {
+        $this->boot();
+        return $this->shop->get("admin/products/{$product_id}.json");
+    }
+
     public function sales($vendor=null)
     {
         $this->boot();
@@ -70,6 +76,42 @@ class ShopifyServiceProvider extends ServiceProvider
             }
         }
 
+        return $products;
+    }
+
+
+    public function sales_by_product($product_id)
+    {
+        $this->boot();
+        $products = [];
+        $orders = $this->shop->get("admin/orders.json", ['status' => 'any']);
+//        print_r($orders);
+        foreach( $orders as $order )
+        {
+//            dd($order);
+            foreach( $order->line_items as $item )
+            {
+                $products[$item->id] = [
+                    'id' => $item->id,
+                    'date' => $order->closed_at,
+                    'order_number' => $order->order_number,
+                    'product_id' => $item->product_id,
+                    'variant_id' => $item->id,
+                    'sku' => $item->id,
+                    'title' => $item->title,
+                    'name' => $item->name,
+                    'quantity' => 0,
+                    'price' => $item->price,
+//                        'discount' => $order->discount,
+                    'total' => $order->total_line_items_price,
+                    'status' => $order->financial_status,
+                    'customer' => (array) $order->customer,
+                ];
+                $products[$item->id]['quantity'] += $item->quantity;
+            }
+        }
+
+//        dd($products);
         return $products;
     }
 }

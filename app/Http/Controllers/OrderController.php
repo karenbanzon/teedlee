@@ -6,17 +6,18 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Models\Submission;
 use Teedlee\User;
-use Oseintow\Shopify\Facades\Shopify as Shopify;
+//use Oseintow\Shopify\Facades\Shopify as Shopify;
+use Teedlee\Providers\ShopifyServiceProvider;
 
 class OrderController extends Controller
 {
     protected $shopify;
 
-    public function __construct(Shopify $shopify)
-    {
-        $this->shopify = Shopify::setShopUrl(config('shopify.domain'))
-            ->setAccessToken(config('shopify.token'));
-    }
+//    public function __construct(Shopify $shopify)
+//    {
+//        $this->shopify = Shopify::setShopUrl(config('shopify.domain'))
+//            ->setAccessToken(config('shopify.token'));
+//    }
 
     /**
      * Display a listing of the resource.
@@ -135,5 +136,19 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sales_items($product_id)
+    {
+        $product = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->product($product_id);
+//        dd($product);
+        $orders = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales_by_product($product_id);
+//        dd($orders);
+        return view('user/sales-items')
+            ->with('orders', $orders)
+            ->with('product', $product)
+            ->with('total_quantity', 0)
+            ->with('total_sales', 0)
+            ;
     }
 }

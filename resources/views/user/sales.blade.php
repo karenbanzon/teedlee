@@ -47,7 +47,7 @@
                                     <td>{!! $product['quantity'] !!}</td>
                                     <td>PHP {!! number_format($product['price'] * $product['quantity'], 2) !!}</td>
                                     <td>
-                                        <a href="{!! url("sales/product/{$product['product_id']}") !!}" class="button tiny white">View</a>
+                                        <a href="{!! url("orders/product/{$product['product_id']}") !!}" class="button tiny white">View</a>
                                     </td>
                                 </tr>
                                 <?php $total_quantity += $product['quantity']; $total_sales += $product['price'] * $product['quantity']; ?>
