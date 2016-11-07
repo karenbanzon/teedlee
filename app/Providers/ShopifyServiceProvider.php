@@ -61,7 +61,7 @@ class ShopifyServiceProvider extends ServiceProvider
                         'variant_id' => $item->id,
                         'title' => $item->title,
                         'name' => $item->name,
-                        'quantity' => 0,
+                        'quantity' => $item->quantity,
                         'price' => $item->price,
                     ];
 
