@@ -35,20 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-
     'facebook' => [
         'client_id' => '260663264328654', //'173048843120426',
         'client_secret' => '559e06bd6ae6cb48a9dd2de3295fcc19', //'c28f658ff2fca09d79b8c1712eb60021',
         'redirect' => 'https://'.$_SERVER['SERVER_NAME'].'/oauth/callback/facebook',
     ],
-
-    'shopify' => [
-        'api_key' => '398a08ae2084aab40715f5750867dced',
-        'api_secret' => '33a14b2f93fb497f593e308d9db71d97',
-        'api_password' => '6a462d574c77ef17de9c7c0b5a147ee3',
-        'token' => '',
-        'domain' => 'teedlee.myshopify.com',
-        'redirect' => 'https://'.$_SERVER['SERVER_NAME'].'/shop/callback/shopify',
-    ],
-
 ];
