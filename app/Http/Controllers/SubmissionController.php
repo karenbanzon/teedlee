@@ -7,6 +7,7 @@ use Teedlee\Http\Requests;
 use \Teedlee\Models\Submission;
 use Carbon\Carbon;
 use Teedlee\Http\Requests\UpdateSubmission;
+use Teedlee\Providers\ShopifyServiceProvider as Shopify;
 
 class SubmissionController extends BaseController
 {
@@ -115,5 +116,26 @@ class SubmissionController extends BaseController
     public function destroy($id)
     {
         dd('destroy');
+    }
+
+    public function products()
+    {
+        $shopify = new Shopify(new \Oseintow\Shopify\Facades\Shopify());
+        dd($shopify->sales());
+    }
+
+    public function _vendors()
+    {
+        $vendors = [];
+        foreach ( $this->_products() as $product)
+        {
+            $vendors[$product->vendor][] = $product;
+        }
+    }
+
+    private function initShopify()
+    {
+        return Shopify::setShopUrl(config('shopify.domain'))
+            ->setAccessToken(config('shopify.token'));
     }
 }

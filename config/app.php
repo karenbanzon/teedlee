@@ -179,6 +179,7 @@ return [
         // Teedlee\Providers\BroadcastServiceProvider::class,
         Teedlee\Providers\EventServiceProvider::class,
         Teedlee\Providers\RouteServiceProvider::class,
+        Teedlee\Providers\ShopifyServiceProvider::class,
 
     ],
 

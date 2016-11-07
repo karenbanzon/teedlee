@@ -7,6 +7,7 @@ use Teedlee\Http\Requests;
 use Teedlee\User;
 use Teedlee\Http\Requests\CreateUser;
 use Teedlee\Http\Requests\UpdateUser;
+use Teedlee\Providers\ShopifyServiceProvider;
 
 class UserController extends BaseController
 {
@@ -142,6 +143,11 @@ class UserController extends BaseController
 
     public function sales()
     {
-        return view('user/sales');
+        $products = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales();
+        return view('user/sales')
+            ->with('products', $products)
+            ->with('total_quantity', 0)
+            ->with('total_sales', 0)
+            ;
     }
 }
