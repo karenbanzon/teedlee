@@ -45,13 +45,14 @@ class OrderController extends Controller
 
         foreach($this->_all() as $order)
         {
+            dd($order);
             if( strtolower($order->line_items->vendor) == strtolower($user->username) )
             {
                 $orders[] = $order;
             }
         }
 
-        return $orders;
+        dd($orders);
     }
 
 
