@@ -91,23 +91,25 @@ class ShopifyServiceProvider extends ServiceProvider
 //            dd($order);
             foreach( $order->line_items as $item )
             {
-                $products[$item->id] = [
-                    'id' => $item->id,
-                    'date' => $order->closed_at,
-                    'order_number' => $order->order_number,
-                    'product_id' => $item->product_id,
-                    'variant_id' => $item->id,
-                    'sku' => $item->id,
-                    'title' => $item->title,
-                    'name' => $item->name,
-                    'quantity' => 0,
-                    'price' => $item->price,
-//                        'discount' => $order->discount,
-                    'total' => $order->total_line_items_price,
-                    'status' => $order->financial_status,
-                    'customer' => (array) $order->customer,
-                ];
-                $products[$item->id]['quantity'] += $item->quantity;
+                if( $item->product_id == $product_id )
+                {
+                    $products[$item->id] = [
+                        'id' => $item->id,
+                        'date' => $order->closed_at,
+                        'order_number' => $order->order_number,
+                        'product_id' => $item->product_id,
+                        'variant_id' => $item->id,
+                        'sku' => $item->id,
+                        'title' => $item->title,
+                        'name' => $item->name,
+                        'quantity' => 0,
+                        'price' => $item->price,
+    //                        'discount' => $order->discount,
+                        'total' => $order->total_line_items_price,
+                        'status' => $order->financial_status,
+                        'customer' => (array) $order->customer,
+                    ];
+                }
             }
         }
 
