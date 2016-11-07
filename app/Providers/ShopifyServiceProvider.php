@@ -88,7 +88,7 @@ class ShopifyServiceProvider extends ServiceProvider
 //        print_r($orders);
         foreach( $orders as $order )
         {
-//            dd($order);
+            dd($order);
             foreach( $order->line_items as $item )
             {
                 if( $item->product_id == $product_id )
@@ -102,7 +102,7 @@ class ShopifyServiceProvider extends ServiceProvider
                         'sku' => $item->id,
                         'title' => $item->title,
                         'name' => $item->name,
-                        'quantity' => 0,
+                        'quantity' => $item->quantity,
                         'price' => $item->price,
     //                        'discount' => $order->discount,
                         'total' => $order->total_line_items_price,
