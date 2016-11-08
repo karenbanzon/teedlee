@@ -89,7 +89,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        \Log::info("Order::store\r\n".json_encode($request->all()));
+        \Log::info("Order::store\r\n".json_encode($request->json()->all()));
     }
 
     /**
@@ -123,7 +123,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id=null)
     {
-        \Log::info("Order::update\r\n".json_encode($request->all()));
+        \Log::info("Order::update\r\n".json_encode($request->json()->all()));
     }
 
     /**
