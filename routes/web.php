@@ -52,8 +52,8 @@ Route::group(['middleware' => ['https']], function() {
 
 //    Shopify doesn't support standard HTTP verbs. Use manual routing.
     Route::get('orders/all', 'OrderController@all');
-    Route::get('order/store', 'OrderController@store');
-    Route::get('order/update', 'OrderController@update');
+    Route::any('order/store', 'OrderController@store');
+    Route::any('order/update', 'OrderController@update');
 
 
     Route::get('/', 'HomeController@index')->name('home');
