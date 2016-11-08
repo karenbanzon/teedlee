@@ -17,7 +17,7 @@
         </div>
         <div class="card small-12 large-10 padding-20">
             <div class="card small-12">
-                <a href="" class="display-inline-block margin-top-10"><span class="icon icon-left"></span> Back to overview</a>
+                <a href="{!! user/sales !!}" class="display-inline-block margin-top-10"><span class="icon icon-left"></span> Back to overview</a>
                 <h6>Sales for {!! $product['title'] !!}</h6>
                 <table style="width: 100%;">
                     <thead>
