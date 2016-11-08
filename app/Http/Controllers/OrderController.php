@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Models\Submission;
 use Teedlee\User;
-//use Oseintow\Shopify\Facades\Shopify as Shopify;
 use Teedlee\Providers\ShopifyServiceProvider;
 
 class OrderController extends Controller
