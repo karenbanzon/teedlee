@@ -23,7 +23,7 @@ class DesignerProfilesSeeder extends Seeder
             'Juju Bear',
             'Lawrence del Mundo',
             'niledward3',
-            'ranja',
+//            'ranja',
             'Vitamin D'
         ];
 
