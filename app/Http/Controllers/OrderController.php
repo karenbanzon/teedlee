@@ -26,6 +26,8 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $orders = $this->_all();
+        dd($orders);
     }
 
     public function all()
@@ -89,7 +91,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        \Log::info("Order::store\r\n".json_encode($request->json()->all()));
+        $request = $request->json()->all();
+        \Log::info("Order::store\r\n".json_encode($request));
     }
 
     /**

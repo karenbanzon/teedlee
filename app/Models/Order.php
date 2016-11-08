@@ -1,0 +1,15 @@
+<?php
+
+namespace Teedlee\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'submission_id',
+        'order_id',
+
+    ];
+}

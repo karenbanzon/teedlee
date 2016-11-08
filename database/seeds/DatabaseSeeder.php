@@ -12,23 +12,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        return;
+
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $this
-//            ->provinces()
-//            ->cities()
-//            ->users()
-//            ->userGroups()
-//            ->styles()
-//            ->materials()
-//            ->colors()
-//            ->genders()
-//            ->sizes()
-//            ->fits()
-//            ->printTypes()
-//            ->printSizes()
-//            ->productionTypes()
-//            ->submissions()
-//            ->submission_images()
+            ->provinces()
+            ->cities()
+            ->users()
+            ->userGroups()
+            ->styles()
+            ->materials()
+            ->colors()
+            ->genders()
+            ->sizes()
+            ->fits()
+            ->printTypes()
+            ->printSizes()
+            ->productionTypes()
+            ->submissions()
+            ->submission_images()
             ->designerAccounts()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
