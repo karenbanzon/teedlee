@@ -24,7 +24,7 @@
                         <tbody>
                         @foreach( $submissions as $submission)
                         <tr>
-                            <td width="1">{!! Html::image($submission->images[0]->path, '', ['width' => '45px']) !!}</td>
+                            <td width="1">{!! Html::image(isset($submission->images[0]) ? $submission->images[0]->path : null, '', ['width' => '45px']) !!}</td>
                             <td class="text-bold">
                                 <p>
                                     {!! $submission->title !!}

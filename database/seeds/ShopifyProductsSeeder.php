@@ -3,7 +3,9 @@
 use Illuminate\Database\Seeder;
 use Teedlee\Providers\ShopifyServiceProvider;
 use Teedlee\Models\Submission;
+use Teedlee\Models\SubmissionImage;
 use Teedlee\User;
+use Carbon\Carbon;
 
 class ShopifyProductsSeeder extends Seeder
 {
@@ -22,30 +24,44 @@ class ShopifyProductsSeeder extends Seeder
     private function products()
     {
         $products = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->products();
-        dd($products);
-        $data = [];
+//        \Log::info(json_encode($products));
+//        dd($products);
 
         foreach ($products as $product)
         {
-            $user = User::where('username', $product->vendor);
-            $data[] = [
+            $user = User::where('username', $product->vendor)->first();
+            $submission = [
                 'user_id' => $user->id,
-                'title' => $product->name,
-                'slug' => null,
-                'description' => $product->name,
-                'tags',
-                'price',
+                'title' => $product->title,
+                'slug' => $product->handle,
+                'description' => $product->body_html,
+                'tags' => $product->tags,
+                'price' => 0,
                 'status' => 'publication',
-                'internal_voting_start',
-                'public_voting_start',
-                'shopify_link',
-                'created_at'
+//                'internal_voting_start',
+//                'public_voting_start',
+                'shopify_link' => 'https://shop.teedlee.ph/products/'.$product->handle,
+                'created_at' => Carbon::parse($product->created_at),
             ];
+
+//            \Log::info(json_encode($submission));
+//            dd($submission);
+
+            $model = Submission::create($submission);
+
+            foreach ($product->images as $image)
+            {
+                $model->images()->create([
+                    'submission_id' => $model->id,
+                    'path' => $image->src,
+                    'description' => ' ',
+                ]);
+                $model->save();
+            }
         }
 
-        dd($data);
-
-        $model = Submission::insert($data);
+        \Log::info(json_encode($model->toArray()));
+        dd($model->toArray());
 
         return $this;
     }
