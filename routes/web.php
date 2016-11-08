@@ -14,12 +14,13 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('vote/done', 'VoteController@done');
     Route::resource('vote', 'VoteController');
 
-    Route::get('orders/all', 'OrderController@all');
-    Route::resource('orders', 'OrderController');
     Route::get('user/orders/{username}', 'OrderController@vendor');
     Route::get('orders/product/{product_id}', 'OrderController@sales_items');
+    Route::resource('orders', 'OrderController');
+
     Route::get('products', 'SubmissionController@products');
 });
+
 
 Route::group(['middleware' => ['admin', 'https']], function() {
     Route::get('admin', 'Admin\IndexController@index');
@@ -49,7 +50,10 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('vote', 'VoteController@index');
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
 
+    //    Shopify doesn't support standard HTTP verbs. Use manual routing.
     Route::get('orders/all', 'OrderController@all');
+    Route::get('order/create', 'OrderController@create');
+
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('expire', 'UtilsController@searchAndExpire');

@@ -79,7 +79,7 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        Log::info('Order::create', $request);
+        \Log::info("Order::create\r\n".json_encode($request->all()));
     }
 
     /**
