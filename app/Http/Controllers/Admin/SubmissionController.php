@@ -30,6 +30,7 @@ class SubmissionController extends Controller
     public function shopify_link(Request $request, Submission $submission)
     {
         $submission->shopify_link = $request->shopify_link;
+        $submission->slug = str_replace([env('SHOP_URL'), '/'], null, trim($request->shopify_link));
         $submission->save();
         return redirect()->back()->with('message', 'Shopify link successfully set for this item.');
     }
