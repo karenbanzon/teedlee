@@ -19,5 +19,5 @@ function stars($count)
 
 function shop_url($string)
 {
-    return env('SHOP_URL') .'/' . l($string);
+    return env('SHOP_URL') .'/' . $string;
 }
