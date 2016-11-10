@@ -4,6 +4,7 @@ namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
+use Teedlee\Models\Order;
 use Teedlee\Models\Submission;
 use Teedlee\User;
 use Teedlee\Providers\ShopifyServiceProvider;
@@ -25,7 +26,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = $this->_all();
+        $orders = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales();
         dd($orders);
     }
 
@@ -92,6 +93,20 @@ class OrderController extends Controller
     {
         $request = $request->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
+        $order = (new Order())->findOrCreate('order_id', $request->order_id);
+//        'user_id' => \Auth::
+//        'submission_id',
+//        'order_id',
+//        'store',
+//        'price',
+//        'quantity',
+//        'discount',
+//        'fee',
+//        'commission',
+//        'status',
+//        'remarks',
+//        'created_at',
+//        'updated_at',
     }
 
     /**

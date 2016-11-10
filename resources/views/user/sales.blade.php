@@ -39,7 +39,7 @@
                                 <tbody>
                                 @foreach( $products as $product )
                                 <tr>
-                                    <td>
+                                    <td width="10%">
                                         <img src="{!! $product['images'][0] !!}">
                                     </td>
                                     <td>{!! $product['name'] !!}</td>

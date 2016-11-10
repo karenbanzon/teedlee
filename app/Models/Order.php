@@ -10,6 +10,15 @@ class Order extends Model
         'user_id',
         'submission_id',
         'order_id',
-
+        'store',
+        'price',
+        'quantity',
+        'discount',
+        'fee',
+        'commission',
+        'status',
+        'remarks',
+        'created_at',
+        'updated_at',
     ];
 }

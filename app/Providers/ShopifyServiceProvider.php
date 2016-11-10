@@ -52,7 +52,6 @@ class ShopifyServiceProvider extends ServiceProvider
         {
             foreach( $order->line_items as $item )
             {
-
                 if( !isset($products[$item->product_id]) )
                 {
                     $products[$item->product_id] = [
@@ -63,6 +62,8 @@ class ShopifyServiceProvider extends ServiceProvider
                         'name' => $item->name,
                         'quantity' => $item->quantity,
                         'price' => $item->price,
+                        'sku' => $item->sku,
+                        'vendor' => $item->vendor,
                     ];
 
                     $images = $this->shop->get("admin/products/{$item->product_id}/images.json");
@@ -76,6 +77,8 @@ class ShopifyServiceProvider extends ServiceProvider
             }
         }
 
+        $this->addMetafields($products);
+        dd($products);
         return $products;
     }
 
@@ -113,7 +116,23 @@ class ShopifyServiceProvider extends ServiceProvider
             }
         }
 
-//        dd($products);
+        $this->addMetafields($products);
+
+        dd($products);
         return $products;
+    }
+
+    public function addMetafields(&$products)
+    {
+        foreach ($products as $key => $value)
+        {
+            $metafields = $this->shop->get("admin/products/{$products[$key]['product_id']}/metafields.json");
+//            print_r($metafields->toArray());
+            foreach ($metafields as $meta)
+            {
+                $value[$meta->key] = $meta->value;
+            }
+            $products[$key] = $value;
+        }
     }
 }
