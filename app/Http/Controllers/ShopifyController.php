@@ -116,7 +116,7 @@ class ShopifyController extends Controller
         //
     }
 
-    private function getCommission(Collection $order)
+    private function getCommission(Order $order)
     {
         $type = substr($order->sku,0,2);
 
