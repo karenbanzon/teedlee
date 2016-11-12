@@ -43,7 +43,7 @@ class ShopifyController extends Controller
             $meta = [['product_id' => $item['product_id']]];
             $meta = $this->service->addMetafields($meta);
 
-            $order = (new Order())->findOrNew(['order_id' => $request['order_number']]);
+            $order = (new Order())->firstOrNew(['order_id' => $request['order_number']]);
             $order->user_id = 0;
             $order->email = $request['email'];
             $order->submission_id = $meta[0]['submission_id'];
