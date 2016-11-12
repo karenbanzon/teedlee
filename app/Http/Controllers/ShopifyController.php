@@ -47,7 +47,7 @@ class ShopifyController extends Controller
             $order = (new Order())->firstOrNew(['order_id' => $request['order_number']]);
             $order->user_id = 0;
             $order->email = $request['email'];
-            $order->submission_id = $meta[0]->submission_id;
+            $order->submission_id = $meta[0]['submission_id'];
             $order->order_id = $request['order_number'];
             $order->store = 'shopify';
             $order->sku = $item['sku'];
