@@ -41,7 +41,7 @@ class ShopifyController extends Controller
         foreach ( $request['line_items'] as $item )
         {
             $meta = [['product_id' => $item['product_id']]];
-            $meta = $this->service->addMetafields($meta);
+            $this->service->addMetafields($meta);
             \Log::info("Meta:\r\n".json_encode($meta));
 
             $order = (new Order())->firstOrNew(['order_id' => $request['order_number']]);
