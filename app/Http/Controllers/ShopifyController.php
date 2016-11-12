@@ -42,6 +42,7 @@ class ShopifyController extends Controller
         {
             $meta = [['product_id' => $item['product_id']]];
             $meta = $this->service->addMetafields($meta);
+            \Log::info("Meta:\r\n".json_encode($meta));
 
             $order = (new Order())->firstOrNew(['order_id' => $request['order_number']]);
             $order->user_id = 0;
