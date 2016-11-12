@@ -34,9 +34,7 @@ class ShopifyController extends Controller
      */
     public function create(Request $request)
     {
-        \Log::info("create!!!");
         $request = $request->json()->all();
-        dd($request);
         \Log::info("Order::store\r\n".json_encode($request));
 
         foreach ( $request->line_items as $item )
