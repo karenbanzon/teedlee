@@ -2,6 +2,7 @@
 
 namespace Teedlee\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Teedlee\User;
 use Teedlee\Models\Submission;
@@ -115,7 +116,7 @@ class ShopifyController extends Controller
         //
     }
 
-    private function getCommission(Order $order)
+    private function getCommission(Collection $order)
     {
         $type = substr($order->sku,0,2);
 
