@@ -14,7 +14,7 @@ class ShopifyController extends Controller
 
     function __construct()
     {
-        $this->service = new ShopifyServiceProvider();
+        $this->service = new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify());
     }
 
     /**
