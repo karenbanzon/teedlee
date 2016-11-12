@@ -39,8 +39,8 @@ class ShopifyController extends Controller
 
         foreach ( $request['line_items'] as $item )
         {
-//            $meta = [['product_id' => $item->product_id]];
-//            $meta = $this->service->addMetafields($meta);
+            $meta = [['product_id' => $item['product_id']]];
+            $meta = $this->service->addMetafields($meta);
 
             $order = new Order();
             $order->user_id = 0;
@@ -55,7 +55,7 @@ class ShopifyController extends Controller
             $order->discount = $item['total_discount'];
             $order->commission = $this->getCommission($order);
             $order->status = $request['financial_status'];
-            $order->remarks = null;
+            $order->remarks = $item['note'];
             $order->save();
         }
     }
