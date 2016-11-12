@@ -37,7 +37,7 @@ class ShopifyController extends Controller
         $request = $response->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
 
-        foreach ( $request->line_items as $item )
+        foreach ( $request['line_items'] as $item )
         {
 //            $meta = [['product_id' => $item->product_id]];
 //            $meta = $this->service->addMetafields($meta);
