@@ -10,6 +10,13 @@ use Teedlee\Providers\ShopifyServiceProvider;
 
 class ShopifyController extends Controller
 {
+    protected $service;
+
+    function __construct()
+    {
+        $this->service = new ShopifyServiceProvider();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +34,30 @@ class ShopifyController extends Controller
      */
     public function create(Request $request)
     {
+        \Log::info("create!!!");
         $request = $request->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
+
+        foreach ( $request->line_items as $item )
+        {
+            $meta = [['product_id' => $item->product_id]];
+            $meta = $this->service->addMetafields($meta);
+
+            $order = new Order();
+            $order->user_id = 0;
+            $order->email = $request->email;
+            $order->submission_id = $meta[0]['submission_id'];
+            $order->order_id = $request->order_number;
+            $order->store = 'shopify';
+            $order->price = $item->price;
+            $order->quantity = $item->quantity;
+            $order->fee = 0;
+            $order->commission = 0;
+            $order->status = '';
+            $order->remarks = null;
+            $order->discount = $this->getCommission($order);
+            $order->save();
+        }
     }
 
     /**
@@ -71,7 +100,7 @@ class ShopifyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request = $request->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
@@ -100,5 +129,15 @@ class ShopifyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getCommission(Order $order)
+    {
+        if( $order->price*$order->quantity < 750 )
+        {
+            return 100;
+        } else {
+            return 200;
+        }
     }
 }

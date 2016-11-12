@@ -31,9 +31,9 @@ Route::group(['middleware' => ['https']], function() {
     Route::any('shopify/order/create', 'ShopifyController@create');
     Route::any('shopify/order/update', 'ShopifyController@update');
 
-    Route::get('orders/all', 'OrderController@index');
-    Route::any('order/store', 'OrderController@store');
-    Route::any('order/update', 'OrderController@update');
+//    Route::get('orders/all', 'OrderController@index');
+//    Route::any('order/store', 'OrderController@store');
+//    Route::any('order/update', 'OrderController@update');
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('expire', 'UtilsController@searchAndExpire');

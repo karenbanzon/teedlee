@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->default(0);
+            $table->string('email')->default(0);
             $table->unsignedInteger('submission_id')->nullable()->default(0);
             $table->string('order_id',50);
             $table->enum('store',['shopify','teedlee']);
