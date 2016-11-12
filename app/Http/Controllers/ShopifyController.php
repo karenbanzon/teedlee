@@ -51,10 +51,10 @@ class ShopifyController extends Controller
             $order->order_id = $request['order_number'];
             $order->store = 'shopify';
             $order->sku = $item['sku'];
-            $order->price = $item['price'];
-            $order->quantity = $item['quantity'];
+            $order->price = $item['price']*1;
+            $order->quantity = $item['quantity']*1;
             $order->fee = 0;
-            $order->discount = $item['total_discount'];
+            $order->discount = $item['total_discounts']*1;
             $order->commission = $this->getCommission($order);
             $order->status = $request['financial_status'];
             $order->remarks = $request['note'];
