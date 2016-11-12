@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('email')->default(0);
             $table->unsignedInteger('submission_id')->nullable()->default(0);
             $table->string('order_id',50);
+            $table->string('sku',50);
             $table->enum('store',['shopify','teedlee']);
             $table->decimal('price',10,2);
             $table->unsignedInteger('quantity');

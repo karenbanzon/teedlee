@@ -37,26 +37,26 @@ class ShopifyController extends Controller
         \Log::info("create!!!");
         $request = $request->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
-        dd();
 
         foreach ( $request->line_items as $item )
         {
-            $meta = [['product_id' => $item->product_id]];
-            $meta = $this->service->addMetafields($meta);
+//            $meta = [['product_id' => $item->product_id]];
+//            $meta = $this->service->addMetafields($meta);
 
             $order = new Order();
             $order->user_id = 0;
             $order->email = $request->email;
-            $order->submission_id = $meta[0]['submission_id'];
+            $order->submission_id = 0; //$meta[0]['submission_id'];
             $order->order_id = $request->order_number;
             $order->store = 'shopify';
+            $order->sku = $item->sku;
             $order->price = $item->price;
             $order->quantity = $item->quantity;
             $order->fee = 0;
-            $order->commission = 0;
-            $order->status = '';
+            $order->discount = $item->total_discount;
+            $order->commission = $this->getCommission($order);
+            $order->status = $request->financial_status;
             $order->remarks = null;
-            $order->discount = $this->getCommission($order);
             $order->save();
         }
     }
@@ -134,11 +134,13 @@ class ShopifyController extends Controller
 
     private function getCommission(Order $order)
     {
+        $type = substr($order->sku,0,2);
+
         if( $order->price*$order->quantity < 750 )
         {
-            return 100;
+            return $type == 'BT' ? 200 : 100;
         } else {
-            return 200;
+            return $type == 'BT' ? 250 : 150;
         }
     }
 }
