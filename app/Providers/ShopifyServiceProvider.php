@@ -124,6 +124,7 @@ class ShopifyServiceProvider extends ServiceProvider
 
     public function addMetafields(&$products)
     {
+        $this->boot();
         foreach ($products as $key => $value)
         {
             $metafields = $this->shop->get("admin/products/{$products[$key]['product_id']}/metafields.json");
