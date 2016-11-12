@@ -37,6 +37,11 @@ class Submission extends Model
         return $this->hasMany('\Teedlee\Models\SubmissionImage');
     }
 
+    public function orders()
+    {
+        return $this->hasMany('\Teedlee\Models\Order');
+    }
+
     public function flags()
     {
         return \Teedlee\Models\Vote::where('submission_id', $this->id)

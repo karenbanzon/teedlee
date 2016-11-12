@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::resource('vote', 'VoteController');
 
     Route::get('user/orders/{username}', 'OrderController@vendor');
-    Route::get('orders/product/{product_id}', 'OrderController@sales_items');
+    Route::get('orders/product/{submission}', 'OrderController@submission');
     Route::resource('orders', 'OrderController');
 
     Route::get('products', 'SubmissionController@products');

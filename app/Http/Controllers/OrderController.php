@@ -156,16 +156,12 @@ class OrderController extends Controller
         //
     }
 
-    public function sales_items($product_id)
+    public function submission(Submission $submission)
     {
-        dd('sales_items');
-        $product = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->product($product_id);
-//        dd($product);
-        $orders = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales_by_product($product_id);
-//        dd($orders);
+        $orders = $submission->orders()->get();
         return view('user/sales-items')
             ->with('orders', $orders)
-            ->with('product', $product)
+            ->with('submission', $submission)
             ->with('total_quantity', 0)
             ->with('total_sales', 0)
             ;
