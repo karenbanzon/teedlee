@@ -62,7 +62,7 @@ class ShopifyController extends Controller
             $order->discount = $item['total_discount']*1;
             $order->commission = $this->getCommission($order);
             $order->status = $request['financial_status'];
-            $order->fulfillment = $request['fulfillment_status'];
+            $order->fulfillment = $item['fulfillment_status'];
             $order->remarks = $request['note'];
             $order->save();
         }
