@@ -129,9 +129,11 @@ class ShopifyController extends Controller
 
         if( $order->price*$order->quantity < 750 )
         {
-            return $type == 'BT' ? 200 : 100;
+            $commission = ($type == 'BT') ? 200 : 100;
         } else {
-            return $type == 'BT' ? 250 : 150;
+            $commission = ($type == 'BT') ? 250 : 150;
         }
+
+        return ($commission-($order->discount/2))*$order->quantity ;
     }
 }

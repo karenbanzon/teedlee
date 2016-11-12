@@ -44,6 +44,7 @@ class OrderController extends Controller
 
     public function vendor(User $user)
     {
+        dd('vendor!');
         $orders = [];
 
         foreach($this->_all() as $order)
@@ -61,6 +62,7 @@ class OrderController extends Controller
 
     public function product(Submission $submission)
     {
+        dd('product!');
         $orders = [];
 
         foreach($this->_all() as $order)
@@ -156,6 +158,7 @@ class OrderController extends Controller
 
     public function sales_items($product_id)
     {
+        dd('sales_items');
         $product = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->product($product_id);
 //        dd($product);
         $orders = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales_by_product($product_id);

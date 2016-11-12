@@ -4,6 +4,8 @@ namespace Teedlee\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Oseintow\Shopify\Facades\Shopify;
+use Teedlee\Models\Order;
+use Teedlee\User;
 
 class ShopifyServiceProvider extends ServiceProvider
 {
@@ -40,6 +42,31 @@ class ShopifyServiceProvider extends ServiceProvider
     {
         $this->boot();
         return $this->shop->get("admin/products/{$product_id}.json");
+    }
+
+    public function submission_sales($vendor=null)
+    {
+        $vendor = $vendor ? User::where('username', $vendor)->first() : \Auth::user();
+        \Log::info("'Sales summary for '{$vendor->username}'");
+        $submissions = $vendor->submissions()->pluck('id');
+        $orders = Order::select([
+                'orders.submission_id',
+//                'product_id',
+                \DB::raw('AVG(orders.price) price'),
+                \DB::raw('SUM(orders.quantity) quantity'),
+                \DB::raw('SUM(orders.commission) commission'),
+                'submissions.title',
+                \DB::raw('img.thumbnail'),
+            ])
+            ->where('orders.fulfillment', 'fulfilled')
+            ->whereIn('orders.submission_id', $submissions)
+            ->groupBy(['orders.submission_id', 'img.submission_id', 'img.thumbnail'])
+            ->join('submissions', 'orders.submission_id', '=', 'submissions.id' )
+            ->leftJoin(\DB::raw('(SELECT submission_id, MIN(path) thumbnail FROM submission_images GROUP BY submission_id) img'), 'img.submission_id', '=', 'submissions.id')
+            ->get();
+//        dd($orders->toArray());
+
+        return $orders;
     }
 
     public function sales($vendor=null)

@@ -143,9 +143,9 @@ class UserController extends BaseController
 
     public function sales()
     {
-        $products = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->sales();
+        $submissions = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->submission_sales();
         return view('user/sales')
-            ->with('products', $products)
+            ->with('submissions', $submissions)
             ->with('total_quantity', 0)
             ->with('total_sales', 0)
             ;
