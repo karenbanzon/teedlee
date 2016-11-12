@@ -20,13 +20,15 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('submission_id')->nullable()->default(0);
             $table->string('order_id',50);
             $table->string('sku',50);
+            $table->string('product_id',50);
             $table->enum('store',['shopify','teedlee']);
             $table->decimal('price',10,2);
             $table->unsignedInteger('quantity');
             $table->decimal('discount',10,2);
             $table->decimal('fee',10,2);
             $table->decimal('commission',10,2);
-            $table->string('status')->default('unpaid');
+            $table->string('status')->nullable()->default(null);
+            $table->string('fulfillment')->nullable()->default(null);
             $table->text('remarks')->nullable()->default(null);
             $table->timestamps();
         });
