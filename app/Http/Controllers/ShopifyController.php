@@ -44,17 +44,17 @@ class ShopifyController extends Controller
 
             $order = new Order();
             $order->user_id = 0;
-            $order->email = $request->email;
+            $order->email = $request['email'];
             $order->submission_id = 0; //$meta[0]['submission_id'];
-            $order->order_id = $request->order_number;
+            $order->order_id = $request['order_number'];
             $order->store = 'shopify';
-            $order->sku = $item->sku;
-            $order->price = $item->price;
-            $order->quantity = $item->quantity;
+            $order->sku = $item['sku'];
+            $order->price = $item['price'];
+            $order->quantity = $item['quantity'];
             $order->fee = 0;
-            $order->discount = $item->total_discount;
+            $order->discount = $item['total_discount'];
             $order->commission = $this->getCommission($order);
-            $order->status = $request->financial_status;
+            $order->status = $request['financial_status'];
             $order->remarks = null;
             $order->save();
         }
