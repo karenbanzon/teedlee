@@ -32,9 +32,9 @@ class ShopifyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $response)
     {
-        $request = $request->json()->all();
+        $request = $response->json()->all();
         \Log::info("Order::store\r\n".json_encode($request));
 
         foreach ( $request->line_items as $item )
