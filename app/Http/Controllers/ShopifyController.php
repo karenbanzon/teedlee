@@ -42,10 +42,10 @@ class ShopifyController extends Controller
             $meta = [['product_id' => $item['product_id']]];
             $meta = $this->service->addMetafields($meta);
 
-            $order = new Order();
+            $order = (new Order())->findOrNew(['order_id' => $request['order_number']]);
             $order->user_id = 0;
             $order->email = $request['email'];
-            $order->submission_id = 0; //$meta[0]['submission_id'];
+            $order->submission_id = $meta[0]['submission_id'];
             $order->order_id = $request['order_number'];
             $order->store = 'shopify';
             $order->sku = $item['sku'];
@@ -102,22 +102,6 @@ class ShopifyController extends Controller
      */
     public function update(Request $request)
     {
-        $request = $request->json()->all();
-        \Log::info("Order::store\r\n".json_encode($request));
-//        $order = (new Order())->findOrCreate('order_id', $request->order_id);
-//        'user_id' => \Auth::
-//        'submission_id',
-//        'order_id',
-//        'store',
-//        'price',
-//        'quantity',
-//        'discount',
-//        'fee',
-//        'commission',
-//        'status',
-//        'remarks',
-//        'created_at',
-//        'updated_at',
     }
 
     /**
