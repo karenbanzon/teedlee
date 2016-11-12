@@ -28,8 +28,8 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
 
 //    Shopify doesn't support standard HTTP verbs. Use manual routing.
-    Route::post('shopify/order/create', 'ShopifyController@create');
-    Route::post('shopify/order/update', 'ShopifyController@update');
+    Route::any('shopify/order/create', 'ShopifyController@create');
+    Route::any('shopify/order/update', 'ShopifyController@update');
 
     Route::get('orders/all', 'OrderController@index');
     Route::any('order/store', 'OrderController@store');
