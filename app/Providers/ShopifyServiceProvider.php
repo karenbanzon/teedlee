@@ -127,6 +127,7 @@ class ShopifyServiceProvider extends ServiceProvider
         $this->boot();
         foreach ($products as $key => $value)
         {
+            \Log::info("get: admin/products/{$products[$key]['product_id']}/metafields.json");
             $metafields = $this->shop->get("admin/products/{$products[$key]['product_id']}/metafields.json");
 //            print_r($metafields->toArray());
             foreach ($metafields as $meta)
