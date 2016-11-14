@@ -25,7 +25,7 @@ class ShopifyProductsSeeder extends Seeder
     {
         $products = (new ShopifyServiceProvider(new \Oseintow\Shopify\Facades\Shopify()))->products();
 //        \Log::info(json_encode($products));
-        dd($products);
+//        dd($products);
 
         foreach ($products as $product)
         {
