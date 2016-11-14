@@ -27,7 +27,7 @@ class UpdateUser extends Request
 
         return [
             'avatar'=> 'image|max:2048',
-            'username' => 'required|min:3|max:25|unique:users,username,'.$id,
+            'username' => 'min:3|max:25|unique:users,username,'.$id,
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'min:6|confirmed',
             'firstname' => 'min:2|max:30',
