@@ -15,7 +15,7 @@ class ContestController extends Controller
      */
     public function index()
     {
-        return view('admin/contest')
+        return view('admin/contest/index')
             ->with('contests', Contest::all())
             ;
     }

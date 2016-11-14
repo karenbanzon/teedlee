@@ -106,7 +106,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{!! url('contests') !!}"><i class="fa fa-trophy"></i>
+                    <a href="{!! url('admin/contest') !!}"><i class="fa fa-trophy"></i>
                         <span>Contests</span>
                     </a>
                 </li>

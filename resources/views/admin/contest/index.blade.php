@@ -8,49 +8,40 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Submissions - {!! $title !!}</h3>
+                    <h3 class="box-title">Contests</h3>
+                    <span class="pull-right"><a href="{!! url('admin/contest/create') !!}" class="btn btn-primary">New Contest</a></span>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table id="submissions" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th colspan="2">Submission</th>
-                            <th>Artist</th>
-                            <th>Date Submitted</th>
+                            <th colspan="2">Contest</th>
+                            <th>Start</th>
+                            <th>End</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $submissions as $submission)
+                        @foreach( $contests as $contest)
                         <tr>
-                            <td width="1">{!! Html::image(isset($submission->images[0]) ? $submission->images[0]->path : null, '', ['width' => '45px']) !!}</td>
+                            <td width="1">{!! Html::image(isset($contest->image), '', ['width' => '45px']) !!}</td>
                             <td class="text-bold">
-                                <p>
-                                    {!! $submission->title !!}
-                                </p>
-                                <small class="label alert-{!! $submission->status_style !!}">{!! c($submission->status) !!}</small>
-                                @if( strpos($submission->status, 'internal_voting') !== false )
-                                <small class="label">{!! stars($submission->votes->internal->average) !!}</small>
-                                @endif
-                                @if( strpos($submission->status, 'public_voting') !== false )
-                                    <small class="label">{!! stars($submission->votes->public->average) !!}</small>
-                                @endif
+                                {!! $contest->title !!}
                             </td>
-                            <td>{!! $submission->user->username !!}</td>
-                            <td>{!! $submission->created_at !!}</td>
+                            <td>{!! $contest->start !!}</td>
+                            <td>{!! $contest->end !!}</td>
                             <td class="h4 text-center">
-                                <a href="{!! url('admin/submission/'.$submission->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
-                                {{--<a href="#"><span class="fa fa-eye"></span></a>--}}
+                                <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th colspan="2">Submission</th>
-                            <th>Artist</th>
-                            <th>Date Submitted</th>
+                            <th colspan="2">Contest</th>
+                            <th>Start</th>
+                            <th>End</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>
@@ -69,7 +60,7 @@
     {!! Html::script('bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') !!}
 <script>
     $(function () {
-        $("#submissions").DataTable({
+        $("#contests").DataTable({
             "lengthChange": false,
             "searching": false,
             "ordering": true,
