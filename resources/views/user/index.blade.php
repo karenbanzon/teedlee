@@ -42,13 +42,13 @@
                 <div class="profile-detail field-editor" rel="username">
                     <h6 class="label">Username</h6>
                     <div class="profile-entry alias field-editor-preview">
-                        <span class="profile-entry-data">{!! old('username',$user->username) !!}</span>
-                        <a class="profile-action action" href="#" data-target="username"><span class="icon icon-pencil"></span></a>
+                        <span class="profile-entry-datax">{!! old('username',$user->username) !!}</span>
+                        {{--<a class="profile-action action" href="#" data-target="username"><span class="icon icon-pencil"></span></a>--}}
                     </div>
                     <div class="profile-entry field-editor-input">
                         {{--<input type="text" name="username" placeholder="Username" value="juanjose">--}}
-                        {!! Form::text('username', null, ['placeholder' => 'Username']) !!}
-                        <button class="small action">Done</button>
+                        {{--{!! Form::text('username', null, ['placeholder' => 'Username']) !!}--}}
+                        {{--<button class="small action">Done</button>--}}
                     </div>
                 </div>
 
