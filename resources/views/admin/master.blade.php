@@ -106,6 +106,11 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="{!! url('contests') !!}"><i class="fa fa-trophy"></i>
+                        <span>Contests</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{!! url('logout') !!}"><i class="fa fa-sign-out"></i>
                         <span>Logout</span>
                     </a>
