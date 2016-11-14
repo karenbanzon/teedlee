@@ -27,7 +27,8 @@ class ContestController extends Controller
      */
     public function create()
     {
-        //
+        return $this->edit(new Contest());
+
     }
 
     /**
@@ -38,7 +39,6 @@ class ContestController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -58,9 +58,10 @@ class ContestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contest $contest)
     {
-        //
+        return view('admin/contest/edit')
+            ->with('contest', $contest);
     }
 
     /**

@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
         \Route::bind('submission_status', function($status) {
             return \Teedlee\Models\Submission::where('status', 'LIKE', '%'.$status.'%')->get();
         });
+        \Route::model('contest', 'Teedlee\Models\Contest');
     }
 
     /**
