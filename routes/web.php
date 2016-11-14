@@ -10,6 +10,7 @@ Route::group(['middleware' => ['admin', 'https']], function() {
     Route::any('admin/submission/expire/{submission}/{type}', 'Admin\SubmissionController@expire');
     Route::resource('admin/user', 'Admin\UserController');
     Route::get('shop/test', 'ShopController@test');
+    Route::resource('admin/contest', 'Admin\ContestController');
 });
 
 Route::group(['middleware' => ['https']], function() {
