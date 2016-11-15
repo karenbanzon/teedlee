@@ -130,21 +130,11 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                @yield('title')
-                {{--<small>it all starts here</small>--}}
-            </h1>
-            {{--<ol class="breadcrumb">--}}
-                {{--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>--}}
-                {{--<li><a href="#">Examples</a></li>--}}
-                {{--<li class="active">Blank page</li>--}}
-            {{--</ol>--}}
-        </section>
+        <section class="content-header"><h1>@yield('title')</h1></section>
 
         <!-- Main content -->
         <section class="content">
-            @include('alerts')
+            @include('admin/alerts')
             @yield('content')
         </section>
         <!-- /.content -->
@@ -155,7 +145,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2016 <a href="http://teedlee.ph">Teedlee</a>.</strong> All rights
+        <strong>Copyright &copy; 2016 <a href="{!! url('') !!}">Teedlee</a>.</strong> All rights
         reserved.
     </footer>
 </div>

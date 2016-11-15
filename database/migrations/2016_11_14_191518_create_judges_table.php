@@ -15,10 +15,9 @@ class CreateJudgesTable extends Migration
     {
         Schema::create('judges', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('contest_id');
-            $table->foreign('contest_id')->references('id')->on('contests');
+            $table->unsignedInteger('user_id')->nullable()->default(null);
+            $table->string('email', 50)->nullable()->default(null);
+            $table->unsignedInteger('contest_id')->nullable()->default(null);
             $table->timestamps();
         });
     }

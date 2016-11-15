@@ -15,13 +15,13 @@ class CreateContestsTable extends Migration
     {
         Schema::create('contests', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable()->default(null);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title', 30);
-            $table->dateTime('start');
-            $table->dateTime('end');
-            $table->string('banner');
-            $table->longText('description');
+            $table->string('title', 30)->required();
+            $table->dateTime('start')->nullable()->default(null);
+            $table->dateTime('end')->nullable()->default(null);
+            $table->string('banner')->required();
+            $table->longText('description')->required();
             $table->timestamps();
         });
     }

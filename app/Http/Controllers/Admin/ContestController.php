@@ -5,6 +5,7 @@ namespace Teedlee\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Teedlee\Http\Controllers\Controller;
 use Teedlee\Models\Contest;
+use Teedlee\Http\Requests\SaveContest;
 
 class ContestController extends Controller
 {
@@ -37,8 +38,10 @@ class ContestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveContest $contest)
     {
+        dd($contest);
+
     }
 
     /**
@@ -73,7 +76,7 @@ class ContestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**
