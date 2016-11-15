@@ -5,20 +5,20 @@
 @endsection
 
 @section('content')
+    {!! Form::model($contest, ['url' => 'admin/contest', 'class' => 'form-horizontal', 'files' => true]) !!}
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-8">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Contests</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    {!! Form::model($contest, ['url' => 'admin/contest', 'class' => 'form-horizontal']) !!}
                     {!! Form::hidden('id') !!}
                     <div class="form-group">
-                        <label for="image" class="col-sm-3 control-label">Banner Image</label>
+                        <label for="banner" class="col-sm-3 control-label">Banner Image</label>
                         <div class="col-sm-6">
-                            {!! Form::file('image', null, [ 'class' => "form-control" ]) !!}
+                            {!! Form::file('banner', null, [ 'class' => "form-control" ]) !!}
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-clock-o"></i>
                                 </div>
-                                <input type="text" name="start" class="form-control pull-right" id="start">
+                                {!! Form::text('start', null, [ 'class' => "form-control" ]) !!}
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-clock-o"></i>
                                 </div>
-                                <input type="text" name="end" class="form-control pull-right" id="end">
+                                {!! Form::text('end', null, [ 'class' => "form-control" ]) !!}
                             </div>
                         </div>
                     </div>
@@ -66,9 +66,6 @@
                             <button class="btn btn-primary clr"><b>Save</b></button>
                         </div>
                     </div>
-
-                    {!! Form::close() !!}
-
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -76,6 +73,7 @@
         </div>
         <!-- /.col -->
     </div>
+    {!! Form::close() !!}
 @endsection
 
 @section('scripts')

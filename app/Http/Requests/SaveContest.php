@@ -28,7 +28,7 @@ class SaveContest extends FormRequest
             'title' => 'required',
             'start' => 'date',
             'end' => 'date',
-            'banner' => 'string',
+            'banner' => 'image',
             'description' => 'string',
             'created_at' => 'date',
         ];

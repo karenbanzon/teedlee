@@ -25,7 +25,7 @@
                         <tbody>
                         @foreach( $contests as $contest)
                         <tr>
-                            <td width="1">{!! Html::image(isset($contest->image), '', ['width' => '45px']) !!}</td>
+                            <td width="1">{!! Html::image('contests/'.$contest->banner, '', ['width' => '45px']) !!}</td>
                             <td class="text-bold">
                                 {!! $contest->title !!}
                             </td>
