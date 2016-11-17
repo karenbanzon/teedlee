@@ -7,6 +7,8 @@ use Teedlee\Http\Controllers\Controller;
 use Teedlee\Models\Contest;
 use Teedlee\Http\Requests\SaveContest;
 use Teedlee\Models\Order;
+use Teedlee\User;
+use Teedlee\Models\Judge;
 
 class ContestController extends Controller
 {
@@ -47,14 +49,24 @@ class ContestController extends Controller
             $filename = str_slug($request->title) . '-' . $request->id.'.'.$file->getClientOriginalExtension();
             $path = public_path('contests');
             $file->move($path, $filename);
+            $contest->banner = $filename;
         }
 
-        $contest->banner = $filename;
         $contest->title = $request->title;
         $contest->description = $request->desctiption;
         $contest->start = $request->start;
         $contest->end = $request->end;
         $contest->save();
+
+        $contest->judges()->delete();
+
+        foreach ( $request->judge as $judge )
+        {
+            $contest->judges()->create([
+                'contest_id' => $contest->id,
+                'user_id' => $judge,
+            ]);
+        }
 
         return redirect('admin/contest');
     }
@@ -79,7 +91,9 @@ class ContestController extends Controller
     public function edit(Contest $contest)
     {
         return view('admin/contest/edit')
-            ->with('contest', $contest);
+            ->with('contest', $contest)
+            ->with('judges', User::where('user_group_id', 7)->get())
+            ;
     }
 
     /**

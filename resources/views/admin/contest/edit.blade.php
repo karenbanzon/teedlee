@@ -12,7 +12,7 @@
                 <div class="box-header">
                     <h3 class="box-title">Contests</h3>
                 </div>
-                <!-- /.box-header -->
+
                 <div class="box-body">
                     {!! Form::hidden('id') !!}
                     <div class="form-group">
@@ -67,11 +67,26 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
+
+        <div class="col-md-4">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Judges</h3>
+                </div>
+                <div class="box-body">
+                    @foreach($judges as $judge)
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="judge[]" value="{!! $judge->id !!}" {!! $contest->judges->where('user_id', $judge->id)->count() ? 'checked="checked"' : null !!} > {!! $judge->username !!}
+                            </label>
+                        </div>
+                    @endforeach
+                    <div>&nbsp;</div>
+                </div>
+            </div>
+        </div>
     </div>
     {!! Form::close() !!}
 @endsection
