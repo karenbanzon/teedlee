@@ -17,8 +17,8 @@
                         <thead>
                         <tr>
                             <th colspan="2">Contest</th>
-                            <th>Start</th>
-                            <th>End</th>
+                            <th>Judges</th>
+                            <th>Duration</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -29,8 +29,12 @@
                             <td class="text-bold">
                                 {!! $contest->title !!}
                             </td>
-                            <td>{!! $contest->start !!}</td>
-                            <td>{!! $contest->end !!}</td>
+                            <td>
+                                @foreach( $contest->judges as $judge )
+                                    <span class="label label-warning">{!! $judge->user->username !!}</span>
+                                @endforeach
+                            </td>
+                            <td>{!! "{$contest->start} to {$contest->end}" !!}</td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
                             </td>

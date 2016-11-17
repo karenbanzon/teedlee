@@ -15,6 +15,12 @@
 
                 <div class="box-body">
                     {!! Form::hidden('id') !!}
+
+                    @if( $contest->banner )
+                        {!! \Html::image("contests/{$contest->banner}", null, ['width' => '100%', 'class' => 'thumbnail']) !!}
+                        <p>&nbsp;</p>
+                    @endif
+
                     <div class="form-group">
                         <label for="banner" class="col-sm-3 control-label">Banner Image</label>
                         <div class="col-sm-6">
