@@ -26,10 +26,10 @@
                         <tr>
                             <td width="1">{!! Html::image(isset($submission->images[0]) ? $submission->images[0]->path : null, '', ['width' => '45px']) !!}</td>
                             <td class="text-bold">
-                                {!! $submission->title !!}<br/>
                                 @if( $submission->contest_id )
-                                <small class="label label-warning"><i class="fa fa-trophy"></i> {!! $submission->contest->title !!}</small>
+                                    <div class="small text-muted text-normal">{!! $submission->contest->title !!}</div>
                                 @endif
+                                {!! $submission->title !!}<br/>
                                 <small class="label label-{!! $submission->status_style !!}">{!! c($submission->status) !!}</small>
                                 @if( strpos($submission->status, 'internal_voting') !== false )
                                 <small class="label">{!! stars($submission->votes->internal->average) !!}</small>
