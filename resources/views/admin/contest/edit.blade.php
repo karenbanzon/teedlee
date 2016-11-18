@@ -94,10 +94,15 @@
                 <div>&nbsp;</div>
             </div>
 
-            <div class="box">
+            <div class="box create-judge">
                 <div class="box-header">
                     <h3 class="box-title">New Judge</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus text-orange"></i>
+                        </button>
+                    </div>
                 </div>
+
                 <div class="box-body">
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -152,6 +157,9 @@
                     template.find('input[type="checkbox"]').val(data.id).attr('checked','checked');
                     template.find('span').html(data.username).addClass('text-primary text-bold');
                     $('#judges').append(template);
+                    $('#username, #email, #password').val('');
+                    $('.create-judge button[data-widget="collapse"]').click();
+                    alert('User ' + data.username + ' created and added to list of judges.');
                 })
                 .fail(function(err){
                     var msg = '';
