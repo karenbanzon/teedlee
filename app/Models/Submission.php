@@ -32,6 +32,11 @@ class Submission extends Model
         return $this->belongsTo('\Teedlee\User');
     }
 
+    public function contest()
+    {
+        return $this->belongsTo('\Teedlee\Models\Contest');
+    }
+
     public function images()
     {
         return $this->hasMany('\Teedlee\Models\SubmissionImage');

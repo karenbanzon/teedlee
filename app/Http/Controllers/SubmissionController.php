@@ -71,7 +71,6 @@ class SubmissionController extends BaseController
      */
     public function edit($submission)
     {
-        dd($submission->toArray());
         return view('submission.create')->with('submission', $submission);
     }
 

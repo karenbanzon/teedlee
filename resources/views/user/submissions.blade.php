@@ -45,7 +45,10 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {!! $submission->title !!}
+                                        {!! $submission->contest_id !!}
+                                        @if( $submission->contest_id )
+                                            <div class="label label-warning">{!! $submission->contest->title !!}</div>
+                                        @endif
                                     </td>
                                     <td>{!! date('d M Y', strtotime($submission->created_at)) !!}</td>
                                     <td>
@@ -91,6 +94,9 @@
                                     </td>
                                     <td>
                                         {!! $submission->title !!}
+                                        @if( $submission->contest_id )
+                                            <div>({!! $submission->contest->title !!})</div>
+                                        @endif
                                     </td>
                                     <td>
                                         @if( $submission->status == 'awaiting_orig_artwork')
@@ -144,6 +150,9 @@
                                     </td>
                                     <td>
                                         {!! $submission->title !!}
+                                        @if( $submission->contest_id )
+                                            <div>({!! $submission->contest->title !!})</div>
+                                        @endif
                                     </td>
                                     <td>
                                         {!! strpos($submission->status, 'internal') !== false ? 'Internal' : 'Public' !!} Voting
@@ -187,6 +196,9 @@
                                     </td>
                                     <td>
                                         {!! $submission->title !!}
+                                        @if( $submission->contest_id )
+                                            <div>({!! $submission->contest->title !!})</div>
+                                        @endif
                                     </td>
                                     <td>
                                         {!! $submission->created_at !!}
@@ -222,6 +234,9 @@
                                     </td>
                                     <td>
                                         {!! $submission->title !!}
+                                        @if( $submission->contest_id )
+                                            <div>({!! $submission->contest->title !!})</div>
+                                        @endif
                                     </td>
                                     <td>
                                         {!! $submission->declined_reason !!}

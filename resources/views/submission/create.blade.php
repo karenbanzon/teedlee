@@ -20,6 +20,7 @@
             <div class="card small-12 large-8 large-offset-2">
                 {!! Form::model($submission, ['url' => 'submissions/'.$submission->id, 'method' => 'PUT']) !!}
                 <input type="hidden" value="PUT" name="_method">
+                <input type="hidden" value="{!! $submission->contest_id !!}" name="contest_id">
                 <div class="card small-12 padding-20">
                     <div class="profile-detail field-editor" rel="title">
                         <h6 class="label">Title<span class="text-red text-bold">*</span></h6>
