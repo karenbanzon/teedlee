@@ -16,6 +16,7 @@
                         <thead>
                         <tr>
                             <th colspan="2">Submission</th>
+                            <th>Contest</th>
                             <th>Artist</th>
                             <th>Date Submitted</th>
                             <th class="text-center">Actions</th>
@@ -26,11 +27,11 @@
                         <tr>
                             <td width="1">{!! Html::image(isset($submission->images[0]) ? $submission->images[0]->path : null, '', ['width' => '45px']) !!}</td>
                             <td class="text-bold">
-                                @if( $submission->contest_id )
-                                    <div class="small text-muted text-normal">{!! $submission->contest->title !!}</div>
-                                @endif
+                                {{--@if( $submission->contest_id )--}}
+                                    {{--<div class="small text-muted text-normal">{!! $submission->contest->title !!}</div>--}}
+                                {{--@endif--}}
                                 {!! $submission->title !!}<br/>
-                                <small class="label label-{!! $submission->status_style !!}">{!! c($submission->status) !!}</small>
+                                <small class="label alert-{!! $submission->status_style !!}">{!! c($submission->status) !!}</small>
                                 @if( strpos($submission->status, 'internal_voting') !== false )
                                 <small class="label">{!! stars($submission->votes->internal->average) !!}</small>
                                 @endif
@@ -38,6 +39,7 @@
                                     <small class="label">{!! stars($submission->votes->public->average) !!}</small>
                                 @endif
                             </td>
+                            <td>{!! $submission->contest_id ? $submission->contest->title : null !!}</td>
                             <td>{!! $submission->user->username !!}</td>
                             <td>{!! $submission->created_at !!}</td>
                             <td class="h4 text-center">
