@@ -26,13 +26,11 @@ class SubmissionController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
-//        TODO: Move this to store() method
-
         $submission = new Submission();
         return $this->edit($submission->create([
+            'contest_id' => $request->contest,
             'user_id' => \Auth::user()->id,
             'title' => ' ',
             'description' => ' ',
@@ -73,6 +71,7 @@ class SubmissionController extends BaseController
      */
     public function edit($submission)
     {
+        dd($submission->toArray());
         return view('submission.create')->with('submission', $submission);
     }
 
