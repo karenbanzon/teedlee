@@ -81,14 +81,43 @@
                 <div class="box-header">
                     <h3 class="box-title">Judges</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body" id="judges">
                     @foreach($judges as $judge)
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="judge[]" value="{!! $judge->id !!}" {!! $contest->judges->where('user_id', $judge->id)->count() ? 'checked="checked"' : null !!} > {!! $judge->username !!}
+                                <input type="checkbox" name="judge[]" value="{!! $judge->id !!}" {!! $contest->judges->where('user_id', $judge->id)->count() ? 'checked="checked"' : null !!} >
+                                <span>{!! $judge->username !!}</span>
                             </label>
                         </div>
                     @endforeach
+                </div>
+                <div>&nbsp;</div>
+            </div>
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">New Judge</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {!! Form::text(null, null, [ 'class' => "form-control", 'placeholder' => 'User Name', 'id' => 'username' ]) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {!! Form::email(null, null, [ 'class' => "form-control", 'placeholder' => 'Email', 'id' => 'email' ]) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {!! Form::password(null, [ 'class' => "form-control", 'placeholder' => 'Password', 'id' => 'password' ]) !!}
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary clr" id="btnCreateJudge"><b>Save</b></button>
                     <div>&nbsp;</div>
                 </div>
             </div>
@@ -105,6 +134,34 @@
         $(function () {
             $('#start, #end').datepicker({
                 autoclose: true
+            });
+
+            $('#btnCreateJudge').click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '{!! url('api/judge') !!}',
+                    data: {
+                        username: $('#username').val(),
+                        email: $('#email').val(),
+                        password: $('#password').val(),
+                    },
+                    dataType: 'json',
+                })
+                .done(function(data){
+                    var template = $('#judges div:last-child').clone();
+                    template.find('input[type="checkbox"]').val(data.id).attr('checked','checked');
+                    template.find('span').html(data.username).addClass('text-primary text-bold');
+                    $('#judges').append(template);
+                })
+                .fail(function(err){
+                    var msg = '';
+                    for(var i in err.responseJSON)
+                    {
+                        msg += err.responseJSON[i] + "\r";
+                    }
+
+                    alert(msg);
+                });
             });
         });
     </script>
