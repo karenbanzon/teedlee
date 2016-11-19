@@ -13,6 +13,6 @@
         <img src="images/404.png" alt="">
     </div>
     <p>We can't find the page you're looking for. Maybe go back and try again?</p>
-    <a href="{!! url()->previous() !!}" class="button neutral">&larr; Go back</a>
+    <a href="{!! url('login') !!}" class="button neutral">&larr; Log in</a>
 </div>
 @endsection

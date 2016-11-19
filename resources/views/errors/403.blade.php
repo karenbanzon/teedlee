@@ -14,7 +14,7 @@
                 <img src="{!! url('images/403.png') !!}" alt="">
             </div>
             <p>You need admin access to see this page, sorry.</p>
-            <a href="{!! url()->previous() !!}" class="button neutral">&larr; Go back</a>
+            <a href="{!! url('login') !!}" class="button neutral">&larr; Log in</a>
         </div>
     </section>
 @endsection
