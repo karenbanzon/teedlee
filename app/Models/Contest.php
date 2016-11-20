@@ -12,4 +12,13 @@ class Contest extends Model
     {
         return $this->hasMany( '\Teedlee\Models\Judge' );
     }
+
+    public function active()
+    {
+        return $this
+            ->whereColumn(\DB::raw('NOW()'), '>=', 'start' )
+            ->whereColumn(\DB::raw('NOW()'), '<=', 'end' )
+            ->get()
+        ;
+    }
 }

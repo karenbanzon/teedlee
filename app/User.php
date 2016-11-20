@@ -4,6 +4,7 @@ namespace Teedlee;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Teedlee\Models\Contest;
 
 class User extends Authenticatable
 {
@@ -90,7 +91,7 @@ class User extends Authenticatable
     /**
      * @param null
      */
-    public function votes_que ()
+    public function votes_que (Contest $contest=null)
     {
         $voted = \Auth::user()->votes()->pluck('submission_id');
 
@@ -107,7 +108,25 @@ class User extends Authenticatable
                 ->where('internal_voting_start', '<>', null)
                 ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'),  '>=', \DB::raw('NOW()') )
                 ->orderBy('id');
+
+            if( \Auth::user()->user_group_id == 7 )
+            {
+                $submissions->where('contest_id', null);
+
+                if( $contest )
+                {
+//                    dd($contest->judges()->where('user_id', \Auth::user()->id)->pluck('id')->toArray());
+
+                    $submissions->orWhereIn(
+                        'contest_id',
+                        $contest->judges()->where('user_id', \Auth::user()->id)->pluck('id')->toArray()
+                    );
+
+                }
+            }
         }
+
+        dd($submissions->get()->toArray());
 
         return $submissions->get();
     }

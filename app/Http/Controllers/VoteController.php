@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use Teedlee\Models\Vote;
+use Teedlee\Models\Contest;
 
 class VoteController extends Controller
 {
@@ -14,9 +15,12 @@ class VoteController extends Controller
      *
      * @return null
      */
-    public function index()
+    public function index($contest=null)
     {
-        return view('voting.index');
+        return view('voting.index')
+            ->with('contests', (new Contest())->active())
+            ->with('carbon', new Carbon())
+            ;
     }
 
     /**
@@ -34,7 +38,7 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($submission=null, $referrer=null)
+    public function create($submission=null, $referrer=null, Contest $contest)
     {
         if( $submission )
         {
@@ -42,7 +46,7 @@ class VoteController extends Controller
         } else {
             $submissions = \Auth::user()->votes_que();
             $submission = $submissions->first();
-            $submissions = \Auth::user()->votes_que()->toArray();
+            $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
 
 //        dd($submissions);
@@ -51,6 +55,11 @@ class VoteController extends Controller
             ->with('submissions', json_encode(array_reverse($submissions)))
             ->with('submission', $submission)
             ;
+    }
+
+    public function contest( Contest $contest )
+    {
+        return $this->create(null, null, $contest);
     }
 
     /**

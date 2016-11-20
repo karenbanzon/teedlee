@@ -10,11 +10,13 @@
             <h4>Entries from Open Submission</h4>
             <p><a href="{!! url('vote/create') !!}"><img src="images/about-teedlee.png"></a></p>
             <a href="{!! url('vote/create') !!}" class="button white small">Vote</a>
-            {{--<hr>--}}
-            {{--<h4>Entries for Brand X Design Challenge</h4>--}}
-            {{--<p>Ends in <strong>10</strong> days.</p>--}}
-            {{--<p><a href=""><img src="http://unsplash.it/600/400/?random"></a></p>--}}
-            {{--<a href="" class="button white small">Vote</a>--}}
+            @foreach( $contests as $contest )
+            <hr>
+            <h4>Entries for {!! $contest->title !!}</h4>
+            <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end), $carbon->now()) !!}</strong>.</p>
+            <p><a href=""><img src="{!! url('contests/'.$contest->banner) !!}"></a></p>
+            <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a>
+            @endforeach
         </div>
     </section>
 
