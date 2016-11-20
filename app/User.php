@@ -91,8 +91,10 @@ class User extends Authenticatable
     /**
      * @param null
      */
-    public function votes_que (Contest $contest=null)
+    public function votes_que ($contest=null)
     {
+//        \DB::enableQueryLog();
+
         $voted = \Auth::user()->votes()->pluck('submission_id');
 
         if( \Auth::user()->user_group_id == 5 )
@@ -111,22 +113,21 @@ class User extends Authenticatable
 
             if( \Auth::user()->user_group_id == 7 )
             {
-                $submissions->where('contest_id', null);
-
-                if( $contest )
-                {
-//                    dd($contest->judges()->where('user_id', \Auth::user()->id)->pluck('id')->toArray());
-
-                    $submissions->orWhereIn(
-                        'contest_id',
-                        $contest->judges()->where('user_id', \Auth::user()->id)->pluck('id')->toArray()
-                    );
-
-                }
+                $submissions->where(function( $sub ) use ($contest) {
+                    $sub->where('contest_id', null);
+                    if( $contest ) {
+                        if( $contest->judges()->where('user_id', \Auth::user()->id)->count() ) {
+                            $sub->orWhere('contest_id', $contest->id);
+                        }
+                    }
+                });
             }
         }
 
-        dd($submissions->get()->toArray());
+//        if( $contest ){
+//            $submissions->get();
+//            dd(\DB::getQueryLog());
+//        }
 
         return $submissions->get();
     }

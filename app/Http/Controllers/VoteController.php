@@ -38,9 +38,9 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($submission=null, $referrer=null, Contest $contest)
+    public function create($submission=null, $referrer=null, Contest $contest=null)
     {
-        if( $submission )
+        if( $submission->toArray() )
         {
             $submissions = [$submission];
         } else {
@@ -48,8 +48,6 @@ class VoteController extends Controller
             $submission = $submissions->first();
             $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
-
-//        dd($submissions);
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
@@ -70,8 +68,6 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
         if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
             $model = (new \Teedlee\Models\Vote())
                         ->where('submission_id', $request->submission_id)

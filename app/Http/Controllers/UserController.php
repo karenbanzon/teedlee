@@ -52,8 +52,6 @@ class UserController extends BaseController
 
     public function update(UpdateUser $data)
     {
-//        dd($data->toArray());
-
         $user = $this->model->find(\Auth::user()->id);
         $data = array_merge($user->toArray(), $data->toArray());
         $data['is_profile_complete']=1;
@@ -84,7 +82,6 @@ class UserController extends BaseController
 
     public function show($user)
     {
-//        dd($user->toArray());
         return view('user/show')
             ->with('user', $user);
     }
@@ -125,8 +122,6 @@ class UserController extends BaseController
             'id' => $submission->id,
             'status' => 'orig_artwork_submitted'
         ]);
-
-//        dd($request->toArray());
 
         if( $this->validate($request, $submission->rules('artwork')) ) {
 
