@@ -40,7 +40,7 @@ class VoteController extends Controller
      */
     public function create($submission=null, $referrer=null, Contest $contest=null)
     {
-        if( $submission->toArray() )
+        if( $submission !==null && $submission->toArray() )
         {
             $submissions = [$submission];
         } else {
