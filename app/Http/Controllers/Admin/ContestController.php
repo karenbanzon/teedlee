@@ -53,19 +53,21 @@ class ContestController extends Controller
         }
 
         $contest->title = $request->title;
-        $contest->description = $request->desctiption;
-        $contest->start = $request->start;
-        $contest->end = $request->end;
+        $contest->description = $request->description;
+        $contest->start_at = $request->start_at;
+        $contest->end_at = $request->end_at;
+        $contest->close_at = $request->close_at;
         $contest->save();
 
         $contest->judges()->delete();
 
-        foreach ( $request->judge as $judge )
-        {
-            $contest->judges()->create([
-                'contest_id' => $contest->id,
-                'user_id' => $judge,
-            ]);
+        if( isset($request->judge) && $request->judge ) {
+            foreach ($request->judge as $judge) {
+                $contest->judges()->create([
+                    'contest_id' => $contest->id,
+                    'user_id' => $judge,
+                ]);
+            }
         }
 
         return redirect('admin/contest');

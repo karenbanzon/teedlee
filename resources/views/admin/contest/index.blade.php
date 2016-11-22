@@ -18,7 +18,8 @@
                         <tr>
                             <th colspan="2">Contest</th>
                             <th>Judges</th>
-                            <th>Duration</th>
+                            <th>Submission</th>
+                            <th>Voting</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -34,7 +35,8 @@
                                     <span class="label label-warning">{!! $judge->user->username !!}</span>
                                 @endforeach
                             </td>
-                            <td>{!! "{$contest->start} to {$contest->end}" !!}</td>
+                            <td>{!! "{$contest->start_at} to {$contest->end_at}" !!}</td>
+                            <td>{!! $contest->close_at !!}</td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
                             </td>
@@ -44,8 +46,9 @@
                         <tfoot>
                         <tr>
                             <th colspan="2">Contest</th>
-                            <th>Start</th>
-                            <th>End</th>
+                            <th>Judges</th>
+                            <th>Submission</th>
+                            <th>Voting</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>

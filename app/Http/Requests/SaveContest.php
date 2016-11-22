@@ -26,10 +26,11 @@ class SaveContest extends FormRequest
         return [
             'user_id' => 'integer|in:users',
             'title' => 'required',
-            'start' => 'date',
-            'end' => 'date',
-            'banner' => 'image',
-            'description' => 'string',
+            'start_at' => 'required|date',
+            'end_at' => 'required|date',
+            'close_at' => 'required|date',
+            'banner' => 'required|image',
+            'description' => 'required|string',
             'created_at' => 'date',
         ];
     }

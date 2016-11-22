@@ -1,6 +1,5 @@
 @extends('admin/master')
 @section('head')
-    {!! Html::style('bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.css') !!}
     {!! Html::style('bower_components/AdminLTE/plugins/datepicker/datepicker3.css') !!}
 @endsection
 
@@ -38,38 +37,52 @@
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-6">
-                            {!! Form::textarea('title', null, [ 'class' => "form-control" ]) !!}
+                            {!! Form::textarea('description', null, [ 'class' => "form-control" ]) !!}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="col-sm-3 control-label">Start</label>
-                        <div class="col-sm-4">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
+                        <label for="description" class="col-sm-3 control-label">Submission</label>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        {!! Form::text('start_at', null, [ 'class' => "form-control", 'placeholder' => 'Opens on' ]) !!}
+                                    </div>
                                 </div>
-                                {!! Form::text('start', null, [ 'class' => "form-control" ]) !!}
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        {!! Form::text('end_at', null, [ 'class' => "form-control", 'placeholder' => 'Closes on' ]) !!}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="col-sm-3 control-label">End</label>
-                        <div class="col-sm-4">
+                        <label for="description" class="col-sm-3 control-label">Voting</label>
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-clock-o"></i>
                                 </div>
-                                {!! Form::text('end', null, [ 'class' => "form-control" ]) !!}
+                                {!! Form::text('close_at', null, [ 'class' => "form-control", 'placeholder' => 'Ends on' ]) !!}
                             </div>
                         </div>
                     </div>
+
+                    <div class="clr">&nbsp;</div>
 
                     <div class="form-group">
                         <label for="website" class="col-sm-3 control-label">&nbsp;</label>
                         <div class="col-sm-9">
-                            <button class="btn btn-primary clr"><b>Save</b></button>
+                            <button class="btn btn-primary btn-lg clr"><b>{!! $contest->id ? 'Update' : 'Create' !!} Contest</b></button>
                         </div>
                     </div>
                 </div>
@@ -122,7 +135,7 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary clr" id="btnCreateJudge"><b>Save</b></button>
+                    <button type="button" class="btn btn-primary clr" id="btnCreateJudge"><b>Create</b></button>
                     <div>&nbsp;</div>
                 </div>
             </div>
@@ -132,12 +145,11 @@
 @endsection
 
 @section('scripts')
-    {!! Html::script('bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.js') !!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     {!! Html::script('bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js') !!}
     <script>
         $(function () {
-            $('#start, #end').datepicker({
+            $('[name="start_at"], [name="end_at"], [name="close_at"]').datepicker({
                 autoclose: true
             });
 
