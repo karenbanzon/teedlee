@@ -26,7 +26,6 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('user/activate/{user}/{token}', 'UserController@activate');
     Route::get('submit', 'SubmissionController@index');
     Route::get('vote', 'VoteController@index');
-    Route::get('vote/contest/{contest}', 'VoteController@contest');
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
 
 //    Shopify doesn't support standard HTTP verbs. Use manual routing.
