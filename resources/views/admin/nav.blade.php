@@ -30,7 +30,7 @@
             </li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-cloud-upload"></i>
-                    <span>Submissions</span>
+                    <span>Public Submissions</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>

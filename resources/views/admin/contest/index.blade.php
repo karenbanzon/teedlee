@@ -19,7 +19,7 @@
                             <th colspan="2">Contest</th>
                             <th>Judges</th>
                             <th>Submission</th>
-                            <th>Voting</th>
+                            <th>Voting Ends</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -35,10 +35,11 @@
                                     <span class="label label-warning">{!! $judge->user->username !!}</span>
                                 @endforeach
                             </td>
-                            <td>{!! "{$carbon->toFormattedDateString($contest->start_at)} to {$carbon->toFormattedDateString($contest->end_at)}" !!}</td>
-                            <td>{!! $carbon->toFormattedDateString($contest->close_at) !!}</td>
+                            <td><span class='text-bold'>{!! $carbon->parse($contest->start_at)->toFormattedDateString() !!}</span> to <span class='text-bold'>{!! $carbon->parse($contest->end_at)->toFormattedDateString() !!}</span></td>
+                            <td>{!! $carbon->parse($contest->close_at)->toFormattedDateString() !!}</td>
                             <td class="h4 text-center">
-                                <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
+                                <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
+                                <a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;
                             </td>
                         </tr>
                         @endforeach
@@ -48,7 +49,7 @@
                             <th colspan="2">Contest</th>
                             <th>Judges</th>
                             <th>Submission</th>
-                            <th>Voting</th>
+                            <th>Voting Ends</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>
