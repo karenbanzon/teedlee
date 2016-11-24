@@ -29,7 +29,7 @@ class CreateEntryImagesTable extends Migration
     public function down()
     {
         Schema::table('entry_images', function(Blueprint $table){
-            $table->dropForeign('entry_id');
+            $table->dropForeign(['entry_id']);
         });
         Schema::drop('entry_images');
     }
