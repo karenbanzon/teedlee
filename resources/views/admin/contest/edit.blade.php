@@ -147,7 +147,7 @@
 
 
     {{--Entries--}}
-
+    @if( $contest->id )
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -166,7 +166,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $entries as $entry)
+                        @foreach( [] as $entry)
                             <tr>
                                 <td width="1">{!! Html::image('contests/'.$contest->banner, '', ['width' => '45px']) !!}</td>
                                 <td class="text-bold">
@@ -203,7 +203,7 @@
         </div>
         <!-- /.col -->
     </div>
-
+    @endif
 
 
 @endsection

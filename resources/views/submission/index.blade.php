@@ -14,6 +14,15 @@
         <p><a href="{!! url('submit/form') !!}"><img src="images/got-an-idea.jpg"></a></p>
         <a href="{!! url('submit/form') !!}" class="button white">Submit here!</a>
         <hr>
+
+        @foreach( $contests as $contest )
+        <h4>{!! $contest->title !!}</h4>
+        <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
+        <p><a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a></p>
+        <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
+        <hr>
+        @endforeach
+
         <div class="text-left padding-20">
             <p class="text-center"><img src="images/turn-ideas-into-cash.png"></p>
             <h4>1. Download Our Submission Templates</h4>

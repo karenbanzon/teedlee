@@ -14,8 +14,8 @@ class AddContestIdToSubmissionsTable extends Migration
     public function up()
     {
         Schema::table('submissions', function (Blueprint $table) {
-            $table->unsignedInteger('contest_id')->after('user_id')->nullable()->default(null);
-            $table->foreign('contest_id')->references('id')->on('contests');
+//            $table->unsignedInteger('contest_id')->after('user_id')->nullable()->default(null);
+//            $table->foreign('contest_id')->references('id')->on('contests');
         });
     }
 

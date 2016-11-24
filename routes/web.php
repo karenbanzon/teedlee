@@ -54,6 +54,10 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('vote/done', 'VoteController@done');
     Route::resource('vote', 'VoteController');
 
+    Route::get('entries/submit/{contest}', 'EntryController@submit');
+    Route::resource('entries', 'EntryController');
+    Route::resource('entry-image', 'EntryImageController');
+
     Route::get('user/orders/{username}', 'OrderController@vendor');
     Route::get('orders/product/{submission}', 'OrderController@submission');
     Route::resource('orders', 'OrderController');

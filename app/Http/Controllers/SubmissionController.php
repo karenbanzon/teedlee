@@ -18,7 +18,9 @@ class SubmissionController extends BaseController
      */
     public function index()
     {
-        return view('submission.index');
+        return view('submission.index')
+
+            ;
     }
 
     /**
