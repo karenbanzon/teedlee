@@ -29,7 +29,7 @@ class SaveContest extends FormRequest
             'start_at' => 'required|date',
             'end_at' => 'required|date',
             'close_at' => 'required|date',
-            'banner' => 'required|image',
+            'banner' => 'image',
             'description' => 'required|string',
             'created_at' => 'date',
         ];

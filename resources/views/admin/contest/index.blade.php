@@ -35,8 +35,8 @@
                                     <span class="label label-warning">{!! $judge->user->username !!}</span>
                                 @endforeach
                             </td>
-                            <td>{!! "{$contest->start_at} to {$contest->end_at}" !!}</td>
-                            <td>{!! $contest->close_at !!}</td>
+                            <td>{!! "{$carbon->toFormattedDateString($contest->start_at)} to {$carbon->toFormattedDateString($contest->end_at)}" !!}</td>
+                            <td>{!! $carbon->toFormattedDateString($contest->close_at) !!}</td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil"></span></a>&nbsp;
                             </td>

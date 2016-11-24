@@ -2,6 +2,7 @@
 
 namespace Teedlee\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Teedlee\Http\Controllers\Controller;
 use Teedlee\Models\Contest;
@@ -21,6 +22,7 @@ class ContestController extends Controller
     {
         return view('admin/contest/index')
             ->with('contests', Contest::all())
+            ->with('carbon', new Carbon())
             ;
     }
 
@@ -95,6 +97,7 @@ class ContestController extends Controller
         return view('admin/contest/edit')
             ->with('contest', $contest)
             ->with('judges', User::where('user_group_id', 7)->get())
+            ->with('carbon', new Carbon())
             ;
     }
 

@@ -150,6 +150,7 @@
     <script>
         $(function () {
             $('[name="start_at"], [name="end_at"], [name="close_at"]').datepicker({
+                format: 'yyyy-mm-dd',
                 autoclose: true
             });
 
