@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="col-sm-3 control-label">Submission</label>
+                        <label for="start_at" class="col-sm-3 control-label">Submission</label>
                         <div class="col-sm-6">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="col-sm-3 control-label">Voting</label>
+                        <label for="close_at" class="col-sm-3 control-label">Voting</label>
                         <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
