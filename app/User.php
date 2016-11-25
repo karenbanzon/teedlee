@@ -100,10 +100,12 @@ class User extends Authenticatable
     {
         \DB::enableQueryLog();
 
+        if( $contest )
         $voted = \Auth::user()->votes()->pluck('submission_id');
 
         if( \Auth::user()->user_group_id == 5 )
         {
+
             $submissions = (new \Teedlee\Models\Submission())
                 ->whereNotIn('id', $voted)
                 ->where('status', 'public_voting')
