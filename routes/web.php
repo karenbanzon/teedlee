@@ -53,11 +53,11 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
 
-    Route::resource('vote', 'VoteController');
     Route::get('vote/done', 'VoteController@done');
     Route::get('vote/contest/{contest}', 'VoteController@contest');
     Route::get('vote/contest/{contest}/{referer?}', 'VoteController@contest');
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
+    Route::resource('vote', 'VoteController');
 
     Route::get('entries/submit/{contest}', 'EntryController@submit');
     Route::resource('entries', 'EntryController');

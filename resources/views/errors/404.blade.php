@@ -10,7 +10,7 @@
     <h1>Whoa!</h1>
     <hr>
     <div class="small-10 small-offset-1">
-        <img src="images/404.png" alt="">
+        {!! Html::image('images/404.png') !!}
     </div>
     <p>We can't find the page you're looking for. Maybe go back and try again?</p>
     <a href="{!! url('login') !!}" class="button neutral">&larr; Log in</a>
