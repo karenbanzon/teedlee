@@ -20,6 +20,8 @@
                 <p class="text-bold">
                 @if( $carbon->now() < $start )
                     Voting opens in {!! $carbon->now()->diffForHumans($start, true) !!}.
+                @elseif($carbon->now() >= $close)
+                    Winners will be announced on <strong>29 December, 2016</strong>.
                 @else
                     Submissions open.
                 @endif

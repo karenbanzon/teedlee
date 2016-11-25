@@ -51,6 +51,8 @@ class ContestController extends Controller
             ->with('contest', $contest)
             ->with('carbon', new Carbon())
             ->with('start', Carbon::parse($contest->start_at) )
+            ->with('end', Carbon::parse($contest->end_at) )
+            ->with('close', Carbon::parse($contest->close_at) )
             ;
     }
 
