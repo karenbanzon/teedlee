@@ -113,7 +113,7 @@ class UserController extends BaseController
     {
         return view('user/submissions')
             ->with('submissions', \Teedlee\User::find(\Auth::user()->id)->submissions_grouped())
-            ->with('entries', \Teedlee\User::find(\Auth::user()->id)->entries_grouped())
+            ->with('entries', \Teedlee\User::find(\Auth::user()->id)->entries()->where('status', '!=', 'draft')->get())
             ;
     }
 

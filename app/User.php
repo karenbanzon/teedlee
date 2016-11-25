@@ -85,14 +85,6 @@ class User extends Authenticatable
             ;
     }
 
-    public function entries_grouped()
-    {
-        return \Teedlee\Models\Entry::group($this->entries()
-            ->where('status', '!=', 'draft')
-            ->get())
-            ;
-    }
-
     /**
      * @param null
      */
@@ -106,7 +98,7 @@ class User extends Authenticatable
      */
     public function votes_que ($contest=null)
     {
-//        \DB::enableQueryLog();
+        \DB::enableQueryLog();
 
         $voted = \Auth::user()->votes()->pluck('submission_id');
 

@@ -38,16 +38,18 @@ class VoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($submission=null, $referrer=null, Contest $contest=null)
+    public function create($submission=null, $referer=null, Contest $contest=null)
     {
         if( $submission !==null && $submission->toArray() )
         {
-            $submissions = [$submission];
+            $submissions = [$submission]; //or entry
         } else {
-            $submissions = \Auth::user()->votes_que();
+            $submissions = \Auth::user()->votes_que($contest);
             $submission = $submissions->first();
             $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
+
+        dd($submissions);
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
@@ -55,7 +57,7 @@ class VoteController extends Controller
             ;
     }
 
-    public function contest( Contest $contest )
+    public function contest( Contest $contest, $referer=null )
     {
         return $this->create(null, null, $contest);
     }

@@ -12,15 +12,16 @@
             <a href="{!! url('vote/create') !!}" class="button white small">Vote</a>
 
             @foreach( $contests as $contest )
+                <?php $start = $carbon->parse($contest->start_at) ?>
                 <h4>{!! $contest->title !!}</h4>
 
-                @if( $carbon->now() < $carbon->parse($contest->start_at) )
-                    <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($carbon->parse($contest->start_at), true) !!}</strong>.</p>
+                @if( $carbon->now() < $start )
+                    <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
                 @else
                     <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
                 @endif
                 <p>
-                    @if( $carbon->now() < $carbon->parse($contest->start_at) )
+                    @if( $carbon->now() < $start )
                         {!! Html::image('contests/'.$contest->banner) !!}
                     @else
                         <a href="{!! url('vote/contest/'.$contest->id) !!}">
@@ -28,7 +29,7 @@
                         </a>
                     @endif
                 </p>
-                @if( $carbon->now() >= $carbon->parse($contest->start_at) )
+                @if( $carbon->now() >= $start )
                     <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a>
                 @endif
                 <hr>

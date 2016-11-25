@@ -3,6 +3,7 @@
 namespace Teedlee\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use \Teedlee\Models\Entry;
 
 class Contest extends Model
 {
@@ -37,5 +38,17 @@ class Contest extends Model
             ->whereColumn(\DB::raw('NOW()'), '<', 'close_at' )
             ->get()
             ;
+    }
+
+
+    /**
+     * Updates contest entries status
+     *
+     * @return null
+     */
+    public function searchAndUpdate()
+    {
+        $contests = $this->all();
+        dd($contests->toArray());
     }
 }

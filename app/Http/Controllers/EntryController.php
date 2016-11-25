@@ -78,15 +78,14 @@ class EntryController extends Controller
             return redirect('entries/'.$entry->id.'/edit')->with('error', 'Upload at least 1 design image.')->withInput();
         }
 
-        $new = $entry->status == 'draft';
         $entry->user_id = \Auth::user()->id;
         $entry->title = $request->title;
         $entry->description = $request->description;
-        $entry->status = 'submitted';
+        $entry->status = $request->status ?: 'submitted';
         $entry->save();
         $entry = $entry->toArray();
 
-        if( $new  )
+        if( $entry['status'] == 'draft' )
         {
             $entry['link'] = secure_url('user/submissions');
             \Mail::send('user.email.submit', $entry, function ($m) use ($entry, $contest) {

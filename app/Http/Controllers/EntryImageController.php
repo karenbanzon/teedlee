@@ -39,9 +39,11 @@ class EntryImageController extends Controller
         {
             $filename = $request->get('entry_id').'.'.$file->getClientOriginalExtension();
             $path = public_path('contests/'.$request->contest_id);
+            $file->move($path, $filename);
+
             $image = new EntryImage();
             $image->entry_id = $request->get('entry_id');
-            $image->path = url('users/'.\Auth::user()->id.'/'.$filename);
+            $image->path = url('contests/'.$request->contest_id.'/'.$filename);
             $image->save();
 
             $entry = (new EntryImage())->find($request->get('entry_id'));

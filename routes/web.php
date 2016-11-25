@@ -25,8 +25,8 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('user/welcome', 'UserController@welcome');
     Route::get('user/activate/{user}/{token}', 'UserController@activate');
     Route::get('submit', 'SubmissionController@index');
+
     Route::get('vote', 'VoteController@index');
-    Route::get('vote/{submission}/{referrer}', 'VoteController@create');
 
 //    Shopify doesn't support standard HTTP verbs. Use manual routing.
     Route::any('shopify/order/create', 'ShopifyController@create');
@@ -38,6 +38,7 @@ Route::group(['middleware' => ['https']], function() {
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('expire', 'UtilsController@searchAndExpire');
+    Route::get('update', 'UtilsController@searchAndUpdate');
 });
 
 Route::group(['middleware' => ['auth', 'https']], function() {
@@ -51,8 +52,12 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::resource('submissions', 'SubmissionController');
     Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
-    Route::get('vote/done', 'VoteController@done');
+
     Route::resource('vote', 'VoteController');
+    Route::get('vote/done', 'VoteController@done');
+    Route::get('vote/contest/{contest}', 'VoteController@contest');
+    Route::get('vote/contest/{contest}/{referer?}', 'VoteController@contest');
+    Route::get('vote/{submission}/{referrer}', 'VoteController@create');
 
     Route::get('entries/submit/{contest}', 'EntryController@submit');
     Route::resource('entries', 'EntryController');
