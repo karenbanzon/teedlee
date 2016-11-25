@@ -10,5 +10,6 @@ class Entry extends Model
 
     public function images()
     {
+        return $this->hasMany('\Teedlee\Models\EntryImage');
     }
 }

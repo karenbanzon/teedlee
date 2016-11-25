@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Submit entry to {!! $contest->title !!}
+    Submit an entry to {!! $contest->title !!}
 @endsection
 
 @section('head')
@@ -13,12 +13,13 @@
     <section class="row">
         <div class="small-12 large-8 large-offset-2">
             <hr>
-            <h4 class="text-center">Submit Entry</h4>
+            <h4 class="text-center">New Entry: <u>{!! $contest->title !!}</u></h4>
             <hr>
         </div>
         <div class="small-12">
             <div class="card small-12 large-8 large-offset-2">
-                {!! Form::model($entry, ['url' => 'entries']) !!}
+                {!! Form::model($entry, ['url' => 'entries/'.$entry->id, 'method' => 'PUT']) !!}
+                <input type="hidden" value="PUT" name="_method">
                 <input type="hidden" value="{!! $contest->id !!}" name="contest_id">
                 <input type="hidden" value="{!! $entry->id !!}" name="id">
                 <div class="card small-12 padding-20">

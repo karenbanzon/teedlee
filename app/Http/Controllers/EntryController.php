@@ -36,26 +36,6 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        if( count($submission->images) < 1 ) {
-            return redirect('submissions/'.$submission->id.'/edit')->with('error', 'Upload at least 1 design image.')->withInput();
-        }
-
-        $new = $submission->status == 'draft';
-        $submission->title = $request->title;
-        $submission->status = 'submitted';
-        $submission->save();
-        $submission = $submission->toArray();
-
-        if( $new  )
-        {
-            $submission['link'] = secure_url('user/submissions');
-            \Mail::send('user.email.submit', $submission, function ($m) use ($submission) {
-                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
-                $m->to($submission['user']['email'], $submission['user']['username'])->subject('You submitted a design');
-            });
-        }
-
-        return redirect('user/submissions');
     }
 
     /**
@@ -75,9 +55,12 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Entry $entry)
     {
-        //
+        return view('entry/submit')
+            ->with('entry', $entry)
+            ->with('contest', Contest::find($entry->contest_id))
+        ;
     }
 
     /**
@@ -87,9 +70,30 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Entry $entry)
     {
-        //
+        $contest = Contest::find($entry->contest_id);
+
+        if( count($entry->images) < 1 ) {
+            return redirect('entries/'.$entry->id.'/edit')->with('error', 'Upload at least 1 design image.')->withInput();
+        }
+
+        $new = $entry->status == 'draft';
+        $entry->title = $request->title;
+        $entry->status = 'submitted';
+        $entry->save();
+        $entry = $entry->toArray();
+
+        if( $new  )
+        {
+            $entry['link'] = secure_url('user/submissions');
+            \Mail::send('user.email.submit', $entry, function ($m) use ($entry, $contest) {
+                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                $m->to(\Auth::user()->email, \Auth::user()->username)->subject("You submitted a design to the contest '" . $contest->title . "''" );
+            });
+        }
+
+        return redirect('user/submissions');
     }
 
     /**
@@ -112,11 +116,11 @@ class EntryController extends Controller
      */
     public function submit(Contest $contest)
     {
-        return view('entry/submit')
-            ->with('contest', $contest)
-            ->with('entry', (new Entry())->create([
-                'title' => ' ',
-                'contest_id' => $contest->id,
-            ]));
+        $entry =  (new Entry())->create([
+            'title' => ' ',
+            'contest_id' => $contest->id,
+        ]);
+
+        return $this->edit($entry);
     }
 }
