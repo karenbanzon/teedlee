@@ -1,6 +1,7 @@
 /node_modules
 /public/storage
 /public/users
+/public/contests
 /temp
 /vendor
 /.idea
