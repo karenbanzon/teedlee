@@ -96,45 +96,70 @@ class User extends Authenticatable
     /**
      * @param null
      */
+    public function contest_votes ()
+    {
+        return $this->hasMany('Teedlee\Models\ContestVote');
+    }
+
+    /**
+     * @param null
+     */
     public function votes_que ($contest=null)
     {
         \DB::enableQueryLog();
 
-        if( $contest )
-        $voted = \Auth::user()->votes()->pluck('submission_id');
+        if( $contest ) {
+            $voted = \Auth::user()->votes()->pluck('submission_id');
+        } else {
+            $voted = \Auth::user()->contest_votes()->pluck('contest_id');
+        }
 
         if( \Auth::user()->user_group_id == 5 )
         {
-
-            $submissions = (new \Teedlee\Models\Submission())
-                ->whereNotIn('id', $voted)
-                ->where('status', 'public_voting')
-                ->orderBy('id');
+            if( !$contest ) {
+                $submissions = (new \Teedlee\Models\Submission())
+                    ->whereNotIn('id', $voted)
+                    ->where('status', 'public_voting')
+                    ->orderBy('id');
+            } else {
+                $submissions = (new \Teedlee\Models\Entry())
+                    ->whereNotIn('id', $voted)
+                    ->where('status', 'public_voting')
+                    ->with('images')
+                    ->with('user')
+                    ->orderBy('id');
+            }
         } else {
-            $submissions = (new \Teedlee\Models\Submission())
-                ->whereNotIn('id', $voted)
-                ->where('status', 'internal_voting')
-                ->where('internal_voting_start', '<>', null)
-                ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'),  '>=', \DB::raw('NOW()') )
-                ->orderBy('id');
+            if( !$contest ) {
+                $submissions = (new \Teedlee\Models\Submission())
+                    ->whereNotIn('id', $voted)
+                    ->where('status', 'internal_voting')
+                    ->where('internal_voting_start', '<>', null)
+//                    ->where(\DB::raw('DATE_ADD(internal_voting_start, INTERVAL 7 day)'), '>=', \DB::raw('NOW()'))
+                    ->orderBy('id');
+            } else {
+                $submissions = (new \Teedlee\Models\Entry())
+                    ->whereNotIn('id', $voted)
+                    ->where('status', 'internal_voting')
+//                    ->where(\DB::raw('DATE_ADD(start_at, INTERVAL 1 day)'), '<=', \DB::raw('NOW()'))
+//                    ->where('close_at', '>', \DB::raw('NOW()'))
+                    ->orderBy('id');
+            }
 
             if( \Auth::user()->user_group_id == 7 )
             {
-                $submissions->where(function( $sub ) use ($contest) {
-                    $sub->where('contest_id', null);
+                $submissions->where(function( $sub ) use ($contest)
+                {
                     if( $contest ) {
-                        if( $contest->judges()->where('user_id', \Auth::user()->id)->count() ) {
+                        $sub->where('contest_id', null);
+                        if( $contest->judges()->where('user_id', \Auth::user()->id)->count() )
+                        {
                             $sub->orWhere('contest_id', $contest->id);
                         }
                     }
                 });
             }
         }
-
-//        if( $contest ){
-//            $submissions->get();
-//            dd(\DB::getQueryLog());
-//        }
 
         return $submissions->get();
     }

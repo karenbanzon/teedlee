@@ -19,6 +19,10 @@ class Entry extends Model
         return $this->belongsTo('\Teedlee\Models\Contest');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('\Teedlee\User');
+    }
 
     public function getShopStatusAttribute()
     {
@@ -62,6 +66,7 @@ class Entry extends Model
 
 //        Move entry to public_voting after 24 hours if not declined
         $this->whereHas('contest', function($q) use($carbon) {
+            $q->where('status', 'submitted' );
             $q->where('start_at', '<=', $carbon->addDay());
             $q->where('declined_reason', null);
         })->update([ 'status' => 'public_voting']);

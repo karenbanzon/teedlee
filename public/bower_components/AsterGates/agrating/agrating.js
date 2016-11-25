@@ -59,16 +59,23 @@
                     _flags.push($(this).val());
                 });
 
-
-                $.post('/vote', {
-                    'submission_id' : me.find('[name="submission_id"]').val(),
+                var params = {
                     'type' : type.val(),
                     'rating' : rating.val(),
                     'flags' : _flags,
                     'comment' : me.find('[name="comment"]').val(),
                     '_token' : token,
 
-                }).done(function( data ) {
+                };
+
+                if( me.has('[name="contest_id"]') )
+                {
+                    params.contest_id = me.find('[name="contest_id"]').val();
+                } else {
+                    params.submission_id = me.find('[name="submission_id"]').val();
+                }
+
+                $.post('/vote', params).done(function( data ) {
                     next();
 
                 }).fail(function( data ){
@@ -121,12 +128,22 @@
         {
             reset();
 
-            me.find('[name="submission_id"]').val(data.id);
+            if( me.has('[name="contest_id"]') ) {
+                me.find('[name="contest_id"]').val(data.id);
+            } else {
+                me.find('[name="submission_id"]').val(data.id);
+            }
+
             me.find('#ag-title').html(data.title);
             me.find('#ag-author').html(data.user.username);
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
-            share.attr('href', '/vote/' + me.find('[name="submission_id"]').val() + '/fb');
+
+            if( me.has('[name="contest_id"]') ) {
+                share.attr('href', '/vote/' + me.find('[name="contest_id"]').val() + '/fb');
+            } else {
+                share.attr('href', '/vote/' + me.find('[name="submission_id"]').val() + '/fb');
+            }
 
             container.html('');
 

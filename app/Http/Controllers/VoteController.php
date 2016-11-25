@@ -49,11 +49,12 @@ class VoteController extends Controller
             $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
 
-        dd($submissions);
+//        dd($submissions);
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
             ->with('submission', $submission)
+            ->with('contest', $contest)
             ;
     }
 
@@ -70,11 +71,19 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        if( ($request->submission_id*1) > 0 && ($request->rating*1) > 0 ) {
-            $model = (new \Teedlee\Models\Vote())
-                        ->where('submission_id', $request->submission_id)
-                        ->where('user_id', \Auth::user()->id)
-            ;
+        $is_contest = isset($request->contest_id);
+
+        if( ( ($request->submission_id*1) > 0 || ($request->contest_id*1) > 0 ) && ($request->rating*1) > 0 )
+        {
+            if( !$is_contest ) {
+                $model = (new \Teedlee\Models\Vote())
+                    ->where('submission_id', $request->submission_id)
+                    ->where('user_id', \Auth::user()->id);
+            } else {
+                $model = (new \Teedlee\Models\ContestVote())
+                    ->where('contest_id', $request->contest_id)
+                    ->where('user_id', \Auth::user()->id);
+            }
 
             if( $model->count() )
             {
@@ -83,13 +92,20 @@ class VoteController extends Controller
                 $data = [
                     'user_id' => \Auth::user()->id,
                     'type' => $request->type ?: 'external',
-                    'submission_id' => $request->submission_id*1,
                     'rating' => $request->rating*1,
                     'comment' => trim($request->comment),
                     'flags' => $request->flags ? json_encode($request->flags, JSON_NUMERIC_CHECK) : null,
                     'created_at' => Carbon::now()->toDateTimeString(),
                 ];
-                \Teedlee\Models\Vote::create($data);
+
+                if( !$is_contest ) {
+                    $data['submission_id'] = $request->submission_id*1;
+                    \Teedlee\Models\Vote::create($data);
+                } else {
+                    $data['contest_id'] = $request->contest_id*1;
+                    \Teedlee\Models\ContestVote::create($data);
+                }
+
             }
             return response('Rating successful.', 200);
         } else {
