@@ -18,7 +18,7 @@ class VoteController extends Controller
     public function index($contest=null)
     {
         return view('voting.index')
-            ->with('contests', (new Contest())->active())
+            ->with('contests', (new Contest())->open())
             ->with('carbon', new Carbon())
             ;
     }
