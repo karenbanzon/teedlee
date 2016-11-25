@@ -79,8 +79,9 @@ class EntryController extends Controller
         }
 
         $new = $entry->status == 'draft';
-        $entry->title = $request->title;
         $entry->user_id = \Auth::user()->id;
+        $entry->title = $request->title;
+        $entry->description = $request->description;
         $entry->status = 'submitted';
         $entry->save();
         $entry = $entry->toArray();

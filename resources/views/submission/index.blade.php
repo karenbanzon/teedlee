@@ -17,9 +17,25 @@
 
         @foreach( $contests as $contest )
         <h4>{!! $contest->title !!}</h4>
+
+        @if( $carbon->now() < $carbon->parse($contest->start_at) )
+            <p>Submission opens in <strong>{!! $carbon->now()->diffForHumans($carbon->parse($contest->start_at), true) !!}</strong>.</p>
+        @else
         <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
-        <p><a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a></p>
+        @endif
+        <p>
+            @if( $carbon->now() < $carbon->parse($contest->start_at) )
+                {!! Html::image('contests/'.$contest->banner) !!}
+            @else
+                <a href="{!! url('entries/submit/'.$contest->id) !!}">
+                    {!! Html::image('contests/'.$contest->banner) !!}
+                </a>
+            @endif
+
+        </p>
+        @if( $carbon->now() >= $carbon->parse($contest->start_at) )
         <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
+        @endif
         <hr>
         @endforeach
 

@@ -13,6 +13,14 @@ class Contest extends Model
         return $this->hasMany( '\Teedlee\Models\Judge' );
     }
 
+    public function open()
+    {
+        return $this
+            ->whereColumn(\DB::raw('NOW()'), '<', 'close_at' )
+            ->get()
+            ;
+    }
+
     public function submitting()
     {
         return $this

@@ -20,7 +20,7 @@ class SubmissionController extends BaseController
     public function index()
     {
         return view('submission.index')
-            ->with('contests', (new Contest())->submitting())
+            ->with('contests', (new Contest())->open())
             ->with('carbon', new Carbon())
             ;
     }
