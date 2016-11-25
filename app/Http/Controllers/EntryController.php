@@ -80,6 +80,7 @@ class EntryController extends Controller
 
         $new = $entry->status == 'draft';
         $entry->title = $request->title;
+        $entry->user_id = \Auth::user()->id;
         $entry->status = 'submitted';
         $entry->save();
         $entry = $entry->toArray();
@@ -117,8 +118,9 @@ class EntryController extends Controller
     public function submit(Contest $contest)
     {
         $entry =  (new Entry())->create([
-            'title' => ' ',
             'contest_id' => $contest->id,
+            'user_id' => \Auth::user()->id,
+            'title' => ' ',
         ]);
 
         return $this->edit($entry);
