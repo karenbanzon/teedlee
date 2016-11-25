@@ -36,8 +36,6 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-
         if( count($submission->images) < 1 ) {
             return redirect('submissions/'.$submission->id.'/edit')->with('error', 'Upload at least 1 design image.')->withInput();
         }

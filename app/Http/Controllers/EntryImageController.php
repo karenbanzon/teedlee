@@ -3,6 +3,7 @@
 namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Teedlee\Models\EntryImage;
 
 class EntryImageController extends Controller
 {
@@ -37,15 +38,13 @@ class EntryImageController extends Controller
         if( $file = $request->file('file') )
         {
             $filename = $request->get('entry_id').'.'.$file->getClientOriginalExtension();
-            $path = public_path('contests'.DIRECTORY_SEPARATOR.$request->id);
-            $file->move($path, $filename);
-            $image = new \Teedlee\Models\EntryImage();
+            $path = public_path('contests/'.$request->contest_id);
+            $image = new EntryImage();
             $image->entry_id = $request->get('entry_id');
             $image->path = url('users/'.\Auth::user()->id.'/'.$filename);
-            $image->description = ' ';
             $image->save();
 
-            $entry = (new \Teedlee\Models\entry())->find($request->get('entry_id'));
+            $entry = (new EntryImage())->find($request->get('entry_id'));
             return response()->json($image);
         }
     }

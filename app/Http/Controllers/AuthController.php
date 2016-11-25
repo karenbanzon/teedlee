@@ -14,23 +14,22 @@ class AuthController extends BaseController
     public function index(Request $request)
     {
         $field = (strpos($request->email, '@') !== false) ? 'email' : 'username';
+        $url = parse_url(\Session::get('url.intended'));
 
-        if( \Auth::attempt([
-            $field => $request->email,
-            'password' => $request->password
-        ]))
+        if( \Auth::attempt([$field => $request->email,'password' => $request->password]))
         {
             if( $request->get('redirect') ) {
                 $route = $request->get('redirect');
 
-            } else if( (\Auth::user()->user_group->id==1) ) {
+            } else if( !$url['path'] && (\Auth::user()->user_group->id==1) ) {
                 $route = 'admin';
 
             } else if( (\Auth::user()->user_group->id==7) ) {
                 $route = 'vote';
 
             } else {
-                $route = '/';
+                \Session::forget('url.intended');
+                return redirect($url['path']);
             }
 
             return redirect($route)

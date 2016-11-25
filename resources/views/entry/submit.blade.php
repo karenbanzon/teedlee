@@ -97,6 +97,7 @@
                 sending: function(file, xhr, formData) {
                     formData.append("_token", $('input[name="_token"]').val());
                     formData.append("entry_id", {!! $entry->id !!});
+                    formData.append("contest_id", {!! $contest->id !!});
                 },
             });
         } );

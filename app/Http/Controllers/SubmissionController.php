@@ -5,6 +5,7 @@ namespace Teedlee\Http\Controllers;
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
 use \Teedlee\Models\Submission;
+use \Teedlee\Models\Contest;
 use Carbon\Carbon;
 use Teedlee\Http\Requests\UpdateSubmission;
 use Teedlee\Providers\ShopifyServiceProvider as Shopify;
@@ -19,7 +20,8 @@ class SubmissionController extends BaseController
     public function index()
     {
         return view('submission.index')
-
+            ->with('contests', (new Contest())->submitting())
+            ->with('carbon', new Carbon())
             ;
     }
 

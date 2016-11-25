@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Submit T-Shirt Design
+    Submit Your T-Shirt Designs
 @endsection
 
 @section('content')

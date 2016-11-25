@@ -72,6 +72,9 @@ class ContestController extends Controller
             }
         }
 
+        $path = public_path('contests/'.$contest->id);
+        if(!is_dir($path)) { mkdir($path, 0775); }
+
         return redirect('admin/contest');
     }
 
