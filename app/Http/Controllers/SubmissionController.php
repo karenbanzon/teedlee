@@ -34,7 +34,7 @@ class SubmissionController extends BaseController
     {
         $submission = new Submission();
         return $this->edit($submission->create([
-            'contest_id' => $request->contest,
+//            'contest_id' => $request->contest,
             'user_id' => \Auth::user()->id,
             'title' => ' ',
             'description' => ' ',

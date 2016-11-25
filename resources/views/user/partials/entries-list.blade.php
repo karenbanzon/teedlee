@@ -1,6 +1,6 @@
 @foreach($entries as $entry)
     <div class="card small-12">
-        <h3>Contest Entries</h3>
+        <h6>Contest Entries</h6>
         <table style="width: 100%;">
             <thead>
             <tr>
@@ -23,7 +23,11 @@
                     <td>
                         {!! $entry->getShopStatusAttribute() !!}
                     </td>
-                    <td></td>
+                    <td>
+                        @if( $entry->status == 'public_voting' )
+                            <a href="{!! url('vote/contest/'.$entry->contest_id.'/fb',['entry'=>$entry->id]) !!}" class="fb-share button tiny white" target="_blank">Share</a>
+                        @endif
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -2,6 +2,7 @@
 
 namespace Teedlee\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Entry extends Model
@@ -49,4 +50,20 @@ class Entry extends Model
         }
     }
 
+
+    /**
+     * Updates contest entries status
+     *
+     * @return null
+     */
+    public function searchAndUpdate()
+    {
+        $carbon = Carbon::now();
+
+//        Move entry to public_voting after 24 hours if not declined
+        $this->whereHas('contest', function($q) use($carbon) {
+            $q->where('start_at', '<=', $carbon->addDay());
+            $q->where('declined_reason', null);
+        })->update([ 'status' => 'public_voting']);
+    }
 }

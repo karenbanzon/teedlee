@@ -39,16 +39,4 @@ class Contest extends Model
             ->get()
             ;
     }
-
-
-    /**
-     * Updates contest entries status
-     *
-     * @return null
-     */
-    public function searchAndUpdate()
-    {
-        $contests = $this->all();
-        dd($contests->toArray());
-    }
 }

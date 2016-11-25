@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Submit an entry to {!! $contest->title !!}
+    Submit Entry on {!! $contest->title !!}
 @endsection
 
 @section('head')
@@ -52,7 +52,7 @@
                         <div class="profile-entry editing">
                             <small>300 characters left</small>
                             {!! Form::textarea('description', null, ['placeholder' => 'Describe your submission']) !!}
-                        </div>
+                           </div>
                     </div>
 
                     <div class="profile-detail text-center">

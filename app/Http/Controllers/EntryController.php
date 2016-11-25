@@ -81,7 +81,7 @@ class EntryController extends Controller
         $entry->user_id = \Auth::user()->id;
         $entry->title = $request->title;
         $entry->description = $request->description;
-        $entry->status = $request->status ?: 'submitted';
+        $entry->status = $request->status ?: 'internal_voting';
         $entry->save();
         $entry = $entry->toArray();
 
