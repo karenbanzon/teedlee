@@ -68,6 +68,8 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::resource('orders', 'OrderController');
 
     Route::get('products', 'SubmissionController@products');
+
+    Route::resource('contest', 'ContestController');
 });
 
 

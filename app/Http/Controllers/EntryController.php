@@ -46,7 +46,7 @@ class EntryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

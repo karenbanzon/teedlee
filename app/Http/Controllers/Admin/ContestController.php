@@ -48,8 +48,8 @@ class ContestController extends Controller
 
         if( $file = $request->file('banner') )
         {
-            $filename = str_slug($request->title) . '-' . $request->id.'.'.$file->getClientOriginalExtension();
-            $path = public_path('contests');
+            $filename = str_slug($request->title).'.'.$file->getClientOriginalExtension();
+            $path = public_path('contests/'.$request->id);
             $file->move($path, $filename);
             $contest->banner = $filename;
         }
