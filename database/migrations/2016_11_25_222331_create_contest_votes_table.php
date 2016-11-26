@@ -35,9 +35,9 @@ class CreateContestVotesTable extends Migration
      */
     public function down()
     {
-        Schema::create('contest_votes', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropForeign('contest_id');
+        Schema::table('contest_votes', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['contest_id']);
         });
 
         Schema::dropIfExists('contest_votes');

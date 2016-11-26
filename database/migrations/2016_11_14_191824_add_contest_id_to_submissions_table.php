@@ -27,8 +27,8 @@ class AddContestIdToSubmissionsTable extends Migration
     public function down()
     {
         Schema::table('submissions', function (Blueprint $table) {
-            $table->dropForeign(['contest_id']);
-            $table->dropColumn('contest_id');
+//            $table->dropForeign(['contest_id']);
+//            $table->dropColumn('contest_id');
         });
     }
 }

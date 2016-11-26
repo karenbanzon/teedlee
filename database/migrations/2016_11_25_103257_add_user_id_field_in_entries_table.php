@@ -27,8 +27,9 @@ class AddUserIdFieldInEntriesTable extends Migration
     public function down()
     {
         Schema::table('entries', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropColumn('user_id');
+            $table->dropForeign(['user_id']);
         });
+
+        Schema::dropIfExists('contest_votes');
     }
 }

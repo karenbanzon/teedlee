@@ -18,10 +18,11 @@ class CreateContestsTable extends Migration
             $table->unsignedInteger('user_id')->nullable()->default(null);
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title', 30)->required();
-            $table->dateTime('start')->nullable()->default(null);
-            $table->dateTime('end')->nullable()->default(null);
+            $table->dateTime('start_at')->nullable()->default(null);
+            $table->dateTime('end_at')->nullable()->default(null);
             $table->string('banner')->required();
             $table->longText('description')->required();
+            $table->enum('status', ['draft', 'submission', 'voting', 'voting_end', 'closed', 'awaiting_orig_artwork', 'orig_artwork_submitted', 'orig_artwork_resubmit', 'orig_artwork_declined', 'publication', 'unavailable']);
             $table->timestamps();
         });
     }
@@ -33,6 +34,10 @@ class CreateContestsTable extends Migration
      */
     public function down()
     {
+        Schema::table('contests', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+
         Schema::dropIfExists('contests');
     }
 }

@@ -14,9 +14,9 @@ class AddCloseAtFieldToContestsTable extends Migration
     public function up()
     {
         Schema::table('contests', function (Blueprint $table) {
-            $table->renameColumn('start','start_at');
-            $table->renameColumn('end','end_at');
-            $table->dateTime('close_at')->nullable()->default(null)->after('end');
+//            $table->renameColumn('start','start_at');
+//            $table->renameColumn('end','end_at');
+            $table->dateTime('close_at')->nullable()->default(null)->after('end_at');
         });
     }
 
@@ -28,8 +28,8 @@ class AddCloseAtFieldToContestsTable extends Migration
     public function down()
     {
         Schema::table('contests', function (Blueprint $table) {
-            $table->renameColumn('start_at','start');
-            $table->renameColumn('end_at','end');
+//            $table->renameColumn('start_at','start');
+//            $table->renameColumn('end_at','end');
             $table->dropColumn('close_at');
         });
     }
