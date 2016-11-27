@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContestVote extends Model
 {
-    protected $fillable = ['user_id', 'contest_id', 'rating', 'type', 'comment', 'flags', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'entry_id', 'rating', 'type', 'comment', 'flags', 'created_at', 'updated_at'];
 
     public function user()
     {

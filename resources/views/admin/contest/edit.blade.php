@@ -159,40 +159,43 @@
                     <table id="entries" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th colspan="2">Contest</th>
-                            <th>Judges</th>
-                            <th>Submission</th>
-                            <th>Voting Ends</th>
+                            <th colspan="2">Entries</th>
+                            <th>Artist</th>
+                            <th>Status</th>
+                            <th>Rating</th>
+                            <th>Submitted</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( [] as $entry)
+                        @foreach( $contest->entries->where('status', '<>', 'draft') as $entry)
                             <tr>
-                                <td width="1">{!! Html::image('contests/'.$contest->banner, '', ['width' => '45px']) !!}</td>
+                                <td width="1">
+                                    {!! Html::image($entry->images[0]->path, '', ['width' => '45px']) !!}
+                                </td>
                                 <td class="text-bold">
-                                    {!! $contest->title !!}
+                                    {!! $entry->title !!}
                                 </td>
                                 <td>
-                                    @foreach( $contest->judges as $judge )
-                                        <span class="label label-warning">{!! $judge->user->username !!}</span>
-                                    @endforeach
+                                    {!! $entry->user->username !!}
                                 </td>
-                                <td><span class='text-bold'>{!! $carbon->parse($contest->start_at)->toFormattedDateString() !!}</span> to <span class='text-bold'>{!! $carbon->parse($contest->end_at)->toFormattedDateString() !!}</span></td>
-                                <td>{!! $carbon->parse($contest->close_at)->toFormattedDateString() !!}</td>
+                                <td>{!! $entry->status !!}</td>
+                                <td>{!! $entry->rating !!} stars / {!! $entry->votes->count() !!} votes</td>
+                                <td>{!! $carbon->parse($entry->created_at)->toFormattedDateString() !!}</td>
                                 <td class="h4 text-center">
-                                    <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
-                                    <a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;
+                                    <a href="{!! url('admin/entries/'.$entry->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
+                                    {{--<a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;--}}
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th colspan="2">Contest</th>
-                            <th>Judges</th>
-                            <th>Submission</th>
-                            <th>Voting Ends</th>
+                            <th colspan="2">Entries</th>
+                            <th>Artist</th>
+                            <th>Status</th>
+                            <th>Rating</th>
+                            <th>Submitted</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>

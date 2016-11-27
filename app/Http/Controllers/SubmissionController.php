@@ -12,6 +12,12 @@ use Teedlee\Providers\ShopifyServiceProvider as Shopify;
 
 class SubmissionController extends BaseController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        (new Contest())->searchAndUpdate();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +26,7 @@ class SubmissionController extends BaseController
     public function index()
     {
         return view('submission.index')
-            ->with('contests', (new Contest())->open())
+            ->with('contests', (new Contest())->active())
             ->with('carbon', new Carbon())
             ;
     }

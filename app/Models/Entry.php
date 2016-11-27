@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Entry extends Model
 {
+    public $appends = ['rating'];
     protected $fillable =[ 'contest_id', 'user_id', 'title', 'description', 'tags', 'status', 'declined_reason', 'shopify_link', 'updated_at' ];
 
     public function images()
@@ -14,10 +15,21 @@ class Entry extends Model
         return $this->hasMany('\Teedlee\Models\EntryImage');
     }
 
+    public function votes()
+    {
+        return $this->hasMany('\Teedlee\Models\ContestVote');
+    }
+
+    public function getRatingAttribute()
+    {
+        return $this->votes->avg('rating');
+    }
+
     public function contest()
     {
         return $this->belongsTo('\Teedlee\Models\Contest');
     }
+
 
     public function user()
     {
@@ -69,8 +81,6 @@ class Entry extends Model
             ->where('status', '<>', 'draft')
             ->update([ 'status' => 'internal_voting'])
         ;
-
-        return;
 
 //        Public voting after 24 hrs
         $this->where(\DB::raw('DATE_ADD(created_at, INTERVAL 1 day)'), '<=', $carbon->now())

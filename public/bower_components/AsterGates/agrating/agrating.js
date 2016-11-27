@@ -68,9 +68,9 @@
 
                 };
 
-                if( me.has('[name="contest_id"]') )
+                if( me.has('[name="entry_id"]') )
                 {
-                    params.contest_id = me.find('[name="contest_id"]').val();
+                    params.entry_id = me.find('[name="entry_id"]').val();
                 } else {
                     params.submission_id = me.find('[name="submission_id"]').val();
                 }
@@ -128,8 +128,8 @@
         {
             reset();
 
-            if( me.has('[name="contest_id"]') ) {
-                me.find('[name="contest_id"]').val(data.id);
+            if( me.has('[name="entry_id"]') ) {
+                me.find('[name="entry_id"]').val(data.id);
             } else {
                 me.find('[name="submission_id"]').val(data.id);
             }
@@ -139,8 +139,8 @@
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
 
-            if( me.has('[name="contest_id"]') ) {
-                share.attr('href', '/vote/' + me.find('[name="contest_id"]').val() + '/fb');
+            if( me.has('[name="entry_id"]') ) {
+                share.attr('href', '/vote/' + me.find('[name="entry_id"]').val() + '/fb');
             } else {
                 share.attr('href', '/vote/' + me.find('[name="submission_id"]').val() + '/fb');
             }

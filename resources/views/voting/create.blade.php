@@ -62,7 +62,7 @@
                                 @endforeach
                                 </ul>
                             @endif
-                            <input type="hidden" name="{!! $contest ? 'contest' : 'submission' !!}_id" />
+                            <input type="hidden" name="{!! $contest ? 'entry' : 'submission' !!}_id" />
                             <input type="hidden" name="rating" />
                             {!! Form::close() !!}
                             <div class="text-center">

@@ -15,6 +15,28 @@ class Contest extends Model
         return $this->hasMany( '\Teedlee\Models\Judge' );
     }
 
+    public function entries()
+    {
+        return $this->hasMany('\Teedlee\Models\Entry');
+    }
+
+    public function active()
+    {
+        $contests = $this
+            ->whereIn('status', [
+                'submission_closed',
+                'submission_open',
+                'submission_ended',
+                'voting_open',
+                'voting_ended',
+                'awaiting_winners',
+            ])->with('entries')->get();
+
+//        dd($contests->toArray());
+
+        return $contests;
+    }
+
     public function open()
     {
         return $this
@@ -79,7 +101,6 @@ class Contest extends Model
         return c($response);
     }
 
-
     /**
      * Updates contest entries status
      *
@@ -107,8 +128,8 @@ class Contest extends Model
 
 //        Voting ended
         $this->whereDate('close_at', '<=', $carbon->now())
-            ->where('status', '<>', 'awaiting_winners')
-            ->update([ 'status' => 'voting_ended'])
+            ->whereIn('status', ['submission_closed', 'submission_open', 'voting_open'])
+            ->update([ 'status' => 'awaiting_winners'])
         ;
     }
 }

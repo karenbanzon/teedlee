@@ -49,7 +49,7 @@ class VoteController extends Controller
             $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
 
-        dd($submissions);
+//        dd($submissions);
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
@@ -71,9 +71,9 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        $is_contest = isset($request->contest_id);
+        $is_contest = isset($request->entry_id);
 
-        if( ( ($request->submission_id*1) > 0 || ($request->contest_id*1) > 0 ) && ($request->rating*1) > 0 )
+        if( ( ($request->submission_id*1) > 0 || ($request->entry_id*1) > 0 ) && ($request->rating*1) > 0 )
         {
             if( !$is_contest ) {
                 $model = (new \Teedlee\Models\Vote())
@@ -81,7 +81,7 @@ class VoteController extends Controller
                     ->where('user_id', \Auth::user()->id);
             } else {
                 $model = (new \Teedlee\Models\ContestVote())
-                    ->where('contest_id', $request->contest_id)
+                    ->where('entry_id', $request->entry_id)
                     ->where('user_id', \Auth::user()->id);
             }
 
@@ -102,7 +102,7 @@ class VoteController extends Controller
                     $data['submission_id'] = $request->submission_id*1;
                     \Teedlee\Models\Vote::create($data);
                 } else {
-                    $data['contest_id'] = $request->contest_id*1;
+                    $data['entry_id'] = $request->entry_id*1;
                     \Teedlee\Models\ContestVote::create($data);
                 }
 

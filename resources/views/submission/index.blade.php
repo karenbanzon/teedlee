@@ -19,23 +19,27 @@
         <?php $start = $carbon->parse($contest->start_at) ?>
         <h4>{!! $contest->title !!}</h4>
 
-        @if( $carbon->now() < $start )
+        @if( $contest->status == 'submission_closed' )
             <p>Submission opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
-        @else
-        <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
-        @endif
-        <p>
-            @if( $carbon->now() < $start )
-                {!! Html::image('contests/'.$contest->banner) !!}
-            @else
-                <a href="{!! url('entries/submit/'.$contest->id) !!}">
-                    {!! Html::image('contests/'.$contest->banner) !!}
-                </a>
-            @endif
 
-        </p>
-        @if( $carbon->now() >= $start )
-        <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
+        @elseif( $contest->status == 'submission_open' )
+            <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
+
+        @elseif( $contest->status == 'awaiting_winners' )
+            <p>Voting has ended. Winners will be announced shortly.</p>
+
+        @elseif( $contest->status == 'closed' )
+            <p>Contest is closed. Congratulations <strong>rastaman</strong>, <strong>Juan Jose</strong> and <strong>chaks</strong>!</p>
+        @else
+            {!! dd($contest->status) !!}
+        @endif
+        @if( $contest->status != 'submission_open' )
+            <p>{!! Html::image('contests/'.$contest->banner) !!}</p>
+        @else
+            <p>
+                <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a>
+            </p>
+            <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
         @endif
         <hr>
         @endforeach

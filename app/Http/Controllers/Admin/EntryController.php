@@ -5,6 +5,7 @@ namespace Teedlee\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Teedlee\Http\Controllers\Controller;
 use Teedlee\Models\Contest;
+use Teedlee\Models\Entry;
 
 class EntryController extends Controller
 {
@@ -56,9 +57,11 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Entry $entry)
     {
-        //
+        return view('admin/entries/edit')
+            ->with('entry', $entry)
+            ;
     }
 
     /**

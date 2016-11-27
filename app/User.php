@@ -8,7 +8,6 @@ use Teedlee\Models\Contest;
 
 class User extends Authenticatable
 {
-//    protected $appends = ['rating'];
     protected $with = ['user_group'];
     use Notifiable;
 
@@ -141,8 +140,8 @@ class User extends Authenticatable
                 $submissions = (new \Teedlee\Models\Entry())
                     ->whereNotIn('id', $voted)
                     ->where('status', 'internal_voting')
-//                    ->where(\DB::raw('DATE_ADD(start_at, INTERVAL 1 day)'), '<=', \DB::raw('NOW()'))
-//                    ->where('close_at', '>', \DB::raw('NOW()'))
+                    ->with('images')
+                    ->with('user')
                     ->orderBy('id');
             }
 
