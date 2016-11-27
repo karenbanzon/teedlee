@@ -12,8 +12,8 @@
             @include('user/sidebar')
 
             <div class="card small-12 large-10 padding-20">
-                @if( count($submissions) )
-                    @include('user.partials.submission-list')
+                @if( $entries->count() )
+                    @include('user.partials.entries-list')
                 @else
                     @include('user.partials.submission-empty')
                 @endif

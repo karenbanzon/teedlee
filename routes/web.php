@@ -48,7 +48,10 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::post('user/update', 'UserController@update');
     Route::get('user/submissions', 'UserController@submissions');
     Route::post('user/submissions/{submission}/artwork', 'UserController@artwork');
-    Route::get('user/sales', 'UserController@sales');
+    Route::get('user/submissions', 'UserController@submissions');
+
+    Route::get('user/entries', 'UserController@entries');
+
     Route::resource('submissions', 'SubmissionController');
     Route::get('submit/form', 'SubmissionController@create');
     Route::resource('submission-image', 'SubmissionImageController');
