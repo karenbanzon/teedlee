@@ -50,23 +50,31 @@ class Contest extends Model
                 $response = 'Not yet started';
                 break;
 
-            case 'submission':
+            case 'submission_closed':
+                $response = 'Not yet started';
+                break;
+
+            case 'submission_open':
                 $response = 'Submission open';
                 break;
 
-            case 'voting':
-                $response = 'Voting open';
+            case 'submission_ended':
+                $response = 'Submission ended';
                 break;
 
-            case 'voting_end':
-                $response = 'Voting closed';
-                break;
-
-            case 'voting_end':
+            case 'awaiting_winners':
                 $response = 'Voting close';
+                break;
+
+            case 'closed':
+                $response = 'Contest was closed';
+                break;
+
+            default:
+                $response = $status;
                 break;
         }
 
-        return $response;
+        return c($response);
     }
 }

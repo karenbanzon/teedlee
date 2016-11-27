@@ -37,11 +37,11 @@
                                 @endforeach
                             </td>
                             <td><span class='text-bold'>{!! $carbon->parse($contest->start_at)->toFormattedDateString() !!}</span> to <span class='text-bold'>{!! $carbon->parse($contest->end_at)->toFormattedDateString() !!}</span></td>
-                            <td><span class='text-bold'>{!! $contest->status() !!}</span></td>
                             <td>{!! $carbon->parse($contest->close_at)->toFormattedDateString() !!}</td>
+                            <td><span>{!! $contest->status() !!}</span></td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
-                                <a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;
+                                {{--<a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;--}}
                             </td>
                         </tr>
                         @endforeach
