@@ -24,9 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function(){
+        $schedule->call(function() {
             (new \Teedlee\Models\Submission)->searchAndExpire();
-            (new \Teedlee\Models\Entry)->searchAndUpdate();
+            (new \Teedlee\Models\Contest)->searchAndUpdate();
         })->everyMinute();
     }
 

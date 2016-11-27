@@ -3,7 +3,6 @@
 namespace Teedlee\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Teedlee\Http\Requests;
 
 class UtilsController extends BaseController

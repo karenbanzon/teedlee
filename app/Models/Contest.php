@@ -107,7 +107,7 @@ class Contest extends Model
         ;
 
 //        Voting ended
-        $this->whereDate('end_at', '>=', $carbon->now())
+        $this->whereDate('close_at', '<=', $carbon->now())
             ->where('status', '<>', 'awaiting_winners')
             ->update([ 'status' => 'voting_ended'])
         ;
