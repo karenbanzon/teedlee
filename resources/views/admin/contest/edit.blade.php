@@ -1,6 +1,7 @@
 @extends('admin/master')
 @section('head')
-    {!! Html::style('bower_components/AdminLTE/plugins/datepicker/datepicker3.css') !!}
+    {{--{!! Html::style('bower_components/AdminLTE/plugins/datepicker/datepicker3.css') !!}--}}
+    {!! Html::style('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') !!}
     {!! Html::style('bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') !!}
     {!! Html::style('bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.css') !!}
 @endsection
@@ -210,7 +211,7 @@
 
 @section('scripts')
     {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js') !!}
-    {!! Html::script('bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js') !!}
+    {!! Html::script('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') !!}
     {!! Html::script('bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') !!}
     {!! Html::script('bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.js') !!}
     {!! Html::script('bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') !!}
@@ -218,9 +219,9 @@
         $(function () {
             $("textarea").wysihtml5();
 
-            $('[name="start_at"], [name="end_at"], [name="close_at"]').datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true
+            $('[name="start_at"], [name="end_at"], [name="close_at"]').datetimepicker({
+                format: 'YYYY-MM-DD HH:ss',
+//                autoclose: true
             });
 
             $('#btnCreateJudge').click(function(){
