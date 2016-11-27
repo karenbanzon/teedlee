@@ -53,4 +53,28 @@ class Entry extends Model
             return str_replace('_', ' ', title_case($this->status));
         }
     }
+
+    /**
+     * Updates contest entries status
+     *
+     * @return null
+     */
+    public function searchAndUpdate()
+    {
+        $carbon = Carbon::now();
+
+//        Internal voting within 24 hrs
+        $this->whereDate(\DB::raw('DATE_ADD(created_at, INTERVAL 1 day)'), '>', $carbon->now())
+            ->whereNull('declined_reason')
+            ->where('status', '<>', 'draft')
+            ->update([ 'status' => 'internal_voting'])
+        ;
+
+//        Public voting after 24 hrs
+        $this->whereDate(\DB::raw('DATE_ADD(created_at, INTERVAL 1 day)'), '<=', $carbon->now())
+            ->whereNull('declined_reason')
+            ->where('status', '<>', 'draft')
+            ->update([ 'status' => 'public_voting'])
+        ;
+    }
 }
