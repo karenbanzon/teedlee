@@ -97,6 +97,7 @@ class EntryController extends Controller
         return redirect('user/submissions');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *

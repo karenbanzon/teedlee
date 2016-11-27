@@ -27,6 +27,6 @@ class UtilsController extends BaseController
 
     public function searchAndUpdate()
     {
-        (new \Teedlee\Models\Entry())->searchAndUpdate();
+        (new \Teedlee\Models\Contest())->searchAndUpdate();
     }
 }

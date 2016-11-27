@@ -53,22 +53,4 @@ class Entry extends Model
             return str_replace('_', ' ', title_case($this->status));
         }
     }
-
-
-    /**
-     * Updates contest entries status
-     *
-     * @return null
-     */
-    public function searchAndUpdate()
-    {
-        $carbon = Carbon::now();
-
-//        Move entry to public_voting after 24 hours if not declined
-        $this->whereHas('contest', function($q) use($carbon) {
-            $q->where('status', 'submitted' );
-            $q->where('start_at', '<=', $carbon->addDay());
-            $q->where('declined_reason', null);
-        })->update([ 'status' => 'public_voting']);
-    }
 }

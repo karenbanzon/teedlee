@@ -4,6 +4,7 @@ namespace Teedlee\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use \Teedlee\Models\Entry;
+use Carbon\Carbon;
 
 class Contest extends Model
 {
@@ -76,5 +77,39 @@ class Contest extends Model
         }
 
         return c($response);
+    }
+
+
+    /**
+     * Updates contest entries status
+     *
+     * @return null
+     */
+    public function searchAndUpdate()
+    {
+        $carbon = Carbon::now();
+
+//        Submission not yet started
+        $this->whereDate('start_at', '>', $carbon->now())
+//            ->whereDate(\DB::raw('DATE_ADD(start_at, INTERVAL 1 day)'), '<=', $carbon->now())
+            ->update([ 'status' => 'submission_closed'])
+        ;
+
+//        Submission open
+        $this->whereDate('start_at', '<=', $carbon->now())
+            ->update([ 'status' => 'submission_open'])
+        ;
+
+//        Submission closed/Voting open
+        $this->whereDate('end_at', '<=', $carbon->now())
+            ->whereDate('close_at', '>', $carbon->now())
+            ->update([ 'status' => 'voting_open'])
+        ;
+
+//        Voting ended
+        $this->whereDate('end_at', '>=', $carbon->now())
+            ->where('status', '<>', 'awaiting_winners')
+            ->update([ 'status' => 'voting_ended'])
+        ;
     }
 }
