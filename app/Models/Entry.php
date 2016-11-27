@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     public $appends = ['rating'];
+    public $flag_list = ['Copyright or trademark infringement', 'Extreme profanity', 'Pornography', 'Racism', 'Religious, political and gender affront'];
     protected $fillable =[ 'contest_id', 'user_id', 'title', 'description', 'tags', 'status', 'declined_reason', 'shopify_link', 'updated_at' ];
 
     public function images()

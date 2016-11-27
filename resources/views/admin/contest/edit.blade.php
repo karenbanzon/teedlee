@@ -177,9 +177,10 @@
                                     {!! $entry->title !!}
                                 </td>
                                 <td>
+                                    {!! Html::image($entry->user->avatar, null, ['style' => 'max-width:10%']) !!}&nbsp;
                                     {!! $entry->user->username !!}
                                 </td>
-                                <td>{!! $entry->status !!}</td>
+                                <td>{!! c($entry->status) !!}</td>
                                 <td>{!! $entry->rating !!} stars / {!! $entry->votes->count() !!} votes</td>
                                 <td>{!! $carbon->parse($entry->created_at)->toFormattedDateString() !!}</td>
                                 <td class="h4 text-center">

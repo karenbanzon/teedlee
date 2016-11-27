@@ -24,9 +24,9 @@
                         {!! $vote->comment !!}
                         @if( $vote->flags )
                             <div class="clr">
-                                {{--@foreach( json_decode($vote->flags) as $flag )--}}
-                                    {{--<small class="label bg-red">{!! $entry->flag_list[$flag-1] !!}</small>&nbsp;--}}
-                                {{--@endforeach--}}
+                                @foreach( json_decode($vote->flags) as $flag )
+                                    <small class="label bg-red">{!! $entry->flag_list[$flag-1] !!}</small>&nbsp;
+                                @endforeach
                             </div>
                         @endif
                     </div>

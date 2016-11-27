@@ -105,12 +105,10 @@ class User extends Authenticatable
      */
     public function votes_que ($contest=null)
     {
-        \DB::enableQueryLog();
-
         if( $contest ) {
-            $voted = \Auth::user()->votes()->pluck('submission_id');
+            $voted = \Auth::user()->contest_votes()->pluck('entry_id');
         } else {
-            $voted = \Auth::user()->contest_votes()->pluck('contest_id');
+            $voted = \Auth::user()->votes()->pluck('submission_id');
         }
 
         if( \Auth::user()->user_group_id == 5 )

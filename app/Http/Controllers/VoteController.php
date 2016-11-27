@@ -42,14 +42,12 @@ class VoteController extends Controller
     {
         if( $submission !==null && $submission->toArray() )
         {
-            $submissions = [$submission]; //or entry
+            $submissions = [$submission];
         } else {
             $submissions = \Auth::user()->votes_que($contest);
             $submission = $submissions->first();
             $submissions = \Auth::user()->votes_que($contest)->toArray();
         }
-
-//        dd($submissions);
 
         return view('voting.create')
             ->with('submissions', json_encode(array_reverse($submissions)))
