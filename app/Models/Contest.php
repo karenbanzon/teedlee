@@ -91,7 +91,6 @@ class Contest extends Model
 
 //        Submission not yet started
         $this->whereDate('start_at', '>', $carbon->now())
-//            ->whereDate(\DB::raw('DATE_ADD(start_at, INTERVAL 1 day)'), '<=', $carbon->now())
             ->update([ 'status' => 'submission_closed'])
         ;
 
