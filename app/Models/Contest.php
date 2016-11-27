@@ -39,4 +39,34 @@ class Contest extends Model
             ->get()
             ;
     }
+
+    public function status($status=null)
+    {
+        $status = $status ?: $this->status;
+
+        switch ( $status )
+        {
+            case 'inactive':
+                $response = 'Not yet started';
+                break;
+
+            case 'submission':
+                $response = 'Submission open';
+                break;
+
+            case 'voting':
+                $response = 'Voting open';
+                break;
+
+            case 'voting_end':
+                $response = 'Voting closed';
+                break;
+
+            case 'voting_end':
+                $response = 'Voting close';
+                break;
+        }
+
+        return $response;
+    }
 }

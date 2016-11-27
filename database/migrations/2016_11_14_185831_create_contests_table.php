@@ -22,7 +22,7 @@ class CreateContestsTable extends Migration
             $table->dateTime('end_at')->nullable()->default(null);
             $table->string('banner')->required();
             $table->longText('description')->required();
-            $table->enum('status', ['draft', 'submission', 'voting', 'voting_end', 'closed', 'awaiting_orig_artwork', 'orig_artwork_submitted', 'orig_artwork_resubmit', 'orig_artwork_declined', 'publication', 'unavailable']);
+            $table->enum('status', ['draft', 'submission_closed', 'submission_open', 'submission_ended', 'voting_open', 'voting_ended', 'awaiting_winners', 'closed', 'awaiting_orig_artwork', 'orig_artwork_submitted', 'orig_artwork_resubmit', 'orig_artwork_declined', 'publication', 'unavailable']);
             $table->timestamps();
         });
     }

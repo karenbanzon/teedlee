@@ -20,6 +20,7 @@
                             <th>Judges</th>
                             <th>Submission</th>
                             <th>Voting Ends</th>
+                            <th>Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -36,6 +37,7 @@
                                 @endforeach
                             </td>
                             <td><span class='text-bold'>{!! $carbon->parse($contest->start_at)->toFormattedDateString() !!}</span> to <span class='text-bold'>{!! $carbon->parse($contest->end_at)->toFormattedDateString() !!}</span></td>
+                            <td><span class='text-bold'>{!! $contest->status() !!}</span></td>
                             <td>{!! $carbon->parse($contest->close_at)->toFormattedDateString() !!}</td>
                             <td class="h4 text-center">
                                 <a href="{!! url('admin/contest/'.$contest->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
@@ -50,6 +52,7 @@
                             <th>Judges</th>
                             <th>Submission</th>
                             <th>Voting Ends</th>
+                            <th>Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </tfoot>
