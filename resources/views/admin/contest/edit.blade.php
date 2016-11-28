@@ -167,7 +167,9 @@
                             <th>Rating</th>
                             <th>Submitted</th>
                             <th class="text-center">Actions</th>
+                            @if( $contest->status=='awaiting_winners' )
                             <th><i class="fa fa-trophy"></i></th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -190,7 +192,9 @@
                                     <a href="{!! url('admin/entries/'.$entry->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
                                     {{--<a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;--}}
                                 </td>
+                                @if( $contest->status=='awaiting_winners' )
                                 <td>{!! Form::checkbox('winner[]', $entry->id, $entry->is_winner ) !!}</td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
@@ -204,11 +208,13 @@
                             <th class="text-center">Actions</th>
                             <th><i class="fa fa-trophy"></i></th>
                         </tr>
+                        @if( $contest->status=='awaiting_winners' )
                         <tr>
                             <td colspan="8">
                                 <button class="btn btn-primary pull-right pd20">Publish Winners</button>
                             </td>
                         </tr>
+                        @endif
                         </tfoot>
                     </table>
                 </div>
