@@ -30,6 +30,7 @@ class Contest extends Model
                 'voting_open',
                 'voting_ended',
                 'awaiting_winners',
+                'closed',
             ])->with('entries')->get();
 
 //        dd($contests->toArray());
@@ -60,6 +61,13 @@ class Contest extends Model
             ->whereColumn(\DB::raw('NOW()'), '>=', 'start_at' )
             ->whereColumn(\DB::raw('NOW()'), '<', 'close_at' )
             ->get()
+            ;
+    }
+
+    public function winners()
+    {
+        return $this->entries()
+            ->where('is_winner', true )
             ;
     }
 
@@ -117,6 +125,7 @@ class Contest extends Model
 
 //        Submission open
         $this->whereDate('start_at', '<=', $carbon->now())
+            ->whereDate('end_at', '>', $carbon->now())
             ->update([ 'status' => 'submission_open'])
         ;
 

@@ -29,7 +29,14 @@
             <p>Voting has ended. Winners will be announced shortly.</p>
 
         @elseif( $contest->status == 'closed' )
-            <p>Contest is closed. Congratulations <strong>rastaman</strong>, <strong>Juan Jose</strong> and <strong>chaks</strong>!</p>
+            <p>
+                Contest is closed. Congratulations
+                @foreach( $contest->winners as $index => $entry )
+                    {!! Html::link($entry->user->username, $entry->user->username, ['class' => 'text-bold']) .
+                    ( count($contest->winners) > 1 && $index==count($contest->winners)-2 ? ' and ' : ($index < count($contest->winners)-1 ? ', ' : null) ) !!}
+                @endforeach
+                !
+            </p>
         @else
             {!! dd($contest->status) !!}
         @endif

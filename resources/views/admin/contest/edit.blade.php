@@ -149,6 +149,8 @@
 
     {{--Entries--}}
     @if( $contest->id )
+    {!! Form::open(['url' => 'admin/entries', 'class' => 'form-horizontal', 'files' => true]) !!}
+    {!! Form::hidden('contest_id', $contest->id) !!}
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -202,6 +204,11 @@
                             <th class="text-center">Actions</th>
                             <th><i class="fa fa-trophy"></i></th>
                         </tr>
+                        <tr>
+                            <td colspan="8">
+                                <button class="btn btn-primary pull-right pd20">Publish Winners</button>
+                            </td>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>
@@ -211,6 +218,7 @@
         </div>
         <!-- /.col -->
     </div>
+    {!! Form::close() !!}
     @endif
 
 

@@ -37,7 +37,16 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+//        Announce winners
+        $contest = Contest::find($request->contest_id);
+        $contest->status = 'closed';
+        $contest->save();
+
+        $entries = $contest->entries()->whereNotIn('id', $request->winner)->update(['is_winner' => false]);
+        $entries = $contest->entries()->whereIn('id', $request->winner)->update(['is_winner' => true]);
+
+        return redirect()->back();
     }
 
     /**
@@ -73,6 +82,7 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
+        dd('update');
         $data = $request->all();
         $entry->update($data);
         (new Entry())->searchAndUpdate();
