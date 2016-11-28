@@ -49,9 +49,8 @@
                     <div class="profile-detail">
                         <h6 class="label vtop">Description</h6>
                         <div class="profile-entry editing">
-                            <small>300 characters left</small>
-                            <textarea rows="4" placeholder="Describe your submission">
-                            </textarea>
+                            {{--<small>300 characters left</small>--}}
+                            {!! Form::textarea('description', null, ['placeholder' => 'Describe your submission']) !!}
                         </div>
                     </div>
 
