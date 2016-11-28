@@ -17,6 +17,10 @@
             <div class="col-md-8">
                 @include('admin.entries.partials.edit.votes-box', ['type' => 'external', 'entries' => $entry->votes()->where('type', 'external')->get()])
             </div>
+
+            <div class="col-md-8">
+                @include('admin.entries.partials.edit.entry-decline-box')
+            </div>
         </div>
 
         <div class="clr"></div>

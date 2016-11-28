@@ -8,7 +8,7 @@
         {!! Form::hidden('submission_id', $submission->id) !!}
         <div class="form-group">
             <div class="col-md-12">
-                {!! Form::textarea('declined_reason', null, ['class' => 'form-control block', 'rows' => '5', 'cols' => '', 'required' => 'required']) !!}
+                {!! Form::textarea('declined_reason', null, ['class' => 'form-control block', 'rows' => '5', 'required' => 'required', 'placeholder' => 'Reason for declining']) !!}
             </div>
         </div>
 
