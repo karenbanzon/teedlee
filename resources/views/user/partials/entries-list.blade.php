@@ -1,4 +1,3 @@
-@foreach($entries as $entry)
     <div class="card small-12">
         <h6>Contest Entries</h6>
         <table style="width: 100%;">
@@ -11,6 +10,7 @@
             </tr>
             </thead>
             <tbody>
+                @foreach($entries as $entry)
                 <tr>
                     <td width="25%">
                         {!! Html::image($entry->images[0]->path, null, []) !!}
@@ -29,9 +29,9 @@
                         @endif
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
 
         <div>&nbsp;</div>
     </div>
-@endforeach
