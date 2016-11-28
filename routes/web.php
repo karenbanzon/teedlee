@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('user/submissions', 'UserController@submissions');
 
     Route::get('user/entries', 'UserController@entries');
+    Route::get('user/sales', 'UserController@sales');
 
     Route::resource('submissions', 'SubmissionController');
     Route::get('submit/form', 'SubmissionController@create');
