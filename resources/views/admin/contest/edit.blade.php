@@ -206,7 +206,9 @@
                             <th>Rating</th>
                             <th>Submitted</th>
                             <th class="text-center">Actions</th>
+                            @if( $contest->status=='awaiting_winners' )
                             <th><i class="fa fa-trophy"></i></th>
+                            @endif
                         </tr>
                         @if( $contest->status=='awaiting_winners' )
                         <tr>
