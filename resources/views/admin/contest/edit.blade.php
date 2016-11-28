@@ -165,6 +165,7 @@
                             <th>Rating</th>
                             <th>Submitted</th>
                             <th class="text-center">Actions</th>
+                            <th><i class="fa fa-trophy"></i></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -187,6 +188,7 @@
                                     <a href="{!! url('admin/entries/'.$entry->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
                                     {{--<a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;--}}
                                 </td>
+                                <td>{!! Form::checkbox('winner[]', $entry->id, $entry->is_winner ) !!}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -198,6 +200,7 @@
                             <th>Rating</th>
                             <th>Submitted</th>
                             <th class="text-center">Actions</th>
+                            <th><i class="fa fa-trophy"></i></th>
                         </tr>
                         </tfoot>
                     </table>
