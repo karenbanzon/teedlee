@@ -33,8 +33,6 @@ class Contest extends Model
                 'closed',
             ])->with('entries')->get();
 
-//        dd($contests->toArray());
-
         return $contests;
     }
 
