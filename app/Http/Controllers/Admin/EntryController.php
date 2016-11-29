@@ -82,7 +82,6 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
-        dd('update');
         $data = $request->all();
         $entry->update($data);
         (new Entry())->searchAndUpdate();

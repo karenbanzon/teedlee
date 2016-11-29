@@ -119,24 +119,25 @@ class Contest extends Model
         $carbon = Carbon::now();
 
 //        Submission not yet started
-        $this->whereDate('start_at', '>', $carbon->now())
-            ->update([ 'status' => 'submission_closed'])
+        Contest::whereDate('start_at', '>', $carbon->now())
+            ->update(['status' => 'submission_closed']);
+
+//        Voting open
+        $contest = Contest::whereDate('start_at', '<=', $carbon->now())
+            ->whereDate('end_at', '>', $carbon->now())
+            ->has('entries')
+            ->update(['status' => 'voting_open'])
         ;
 
 //        Submission open
-        $this->whereDate('start_at', '<=', $carbon->now())
+        $contest = Contest::whereDate('start_at', '<=', $carbon->now())
             ->whereDate('end_at', '>', $carbon->now())
-            ->update([ 'status' => 'submission_open'])
-        ;
-
-//        Submission closed/Voting open
-        $this->whereDate('end_at', '<=', $carbon->now())
-            ->whereDate('close_at', '>', $carbon->now())
-            ->update([ 'status' => 'voting_open'])
+            ->has('entries', '<', 1)
+            ->update(['status' => 'submission_open'])
         ;
 
 //        Voting ended
-        $this->whereDate('close_at', '<=', $carbon->now())
+        Contest::whereDate('close_at', '<=', $carbon->now())
             ->whereIn('status', ['submission_closed', 'submission_open', 'voting_open'])
             ->update([ 'status' => 'awaiting_winners'])
         ;
