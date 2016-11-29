@@ -23,7 +23,7 @@
             <p>Submission opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
 
         @elseif( in_array($contest->status, ['submission_open', 'voting_open']) )
-            <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong> days.</p>
+            <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
 
         @elseif( $contest->status == 'awaiting_winners' )
             <p>Voting has ended. Winners will be announced shortly.</p>
@@ -40,6 +40,7 @@
         @else
             {!! dd($contest->status) !!}
         @endif
+
         @if( $contest->status != 'submission_open' )
             <p>{!! Html::image('contests/'.$contest->banner) !!}</p>
         @else
