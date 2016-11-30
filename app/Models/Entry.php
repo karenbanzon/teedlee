@@ -46,7 +46,11 @@ class Entry extends Model
         {
             return 'Declined';
 
-        } else if( strpos($this->status, 'voting') !== false )
+        } else if( $this->status == 'internal_voting' )
+        {
+            return 'Pending';
+
+        } else if( $this->status == 'public_voting' )
         {
             return 'For Voting';
 
