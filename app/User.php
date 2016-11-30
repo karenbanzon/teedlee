@@ -106,10 +106,10 @@ class User extends Authenticatable
      */
     public function votes_que ($contest=null)
     {
-        $contest->searchAndUpdate();
-        (new Entry())->searchAndUpdate();
 
         if( $contest ) {
+            $contest->searchAndUpdate();
+            (new Entry())->searchAndUpdate();
             $voted = \Auth::user()->contest_votes()->pluck('entry_id');
         } else {
             $voted = \Auth::user()->votes()->pluck('submission_id');
