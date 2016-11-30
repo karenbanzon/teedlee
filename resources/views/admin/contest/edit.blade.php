@@ -19,7 +19,7 @@
                     {!! Form::hidden('id') !!}
 
                     @if( $contest->banner )
-                        {!! \Html::image("contests/{$contest->banner}", null, ['width' => '100%', 'class' => 'thumbnail']) !!}
+                        {!! \Html::image('contests/'.$contest->id.'/'.$contest->banner, null, ['width' => '100%', 'class' => 'thumbnail']) !!}
                         <p>&nbsp;</p>
                     @endif
 
