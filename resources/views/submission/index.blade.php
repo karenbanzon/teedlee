@@ -47,7 +47,7 @@
             </p>
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
         @else
-            <p>{!! Html::image('contests/'.$contest->banner) !!}</p>
+            <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
         @endif
         <hr>
         @endforeach

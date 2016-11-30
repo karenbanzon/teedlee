@@ -16,7 +16,7 @@
         </div>
         <div class="small-12 large-8 large-offset-2">
             <div class="text-center">
-                {!! Html::image($contest->banner) !!}
+                {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
                 <p class="text-bold">
                 @if( $carbon->now() < $start )
                     Voting opens in {!! $carbon->now()->diffForHumans($start, true) !!}.

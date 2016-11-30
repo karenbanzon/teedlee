@@ -39,10 +39,10 @@
 
                 <p>
                     @if( $carbon->now() < $start )
-                        {!! Html::image('contests/'.$contest->banner) !!}
+                        {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
                     @else
                         <a href="{!! url('vote/contest/'.$contest->id) !!}">
-                            {!! Html::image('contests/'.$contest->banner) !!}
+                            {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
                         </a>
                     @endif
                 </p>
