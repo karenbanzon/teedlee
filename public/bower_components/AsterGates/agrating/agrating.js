@@ -18,6 +18,8 @@
         var skip = me.find('#ag-skip');
         var share = me.find('.fb-share');
         var token = me.find('input[name="_token"]').val();
+        var isEntry = me.has('[name="entry_id"]');
+        var contest_id = me.find('[name="contest_id"]').val();
 
         var settings = $.extend({
             data: [],
@@ -68,7 +70,7 @@
 
                 };
 
-                if( me.has('[name="entry_id"]') )
+                if( isEntry )
                 {
                     params.entry_id = me.find('[name="entry_id"]').val();
                 } else {
@@ -128,7 +130,7 @@
         {
             reset();
 
-            if( me.has('[name="entry_id"]') ) {
+            if( isEntry ) {
                 me.find('[name="entry_id"]').val(data.id);
             } else {
                 me.find('[name="submission_id"]').val(data.id);
@@ -139,7 +141,7 @@
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
             me.find('#ag-author').closest('a').attr('href', 'user/' + data.user.username);
 
-            if( me.has('[name="entry_id"]') ) {
+            if( isEntry ) {
                 share.attr('href', '/vote/' + me.find('[name="entry_id"]').val() + '/fb');
             } else {
                 share.attr('href', '/vote/' + me.find('[name="submission_id"]').val() + '/fb');
@@ -166,7 +168,8 @@
                 });
 
             } else {
-                window.location.href = '/vote/done';
+                var param = isEntry ? '?contest=' + contest_id : '';
+                window.location.href = '/vote/done' + param;
                 exit;
             }
         }

@@ -28,9 +28,16 @@ class VoteController extends Controller
      *
      * @return null
      */
-    public function done()
+    public function done(Request $request)
     {
-        return view('voting.done');
+        $view = view('voting.done');
+
+        if( $request->has('contest') )
+        {
+            $view->with('contest', Contest::find($request->contest)->first());
+        }
+
+        return $view;
     }
 
     /**
@@ -46,7 +53,7 @@ class VoteController extends Controller
         } else {
             $submissions = \Auth::user()->votes_que($contest);
             $submission = $submissions->first();
-            $submissions = \Auth::user()->votes_que($contest)->toArray();
+            $submissions = $submissions->toArray();
         }
 
         return view('voting.create')

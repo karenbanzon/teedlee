@@ -62,6 +62,9 @@
                                 @endforeach
                                 </ul>
                             @endif
+                            @if( $contest )
+                            <input type="hidden" name="contest_id" value="{!! $contest->id !!}" />
+                            @endif
                             <input type="hidden" name="{!! $contest ? 'entry' : 'submission' !!}_id" />
                             <input type="hidden" name="rating" />
                             {!! Form::close() !!}

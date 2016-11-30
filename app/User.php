@@ -5,6 +5,7 @@ namespace Teedlee;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Teedlee\Models\Contest;
+use Teedlee\Models\Entry;
 
 class User extends Authenticatable
 {
@@ -105,6 +106,9 @@ class User extends Authenticatable
      */
     public function votes_que ($contest=null)
     {
+        $contest->searchAndUpdate();
+        (new Entry())->searchAndUpdate();
+
         if( $contest ) {
             $voted = \Auth::user()->contest_votes()->pluck('entry_id');
         } else {

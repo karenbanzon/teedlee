@@ -41,10 +41,11 @@
             {!! dd($contest->status) !!}
         @endif
 
-        @if( $contest->status != 'submission_open' )
+        @if( $contest->status != 'submission_open' || !( $contest->status == 'voting_open' && $carbon->parse($contest->end_at) < $carbon->now() ) )
             <p>{!! Html::image('contests/'.$contest->banner) !!}</p>
         @else
             <p>
+                <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a>
                 <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a>
             </p>
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
