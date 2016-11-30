@@ -94,7 +94,7 @@ class EntryController extends Controller
             });
         }
 
-        return redirect('user/submissions');
+        return redirect('user/entries');
     }
 
 
