@@ -43,7 +43,7 @@
 
         @if( $contest->status == 'submission_open' || ( $contest->status == 'voting_open' && $carbon->parse($contest->start_at) < $carbon->now()) )
             <p>
-                <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->banner) !!}</a>
+                <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image(Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a>
             </p>
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
         @else
