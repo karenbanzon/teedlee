@@ -18,7 +18,7 @@
                 @if( $contest->status == 'submission_closed' )
                     <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
 
-                @if( $contest->status == 'voting_open' )
+                @elseif( $contest->status == 'voting_open' )
                     <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
 
                 @elseif( $contest->status == 'awaiting_winners' )
