@@ -19,9 +19,11 @@
             </p>
             <p>Check back again for more!</p>
             <hr>
-            {{--<h4>Other contests</h4>--}}
-            {{--<p><a href=""><img src="http://unsplash.it/600/400/?random"></a></p>--}}
-            {{--<a href="" class="button white small">Vote</a>--}}
+            @if( isset($contest) )
+                @include('voting.open-submissions')
+            @endif
+
+            @include('voting.contest-list')
         </div>
     </section>
 @endsection
