@@ -18,7 +18,7 @@
         var skip = me.find('#ag-skip');
         var share = me.find('.fb-share');
         var token = me.find('input[name="_token"]').val();
-        var isEntry = me.has('[name="entry_id"]');
+        var isEntry = me.has('[name="entry_id"]') && me.find('[name="contest_id"]').val();
         var contest_id = me.find('[name="contest_id"]').val();
 
         var settings = $.extend({
