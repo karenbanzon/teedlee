@@ -10,7 +10,7 @@
             <h4>Entries from Open Submission</h4>
             <p><a href="{!! url('vote/create') !!}"><img src="images/about-teedlee.png"></a></p>
             <a href="{!! url('vote/create') !!}" class="button white small">Vote</a>
-
+            <hr>
             @foreach( $contests as $contest )
                 <?php $start = $carbon->parse($contest->start_at) ?>
                 <h4>{!! $contest->title !!}</h4>
