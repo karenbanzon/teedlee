@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
     Route::get('vote/contest/{contest}', 'VoteController@contest');
     Route::get('vote/contest/{contest}/{referer?}', 'VoteController@contest');
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
-    Route::resource('vote', 'VoteController');
+    Route::resource('vote', 'VoteController', ['except' => ['index']]);
 
     Route::get('entries/submit/{contest}', 'EntryController@submit');
     Route::resource('entries', 'EntryController');

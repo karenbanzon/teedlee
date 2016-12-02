@@ -49,8 +49,8 @@
                     <div class="profile-detail">
                         <h6 class="label vtop">Description</h6>
                         <div class="profile-entry editing">
-                            {{--<small>300 characters left</small>--}}
-                            {!! Form::textarea('description', null, ['placeholder' => 'Describe your submission']) !!}
+                            <small class="help-block">300 characters left</small>
+                            {!! Form::textarea('description', 'xxxxx', ['placeholder' => 'Describe your submission']) !!}
                         </div>
                     </div>
 
@@ -65,12 +65,18 @@
 @endsection
 
 @section('scripts')
-
     {!! Html::script('bower_components/dropzone/dist/min/dropzone.min.js') !!}
+    {!! Html::script('bower_components/AsterGates/agtextbox/agtextarea.js') !!}
+
     <script>
         Dropzone.autoDiscover=false;
 
         $(function() {
+            $('textarea[name="description"]').agtextarea({
+                'indicator' : $('.help-block'),
+                'limit' : 300,
+            });
+
             var maxImageWidth = 756, maxImageHeight = 1000;
 
             $("div#uploader").dropzone({
