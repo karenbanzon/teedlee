@@ -2,10 +2,10 @@
     <?php $start = $carbon->parse($contest->start_at) ?>
     <h4>{!! $contest->title !!}</h4>
 
-    @if( $contest->status == 'submission_closed' )
+    @if( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()) )
         <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
 
-    @elseif( $contest->status == 'voting_open' )
+    @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
         <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
 
     @elseif( $contest->status == 'awaiting_winners' )
@@ -13,7 +13,7 @@
 
     @elseif( $contest->status == 'closed' )
         <p>
-            Contest is closed. Congratulations
+            Contest has ended. Congratulations
             @foreach( $contest->winners as $index => $entry )
                 {!! Html::link($entry->user->username, $entry->user->username, ['class' => 'text-bold']) .
                 ( count($contest->winners) > 1 && $index==count($contest->winners)-2 ? ' and ' : ($index < count($contest->winners)-1 ? ', ' : null) ) !!}
