@@ -1,14 +1,16 @@
 @foreach( $contests as $contest )
     <?php $start = $carbon->parse($contest->start_at) ?>
+    <?php $end = $carbon->parse($contest->end_at) ?>
+    <?php $voting_end = $carbon->parse($contest->close_at) ?>
     <?php $is_vote = false; ?>
     <h4>{!! $contest->title !!}</h4>
 
     @if( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
         <?php $is_vote = true ?>
-        <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
+        <p>Ends in <strong>{!! $carbon->diffForHumans($end, $carbon->now()) !!}</strong>.</p>
 
-    @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()) )
-        <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
+    @elseif( $contest->status == 'submission_closed') )
+        <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
 
     @elseif( $contest->status == 'awaiting_winners' )
         <p>Voting has ended. Winners will be announced shortly.</p>
