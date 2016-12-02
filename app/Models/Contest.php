@@ -121,6 +121,10 @@ class Contest extends Model
             ->update(['status' => 'submission_closed']);
 
 //        Voting open
+        $contest = Contest::whereDate('end_at', '<=', $carbon->now())
+            ->update(['status' => 'voting_open'])
+        ;
+
         $contest = Contest::whereDate('start_at', '<=', $carbon->now())
             ->whereDate('end_at', '>', $carbon->now())
             ->has('entries')
