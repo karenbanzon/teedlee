@@ -82,7 +82,10 @@ class Entry extends Model
 
 //        Internal voting within 24 hrs
         $this->where(\DB::raw('DATE_ADD(created_at, INTERVAL 1 day)'), '>', $carbon->now())
-            ->whereIn('declined_reason', [null,''])
+            ->where(function($query){
+                $query->whereNull('declined_reason');
+                $query->orWhere('declined_reason','');
+            })
             ->where('status', '<>', 'draft')
             ->update([ 'status' => 'internal_voting'])
         ;
