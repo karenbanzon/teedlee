@@ -5,15 +5,15 @@
     <?php $is_vote = false; ?>
     <h4>{!! $contest->title !!}</h4>
 
-    @if( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
+    @if( $contest->status == 'awaiting_winners' )
+        <p>Voting has ended. Winners will be announced shortly.</p>
+
+    @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
         <?php $is_vote = true ?>
         <p>Ends in <strong>{!! $carbon->diffForHumans($end, $carbon->now()) !!}</strong>.</p>
 
-    @elseif( $contest->status == 'submission_closed') )
+    @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()))
         <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
-
-    @elseif( $contest->status == 'awaiting_winners' )
-        <p>Voting has ended. Winners will be announced shortly.</p>
 
     @elseif( $contest->status == 'closed' )
         <p>
