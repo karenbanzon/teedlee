@@ -10,7 +10,7 @@
 
     @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
         <?php $is_vote = true ?>
-        <p>Ends in <strong>{!! $carbon->diffForHumans($end, $carbon->now()) !!}</strong>.</p>
+        <p>Ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
 
     @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()))
         <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
