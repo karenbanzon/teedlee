@@ -28,15 +28,15 @@
         {!! dd($contest->status) !!}
     @endif
 
-    <p>
-        @if( $is_vote )
-            <a href="{!! url('vote/contest/'.$contest->id) !!}">
-                {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
-            </a>
-            <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a>
-        @else
+    @if( $is_vote )
+        <p>
+        <a href="{!! url('vote/contest/'.$contest->id) !!}">
             {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
-        @endif
-    </p>
+        </a>
+        </p>
+        <p><a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a></p>
+    @else
+        <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
+    @endif
     <hr>
 @endforeach
