@@ -1,12 +1,14 @@
 @foreach( $contests as $contest )
     <?php $start = $carbon->parse($contest->start_at) ?>
+    <?php $is_vote = false; ?>
     <h4>{!! $contest->title !!}</h4>
 
-    @if( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()) )
-        <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
-
-    @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
+    @if( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
+        <?php $is_vote = true ?>
         <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
+
+    @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()) )
+        <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
 
     @elseif( $contest->status == 'awaiting_winners' )
         <p>Voting has ended. Winners will be announced shortly.</p>
@@ -25,16 +27,14 @@
     @endif
 
     <p>
-        @if( $carbon->now() < $start )
-            {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
-        @else
+        @if( $is_vote )
             <a href="{!! url('vote/contest/'.$contest->id) !!}">
                 {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
             </a>
+            <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a>
+        @else
+            {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
         @endif
     </p>
-    @if( $carbon->now() >= $start )
-        <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white small">Vote</a>
-    @endif
     <hr>
 @endforeach
