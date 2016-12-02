@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Teedlee\Models\Contest;
 use Teedlee\Models\Entry;
+use Teedlee\Models\Submission;
 
 class User extends Authenticatable
 {
@@ -69,11 +70,13 @@ class User extends Authenticatable
 
     public function submissions()
     {
+        (new Submission())->searchAndUpdate();
         return $this->hasMany('\Teedlee\Models\Submission');
     }
 
     public function entries()
     {
+        (new Entry())->searchAndUpdate();
         return $this->hasMany('\Teedlee\Models\Entry');
     }
 
