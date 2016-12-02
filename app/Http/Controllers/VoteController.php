@@ -5,6 +5,8 @@ namespace Teedlee\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Teedlee\Http\Requests;
+use Teedlee\Models\Entry;
+use Teedlee\Models\Submission;
 use Teedlee\Models\Vote;
 use Teedlee\Models\Contest;
 
