@@ -3852,11 +3852,45 @@ footer a {
 }
 /* line 216, ../sass/partials/_blocks.scss */
 .slides-overlay p {
-  margin-top: 480px;
+  margin-top: 450px;
 }
 /* line 217, ../sass/partials/_blocks.scss */
 .slides-overlay h1, .slides-overlay p {
   color: #333333;
+}
+
+/* line 220, ../sass/partials/_blocks.scss */
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 110%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 229, ../sass/partials/_blocks.scss */
+.modal .card {
+  max-width: 90%;
+  width: 800px;
+  margin: 300px auto 0 auto;
+  float: none;
+}
+/* line 234, ../sass/partials/_blocks.scss */
+.modal .card .modal-close {
+  float: right;
+  margin-right: 20px;
+  margin-top: -5px;
+  color: #aaa;
+}
+/* line 240, ../sass/partials/_blocks.scss */
+.modal .card .card-container {
+  background: #fff;
+}
+/* line 242, ../sass/partials/_blocks.scss */
+.modal .card .card-container img {
+  width: auto;
 }
 
 /* line 7, ../sass/partials/_molecules.scss */

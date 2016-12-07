@@ -11,6 +11,16 @@ $(document).ready(function()
 		$('#site-wrapper').toggleClass('show-nav');  
 	});
 
+	$('#closeSignUp').click(function(e) {
+        e.preventDefault();
+        $('#voteSignUp').fadeOut();
+    });
+
+    $('#showSignUp').click(function(e) {
+        e.preventDefault();
+        $('#voteSignUp').fadeIn();
+    });
+
 	// $(".star-1").hover(function(){
 	// 	$(".star-1").addClass("colored");
 	// }, function() { $(".star").removeClass("colored"); });
