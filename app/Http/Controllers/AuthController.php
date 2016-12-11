@@ -112,8 +112,9 @@ class AuthController extends BaseController
         return redirect()->to($redir)->with('message', 'Logged in via ' . $service_name);
     }
 
-    public function signup()
+    public function signup(Request $request)
     {
+        session(['redirect' => $request->redirect ]);
         return view('auth/signup');
     }
 

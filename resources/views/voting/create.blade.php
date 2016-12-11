@@ -100,7 +100,7 @@
                     <a href="{!! url('oauth/facebook?redirect=').\Request::path() !!}"><img src="https://z-1-scontent.fmnl3-2.fna.fbcdn.net/t39.2178-6/851579_209602122530903_1060396115_n.png"></a>
                 </div>
                 <div class="text-center padding-20">
-                    <a href="">Sign up with my email</a>
+                    <a href="{!! url('signup?redirect=').\Request::path() !!}">Sign up with my email</a>
                 </div>
             </div>
         </div>

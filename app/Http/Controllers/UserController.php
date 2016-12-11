@@ -28,6 +28,9 @@ class UserController extends BaseController
 
     public function create(CreateUser $request)
     {
+        $redir = session('redirect');
+        $request->session()->forget('redirect');
+
         $request = array_merge(
             $request->except('_token', 'password_confirmation'),
             [
@@ -41,7 +44,7 @@ class UserController extends BaseController
         $user = $this->model->create($request);
         $path = public_path('users'.DIRECTORY_SEPARATOR.$user->id);
         if(!is_dir($path)) { mkdir($path, 0775); }
-        $this->send_activation_email($user);
+        $this->send_activation_email($user, $redir);
         return redirect('user/welcome');
     }
 
@@ -86,16 +89,18 @@ class UserController extends BaseController
             ->with('user', $user);
     }
 
-    public function send_activation_email(User $user)
+    public function send_activation_email(User $user, $redir=null)
     {
+
         $user->link = secure_url('user/activate/'.$user->id.'/'.sha1($user->email.$user->username));
+        $user->link .= $redir ? '?redirect='.$redir : null;
         \Mail::send('user.email.activation', $user->toArray(), function ($m) use ($user) {
             $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
             $m->to($user->email, $user->username)->subject('Account activation');
         });
     }
 
-    public function activate(User $user, $token)
+    public function activate(User $user, $token, Request $request)
     {
         if( sha1($user->email.$user->username)==$token && $user->status != 'inactive') {
             return redirect('')->with('error', 'Invalid activation link');
@@ -103,9 +108,10 @@ class UserController extends BaseController
         {
             $user->status='active';
             $user->save();
-            return redirect('login')->with('message', 'Your account has been activated. You can now log in.');
+            \Auth::login($user);
+            return redirect()->to($request->redirect ?: 'login')->with('message', 'Your account has been activated.');
         } else {
-            return redirect('')->with('error', 'Activation token is invalid');
+            return redirect('/')->with('error', 'Activation token is invalid');
         }
     }
 
