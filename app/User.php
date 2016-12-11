@@ -109,16 +109,17 @@ class User extends Authenticatable
      */
     public function votes_que ($contest=null)
     {
+        $user = \Auth::check() ? \Auth::user() : new User();
 
         if( $contest ) {
             $contest->searchAndUpdate();
             (new Entry())->searchAndUpdate();
-            $voted = \Auth::user()->contest_votes()->pluck('entry_id');
+            $voted = $user->contest_votes()->pluck('entry_id');
         } else {
-            $voted = \Auth::user()->votes()->pluck('submission_id');
+            $voted = $user->votes()->pluck('submission_id');
         }
 
-        if( \Auth::user()->user_group_id == 5 )
+        if( $user->user_group_id == 5 || !$user->id )
         {
             if( !$contest ) {
                 $submissions = (new \Teedlee\Models\Submission())
@@ -150,13 +151,13 @@ class User extends Authenticatable
                     ->orderBy('id');
             }
 
-            if( \Auth::user()->user_group_id == 7 )
+            if( $user->user_group_id == 7 )
             {
-                $submissions->where(function( $sub ) use ($contest)
+                $submissions->where(function( $sub ) use ($contest, $user)
                 {
                     if( $contest ) {
                         $sub->where('contest_id', null);
-                        if( $contest->judges()->where('user_id', \Auth::user()->id)->count() )
+                        if( $contest->judges()->where('user_id', $user->id)->count() )
                         {
                             $sub->orWhere('contest_id', $contest->id);
                         }

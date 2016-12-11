@@ -9,6 +9,7 @@ use Teedlee\Models\Entry;
 use Teedlee\Models\Submission;
 use Teedlee\Models\Vote;
 use Teedlee\Models\Contest;
+use Teedlee\User;
 
 class VoteController extends Controller
 {
@@ -56,7 +57,8 @@ class VoteController extends Controller
         {
             $submissions = [$submission];
         } else {
-            $submissions = \Auth::user()->votes_que($contest);
+            $user = \Auth::check() ? \Auth::user() : new User();
+            $submissions = $user->votes_que($contest);
             $submission = $submissions->first();
             $submissions = $submissions->toArray();
         }

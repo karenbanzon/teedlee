@@ -87,8 +87,10 @@ class AuthController extends BaseController
         }
     }
 
-    public function oauth($service)
+    public function oauth($service, Request $request)
     {
+        session(['redirect' => $request->redirect ]);
+
         if($service=='facebook') {
             $fields = ['first_name', 'last_name', 'email', 'gender',];
         }
@@ -99,12 +101,15 @@ class AuthController extends BaseController
     }
 
 
-    public function oauthCallback($service_name)
+    public function oauthCallback($service_name, Request $request)
     {
+        $redir = session('redirect', '/');
+        $request->session()->forget('redirect');
+
         $service = new SocialAccount();
         $user = $service->createOrGetUser(Socialite::driver($service_name)->user(), $service_name);
         auth()->login($user);
-        return redirect()->to('/')->with('message', 'Logged in via ' . $service_name);
+        return redirect()->to($redir)->with('message', 'Logged in via ' . $service_name);
     }
 
     public function signup()
