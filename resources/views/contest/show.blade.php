@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    {!! $contest->title !!}
+    Teedlee - {!! $contest->title !!}
 @endsection
 
 @section('head')
