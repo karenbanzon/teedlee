@@ -46,6 +46,7 @@
                 <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a>
             </p>
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
+            <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
         @else
             <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
         @endif

@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth', 'https']], function() {
 
     Route::get('products', 'SubmissionController@products');
 
-    Route::resource('contest', 'ContestController');
+    Route::resource('contest', 'ContestController', ['except' => ['show']]);
     Route::resource('admin/entries', 'Admin\EntryController');
 });
 
@@ -82,4 +82,5 @@ Route::group(['middleware' => ['auth', 'https']], function() {
 // Fallback route
 Route::group(['middleware' => ['https']], function() {
     Route::get('{username}', 'UserController@show');
+    Route::get('contest/{contest}', 'ContestController@show');
 });

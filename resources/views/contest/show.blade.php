@@ -5,6 +5,7 @@
 @endsection
 
 @section('head')
+    @include('contest.open-graph')
 @endsection
 
 @section('content')
