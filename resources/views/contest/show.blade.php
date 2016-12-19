@@ -52,8 +52,6 @@
             <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white">Vote</a>
         @endif
 
-        <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
-
         <hr />
     </section>
 @endsection
