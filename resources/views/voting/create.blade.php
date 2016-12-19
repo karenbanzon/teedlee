@@ -68,7 +68,7 @@
                             <input type="hidden" name="{!! $contest ? 'entry' : 'submission' !!}_id" />
                             <input type="hidden" name="rating" />
                             {!! Form::close() !!}
-                            <div class="text-center">
+                            <div class="text-centekaya kung hindi visible yr">
                                 <a href="">View comments</a>
                             </div>
                         </div>

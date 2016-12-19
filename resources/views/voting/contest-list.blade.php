@@ -31,17 +31,16 @@
 
         @if( $is_vote )
             <p>
-            <a href="{!! url('vote/contest/'.$contest->id) !!}">
-                {!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}
-            </a>
+                <a href="{!! url('vote/contest/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a>
             </p>
-            <p>
-                <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white">Vote</a>
-                <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
-            </p>
+
+            <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white">Vote</a>
         @else
             <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
         @endif
+
+        <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
+
         <hr>
     @endforeach
 @endif
