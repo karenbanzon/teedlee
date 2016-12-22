@@ -50,7 +50,7 @@
                         <h6 class="label vtop">Description</h6>
                         <div class="profile-entry editing">
                             <small class="help-block">300 characters left</small>
-                            {!! Form::textarea('description', 'xxxxx', ['placeholder' => 'Describe your submission']) !!}
+                            {!! Form::textarea('description', null, ['placeholder' => 'Describe your submission']) !!}
                         </div>
                     </div>
 

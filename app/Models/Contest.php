@@ -143,32 +143,36 @@ class Contest extends Model
     public function searchAndUpdate()
     {
         $carbon = Carbon::now();
+        $now = $carbon->toDateTimeString();
+        \DB::enableQueryLog();
 
 //        Submission not yet started
-        Contest::whereDate('start_at', '>', $carbon->now())
+        Contest::where('start_at', '>', $now)
             ->update(['status' => 'submission_closed']);
+//        dd(\DB::getQueryLog());
 
 //        Voting open
-        $contest = Contest::whereDate('end_at', '<=', $carbon->now())
-            ->whereDate('close_at', '>=', $carbon->now())
+        $contest = Contest::where('end_at', '<=', $now)
+            ->where('start_at', '<=', $now)
+            ->where('close_at', '>=', $carbon->now())
             ->update(['status' => 'voting_open'])
         ;
 
-        $contest = Contest::whereDate('start_at', '<=', $carbon->now())
-            ->whereDate('end_at', '>', $carbon->now())
+        $contest = Contest::where('start_at', '<=', $now)
+            ->where('end_at', '>', $now)
             ->has('entries')
             ->update(['status' => 'voting_open'])
         ;
 
 //        Submission open
-        $contest = Contest::whereDate('start_at', '<=', $carbon->now())
-            ->whereDate('end_at', '>', $carbon->now())
+        $contest = Contest::where('start_at', '<=', $now)
+            ->where('end_at', '>', $now)
             ->has('entries', '<', 1)
             ->update(['status' => 'submission_open'])
         ;
 
 //        Voting ended
-        Contest::whereDate('close_at', '<=', $carbon->now())
+        Contest::where('close_at', '<=', $now)
             ->whereIn('status', ['submission_closed', 'submission_open', 'voting_open'])
             ->update([ 'status' => 'awaiting_winners'])
         ;

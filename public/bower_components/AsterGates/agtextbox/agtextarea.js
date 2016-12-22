@@ -16,7 +16,7 @@
 
         return this.each(function()
         {
-            me.on('keypress', function (e) {
+            me.on('input propertychange', function (e) {
                 if( !update(settings.indicator) )
                 {
                     e.preventDefault();

@@ -8,12 +8,15 @@
         @if( $contest->status == 'awaiting_winners' )
             <p>Voting has ended. Winners will be announced shortly.</p>
 
+        @elseif( $contest->status == 'submission_closed' )
+            <p>Submission opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
+
+        @elseif( $contest->status == 'submission_open' && !$contest->entries()->count() )
+            <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
+
         @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
             <?php $is_vote = true ?>
             <p>Voting ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
-
-        @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()))
-            <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
 
         @elseif( $contest->status == 'closed' )
             <p>
