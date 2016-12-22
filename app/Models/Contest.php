@@ -108,6 +108,34 @@ class Contest extends Model
     }
 
     /**
+     * Check if entry is on submissions mode
+     *
+     * @return boolean
+     */
+
+    public function isSubmitting()
+    {
+        $now = Carbon::now();
+        $end = Carbon::parse($this->end_at);
+        $start = Carbon::parse($this->start_at);
+
+        return ( $this->status == 'submission_open' ) ||
+               ( $start->lt($now) && $end->gt($now) )
+        ;
+    }
+
+    /**
+     * Check if entry is on voting mode
+     *
+     * @return boolean
+     */
+
+    public function isVoting()
+    {
+        return $this->status == 'voting_open';
+    }
+
+    /**
      * Updates contest entries status
      *
      * @return null

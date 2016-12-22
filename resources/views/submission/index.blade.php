@@ -23,7 +23,7 @@
             <p>Submission opens in <strong>{!! $carbon->now()->diffForHumans($start, true) !!}</strong>.</p>
 
         @elseif( in_array($contest->status, ['submission_open', 'voting_open']) )
-            <p>Ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
+            <p>Submission ends in <strong>{!! $carbon->diffForHumans($carbon->parse($contest->end_at), $carbon->now()) !!}</strong>.</p>
 
         @elseif( $contest->status == 'awaiting_winners' )
             <p>Voting has ended. Winners will be announced shortly.</p>
@@ -41,17 +41,16 @@
             {!! dd($contest->status) !!}
         @endif
 
-        @if( $contest->status == 'submission_open' || ( $contest->status == 'voting_open' && $carbon->parse($contest->end_at) > $carbon->now()) )
-            <p>
-                <a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a>
-            </p>
+        @if( $contest->isSubmitting() )
+            <p><a href="{!! url('entries/submit/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a></p>
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
-            <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
         @else
             <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
-            <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
         @endif
+
+        <a href="{!! url('contest/'.$contest->id) !!}" class="button white">Learn more</a>
         <hr>
+
         @endforeach
 
         <div class="text-left padding-20">

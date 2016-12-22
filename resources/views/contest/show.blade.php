@@ -22,7 +22,7 @@
 
         @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
             <?php $is_vote = true ?>
-            <p>Ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
+            <p>Voting ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
 
         @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()))
             <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
@@ -42,17 +42,17 @@
 
         <p>{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</p>
 
-        <div class="text-center">{!! $contest->description !!}</div>
+        <p class="text-center">{!! $contest->description !!}</p>
 
-        @if( $is_submit )
+        @if( $contest->isSubmitting() )
             <a href="{!! url('entries/submit/'.$contest->id) !!}" class="button white">Submit</a>
         @endif
 
-        @if( $is_vote )
+        @if( $contest->isVoting() )
             <a href="{!! url('vote/contest/'.$contest->id) !!}" class="button white">Vote</a>
         @endif
 
-        <hr />
+        {{--<hr />--}}
     </section>
 @endsection
 

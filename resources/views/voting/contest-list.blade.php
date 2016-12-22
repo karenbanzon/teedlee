@@ -3,7 +3,6 @@
         <?php $start = $carbon->parse($contest->start_at) ?>
         <?php $end = $carbon->parse($contest->end_at) ?>
         <?php $voting_end = $carbon->parse($contest->close_at) ?>
-        <?php $is_vote = false; ?>
         <h4>{!! $contest->title !!}</h4>
 
         @if( $contest->status == 'awaiting_winners' )
@@ -11,7 +10,7 @@
 
         @elseif( $contest->status == 'voting_open' || ($contest->status == 'submission_open' && $contest->entries()->count()) )
             <?php $is_vote = true ?>
-            <p>Ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
+            <p>Voting ends in <strong>{!! $carbon->diffForHumans($voting_end, $carbon->now()) !!}</strong>.</p>
 
         @elseif( $contest->status == 'submission_closed'  || ($contest->status == 'submission_open' && !$contest->entries()->count()))
             <p>Voting opens in <strong>{!! $carbon->now()->diffForHumans($end, true) !!}</strong>.</p>
@@ -29,7 +28,7 @@
             {!! dd($contest->status) !!}
         @endif
 
-        @if( $is_vote )
+        @if( $contest->isVoting() )
             <p>
                 <a href="{!! url('vote/contest/'.$contest->id) !!}">{!! Html::image('contests/'.$contest->id.'/'.$contest->banner) !!}</a>
             </p>
