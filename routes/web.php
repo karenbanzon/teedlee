@@ -33,7 +33,6 @@ Route::group(['middleware' => ['https']], function() {
     Route::get('vote/contest/{contest}', 'VoteController@contest');
     Route::get('vote/contest/{contest}/{referer?}', 'VoteController@contest');
     Route::get('vote/{submission}/{referrer}', 'VoteController@create');
-//    Route::resource('vote', 'VoteController', ['except' => ['index', 'create']]);
 
 //    Shopify doesn't support standard HTTP verbs. Use manual routing.
     Route::any('shopify/order/create', 'ShopifyController@create');
@@ -76,6 +75,8 @@ Route::group(['middleware' => ['auth', 'https']], function() {
 
     Route::resource('contest', 'ContestController', ['except' => ['show']]);
     Route::resource('admin/entries', 'Admin\EntryController');
+
+    Route::resource('vote', 'VoteController', ['except' => ['index']]);
 });
 
 
