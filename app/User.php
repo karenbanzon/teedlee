@@ -128,6 +128,7 @@ class User extends Authenticatable
                     ->orderBy('id');
             } else {
                 $submissions = (new \Teedlee\Models\Entry())
+                    ->where('contest_id', $contest->id)
                     ->whereNotIn('id', $voted)
                     ->where('status', 'public_voting')
                     ->with('images')
@@ -144,6 +145,7 @@ class User extends Authenticatable
                     ->orderBy('id');
             } else {
                 $submissions = (new \Teedlee\Models\Entry())
+                    ->where('contest_id', $contest->id)
                     ->whereNotIn('id', $voted)
                     ->where('status', 'internal_voting')
                     ->with('images')
