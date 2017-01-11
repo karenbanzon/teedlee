@@ -44,12 +44,12 @@ class ContestController extends Controller
      */
     public function store(SaveContest $request)
     {
-        $contest = Contest::findOrNew($request->id);
+        $contest = Contest::firstOrCreate(['id' => $request->id]);
 
         if( $file = $request->file('banner') )
         {
             $filename = str_slug($request->title).'-'.time().'.'.$file->getClientOriginalExtension();
-            $path = public_path('contests/'.$request->id);
+            $path = public_path('contests/'.$contest->id);
 
             $file->move($path, $filename);
             $contest->banner = $filename;
