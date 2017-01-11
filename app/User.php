@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function submissions()
     {
-        (new Submission())->searchAndUpdate();
+        //(new Submission())->searchAndUpdate();
         return $this->hasMany('\Teedlee\Models\Submission');
     }
 
