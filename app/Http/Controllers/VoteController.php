@@ -63,11 +63,14 @@ class VoteController extends Controller
             $submissions = $submissions->toArray();
         }
 
-        return view('voting.create')
-            ->with('submissions', json_encode(array_reverse($submissions)))
-            ->with('submission', $submission)
-            ->with('contest', $contest)
-            ;
+        if( $submissions ) {
+            return view('voting.create')
+                ->with('submissions', json_encode(array_reverse($submissions)))
+                ->with('submission', $submission)
+                ->with('contest', $contest);
+        } else {
+            return redirect('vote/done');
+        }
     }
 
     public function contest( Contest $contest, $referer=null )

@@ -15,7 +15,8 @@
 @endsection
 
 @section('content')
-    <section class="row">
+
+    <section class="row" id="voting_form">
         <div class="small-12 large-8 large-offset-2">
             <hr>
             <h4 class="text-center">VOTE</h4>
