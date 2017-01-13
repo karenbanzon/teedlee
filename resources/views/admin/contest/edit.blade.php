@@ -12,7 +12,7 @@
         <div class="col-xs-8">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Contests</h3>
+                    <h3 class="">{!! $contest->title !!} ({!! c($contest->status) !!})</h3>
                 </div>
 
                 <div class="box-body">
@@ -192,9 +192,13 @@
                                     <a href="{!! url('admin/entries/'.$entry->id.'/edit') !!}"><span class="fa fa-pencil" title="Edit"></span></a>&nbsp;
                                     {{--<a href="{!! url('admin/entries/'.$contest->id) !!}"><span class="fa fa-cloud-upload" title="Entries"></span></a>&nbsp;--}}
                                 </td>
-                                @if( $contest->status=='awaiting_winners' )
-                                <td>{!! Form::checkbox('winner[]', $entry->id, $entry->is_winner ) !!}</td>
+                                <td>
+                                @if( in_array($contest->status, ['awaiting_winners', 'closed']) )
+                                    {!! Form::checkbox('winner[]', $entry->id, $entry->is_winner ) !!}
+                                @else
+                                    &nbsp;
                                 @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -206,11 +210,15 @@
                             <th>Rating</th>
                             <th>Submitted</th>
                             <th class="text-center">Actions</th>
-                            @if( $contest->status=='awaiting_winners' )
-                            <th><i class="fa fa-trophy"></i></th>
-                            @endif
+                            <th>
+                                @if( in_array($contest->status, ['awaiting_winners', 'closed']) )
+                                    <i class="fa fa-trophy"></i>
+                                @else
+                                    &nbsp;
+                                @endif
+                            </th>
                         </tr>
-                        @if( $contest->status=='awaiting_winners' )
+                        @if( in_array($contest->status, ['awaiting_winners', 'closed']) )
                         <tr>
                             <td colspan="8">
                                 <button class="btn btn-primary pull-right pd20">Publish Winners</button>
