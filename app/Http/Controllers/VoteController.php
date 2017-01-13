@@ -69,7 +69,7 @@ class VoteController extends Controller
                 ->with('submission', $submission)
                 ->with('contest', $contest);
         } else {
-            return redirect('vote/done');
+            return redirect('vote/done' . (($contest) ? '?contest=' . $contest->id : null) );
         }
     }
 
