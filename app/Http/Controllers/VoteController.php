@@ -37,7 +37,7 @@ class VoteController extends Controller
 
         if( $request->has('contest') )
         {
-            $view->with('contest', Contest::find($request->contest)->first())
+            $view->with('contest', Contest::find($request->contest))
             ->with('contests', (new Contest())->active())
             ->with('carbon', new Carbon())
             ;
