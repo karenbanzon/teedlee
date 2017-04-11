@@ -88,9 +88,9 @@ class EntryController extends Controller
         if( $entry['status'] == 'draft' )
         {
             $entry['link'] = secure_url('user/submissions');
-            \Mail::send('user.email.submit', $entry, function ($m) use ($entry, $contest) {
+            \Mail::send('entry.email.submit', $entry, function ($m) use ($entry, $contest) {
                 $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
-                $m->to(\Auth::user()->email, \Auth::user()->username)->subject("You submitted a design to the contest '" . $contest->title . "''" );
+                $m->to(\Auth::user()->email, \Auth::user()->username)->subject($contest->title . ": We've received your design!" );
             });
         }
 

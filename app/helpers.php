@@ -21,3 +21,15 @@ function shop_url($string)
 {
     return env('SHOP_URL') .'/' . $string;
 }
+
+function cdn($string)
+{
+    return env('CDN_URL') .'/' . $string;
+}
+
+function pre_r($array)
+{
+    print '<pre>';
+    print_r($array);
+    print '</pre>';
+}

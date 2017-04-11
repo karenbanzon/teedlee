@@ -1,6 +1,4 @@
-<?php
-
-namespace Teedlee\Models;
+<?php namespace Teedlee\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use \Teedlee\Models\Entry;
@@ -142,9 +140,13 @@ class Contest extends Model
      */
     public function searchAndUpdate()
     {
+        $limit = set_time_limit(0);
+        
+        $before = Contest::pluck('status', 'id');
+        
         $carbon = Carbon::now();
         $now = $carbon->toDateTimeString();
-        \DB::enableQueryLog();
+//        \DB::enableQueryLog();
 
 //        Submission not yet started
         Contest::where('start_at', '>', $now)
@@ -152,20 +154,20 @@ class Contest extends Model
 //        dd(\DB::getQueryLog());
 
 //        Voting open
-        $contest = Contest::where('end_at', '<=', $now)
+        Contest::where('end_at', '<=', $now)
             ->where('start_at', '<=', $now)
             ->where('close_at', '>=', $carbon->now())
             ->update(['status' => 'voting_open'])
         ;
 
-        $contest = Contest::where('start_at', '<=', $now)
+        Contest::where('start_at', '<=', $now)
             ->where('end_at', '>', $now)
             ->has('entries')
             ->update(['status' => 'voting_open'])
         ;
 
 //        Submission open
-        $contest = Contest::where('start_at', '<=', $now)
+        Contest::where('start_at', '<=', $now)
             ->where('end_at', '>', $now)
             ->has('entries', '<', 1)
             ->update(['status' => 'submission_open'])
@@ -176,5 +178,65 @@ class Contest extends Model
             ->whereIn('status', ['submission_closed', 'submission_open', 'voting_open'])
             ->update([ 'status' => 'awaiting_winners'])
         ;
+        
+        $after = Contest::pluck('status', 'id');
+        
+//        pre_r($before);
+//        pre_r($after);
+//        dd('');
+        
+        $to = [];
+        
+        foreach( $before as $id => $status )
+        {
+            if( $before[$id] != $after[$id] )
+            {
+                $status = $after[$id];
+                
+//              Switch contest status
+                if( $status == 'submission_closed' )
+                {
+                    $subject = 'Submission Closed';
+                    
+                } elseif( $status == 'awaiting_winners' ) {
+                    $subject = 'Voting Closed';
+                    
+                } elseif( $status == 'closed' ) {
+                    $subject = 'Winners';
+                }
+                
+                if( !empty($subject) )
+                {
+                    $contest = Contest::find($id);
+                    $to[$id] = [];
+                    $subject = $contest->title.': ' . $subject;
+                    $template = 'contest.email.'.$status;
+                    $entries = $contest->entries()->where('status','<>','draft')->with('user')->get();
+                    
+//                    dd($entries->toArray());
+//                    $users = json_decode(json_encode([ 
+//                        ['id' => 3, 'email'=> 'jhourlad01@gmail.com', 'username' => 'jhourlad'], 
+//                        ['id' => 16, 'email'=> 'jhourest@gmail.com', 'username' => 'user1476288505'], 
+//                    ]));
+                    
+                    
+                    foreach( $entries as $entry )
+                    {
+                        $user = $entry->user;
+                        
+                        if( !isset($to[$id][$user->email]) )
+                        {
+                            $to[$id][$user->email] = 1;
+//                            print "Sending to {$user->email}<br>";
+                            \Mail::send($template, ['contest' => $contest, 'user' => $user, 'subject' => $subject], function ($m) use ($user, $subject) {
+                                $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                                $m->to($user->email, $user->username)->subject($subject);
+                            });
+                        }
+                    }
+                }
+            }
+        } 
+//        dd($to);
     }
 }

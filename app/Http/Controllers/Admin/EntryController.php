@@ -86,10 +86,20 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
-        dd($request->all());
+//        dd($request->all());
 
         $data = $request->all();
         $entry->update($data);
+        
+        if( $data->status == 'public_voting' )
+        {
+            $entry['link'] = secure_url('user/submissions');
+            \Mail::send('entry.email.public_voting', $entry, function ($m) use ($entry, $contest) {
+                $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                $m->to(\Auth::user()->email, \Auth::user()->username)->subject($contest->title . ": : Your design for has been approved for Public Voting!" );
+            });            
+        }
+        
         (new Entry())->searchAndUpdate();
 
         return redirect()->back();
