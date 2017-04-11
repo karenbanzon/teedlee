@@ -40,13 +40,25 @@ class EntryController extends Controller
 //        dd($request->all());
 
         if( $request->winner ) {
+            
             $contest = Contest::find($request->contest_id);
             $contest->status = 'closed';
             $contest->save();
-
-            $entries = $contest->entries()->whereNotIn('id', $request->winner)->update(['is_winner' => false]);
-            $entries = $contest->entries()->whereIn('id', $request->winner)->update(['is_winner' => true]);
-
+            $contest->entries()->whereNotIn('id', $request->winner)->update(['is_winner' => false]);
+            $contest->entries()->whereIn('id', $request->winner)->update(['is_winner' => true]);
+            
+            $subject = $contest->title.': Congratulations! You have won the contest!';
+            $template = 'entry.email.winner';
+//            $entries = $contest->entries()->where('status','<>','draft')->with('user')->get();
+            
+            foreach( $contest->winners as $entry )
+            {
+                $user = $entry->user;
+                \Mail::send($template, ['contest' => $contest, 'entry' => $entry, 'user' => $user, 'subject' => $subject], function ($m) use ($user, $subject) {
+                    $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                    $m->to($user->email, $user->username)->subject($subject);
+                });
+            }
             return redirect()->back();
         } else {
             return redirect()->back()->withErrors(['Choose at least one entry to declare as winner.']);

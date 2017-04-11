@@ -4,7 +4,7 @@
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td style="padding: 20px 40px;" align="center">
-                <p>Dear {{ \Auth::user()->username }},</p>
+                <p>Dear {{ $user->username }},</p>
                 <p>
                     Your design {{ $entry->title }} for {{ $contest->title }} has been approved for Public Voting. 
                     In case you missed it, you can read about our submission guidelines here:

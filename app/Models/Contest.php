@@ -64,6 +64,7 @@ class Contest extends Model
     {
         return $this->entries()
             ->where('is_winner', true )
+            ->with('user')
             ;
     }
 
