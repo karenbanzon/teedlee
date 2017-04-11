@@ -40,4 +40,9 @@ return [
         'client_secret' => '559e06bd6ae6cb48a9dd2de3295fcc19', //'c28f658ff2fca09d79b8c1712eb60021',
         'redirect' => 'https://'.$_SERVER['SERVER_NAME'].'/oauth/callback/facebook',
     ],
+    
+    'sendinblue' => [
+       'url' => 'https://api.sendinblue.com/v2.0',
+       'key' => env('SENDINBLUE_KEY'),
+    ],    
 ];

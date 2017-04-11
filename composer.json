@@ -11,7 +11,8 @@
         "laravelcollective/html": "5.3.*",
         "laravel/socialite": "^2.0",
         "rocket-code/shopify": "dev-master",
-        "oseintow/laravel-shopify": "1.0"
+        "oseintow/laravel-shopify": "1.0",
+        "webup/laravel-sendinblue": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

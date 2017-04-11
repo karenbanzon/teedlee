@@ -180,6 +180,7 @@ return [
         Teedlee\Providers\EventServiceProvider::class,
         Teedlee\Providers\RouteServiceProvider::class,
         Teedlee\Providers\ShopifyServiceProvider::class,
+        Webup\LaravelSendinBlue\SendinBlueServiceProvider::class,
 
     ],
 
