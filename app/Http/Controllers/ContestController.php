@@ -47,7 +47,7 @@ class ContestController extends Controller
      */
     public function show(Contest $contest)
     {
-//        dd($contest->with('user')->get()->toArray());
+//        dd($contest->with('user')->get()->toArray());        
 
         return view('contest.show')
             ->with('contest', $contest)

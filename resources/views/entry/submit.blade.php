@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="profile-detail">
-                        <h6 class="label vtop">Images</h6>
+                        <h6 class="label vtop">Images (756 x 1000)</h6>
                         <div class="profile-entry">
                             <div id="uploader" class="dropzone">
                                 <div class="dz-message needsclick">
@@ -74,8 +74,8 @@
 
         $(function() {
             $('textarea[name="description"]').agtextarea({
-                'indicator' : $('.help-block'),
-                'limit' : 300,
+                'indicator' : $('.help-block') ,
+//                'limit' : 300,
             });
 
             var maxImageWidth = 756, maxImageHeight = 1000;

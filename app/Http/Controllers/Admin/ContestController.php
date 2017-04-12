@@ -100,6 +100,8 @@ class ContestController extends Controller
      */
     public function edit(Contest $contest)
     {
+        (new \Teedlee\Models\Entry)->searchAndUpdate();
+        
         return view('admin/contest/edit')
             ->with('contest', $contest)
             ->with('judges', User::where('user_group_id', 7)->get())

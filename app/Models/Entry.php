@@ -78,6 +78,10 @@ class Entry extends Model
      */
     public function searchAndUpdate()
     {
+        $limit = set_time_limit(0);
+
+        $before = Entry::pluck('status', 'id');
+
         $carbon = Carbon::now();
 
 //        Internal voting within 24 hrs
@@ -99,5 +103,33 @@ class Entry extends Model
             ->where('status', '<>', 'draft')
             ->update([ 'status' => 'public_voting'])
         ;
+            
+        $after = Contest::pluck('status', 'id');
+        
+        foreach( $before as $id => $status )
+        {
+            if( $before[$id] != $after[$id] )
+            {
+                $subject = null;
+                
+                if( $status == 'public_voting' )
+                {
+                    $subject = 'Your design for has been approved for Public Voting!';
+                }
+                
+                if( !empty($subject) ) 
+                {
+                    $entry = $this->with(['contest','user'])->find($id);
+                    $contest = $entry->contest;
+                    $user = $entry->user;
+                    $subject = $contest->title.': ' . $subject;
+                    $template = 'entry.email.'.$status;
+                    \Mail::send($template, ['contest' => $contest, 'entry' => $entry, 'user' => $user, 'subject' => $subject], function ($m) use ($user, $subject) {
+                        $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                        $m->to($user->email, $user->username)->subject($subject);
+                    });                    
+                }
+            }
+        }
     }
 }

@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="profile-detail">
-                        <h6 class="label vtop">Images</h6>
+                        <h6 class="label vtop">Images (756 x 1000)</h6>
                         <div class="profile-entry">
                             <div id="uploader" class="dropzone">
                                 <div class="dz-message needsclick">
