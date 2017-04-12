@@ -3966,3 +3966,8 @@ footer a {
 .alert.error.hollow {
   border: 1px solid #d51f36;
 }
+
+.dz-error-message > span {
+    color: #fff !important;
+    line-height: 1em !important;
+}
