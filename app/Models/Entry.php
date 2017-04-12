@@ -104,7 +104,11 @@ class Entry extends Model
             ->update([ 'status' => 'public_voting'])
         ;
             
-        $after = Contest::pluck('status', 'id');
+        $after = Entry::pluck('status', 'id');
+
+//        pre_r($before);
+//        pre_r($after);
+//        dd('');
         
         foreach( $before as $id => $status )
         {
