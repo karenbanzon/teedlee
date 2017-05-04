@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        return;
+//        return;
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $this
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             ->productionTypes()
             ->submissions()
             ->submission_images()
-            ->designerAccounts()
+//            ->designerAccounts()
         ;
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

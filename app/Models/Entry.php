@@ -1,6 +1,4 @@
-<?php
-
-namespace Teedlee\Models;
+<?php namespace Teedlee\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -106,10 +104,6 @@ class Entry extends Model
             
         $after = Entry::pluck('status', 'id');
 
-//        pre_r($before);
-//        pre_r($after);
-//        dd('');
-        
         foreach( $before as $id => $status )
         {
             if( $before[$id] != $after[$id] )

@@ -48,7 +48,7 @@ class SubmissionController extends BaseController
             'tags' => ' ',
             'price' => 0,
             'created_at' => Carbon::now()->toDateTimeString()
-        ]));
+        ]));        
     }
 
     /**
@@ -101,14 +101,15 @@ class SubmissionController extends BaseController
         $submission->title = $request->title;
         $submission->status = 'submitted';
         $submission->save();
-        $submission = $submission->toArray();
 
         if( $new  )
         {
-            $submission['link'] = secure_url('user/submissions');
-            \Mail::send('user.email.submit', $submission, function ($m) use ($submission) {
+            $submission->link = secure_url('user/submissions');
+            $user = \Auth::user();
+            \Mail::send('submission.email.submit', ['submission' => $submission, 'user' => $user], function ($m) use ($submission, $user) {
                 $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
-                $m->to($submission['user']['email'], $submission['user']['username'])->subject('You submitted a design');
+                $m->to($user->email, $user->username);
+                $m->subject("We've received your design!");
             });
         }
 
