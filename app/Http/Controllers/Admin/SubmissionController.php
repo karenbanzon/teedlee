@@ -87,9 +87,9 @@ class SubmissionController extends Controller
             $notify = true;
             $title = 'Congratulations! Your design has been selected for the online store!';
 
-        } elseif ($status == 'orig_artwork_declined') {
+        } elseif ($status == 'orig_artwork_resubmit') {
             $notify = true;
-            $title = 'Your artwork was declined';
+            $title = 'Your original artwork was declined';
             $submission->declined_reason = $request->declined_reason;
 
         } elseif ($status == 'publication') {

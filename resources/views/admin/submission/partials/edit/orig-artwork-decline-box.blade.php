@@ -4,7 +4,7 @@
     </div>
 
     <div class="box-body">
-        {!! Form::open(['url' => url('admin/submission/promote/'.$submission->id.'/orig_artwork_declined')]) !!}
+        {!! Form::open(['url' => url('admin/submission/promote/'.$submission->id.'/orig_artwork_resubmit')]) !!}
         {!! Form::hidden('submission_id', $submission->id) !!}
         <div class="form-group">
             <div class="col-md-12">
@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary">Decline &amp; Request Resubmission</button>
             </div>
         </div>
         {!! Form::close() !!}
