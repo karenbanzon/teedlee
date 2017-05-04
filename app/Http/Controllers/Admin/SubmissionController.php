@@ -94,12 +94,12 @@ class SubmissionController extends Controller
 
         } elseif ($status == 'publication') {
             $notify = true;
-            $title = 'Your design has been published!';
+            $title = 'Your design is now available from the online store!';
         }
 
         if( $notify )
         {
-            $user = \Auth::user();
+            $user = $submission->user;
             \Mail::send("admin.submission.email.$status", ['submission' => $submission, 'user' => $user], function ($m) use ($submission, $title, $user) {
                 $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
                 $m->to($submission->user->email, $submission->user->username)->subject($title);

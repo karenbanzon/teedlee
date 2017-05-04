@@ -5,7 +5,7 @@
     <div>&nbsp;</div>
     <p>
         <a href="{!! url('admin/submission/promote/'.$submission->id.'/publication') !!}"
-           class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Approve
+           class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Publish to Shop
         </a>
 
         <a href="{!! url('users/'.$submission->user_id.'/'.$submission->id.'.orig.psd') !!}"
