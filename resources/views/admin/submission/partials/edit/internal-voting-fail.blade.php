@@ -3,7 +3,7 @@
         {!! $submission->votes->internal->average !!} starred, {!! $flags !!} flagged.</p>
     <p>
         <a href="{!! url('admin/submission/promote/'.$submission->id.'/public_voting') !!}" class="btn btn-sm btn-primary">Move to public voting</a>
-        <a href="{!! url('admin/submission/promote/'.$submission->id.'/publication') !!}" class="btn btn-sm btn-warning pull-right">Overrride &amp; publish</a>
+        <a href="{!! url('admin/submission/promote/'.$submission->id.'/awaiting_orig_artwork') !!}" class="btn btn-sm btn-warning pull-right">Overrride &amp; Approve</a>
     </p>
 </div>
 
