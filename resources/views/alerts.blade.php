@@ -12,7 +12,7 @@
     </div>
 @endif
 
-@if (count($errors) > 0)
+@if( count($errors) )
     <div class="alert error text-center">
         @foreach ($errors->all() as $error)
             <div class="message">{!! $error !!}</div>

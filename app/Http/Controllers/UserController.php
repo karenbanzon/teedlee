@@ -135,15 +135,14 @@ class UserController extends BaseController
             'id' => $submission->id,
             'status' => 'orig_artwork_submitted'
         ]);
-
-        if( $this->validate($request, $submission->rules('artwork')) ) {
-
-            if ($file = \Request::file('artwork')) {
-                $filename = $submission->id . '.orig.'.$file->extension();
-                $file->move(public_path('users' . DIRECTORY_SEPARATOR . \Auth::user()->id), $filename);
-                $submission->status = $request->status;
-                $submission->save();
-            }
+        
+        $this->validate($request, $submission->rules('artwork'));
+        
+        if ($file = \Request::file('artwork')) {
+            $filename = $submission->id . '.orig.'.$file->extension();
+            $file->move(public_path('users' . DIRECTORY_SEPARATOR . \Auth::user()->id), $filename);
+            $submission->status = $request->status;
+            $submission->save();
         }
 
         return redirect('user/submissions');
