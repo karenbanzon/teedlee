@@ -85,7 +85,7 @@ class SubmissionController extends Controller
 
         } else if ($status == 'awaiting_orig_artwork') {
             $notify = true;
-            $title = 'Your submission was approved!';
+            $title = 'Congratulations! Your design has been selected for the online store!';
 
         } elseif ($status == 'orig_artwork_declined') {
             $notify = true;

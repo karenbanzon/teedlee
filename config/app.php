@@ -181,6 +181,7 @@ return [
         Teedlee\Providers\RouteServiceProvider::class,
         Teedlee\Providers\ShopifyServiceProvider::class,
         Webup\LaravelSendinBlue\SendinBlueServiceProvider::class,
+        
 
     ],
 
