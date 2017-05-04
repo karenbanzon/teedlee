@@ -19,7 +19,7 @@
     <td style="padding: 20px 40px;">
         <p>
             Your Internal Score will be combined with your Public Score to determine if your design will be sold on the store. 
-            Read more about the contest mechanics and prizes in the {{ Html::link('contest/'.$contest->id, 'contest page') }}.
+            Read more about the contest mechanics and prizes in the {{ Html::link('submission/guidelines', 'guidelines page') }}.
         </p>
     </td>
 </tr>

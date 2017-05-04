@@ -79,6 +79,8 @@ class SubmissionController extends Controller
             $submission->declined_reason = $request->declined_reason;
 
         } else if ($status == 'public_voting') {
+            $notify = true;
+            $title = 'Your design has been approved for Public Voting!';
             $submission->public_voting_start = $now;
 
         } else if ($status == 'awaiting_orig_artwork') {
@@ -97,7 +99,8 @@ class SubmissionController extends Controller
 
         if( $notify )
         {
-            \Mail::send("admin.submission.email.$status", $submission->toArray(), function ($m) use ($submission, $title) {
+            $user = \Auth::user();
+            \Mail::send("admin.submission.email.$status", ['submission' => $submission, 'user' => $user], function ($m) use ($submission, $title, $user) {
                 $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
                 $m->to($submission->user->email, $submission->user->username)->subject($title);
             });
