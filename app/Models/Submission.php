@@ -183,9 +183,11 @@ class Submission extends Model
             if($submission->flags()->count())
             {
                 $status = 'internal_voting_fail';
+                $title = 'Disqualification';
 
             } else if($submission->votes->internal->average < 1.9) {
                 $status = 'internal_voting_fail';
+                $title = 'Try again :(';
 
             } else if($submission->votes->internal->average < 3.5) {
                 $submission->public_voting_start = Carbon::now();
@@ -197,6 +199,12 @@ class Submission extends Model
 
             $submission->status = $status;
             $submission->save();
+            
+            $user = $submission->user;
+            \Mail::send("admin.submission.email.$status", ['submission' => $submission, 'user' => $user], function ($m) use ($submission, $title, $user) {
+                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                $m->to($submission->user->email, $submission->user->username)->subject($title);
+            });
         }
 
 //        Public voting
