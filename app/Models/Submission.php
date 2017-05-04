@@ -58,20 +58,16 @@ class Submission extends Model
         if( in_array($this->status, ['submitted', 'submitted_orig_artwork']) ) {
             return 'Under Review';
 
-        } else if(strpos($this->status, 'voting_fail') !== false)
-        {
+        } else if(strpos($this->status, 'voting_fail') !== false) {
             return 'Declined';
 
-        } else if( strpos($this->status, 'voting') !== false )
-        {
-            return 'For Voting';
-
-        } else if( strpos($this->status, 'orig_artwork') !== false )
-        {
+        } else if( strpos($this->status, 'orig_artwork') !== false || $this->status == 'public_voting_success') {
             return 'Pending Original Artwork';
 
-        } else if( in_array($this->status, ['public_voting_success', 'publication', 'production']) )
-        {
+        } else if( strpos($this->status, 'voting') !== false ) {
+            return 'For Voting';
+
+        } else if( in_array($this->status, ['publication', 'production']) ) {
             return 'Published';
 
         } else if( $this->status == 'draft' ) {
@@ -128,9 +124,22 @@ class Submission extends Model
             'internal' => $this->votesByType('internal'),
             'public' =>  $this->votesByType('external'),
         ];
+        
+        if( $votes->internal->average && $votes->public->average )
+        {
+            $total = $votes->internal->average + $votes->public->average;
+            $count = 2;
+            
+        } else if( (!$votes->internal->average && $votes->public->average) || ($votes->internal->average && !$votes->public->average) ) {
+            $total = $votes->internal->average + $votes->public->average;
+            $count = 1;
 
-        $votes->average = ($votes->internal->average + $votes->public->average) / 2;
+        } else if( !$votes->internal->average && !$votes->public->average ) {
+            $total = 0;
+            $count = 1;
+        }
 
+        $votes->average = $total / $count;
         return $votes;
     }
 
@@ -197,8 +206,6 @@ class Submission extends Model
             ->where(\DB::raw('DATE_ADD(public_voting_start, INTERVAL 7 day)'),  '<=', \DB::raw('NOW()') )
             ->get();
 
-//        dd($submissions->toArray());
-
         foreach ( $submissions as $submission )
         {
             $status = $submission->status;
@@ -206,13 +213,21 @@ class Submission extends Model
             if($submission->votes->average*1 < 3.5)
             {
                 $status = 'public_voting_fail';
-
+                $title = 'Your Final Score';
+                
             } else {
                 $status = 'public_voting_success';
-
+                $title = 'Congratulations! The community has selected your design for the online store!';
             }
+            
             $submission->status = $status;
             $submission->save();
+            
+            $user = $submission->user;
+            \Mail::send("admin.submission.email.$status", ['submission' => $submission, 'user' => $user], function ($m) use ($submission, $title, $user) {
+                $m->from(env('MAIL_FROM'), env('MAIL_FROM_NAME'));
+                $m->to($submission->user->email, $submission->user->username)->subject($title);
+            });            
         }
 
         \DB::disableQueryLog();

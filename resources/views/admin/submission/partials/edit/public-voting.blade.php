@@ -1,8 +1,10 @@
+@if( $submission->status == 'public_voting' )
 <div class="alert alert-info">
     <p>Public voting ends on <strong>{!! $submission->public_voting_end !!}</strong></p>
     <p class="pull-right"><a href="{!! url('admin/submission/promote/'.$submission->id.'/awaiting_orig_artwork') !!}" class="btn btn-sm btn-warning">Approve &amp; request original artwork</a></p>
     <div class="clr"></div>
 </div>
+@endif
 
 <div class="box box-primary">
     <div class="box-header with-border text-bold">

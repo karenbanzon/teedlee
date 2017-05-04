@@ -41,9 +41,11 @@
                 @elseif( strpos($submission->status, 'public_voting') !== false )
                     @if( $submission->status == 'public_voting_success' )
                         @include('admin.submission.partials.edit.public-voting-success')
+                        
                     @elseif( $submission->status == 'public_voting_fail' )
                         @include('admin.submission.partials.edit.public-voting-fail')
-                    @endif                    
+                    @endif
+                    
                     @include('admin.submission.partials.edit.public-voting')
                 @else
                     Error: Unknown status
