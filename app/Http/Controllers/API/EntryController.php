@@ -1,12 +1,12 @@
 <?php
 
-namespace Teedlee\Http\Controllers;
+namespace Teedlee\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use Teedlee\Models\Contest;
-use Carbon\Carbon;
+use Teedlee\Http\Controllers\Controller;
+use Teedlee\Models\Entry;
 
-class ContestController extends Controller
+class EntryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,17 +45,9 @@ class ContestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Contest $contest)
+    public function show(\Teedlee\Models\Entry $entry)
     {
-//        dd($contest->with('user')->get()->toArray());        
-
-        return view('contest.show')
-            ->with('contest', $contest)
-            ->with('carbon', new Carbon())
-            ->with('start', Carbon::parse($contest->start_at) )
-            ->with('end', Carbon::parse($contest->end_at) )
-            ->with('close', Carbon::parse($contest->close_at) )
-            ;
+        return response()->json($entry->toArray());
     }
 
     /**
@@ -90,11 +82,5 @@ class ContestController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function ad(Contest $contest)
-    {
-//        dd($contest->toArray());
-        return view('contest.ad', [ 'contest' => $contest ]);
     }
 }

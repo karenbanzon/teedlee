@@ -170,6 +170,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Oseintow\Shopify\ShopifyServiceProvider::class,
+        RocketCode\Shopify\ShopifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -181,8 +182,6 @@ return [
         Teedlee\Providers\RouteServiceProvider::class,
         Teedlee\Providers\ShopifyServiceProvider::class,
         Webup\LaravelSendinBlue\SendinBlueServiceProvider::class,
-        
-
     ],
 
     /*

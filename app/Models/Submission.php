@@ -178,8 +178,6 @@ class Submission extends Model
 
         foreach ( $submissions as $submission )
         {
-            $status = 'wew';
-
             if($submission->flags()->count())
             {
                 $status = 'internal_voting_fail';

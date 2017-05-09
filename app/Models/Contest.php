@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class Contest extends Model
 {
-    protected $fillable = [ 'user_id', 'title', 'start_at', 'end_at', 'close_at', 'banner', 'description', 'created_at' ];
+    protected $fillable = [ 'user_id', 'title', 'status', 'start_at', 'end_at', 'close_at', 'banner', 'description', 'created_at' ];
 
     public function judges()
     {
@@ -88,6 +88,10 @@ class Contest extends Model
 
             case 'submission_ended':
                 $response = 'Submission ended';
+                break;
+
+            case 'voting_open':
+                $response = 'Voting open';
                 break;
 
             case 'awaiting_winners':

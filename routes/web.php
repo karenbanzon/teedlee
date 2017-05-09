@@ -1,5 +1,7 @@
 <?php
 
+Route::get('ad/contest/{contest}', 'ContestController@ad');
+
 Route::group(['middleware' => ['admin', 'https']], function() {
     Route::get('admin', 'Admin\IndexController@index');
     Route::get('admin/submissions', 'Admin\SubmissionController@index');

@@ -27,16 +27,6 @@ class ContestController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return $this->edit(new Contest());
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -93,6 +83,20 @@ class ContestController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return $this->edit(new Contest([
+            'status' => 'draft',
+            'title' => null,
+            'description' => null,
+        ]));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -100,6 +104,8 @@ class ContestController extends Controller
      */
     public function edit(Contest $contest)
     {
+//        dd($contest->toArray());
+
         (new \Teedlee\Models\Entry)->searchAndUpdate();
         
         return view('admin/contest/edit')

@@ -14,7 +14,7 @@ class ShopController extends BaseController
 
     public function __construct()
     {
-        $this->api = App::make('ShopifyAPI');
+        $this->api = \App::make('ShopifyAPI');
         $this->api->setup([
             'API_KEY' => config('services.shopify.api_key'),
             'API_SECRET' => config('services.shopify.api_secret'),
