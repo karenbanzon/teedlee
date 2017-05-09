@@ -82,6 +82,12 @@
 
             @elseif( $contest->status == 'awaiting_winners' )
                 <div>
+                    Submissions and voting closed. Awaiting announcement of winners.
+                </div>
+                <a href="{{ url('contest/'.$contest->id) }}" class="btn" target="_blank">Learn more</a>
+
+            @elseif( $contest->status == 'closed' )
+                <div>
                     Contest closed. Congratulations
                     @foreach( $contest->winners as $index => $entry )
                         {!! Html::link($entry->user->username, $entry->user->username, ['class' => 'text-bold']) .
