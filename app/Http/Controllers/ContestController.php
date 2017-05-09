@@ -94,7 +94,9 @@ class ContestController extends Controller
 
     public function ad(Contest $contest)
     {
-        Response::headers->set('X-Frame-Options', 'SAMEORIGIN', false);
-        return view('contest.ad', [ 'contest' => $contest ]);
+        header_remove('X-Frame-Options');
+        return response()
+            ->view('contest.ad', [ 'contest' => $contest ])
+            ;
     }
 }
