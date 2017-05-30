@@ -1,0 +1,33 @@
+// Card
+
+.card {
+	float: left;
+	.card-container {
+		margin: 10px;
+		overflow: hidden;
+		border: 1px solid $light-gray;
+	}
+	&.borderless .card-container { border: none; }
+	.card-header {
+		padding: 10px;
+		background: $secondary-color;
+		color: $white;
+		text-transform: uppercase;
+		font-family: $header-font-family;
+		// font-weight: bold;
+		letter-spacing: 0.1rem;
+	}
+	.card-body, .card-actions {
+		padding: 10px;
+		width: 100%;
+	}
+	img { width: 100%; }
+}
+
+.card-body {
+	.details {
+		color: $medium-gray;
+		border-top: 1px solid $light-gray;
+		& > * { display: block; }
+	}
+}

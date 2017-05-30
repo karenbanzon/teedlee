@@ -1,0 +1,261 @@
+// Site-specific UI
+
+body { background: $platinum; }
+
+canvas{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+	&.text-alt {
+		font-family: $body-font-family;
+		text-transform: none;
+		letter-spacing: 0;
+		font-weight: bold;
+	}
+}
+
+
+
+// Off-canvas
+
+.off-canvas-content {
+	box-shadow: none;
+	padding: 20px;
+	background: $white;
+}
+
+
+
+// Section
+
+section {
+	margin-bottom: 40px;
+	// @extend .margin-bottom-20;
+}
+
+
+
+// Orbit Fixes
+
+ul.orbit-container {
+    height: auto !important;
+}
+li.orbit-slide {
+    max-height: none !important;
+}
+
+.orbit .orbit-caption h2 {
+	padding: 0 20px 0 20px;
+	color: $white;
+	@include breakpoint(medium) {
+	    padding-top: 20%;
+	}
+	@include breakpoint(large) {
+	    padding-top: 40%;
+	}
+}
+
+
+
+// Extra buttons
+
+.button.facebook, .btn.facebook {
+	background: #4267b2;
+	&:hover, &:focus { background: #4267b2 - 10; }
+}
+
+
+
+// Tables
+
+table {
+	width: 100%;
+}
+
+.table-title-bar {
+	padding: 10px 0;
+	background: $primary-color;
+	color: $white;
+}
+
+thead {
+	text-transform: uppercase;
+	font-family: $header-font-family;
+	// font-weight: bold;
+	letter-spacing: 0.1rem;
+	th {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+th, td {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.notification-area {
+	position: relative;
+	height: 0;
+	z-index: 3;
+	.notification-wrapper {
+		position: absolute;
+		top: 0;
+	}
+	.callout.hover {
+		display: inline-block;
+		float: right;
+		padding-right: 40px;
+		margin: 0;
+	}
+}
+
+
+
+// Typography
+
+.title {
+	font-family: $header-font-family;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	font-weight: normal;
+}
+
+
+
+// Header & Footer
+
+header {
+	a {
+		font-family: $header-font-family;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		font-weight: normal;
+		font-size: 0.875rem;
+		span { font-size: 1rem; }
+	}
+	.brand {
+		height: 60px;
+		margin-top: 10px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		img {
+			max-height: 100%;
+			max-width: 100%;
+			display: inline-block;
+			-webkit-transition: all 0.3s ease-in-out;
+			-moz-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+		}
+		@include breakpoint(large) {
+		    margin-top: 0px;
+		}
+	}
+}
+
+.title-bar .menu-icon {
+	width: 25px;
+    // height: 0px;
+    margin-top: 28px;
+    &:after { height: 3px; }
+}
+
+.title-bar .mobile-nav {
+	margin-top: 25px;
+	a {
+		padding: 0 10px;
+		.icon {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+footer {
+	@extend .padding-20;
+}
+
+
+
+// Banner
+
+.banner {
+	margin: -20px -20px 0 -20px;
+	background-color: $yellow;
+	position: relative;
+	overflow: hidden;
+	.banner-image {
+		position: absolute;
+		width: 100%;
+	}
+	.banner-content {
+		max-width: $global-width;
+		margin: 0 auto;
+		padding: 40px 0;
+		position: relative;
+		text-align: center;
+		@include breakpoint(large) {
+		    text-align: left;
+		}
+	}
+	.banner-cta {
+		display: none;
+		@include breakpoint(medium) {
+		    display: inline-block;
+		}
+		@include breakpoint(large) {
+		    margin-top: 5.5rem;
+		}
+	}
+}
+
+
+
+// Account Nav
+.account-nav {
+	border-right: 1px solid $platinum;
+	a {
+		@extend .padding-10;
+		@extend .text-right;
+		@extend .display-block;
+		transition: all 0.5s ease-in-ease-out;
+		color: $darkgray;
+		&:hover, &.active {
+			padding-right: 15px;
+			border-right: 2px solid $yellow;
+			font-weight: bold;
+		}
+	}
+}
+
+.account-nav-small {
+	border-bottom: 1px solid $platinum;
+	@extend .text-center;
+	a {
+		@extend .padding-10;
+		@extend .text-center;
+		@extend .display-inline-block;
+		transition: all 0.5s ease-in-ease-out;
+		color: $darkgray;
+		&:hover, &.active {
+			border-bottom: 2px solid $yellow;
+			font-weight: bold;
+		}
+	}
+}
+
+
+
+// Circular image
+.img-circle {
+	border-radius: 50%;
+	border: 2px solid $platinum;
+}
