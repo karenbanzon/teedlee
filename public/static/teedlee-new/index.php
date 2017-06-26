@@ -31,6 +31,7 @@
                     <ul>
                         <li><a href="user-page.php">User page</a></li>
                         <li><a href="vote-landing.php">Vote (landing)</a></li>
+                        <li><a href="submit-landing.php">Submit (landing)</a></li>
                         <li><a href="vote-end-empty-open-submission.php">Vote (all open submission entries have been voted on)</a></li>
                         <li><a href="vote-end-empty-contest.php">Vote (all contest entries have been voted on)</a></li>
                     </ul>
