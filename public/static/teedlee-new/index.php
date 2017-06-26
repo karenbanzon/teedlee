@@ -31,6 +31,17 @@
                     <ul>
                         <li><a href="user-page.php">User page</a></li>
                         <li><a href="vote-landing.php">Vote (landing)</a></li>
+                        <li><a href="vote-end-empty-open-submission.php">Vote (all open submission entries have been voted on)</a></li>
+                        <li><a href="vote-end-empty-contest.php">Vote (all contest entries have been voted on)</a></li>
+                    </ul>
+                </li>
+                <li>Contests
+                    <ul>
+                        <li><a href="contest-single-landing-submission-open.php">Single - Submission Open, Voting Ongoing</a></li>
+                        <li><a href="contest-single-landing-voting-ongoing.php">Single - Submission Closed, Voting Ongoing</a></li>
+                        <li><a href="contest-single-landing-contest-closed-awaiting-winners.php">Single - Contest Closed, Awaiting winners</a></li>
+                        <li><a href="contest-single-landing-contest-closed-show-winners.php">Single - Contest Closed, Winners Announced</a></li>
+                        
                     </ul>
                 </li>
             </ul>

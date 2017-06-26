@@ -254,6 +254,21 @@ footer {
 
 
 
+// Vote module
+
+.vote-area {
+	.vote-stars {
+		font-size: 2rem;
+		margin-bottom: 40px;
+		a {
+			padding: 0 10px;
+			color: $ash;
+		}
+	}
+}
+
+
+
 // Circular image
 .img-circle {
 	border-radius: 50%;
